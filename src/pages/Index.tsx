@@ -13,6 +13,7 @@ const Index = () => {
   return (
     <main className="overflow-x-hidden">
       <Navbar />
+      <MainHero />
       <HeroSection />
       <AboutSection />
       <ServicesSection />
