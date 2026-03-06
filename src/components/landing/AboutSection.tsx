@@ -62,7 +62,7 @@ export default function AboutSection() {
 
               <p>
                 And{" "}
-                <strong className="text-foreground">Málaga Terrace</strong>,
+                <strong className="text-historic-text">Málaga Terrace</strong>,
                 overlooking the Mediterranean: where the blue of the sea is the
                 backdrop to your days and the terrace is waiting whenever you
                 need it.
