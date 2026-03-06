@@ -77,11 +77,6 @@ export default function MainHero() {
         </a>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-white/40 text-[10px] font-body uppercase tracking-[0.4em]">Scroll</span>
-        <div className="w-[1px] h-8 bg-gradient-to-b from-white/40 to-transparent" />
-      </div>
     </section>
   );
 }
