@@ -4,29 +4,29 @@ import historicExt from "@/assets/historic-exterior.jpg";
 import seasideExt from "@/assets/terrace-community.jpg";
 
 const locations = [
-  {
-    name: "Historic Center",
-    tagline: "Where depth lives",
-    img: historicExt,
-    alt: "Historic Málaga old town street with golden light",
-    address: "Calle Granada 42, Centro Histórico, Málaga",
-    hours: "Mon–Fri 8:00–22:00 · Sat 9:00–18:00",
-    highlights: ["Stone-walled meeting rooms", "Library corner", "Courtyard garden", "Steps from Picasso Museum"],
-    desc: "Nestled in a restored 18th-century building, this space wraps you in centuries of history. Perfect for deep work, strategic thinking, and conversations that matter.",
-    theme: "historic" as const,
-  },
-  {
-    name: "Seaside",
-    tagline: "Malaga TERRACE",
-    img: seasideExt,
-    alt: "Rooftop terrace community event at Innovation Campus Málaga",
-    address: "Paseo Marítimo 15, La Malagueta, Málaga",
-    hours: "Mon–Fri 7:00–22:00 · Sat–Sun 9:00–20:00",
-    highlights: ["Panoramic rooftop terrace", "Ocean-view desks", "Open-plan creative zone", "Beachfront location"],
-    desc: "Glass, light, and sea. A modern space designed for creative energy, collaboration, and the kind of freedom that only comes from working with the horizon in view.",
-    theme: "seaside" as const,
-  },
-];
+{
+  name: "Historic Center",
+  tagline: "Where depth lives",
+  img: historicExt,
+  alt: "Historic Málaga old town street with golden light",
+  address: "Calle Granada 42, Centro Histórico, Málaga",
+  hours: "Mon–Fri 8:00–22:00 · Sat 9:00–18:00",
+  highlights: ["Stone-walled meeting rooms", "Library corner", "Courtyard garden", "Steps from Picasso Museum"],
+  desc: "Nestled in a restored 18th-century building, this space wraps you in centuries of history. Perfect for deep work, strategic thinking, and conversations that matter.",
+  theme: "historic" as const
+},
+{
+  name: "Seaside",
+  tagline: "Malaga TERRACE",
+  img: seasideExt,
+  alt: "Rooftop terrace community event at Innovation Campus Málaga",
+  address: "Paseo Marítimo 15, La Malagueta, Málaga",
+  hours: "Mon–Fri 7:00–22:00 · Sat–Sun 9:00–20:00",
+  highlights: ["Panoramic rooftop terrace", "Ocean-view desks", "Open-plan creative zone", "Beachfront location"],
+  desc: "Glass, light, and sea. A modern space designed for creative energy, collaboration, and the kind of freedom that only comes from working with the horizon in view.",
+  theme: "seaside" as const
+}];
+
 
 export default function LocationsSection() {
   const { ref: titleRef, isVisible: titleVis } = useScrollAnimation();
@@ -44,17 +44,17 @@ export default function LocationsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {locations.map((loc) => (
-            <LocationCard key={loc.name} {...loc} />
-          ))}
+          {locations.map((loc) =>
+          <LocationCard key={loc.name} {...loc} />
+          )}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
 
 function LocationCard({
-  name, tagline, img, alt, address, hours, highlights, desc, theme,
+  name, tagline, img, alt, address, hours, highlights, desc, theme
 }: (typeof locations)[0]) {
   const { ref, isVisible } = useScrollAnimation(0.15);
   const isHistoric = theme === "historic";
@@ -64,38 +64,38 @@ function LocationCard({
       ref={ref}
       className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group`}
       style={{
-        background: isHistoric
-          ? "linear-gradient(180deg, hsl(var(--historic-bg)), hsl(var(--historic-bg-warm)))"
-          : "linear-gradient(180deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))",
-      }}
-    >
+        background: isHistoric ?
+        "linear-gradient(180deg, hsl(var(--historic-bg)), hsl(var(--historic-bg-warm)))" :
+        "linear-gradient(180deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))"
+      }}>
+      
       {/* Image */}
       <div className="relative h-80 md:h-[28rem] overflow-hidden">
         <img
           src={img}
           alt={alt}
           className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
-          loading="lazy"
-        />
+          loading="lazy" />
+        
       </div>
 
       {/* Content */}
       <div className="p-6 md:p-8">
         <div className="mb-4">
-          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1">
+          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1 font-semibold">
             {tagline}
           </p>
           <h3
-            className={`${isHistoric ? "font-display italic text-historic-text" : "font-body font-light text-seaside-text"} text-3xl md:text-4xl font-bold`}
-          >
+            className={`${isHistoric ? "font-display italic text-historic-text" : "font-body font-light text-seaside-text"} text-3xl md:text-4xl font-bold`}>
+            
             {name}
           </h3>
         </div>
         <p
           className={`font-body text-sm leading-relaxed mb-6 ${
-            isHistoric ? "text-historic-muted" : "text-seaside-muted"
-          }`}
-        >
+          isHistoric ? "text-historic-muted" : "text-seaside-muted"}`
+          }>
+          
           {desc}
         </p>
 
@@ -115,28 +115,28 @@ function LocationCard({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {highlights.map((h) => (
-            <span
-              key={h}
-              className={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${
-                isHistoric
-                  ? "bg-historic-text/10 text-historic-text/80"
-                  : "bg-seaside-text/10 text-seaside-text/80"
-              }`}
-            >
+          {highlights.map((h) =>
+          <span
+            key={h}
+            className={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${
+            isHistoric ?
+            "bg-historic-text/10 text-historic-text/80" :
+            "bg-seaside-text/10 text-seaside-text/80"}`
+            }>
+            
               <Star className="w-3 h-3 text-primary" />
               {h}
             </span>
-          ))}
+          )}
         </div>
 
         <a
           href="#contact"
-          className="inline-block mt-8 bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300"
-        >
+          className="inline-block mt-8 bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
+          
           Book a visit
         </a>
       </div>
-    </div>
-  );
+    </div>);
+
 }
