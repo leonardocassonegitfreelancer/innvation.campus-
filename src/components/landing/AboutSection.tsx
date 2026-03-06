@@ -43,7 +43,7 @@ export default function AboutSection() {
 
             <div className="w-12 h-[3px] bg-primary mb-6" />
 
-            <div className="space-y-4 font-body text-base leading-relaxed text-muted-foreground">
+            <div className="space-y-4 font-body text-base leading-relaxed text-historic-muted">
               <p>
                 Innovation Campus is an independent coworking present across two
                 countries, two cultures and two ways of working — with spaces in
