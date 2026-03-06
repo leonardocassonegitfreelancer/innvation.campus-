@@ -17,7 +17,7 @@ const locations = [
   },
   {
     name: "Seaside",
-    tagline: "Where ideas fly",
+    tagline: "Malaga TERRACE",
     img: seasideExt,
     alt: "Rooftop terrace community event at Innovation Campus Málaga",
     address: "Paseo Marítimo 15, La Malagueta, Málaga",
