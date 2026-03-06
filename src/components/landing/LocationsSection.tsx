@@ -17,6 +17,7 @@ const locations = [
     theme: "historic" as const,
   },
   {
+    id: "seaside-card",
     name: "Seaside",
     tagline: "Where ideas fly",
     img: seasideExt,
