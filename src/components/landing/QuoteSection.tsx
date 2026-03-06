@@ -1,25 +1,10 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useAnimatedGradient } from "@/hooks/useAnimatedGradient";
 
 export default function QuoteSection() {
   const { ref, isVisible } = useScrollAnimation();
-  const gradientRef = useAnimatedGradient({
-    speed: 0.15,
-    warmHue: 15,
-    coolHue: 220,
-    saturation: 35,
-    lightness: 8,
-  });
 
   return (
-    <section
-      ref={gradientRef}
-      className="relative py-32 md:py-44 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(var(--grad-angle, 135deg), var(--grad-color-1, hsl(15,35%,8%)), var(--grad-color-2, hsl(220,35%,13%)), var(--grad-color-3, hsl(10,25%,5%)))",
-      }}
-    >
+    <section className="relative py-32 md:py-44 bg-neutral-dark overflow-hidden">
       {/* Subtle texture */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"

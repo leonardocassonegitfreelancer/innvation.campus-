@@ -1,26 +1,17 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useAnimatedGradient } from "@/hooks/useAnimatedGradient";
 
 export default function AboutSection() {
   const { ref: r1, isVisible: v1 } = useScrollAnimation();
   const { ref: r2, isVisible: v2 } = useScrollAnimation();
   const { ref: r3, isVisible: v3 } = useScrollAnimation();
-  const gradientRef = useAnimatedGradient({
-    speed: 0.2,
-    warmHue: 25,
-    coolHue: 210,
-    saturation: 40,
-    lightness: 12,
-  });
 
   return (
     <section
       id="about"
-      ref={gradientRef}
       className="relative py-24 md:py-36 overflow-hidden"
       style={{
         background:
-          "linear-gradient(var(--grad-angle, 180deg), var(--grad-color-1, hsl(25,40%,12%)), var(--grad-color-2, hsl(210,40%,17%)), var(--grad-color-3, hsl(20,30%,8%)))",
+          "linear-gradient(180deg, hsl(var(--historic-bg)) 0%, hsl(var(--historic-bg-warm)) 30%, hsl(var(--seaside-bg)) 70%, hsl(var(--seaside-bg-cool)) 100%)",
       }}
     >
       <div className="max-w-4xl mx-auto px-6 text-center">
@@ -31,7 +22,7 @@ export default function AboutSection() {
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
             <span className="text-historic-text">Two spaces.</span>
             <br />
-            <span className="text-seaside-bg">Two rhythms.</span>
+            <span className="text-seaside-text">Two rhythms.</span>
             <br />
             <span className="text-primary">One mission.</span>
           </h2>
@@ -52,6 +43,7 @@ export default function AboutSection() {
           </p>
         </div>
 
+        {/* Red thread line */}
         <div className="mt-16 flex justify-center">
           <div className="w-[2px] h-20 bg-gradient-to-b from-primary to-transparent" />
         </div>
