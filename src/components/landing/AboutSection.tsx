@@ -34,7 +34,10 @@ export default function AboutSection() {
               The Campus
             </p>
 
-            <h2 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-6 text-foreground">
+            <h2
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none mb-6 text-foreground uppercase"
+              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+            >
               Between Spain and Italy, a project that never stands still
             </h2>
 
