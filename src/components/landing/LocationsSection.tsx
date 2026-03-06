@@ -77,33 +77,20 @@ function LocationCard({
           className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
           loading="lazy"
         />
-        {isHistoric && (
-          <>
-            <div className="absolute inset-0 bg-gradient-to-t from-historic-bg via-historic-bg/40 to-transparent" />
-            <div className="absolute bottom-6 left-6">
-              <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1">
-                {tagline}
-              </p>
-              <h3 className="font-display italic text-3xl md:text-4xl font-bold text-historic-text">
-                {name}
-              </h3>
-            </div>
-          </>
-        )}
       </div>
 
       {/* Content */}
       <div className="p-6 md:p-8">
-        {!isHistoric && (
-          <div className="mb-4">
-            <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1">
-              {tagline}
-            </p>
-            <h3 className="font-body font-light text-3xl md:text-4xl font-bold text-seaside-text">
-              {name}
-            </h3>
-          </div>
-        )}
+        <div className="mb-4">
+          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1">
+            {tagline}
+          </p>
+          <h3
+            className={`${isHistoric ? "font-display italic text-historic-text" : "font-body font-light text-seaside-text"} text-3xl md:text-4xl font-bold`}
+          >
+            {name}
+          </h3>
+        </div>
         <p
           className={`font-body text-sm leading-relaxed mb-6 ${
             isHistoric ? "text-historic-muted" : "text-seaside-muted"
