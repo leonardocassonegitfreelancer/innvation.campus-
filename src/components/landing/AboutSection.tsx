@@ -1,51 +1,76 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import aboutImage from "@/assets/about-campus.jpg";
 
 export default function AboutSection() {
   const { ref: r1, isVisible: v1 } = useScrollAnimation();
   const { ref: r2, isVisible: v2 } = useScrollAnimation();
-  const { ref: r3, isVisible: v3 } = useScrollAnimation();
 
   return (
     <section
       id="about"
-      className="relative py-24 md:py-36 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(180deg, hsl(var(--historic-bg)) 0%, hsl(var(--historic-bg-warm)) 30%, hsl(var(--seaside-bg)) 70%, hsl(var(--seaside-bg-cool)) 100%)",
-      }}
+      className="relative py-20 md:py-0 overflow-hidden"
+      style={{ background: "hsl(40, 30%, 96%)" }}
     >
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <div ref={r1} className={`scroll-animate ${v1 ? "visible" : ""}`}>
-          <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-6">
-            Our Philosophy
-          </p>
-          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-            <span className="text-historic-text">Two spaces.</span>
-            <br />
-            <span className="text-seaside-text">Two rhythms.</span>
-            <br />
-            <span className="text-primary">One mission.</span>
-          </h2>
+      <div className="flex flex-col md:flex-row items-stretch min-h-[80vh]">
+        {/* Text — left side */}
+        <div
+          ref={r1}
+          className={`scroll-animate ${v1 ? "visible" : ""} flex-1 flex items-center px-8 md:px-16 lg:px-24 py-16 md:py-24`}
+        >
+          <div className="max-w-xl">
+            <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-6">
+              The Campus
+            </p>
+
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8 text-foreground">
+              Between Spain and Italy, a project that never stands still
+            </h2>
+
+            <div className="w-16 h-[3px] bg-primary mb-8" />
+
+            <div className="space-y-5 font-body text-base md:text-lg leading-relaxed text-muted-foreground">
+              <p>
+                Innovation Campus is an independent coworking present across two
+                countries, two cultures and two ways of working — with spaces in
+                Málaga, Olbia and Ancona, and our eyes always on the people
+                building something real.
+              </p>
+
+              <p>In Málaga we are in two places that couldn't be more different.</p>
+
+              <p>
+                <strong className="text-foreground">Málaga Palace</strong>, in
+                the heart of the old town, within the walls of a frescoed and
+                restored historic palace: where silence and history walk
+                alongside you while you work.
+              </p>
+
+              <p>
+                And{" "}
+                <strong className="text-foreground">Málaga Terrace</strong>,
+                overlooking the Mediterranean: where the blue of the sea is the
+                backdrop to your days and the terrace is waiting whenever you
+                need it.
+              </p>
+
+              <p className="font-display text-xl md:text-2xl text-primary font-semibold pt-2">
+                Two spaces, one community.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div ref={r2} className={`scroll-animate ${v2 ? "visible" : ""} mt-8`} style={{ transitionDelay: "0.2s" }}>
-          <p className="font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-historic-muted">
-            Some ideas need stone walls and silence to take root.
-            Others need open sky and sea breeze to take flight.
-          </p>
-        </div>
-
-        <div ref={r3} className={`scroll-animate ${v3 ? "visible" : ""} mt-6`} style={{ transitionDelay: "0.4s" }}>
-          <p className="font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-seaside-muted">
-            Innovation/Campus gives you both — two coworking spaces in Málaga,
-            each with its own personality, designed for the way{" "}
-            <em className="text-primary font-medium">you</em> work best.
-          </p>
-        </div>
-
-        {/* Red thread line */}
-        <div className="mt-16 flex justify-center">
-          <div className="w-[2px] h-20 bg-gradient-to-b from-primary to-transparent" />
+        {/* Image — right side */}
+        <div
+          ref={r2}
+          className={`scroll-animate ${v2 ? "visible" : ""} flex-1 min-h-[400px] md:min-h-0`}
+          style={{ transitionDelay: "0.2s" }}
+        >
+          <img
+            src={aboutImage}
+            alt="Innovation Campus — sunny coworking space in Málaga"
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
     </section>
