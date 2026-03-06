@@ -54,7 +54,7 @@ export default function AboutSection() {
               <p>In Málaga we are in two places that couldn't be more different.</p>
 
               <p>
-                <strong className="text-foreground">Málaga Palace</strong>, in
+                <strong className="text-historic-text">Málaga Palace</strong>, in
                 the heart of the old town, within the walls of a frescoed and
                 restored historic palace: where silence and history walk
                 alongside you while you work.
