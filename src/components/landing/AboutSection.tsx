@@ -35,7 +35,7 @@ export default function AboutSection() {
             </p>
 
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none mb-6 text-foreground uppercase"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none mb-6 text-white uppercase"
               style={{ fontFamily: "'Bebas Neue', sans-serif" }}
             >
               Between Spain and Italy, a project that never stands still
