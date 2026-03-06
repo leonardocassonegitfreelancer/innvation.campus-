@@ -8,8 +8,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-20 md:py-28"
-      style={{ background: "hsl(38, 25%, 95%)" }}
+      className="py-20 md:py-28 bg-background"
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
@@ -35,7 +34,10 @@ export default function AboutSection() {
               The Campus
             </p>
 
-            <h2 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-6 text-foreground">
+            <h2
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none mb-6 text-foreground uppercase"
+              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+            >
               Between Spain and Italy, a project that never stands still
             </h2>
 
