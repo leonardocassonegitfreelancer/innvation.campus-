@@ -8,40 +8,40 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative md:py-0 overflow-hidden"
+      className="py-20 md:py-28"
       style={{ background: "hsl(38, 25%, 95%)" }}
     >
-      <div className="flex flex-col md:flex-row items-stretch md:min-h-[85vh]">
-        {/* Image — left side */}
-        <div
-          ref={r2}
-          className={`scroll-animate ${v2 ? "visible" : ""} md:flex-1 min-h-[400px] md:min-h-0`}
-        >
-          <img
-            src={aboutImage}
-            alt="Innovation Campus — sunny coworking space in Málaga"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+          {/* Image — left side */}
+          <div
+            ref={r2}
+            className={`scroll-animate ${v2 ? "visible" : ""} w-full md:w-1/2`}
+          >
+            <img
+              src={aboutImage}
+              alt="Innovation Campus — coworking space in Málaga"
+              className="w-full h-auto rounded-lg"
+            />
+          </div>
 
-        {/* Text — right side */}
-        <div
-          ref={r1}
-          className={`scroll-animate ${v1 ? "visible" : ""} md:flex-1 flex items-center px-8 md:px-16 lg:px-24 py-16 md:py-24`}
-          style={{ transitionDelay: "0.15s" }}
-        >
-          <div className="max-w-xl">
-            <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-6">
+          {/* Text — right side */}
+          <div
+            ref={r1}
+            className={`scroll-animate ${v1 ? "visible" : ""} w-full md:w-1/2`}
+            style={{ transitionDelay: "0.15s" }}
+          >
+            <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">
               The Campus
             </p>
 
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8 text-foreground">
+            <h2 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-6 text-foreground">
               Between Spain and Italy, a project that never stands still
             </h2>
 
-            <div className="w-16 h-[3px] bg-primary mb-8" />
+            <div className="w-12 h-[3px] bg-primary mb-6" />
 
-            <div className="space-y-5 font-body text-base md:text-lg leading-relaxed text-muted-foreground">
+            <div className="space-y-4 font-body text-base leading-relaxed text-muted-foreground">
               <p>
                 Innovation Campus is an independent coworking present across two
                 countries, two cultures and two ways of working — with spaces in
@@ -66,7 +66,7 @@ export default function AboutSection() {
                 need it.
               </p>
 
-              <p className="font-display text-xl md:text-2xl text-primary font-semibold pt-2">
+              <p className="font-display text-xl text-primary font-semibold pt-2">
                 Two spaces, one community.
               </p>
             </div>
