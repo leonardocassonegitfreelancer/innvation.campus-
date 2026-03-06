@@ -19,7 +19,7 @@ const locations = [
     name: "Seaside",
     tagline: "Where ideas fly",
     img: seasideExt,
-    alt: "Modern seaside building overlooking Mediterranean in Málaga",
+    alt: "Rooftop terrace community event at Innovation Campus Málaga",
     address: "Paseo Marítimo 15, La Malagueta, Málaga",
     hours: "Mon–Fri 7:00–22:00 · Sat–Sun 9:00–20:00",
     highlights: ["Panoramic rooftop terrace", "Ocean-view desks", "Open-plan creative zone", "Beachfront location"],
