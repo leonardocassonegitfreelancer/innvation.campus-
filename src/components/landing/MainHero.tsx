@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import historicImg from "@/assets/historic-interior.jpg";
-import seasideImg from "@/assets/seaside-interior.jpg";
 
 export default function MainHero() {
-  const [activeWorld, setActiveWorld] = useState<"historic" | "seaside">("historic");
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -11,50 +9,33 @@ export default function MainHero() {
     return () => clearTimeout(t);
   }, []);
 
-  const bgImage = activeWorld === "historic" ? historicImg : seasideImg;
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background images — crossfade */}
+      {/* Background */}
       <img
         src={historicImg}
         alt=""
         aria-hidden
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-          activeWorld === "historic" ? "opacity-100" : "opacity-0"
-        }`}
+        className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
       />
-      <img
-        src={seasideImg}
-        alt=""
-        aria-hidden
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-          activeWorld === "seaside" ? "opacity-100" : "opacity-0"
-        }`}
-        loading="eager"
-      />
-
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/65" />
-
-      {/* Gradient accent at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/80 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Tagline */}
+        {/* Locations */}
         <p
           className={`font-body text-[10px] md:text-xs uppercase tracking-[0.5em] text-white/50 mb-6 md:mb-8 transition-all duration-1000 delay-200 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          Coworking · Offices · Event Spaces
+          Málaga · Olbia · Ancona
         </p>
 
         {/* Brand name */}
         <h1
-          className={`mb-4 md:mb-6 transition-all duration-1000 delay-400 ${
+          className={`mb-4 md:mb-6 transition-all duration-1000 delay-300 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -69,56 +50,26 @@ export default function MainHero() {
 
         {/* Subtitle */}
         <p
-          className={`font-body text-lg md:text-xl lg:text-2xl font-light text-white/80 mb-6 transition-all duration-1000 delay-500 ${
+          className={`font-body text-lg md:text-xl lg:text-2xl font-light text-white/80 mb-4 transition-all duration-1000 delay-400 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
           We turn workspaces into experiences
         </p>
 
-        {/* Location line */}
+        {/* Service line */}
         <p
-          className={`font-display italic text-sm md:text-base text-white/50 mb-10 md:mb-14 leading-relaxed transition-all duration-1000 delay-600 ${
+          className={`font-body text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/40 mb-10 md:mb-14 transition-all duration-1000 delay-500 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          In the heart of Málaga —<br />
-          where history meets the Mediterranean.
+          Offices · Coworking · Events
         </p>
-
-        {/* World toggle */}
-        <div
-          className={`flex items-center justify-center gap-4 mb-10 transition-all duration-1000 delay-700 ${
-            loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
-          <button
-            onClick={() => setActiveWorld("historic")}
-            className={`font-display italic text-sm md:text-base tracking-wide px-4 py-2 transition-all duration-500 border-b-2 ${
-              activeWorld === "historic"
-                ? "text-white border-primary"
-                : "text-white/40 border-transparent hover:text-white/70"
-            }`}
-          >
-            Historic Center
-          </button>
-          <span className="text-primary text-xl font-bold">/</span>
-          <button
-            onClick={() => setActiveWorld("seaside")}
-            className={`font-body font-light text-sm md:text-base tracking-wider px-4 py-2 transition-all duration-500 border-b-2 ${
-              activeWorld === "seaside"
-                ? "text-white border-primary"
-                : "text-white/40 border-transparent hover:text-white/70"
-            }`}
-          >
-            Seaside
-          </button>
-        </div>
 
         {/* CTA */}
         <a
-          href="#locations"
-          className={`inline-block bg-primary text-primary-foreground font-body text-sm md:text-base uppercase tracking-[0.3em] px-10 py-4 hover:bg-primary/90 transition-all duration-500 delay-800 ${
+          href="#contact"
+          className={`inline-block bg-primary text-primary-foreground font-body text-sm md:text-base uppercase tracking-[0.3em] px-10 py-4 rounded-md hover:bg-primary/90 transition-all duration-500 delay-600 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
