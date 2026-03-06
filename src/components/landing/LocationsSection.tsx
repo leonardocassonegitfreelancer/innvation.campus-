@@ -1,7 +1,7 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MapPin, Clock, Star } from "lucide-react";
 import historicExt from "@/assets/historic-exterior.jpg";
-import seasideExt from "@/assets/seaside-exterior.jpg";
+import seasideExt from "@/assets/terrace-community.jpg";
 
 const locations = [
   {
