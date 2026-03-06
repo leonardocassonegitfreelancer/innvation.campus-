@@ -8,7 +8,8 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative md:py-0 overflow-hidden bg-neutral-dark"
+      className="relative md:py-0 overflow-hidden"
+      style={{ background: "hsl(38, 25%, 95%)" }}
     >
       <div className="flex flex-col md:flex-row items-stretch md:min-h-[85vh]">
         {/* Image — left side */}
@@ -34,13 +35,13 @@ export default function AboutSection() {
               The Campus
             </p>
 
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8 text-historic-text">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8 text-foreground">
               Between Spain and Italy, a project that never stands still
             </h2>
 
             <div className="w-16 h-[3px] bg-primary mb-8" />
 
-            <div className="space-y-5 font-body text-base md:text-lg leading-relaxed text-historic-muted">
+            <div className="space-y-5 font-body text-base md:text-lg leading-relaxed text-muted-foreground">
               <p>
                 Innovation Campus is an independent coworking present across two
                 countries, two cultures and two ways of working — with spaces in
@@ -51,7 +52,7 @@ export default function AboutSection() {
               <p>In Málaga we are in two places that couldn't be more different.</p>
 
               <p>
-                <strong className="text-historic-text">Málaga Palace</strong>, in
+                <strong className="text-foreground">Málaga Palace</strong>, in
                 the heart of the old town, within the walls of a frescoed and
                 restored historic palace: where silence and history walk
                 alongside you while you work.
@@ -59,7 +60,7 @@ export default function AboutSection() {
 
               <p>
                 And{" "}
-                <strong className="text-historic-text">Málaga Terrace</strong>,
+                <strong className="text-foreground">Málaga Terrace</strong>,
                 overlooking the Mediterranean: where the blue of the sea is the
                 backdrop to your days and the terrace is waiting whenever you
                 need it.
