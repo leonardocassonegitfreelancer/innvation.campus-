@@ -6,7 +6,7 @@ import seasideExt from "@/assets/terrace-community.jpg";
 const locations = [
 {
   name: "Historic Center",
-  tagline: "Where depth lives",
+  tagline: "Malaga palace",
   img: historicExt,
   alt: "Historic Málaga old town street with golden light",
   address: "Calle Granada 42, Centro Histórico, Málaga",
