@@ -6,7 +6,7 @@ import seasideExt from "@/assets/terrace-community.jpg";
 const locations = [
 {
   name: "Historic Center",
-  tagline: "Malaga palace",
+  tagline: "Where depth lives",
   img: historicExt,
   alt: "Historic Málaga old town street with golden light",
   address: "Calle Granada 42, Centro Histórico, Málaga",
@@ -38,8 +38,8 @@ export default function LocationsSection() {
           <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">
             Our Locations
           </p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Two worlds. <span className="text-primary">Your choice.</span>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">Two worlds.
+  Your choice.<span className="text-primary">Your choice.</span>
           </h2>
         </div>
 
