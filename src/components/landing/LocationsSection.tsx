@@ -5,6 +5,7 @@ import seasideExt from "@/assets/seaside-exterior.jpg";
 
 const locations = [
   {
+    id: "historic-card",
     name: "Historic Center",
     tagline: "Where depth lives",
     img: historicExt,
