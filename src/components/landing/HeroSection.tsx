@@ -1,91 +1,112 @@
+import { useEffect, useState } from "react";
+import { useAnimatedGradient } from "@/hooks/useAnimatedGradient";
 import historicImg from "@/assets/historic-interior.jpg";
-import seasideImg from "@/assets/seaside-interior.jpg";
 
 export default function HeroSection() {
+  const gradientRef = useAnimatedGradient({
+    speed: 0.25,
+    warmHue: 20,
+    coolHue: 210,
+    saturation: 55,
+    lightness: 15,
+  });
+
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), 200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex flex-col md:flex-row overflow-hidden">
-      {/* Historic Side */}
-      <div className="relative flex-1 min-h-[50vh] md:min-h-screen flex items-center justify-center overflow-hidden group">
-        <img
-          src={historicImg}
-          alt="Historic coworking space with stone walls and warm lighting"
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-        <div className="relative z-10 text-center px-6 md:px-12 max-w-lg">
-          <p className="font-body text-xs md:text-sm uppercase tracking-[0.3em] text-white/60 mb-4">
-            Historic Center
-          </p>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-white font-bold leading-tight mb-4 italic">
-            Where ideas
-            <br />
-            grow slowly
-          </h2>
-          <p className="font-body text-white/60 text-sm md:text-base leading-relaxed">
-            Stone walls. Warm light. The kind of silence where deep work happens.
-          </p>
+    <section
+      ref={gradientRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(var(--grad-angle, 135deg), var(--grad-color-1, hsl(20,55%,15%)), var(--grad-color-2, hsl(210,55%,20%)), var(--grad-color-3, hsl(25,45%,10%)))",
+      }}
+    >
+      {/* Background image */}
+      <img
+        src={historicImg}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+        loading="eager"
+      />
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        {/* Tagline */}
+        <p
+          className={`font-body text-[10px] md:text-xs uppercase tracking-[0.5em] text-white/50 mb-8 md:mb-12 transition-all duration-1000 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          Coworking · Offices · Event Spaces
+        </p>
+
+        {/* Brand name */}
+        <h1
+          className={`mb-6 md:mb-8 transition-all duration-1000 delay-200 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <span className="font-display text-5xl md:text-7xl lg:text-9xl font-bold text-white tracking-tight">
+            Innovation
+          </span>
+          <span className="text-primary font-display text-6xl md:text-8xl lg:text-[10rem] font-bold leading-none">
+            /
+          </span>
+          <span className="font-body text-5xl md:text-7xl lg:text-9xl font-extralight text-white tracking-wider">
+            Campus
+          </span>
+        </h1>
+
+        {/* Subtitle */}
+        <p
+          className={`font-body text-lg md:text-2xl lg:text-3xl text-white/80 font-light mb-8 md:mb-12 transition-all duration-1000 delay-500 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          We turn workspaces into{" "}
+          <em className="text-primary not-italic font-medium">experiences</em>
+        </p>
+
+        {/* Location line */}
+        <p
+          className={`font-display text-base md:text-lg text-white/50 italic leading-relaxed mb-10 md:mb-14 transition-all duration-1000 delay-700 ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          In the heart of Málaga:
+          <br />
+          where history meets the Mediterranean.
+        </p>
+
+        {/* CTA */}
+        <div
+          className={`transition-all duration-1000 delay-[900ms] ${
+            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
           <a
             href="#locations"
-            className="inline-block mt-6 md:mt-8 border border-primary text-primary font-body text-sm uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-primary-foreground transition-all duration-500"
+            className="inline-block bg-primary text-primary-foreground font-body text-sm md:text-base uppercase tracking-[0.3em] px-10 py-4 hover:bg-primary/90 transition-all duration-500 animate-pulse-red"
           >
-            Discover
-          </a>
-        </div>
-      </div>
-
-      {/* Red Thread Divider */}
-      <div className="hidden md:flex absolute left-1/2 top-0 bottom-0 z-20 -translate-x-1/2 flex-col items-center justify-center">
-        <div className="w-[2px] flex-1 bg-gradient-to-b from-transparent via-primary to-transparent" />
-        <div className="my-4 flex flex-col items-center">
-          <span className="font-display text-white text-2xl lg:text-3xl font-bold">Innovation</span>
-          <span className="text-primary text-5xl lg:text-6xl font-display font-bold leading-none">/</span>
-          <span className="font-body text-white text-2xl lg:text-3xl font-light tracking-wider">Campus</span>
-        </div>
-        <div className="w-[2px] flex-1 bg-gradient-to-b from-transparent via-primary to-transparent" />
-      </div>
-
-      {/* Mobile brand name */}
-      <div className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center gap-1 bg-black/60 backdrop-blur-sm px-5 py-2 rounded-full">
-        <span className="font-display text-white text-lg font-bold">Innovation</span>
-        <span className="text-primary text-2xl font-display font-bold">/</span>
-        <span className="font-body text-white text-lg font-light">Campus</span>
-      </div>
-
-      {/* Seaside Side */}
-      <div className="relative flex-1 min-h-[50vh] md:min-h-screen flex items-center justify-center overflow-hidden group">
-        <img
-          src={seasideImg}
-          alt="Seaside coworking space with ocean view and modern furniture"
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/10 to-seaside-text/40" />
-        <div className="relative z-10 text-center px-6 md:px-12 max-w-lg">
-          <p className="font-body text-xs md:text-sm uppercase tracking-[0.3em] text-seaside-text/70 mb-4">
-            By the Sea
-          </p>
-          <h2 className="font-body text-3xl md:text-5xl lg:text-6xl text-seaside-text font-extralight leading-tight mb-4">
-            Where ideas
-            <br />
-            <span className="font-semibold">explode</span>
-          </h2>
-          <p className="font-body text-seaside-text/60 text-sm md:text-base leading-relaxed">
-            Open air. Blue everywhere. The freedom to think without walls.
-          </p>
-          <a
-            href="#locations"
-            className="inline-block mt-6 md:mt-8 bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 hover:bg-primary/90 transition-all duration-500"
-          >
-            Discover
+            Find Your Space
           </a>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-white/50 text-xs font-body uppercase tracking-widest">Scroll</span>
-        <div className="w-[1px] h-8 bg-gradient-to-b from-white/50 to-transparent" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce">
+        <span className="text-white/40 text-[10px] font-body uppercase tracking-[0.4em]">
+          Scroll
+        </span>
+        <div className="w-[1px] h-8 bg-gradient-to-b from-white/40 to-transparent" />
       </div>
     </section>
   );

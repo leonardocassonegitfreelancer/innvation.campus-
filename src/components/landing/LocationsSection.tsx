@@ -5,6 +5,7 @@ import seasideExt from "@/assets/seaside-exterior.jpg";
 
 const locations = [
   {
+    id: "historic-card",
     name: "Historic Center",
     tagline: "Where depth lives",
     img: historicExt,
@@ -16,6 +17,7 @@ const locations = [
     theme: "historic" as const,
   },
   {
+    id: "seaside-card",
     name: "Seaside",
     tagline: "Where ideas fly",
     img: seasideExt,
@@ -54,13 +56,14 @@ export default function LocationsSection() {
 }
 
 function LocationCard({
-  name, tagline, img, alt, address, hours, highlights, desc, theme,
+  id, name, tagline, img, alt, address, hours, highlights, desc, theme,
 }: (typeof locations)[0]) {
   const { ref, isVisible } = useScrollAnimation(0.15);
   const isHistoric = theme === "historic";
 
   return (
     <div
+      id={id}
       ref={ref}
       className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group`}
       style={{
