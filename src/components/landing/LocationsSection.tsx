@@ -70,7 +70,7 @@ function LocationCard({
       }}
     >
       {/* Image */}
-      <div className="relative h-64 md:h-80 overflow-hidden">
+      <div className="relative h-80 md:h-[28rem] overflow-hidden">
         <img
           src={img}
           alt={alt}
@@ -80,8 +80,8 @@ function LocationCard({
         <div
           className={`absolute inset-0 ${
             isHistoric
-              ? "bg-gradient-to-t from-historic-bg via-transparent"
-              : "bg-gradient-to-t from-seaside-bg via-transparent"
+              ? "bg-gradient-to-t from-historic-bg via-historic-bg/40 to-transparent"
+              : "bg-gradient-to-t from-seaside-bg via-seaside-bg/40 to-transparent"
           }`}
         />
         <div className="absolute bottom-6 left-6">
