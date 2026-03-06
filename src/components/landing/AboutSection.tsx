@@ -8,8 +8,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-20 md:py-28"
-      style={{ background: "hsl(38, 25%, 95%)" }}
+      className="py-20 md:py-28 bg-background"
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
