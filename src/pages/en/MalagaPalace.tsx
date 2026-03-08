@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Coffee } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import palaceEntrance from "@/assets/palace-entrance.jpg";
-import historicInt from "@/assets/historic-interior.jpg";
+import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
 import serviceMeeting from "@/assets/service-meeting.jpg";
 import servicePrivate from "@/assets/service-private.jpg";
 import serviceCoworking from "@/assets/service-coworking.jpg";
