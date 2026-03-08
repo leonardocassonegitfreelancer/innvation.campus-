@@ -17,12 +17,22 @@ import serviceCommunity from "@/assets/service-community.jpg";
 import palaceOutsideFront from "@/assets/palace-outside-front.jpg";
 import palaceOutside from "@/assets/palace-outside.jpg";
 import palaceCourtyard from "@/assets/palace-courtyard.jpg";
+import historicExterior from "@/assets/historic-exterior.jpg";
+import historicInterior from "@/assets/historic-interior.jpg";
+import aboutCampus from "@/assets/about-campus.jpg";
+import servicePerks from "@/assets/service-perks.jpg";
 
-const galleryImages = [
+const galleryTop = [
   { src: palaceCourtyard, alt: "Málaga Palace courtyard with ornate tiles and balcony" },
   { src: palaceOutside, alt: "Málaga Palace courtyard and exterior" },
   { src: palaceEntrance, alt: "Málaga Palace ornate entrance hall" },
   { src: palaceSecondFloor, alt: "Málaga Palace second floor workspace" },
+];
+const galleryBottom = [
+  { src: palaceOutsideFront, alt: "Málaga Palace exterior front view" },
+  { src: historicExterior, alt: "Historic building exterior" },
+  { src: historicInterior, alt: "Historic interior details" },
+  { src: aboutCampus, alt: "Innovation Campus workspace" },
 ];
 const highlights = [
   "Stone-walled meeting rooms",
