@@ -17,6 +17,7 @@ const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Refe
 
 export default function ContactSection() {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
+  const [service, setService] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
   const { ref, isVisible } = useScrollAnimation();
 
