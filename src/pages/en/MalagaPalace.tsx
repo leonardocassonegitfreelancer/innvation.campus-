@@ -192,7 +192,7 @@ export default function MalagaPalace() {
       </section>
 
       {/* What's Hot */}
-      <section className="py-24 md:py-36 bg-background">
+      <section className="py-24 md:py-36" style={{ background: "linear-gradient(170deg, hsl(35 30% 92%), hsl(30 25% 90%), hsl(40 20% 93%))" }}>
         <div ref={hotRef} className={`scroll-animate ${hotVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
           <p className="font-body uppercase tracking-[0.4em] text-primary mb-4 text-xl font-semibold text-center">
             Discover
