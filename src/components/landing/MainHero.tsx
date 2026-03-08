@@ -66,7 +66,7 @@ export default function MainHero() {
       ))}
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[hsl(var(--neutral-dark))]/65" />
+      <div className="absolute inset-0 bg-[hsl(var(--neutral-dark))]/75" />
 
       {/* Content centered */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
