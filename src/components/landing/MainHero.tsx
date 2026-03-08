@@ -33,7 +33,7 @@ export default function MainHero() {
     const interval = setInterval(() => {
       setDirection(1);
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 7000);
     return () => clearInterval(interval);
   }, []);
 
