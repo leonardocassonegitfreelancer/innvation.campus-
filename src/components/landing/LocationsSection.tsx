@@ -128,9 +128,9 @@ function LocationCard({
 
         <div className="mt-auto pt-8">
           <a
-            href="#contact"
+            href={isHistoric ? "/en/malaga-palace" : "/en/malaga-terrace"}
             className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
-            Book a visit
+            See more
           </a>
         </div>
       </div>
