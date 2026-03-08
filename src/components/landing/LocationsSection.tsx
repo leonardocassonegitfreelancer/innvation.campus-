@@ -88,7 +88,7 @@ function LocationCard({
           </h3>
         </div>
         <p
-          className={`font-body text-sm leading-relaxed mb-6 flex-1 ${
+          className={`font-body text-sm leading-relaxed mb-6 ${
           isHistoric ? "text-neutral-dark/80" : "text-seaside-text"}`
           }>
           
