@@ -30,20 +30,18 @@ export default function ServicePageLayout({ title, subtitle, image, children }: 
       </section>
 
       {/* Content */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="max-w-4xl mx-auto px-6">
-          {children || (
-            <div className="text-center">
-              <p className="text-muted-foreground font-body text-lg mb-8">
-                More details coming soon. Contact us to learn more about this service.
-              </p>
-              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link to="/#contact">Get in Touch</Link>
-              </Button>
-            </div>
-          )}
-        </div>
-      </section>
+      {children || (
+        <section className="py-16 md:py-24 bg-background">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <p className="text-muted-foreground font-body text-lg mb-8">
+              More details coming soon. Contact us to learn more about this service.
+            </p>
+            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Link to="/#contact">Get in Touch</Link>
+            </Button>
+          </div>
+        </section>
+      )}
 
       <Footer />
     </main>
