@@ -3,6 +3,11 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
+const locationLinks = [
+  { label: "Málaga", href: "/#locations" },
+  { label: "Ancona", href: "/en/ancona" },
+];
+
 const businessLinks = [
   { label: "Private Conference Rooms", href: "/en/conference-rooms" },
   { label: "Private Terrace", href: "/en/private-terrace" },
