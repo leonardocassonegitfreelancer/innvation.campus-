@@ -1,3 +1,4 @@
+// Málaga Palace page
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
