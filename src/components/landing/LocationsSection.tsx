@@ -98,7 +98,7 @@ function LocationCard({
         <div className="space-y-3 mb-6">
           <div className="flex items-start gap-3">
             <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-            <span className={`font-body text-sm ${isHistoric ? "text-white/90" : "text-seaside-text"}`}>
+            <span className={`font-body text-sm ${isHistoric ? "text-neutral-dark/70" : "text-seaside-text"}`}>
               {address}
             </span>
           </div>
