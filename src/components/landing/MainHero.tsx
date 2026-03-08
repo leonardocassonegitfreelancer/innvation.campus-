@@ -117,7 +117,7 @@ export default function MainHero() {
         {/* CTA */}
         <a
           href="#contact"
-          className={`inline-flex items-center gap-3 backdrop-blur-[10px] bg-primary/80 border border-primary/30 text-primary-foreground font-display text-xs md:text-sm uppercase tracking-[0.3em] px-8 py-3 rounded hover:bg-primary/95 hover:border-primary/50 transition-all duration-500 delay-800 ${
+          className={`inline-flex items-center gap-3 backdrop-blur-[10px] bg-primary/80 border border-primary/30 text-primary-foreground font-bebas text-base md:text-lg uppercase tracking-[0.3em] px-8 py-3 rounded hover:bg-primary/95 hover:border-primary/50 transition-all duration-500 delay-800 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
