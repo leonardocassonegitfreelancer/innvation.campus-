@@ -87,7 +87,7 @@ export default function MalagaTerrace() {
               <div className="flex items-start gap-3 mb-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                 <span className="font-body text-sm text-seaside-text/80">
-                  Paseo Marítimo 15, La Malagueta, Málaga
+                  Calle Puerto 14, 29016 Málaga
                 </span>
               </div>
               <div className="flex items-start gap-3">
