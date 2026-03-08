@@ -81,7 +81,7 @@ export default function MainHero() {
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <span className="block text-primary font-body text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+          <span className="block text-white font-body text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             Innovation<span className="font-light">/</span>Campus
           </span>
           <span className="block text-primary font-body text-sm md:text-base lg:text-lg font-light uppercase tracking-[0.45em] mt-2 md:mt-3">
