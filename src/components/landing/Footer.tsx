@@ -54,7 +54,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white/40 text-sm font-light italic mb-6">Contact</h4>
             <div className="space-y-3 text-sm text-white/70">
-              <p>Málaga Palace (Historic Center): +34 671 44 12 88</p>
+              <p>Málaga Palace (Historic Center): 
++34 671 44 12 88</p>
               <p>Málaga Terrace (Sea Side): +34 676 94 39 78</p>
               <p>Ancona/Olbia: +39 338 335 5908</p>
               <p>Management: +34 673 737235</p>
@@ -87,22 +88,21 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Social icons — left */}
           <div className="flex gap-5">
-            {[
-              { Icon: Facebook, label: "Facebook", href: "#" },
-              { Icon: Linkedin, label: "LinkedIn", href: "#" },
-              { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/innovation_campus/" },
-            ].map(({ Icon, label, href }) => (
-              <a
-                key={label}
-                href={href}
-                target={href !== "#" ? "_blank" : undefined}
-                rel={href !== "#" ? "noopener noreferrer" : undefined}
-                aria-label={label}
-                className="text-white/60 hover:text-primary transition-colors"
-              >
+            {[{ Icon: Facebook, label: "Facebook", href: "#" },
+            { Icon: Linkedin, label: "LinkedIn", href: "#" },
+            { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/innovation_campus/" }].
+            map(({ Icon, label, href }) =>
+            <a
+              key={label}
+              href={href}
+              target={href !== "#" ? "_blank" : undefined}
+              rel={href !== "#" ? "noopener noreferrer" : undefined}
+              aria-label={label}
+              className="text-white/60 hover:text-primary transition-colors">
+              
                 <Icon className="w-5 h-5" />
               </a>
-            ))}
+            )}
           </div>
 
           {/* Copyright — right */}
@@ -111,6 +111,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
