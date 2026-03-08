@@ -56,6 +56,10 @@ export default function ContactSection() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              if (!service) {
+                alert("Please select a service.");
+                return;
+              }
               alert("Thank you! We'll get back to you soon.");
             }}
             className="space-y-6"
@@ -84,6 +88,7 @@ export default function ContactSection() {
               <div>
                 <Label className={`font-body text-sm ${mutedColor}`}>Company Name</Label>
                 <Input
+                  required
                   placeholder="Your company"
                   className={inputClass}
                 />
@@ -92,6 +97,7 @@ export default function ContactSection() {
                 <Label className={`font-body text-sm ${mutedColor}`}>Phone Number (with country code)</Label>
                 <Input
                   type="tel"
+                  required
                   placeholder="+34 600 000 000"
                   className={inputClass}
                 />
