@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 
 const locations = [
   {
+    id: "malaga-palace",
     name: "Málaga Palace",
     subtitle: "Historic Center",
     address: "Calle Álamos 7, 29012 Málaga",
@@ -18,6 +19,7 @@ const locations = [
     link: "/en/malaga-palace",
   },
   {
+    id: "malaga-terrace",
     name: "Málaga Terrace",
     subtitle: "Sea Side",
     address: "Calle Puerto 14, 29016 Málaga",
@@ -29,6 +31,7 @@ const locations = [
     link: "/en/malaga-terrace",
   },
   {
+    id: "ancona",
     name: "Ancona",
     subtitle: "Italy",
     address: "Via Montebello 71, 60122 Ancona AN, Italia",
@@ -40,6 +43,7 @@ const locations = [
     link: "/en/ancona",
   },
   {
+    id: "olbia",
     name: "Olbia",
     subtitle: "Sardinia",
     address: "Olbia, Sardinia, Italy",
@@ -77,6 +81,17 @@ export default function FindUs() {
           <p className="font-body text-primary-foreground/70 mt-3 max-w-xl">
             Addresses, hours, and directions for every Innovation Campus location.
           </p>
+          <div className="flex flex-wrap gap-3 mt-6">
+            {locations.map((loc) => (
+              <a
+                key={loc.id}
+                href={`#${loc.id}`}
+                className="font-body text-sm px-4 py-2 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-primary hover:bg-primary/10 transition-all"
+              >
+                {loc.name}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -89,7 +104,8 @@ export default function FindUs() {
           {locations.map((loc) => (
             <div
               key={loc.name}
-              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 flex flex-col gap-4"
+              id={loc.id}
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 flex flex-col gap-4 scroll-mt-24"
             >
               <div>
                 <h2 className="font-display text-2xl font-bold text-white">{loc.name}</h2>
