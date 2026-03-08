@@ -173,12 +173,31 @@
   .stone-texture-bg::after {
     content: "";
     position: absolute;
-    inset: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
     background:
-      radial-gradient(ellipse at 15% 85%, hsl(35 30% 70% / 0.2) 0%, transparent 55%),
-      radial-gradient(ellipse at 85% 15%, hsl(25 25% 72% / 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 100%, hsl(30 20% 68% / 0.2) 0%, transparent 40%),
-      linear-gradient(180deg, transparent 60%, hsl(25 20% 75% / 0.2) 100%);
+      /* Brick pattern - horizontal mortar lines */
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 28px,
+        hsl(30 15% 65% / 0.5) 28px,
+        hsl(30 15% 65% / 0.5) 30px
+      ),
+      /* Brick pattern - vertical mortar lines (offset every other row) */
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 58px,
+        hsl(30 15% 65% / 0.5) 58px,
+        hsl(30 15% 65% / 0.5) 60px
+      );
+    background-size: 100% 60px, 60px 60px;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 30%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%);
+    opacity: 0.35;
     pointer-events: none;
     z-index: 0;
   }
