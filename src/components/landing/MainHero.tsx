@@ -50,10 +50,17 @@ export default function MainHero() {
           key={i}
           src={src}
           alt={`Innovation Campus space ${i + 1}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1.8s] ease-in-out ${
+          style={{
+            animationDuration: "7s",
+            animationTimingFunction: "ease-in-out",
+            animationIterationCount: "1",
+            animationFillMode: "forwards",
+            animationName: i === current ? "kenburns" : "none",
+          }}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1.8s] ease-in-out ${
             i === current
-              ? "opacity-100 scale-100"
-              : "opacity-0 scale-105"
+              ? "opacity-100"
+              : "opacity-0 scale-100"
           }`}
         />
       ))}
