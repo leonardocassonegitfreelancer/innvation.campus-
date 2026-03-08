@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
 import serviceMeeting from "@/assets/service-meeting.jpg";
@@ -11,17 +12,17 @@ import serviceAcademy from "@/assets/service-academy.jpg";
 import servicePerks from "@/assets/service-perks.jpg";
 
 const businessServices = [
-  { img: serviceMeeting, label: "Private Conference Rooms", subtitle: "With catering option" },
-  { img: serviceTerrace, label: "Private Terrace", subtitle: "With catering option" },
-  { img: servicePrivate, label: "Private Offices", subtitle: "Different sizes available" },
-  { img: serviceRegistration, label: "Business Registration", subtitle: "Relocate to Spain or Italy" },
+  { img: serviceMeeting, label: "Private Conference Rooms", subtitle: "With catering option", href: "/en/conference-room" },
+  { img: serviceTerrace, label: "Private Terrace", subtitle: "With catering option", href: "/en/private-terrace" },
+  { img: servicePrivate, label: "Private Offices", subtitle: "Different sizes available", href: "/en/private-offices" },
+  { img: serviceRegistration, label: "Business Registration", subtitle: "Relocate to Spain or Italy", href: "/en/business-registration" },
 ];
 
 const individualServices = [
-  { img: serviceCoworking, label: "Coworking Space", subtitle: "Plans & prices" },
-  { img: serviceCommunity, label: "Community Events", subtitle: "New and past" },
-  { img: serviceAcademy, label: "Academy", subtitle: "Get better day by day" },
-  { img: servicePerks, label: "Member Perks", subtitle: "Discounts & offers for our members" },
+  { img: serviceCoworking, label: "Coworking Space", subtitle: "Plans & prices", href: "/en/coworking-space" },
+  { img: serviceCommunity, label: "Community Events", subtitle: "New and past", href: "/en/events" },
+  { img: serviceAcademy, label: "Academy", subtitle: "Get better day by day", href: "/en/academy" },
+  { img: servicePerks, label: "Member Perks", subtitle: "Discounts & offers for our members", href: "/en/benefits" },
 ];
 
 function ServiceCard({ img, label, subtitle }: { img: string; label: string; subtitle: string }) {
