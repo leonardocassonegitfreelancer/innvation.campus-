@@ -3,6 +3,11 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
+const locationLinks = [
+  { label: "Málaga", href: "/#locations" },
+  { label: "Ancona", href: "/en/ancona" },
+];
+
 const businessLinks = [
   { label: "Private Conference Rooms", href: "/en/conference-rooms" },
   { label: "Private Terrace", href: "/en/private-terrace" },
@@ -18,7 +23,6 @@ const individualLinks = [
 ];
 
 const navLinks = [
-  { label: "Locations", href: "#locations" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
@@ -51,16 +55,27 @@ function DropdownMenu({ label, links, open, onToggle, onClose }: {
       </button>
       {open && (
         <div className="absolute top-full left-0 mt-3 w-56 bg-neutral-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl py-2 z-50">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              onClick={onClose}
-              className="block px-4 py-2.5 text-sm font-body text-white/70 hover:text-white hover:bg-white/5 transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) =>
+            link.href.startsWith("/") && !link.href.includes("#") ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={onClose}
+                className="block px-4 py-2.5 text-sm font-body text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={onClose}
+                className="block px-4 py-2.5 text-sm font-body text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </div>
       )}
     </div>
@@ -101,6 +116,13 @@ export default function Navbar() {
 
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
+            <DropdownMenu
+              label="Locations"
+              links={locationLinks}
+              open={openDropdown === "locations"}
+              onToggle={() => setOpenDropdown(openDropdown === "locations" ? null : "locations")}
+              onClose={() => setOpenDropdown(null)}
+            />
             <DropdownMenu
               label="For Businesses"
               links={businessLinks}
@@ -146,6 +168,30 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-neutral-dark/98 backdrop-blur-lg border-t border-white/10">
           <div className="px-6 py-6 flex flex-col gap-2">
+            {/* Locations */}
+            <button
+              onClick={() => setMobileExpanded(mobileExpanded === "locations" ? null : "locations")}
+              className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2"
+            >
+              Locations
+              <ChevronDown size={16} className={`transition-transform ${mobileExpanded === "locations" ? "rotate-180" : ""}`} />
+            </button>
+            {mobileExpanded === "locations" && (
+              <div className="pl-4 flex flex-col gap-1 mb-2">
+                {locationLinks.map((link) =>
+                  link.href.startsWith("/") && !link.href.includes("#") ? (
+                    <Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">
+                      {link.label}
+                    </a>
+                  )
+                )}
+              </div>
+            )}
+
             {/* For Businesses */}
             <button
               onClick={() => setMobileExpanded(mobileExpanded === "business" ? null : "business")}
