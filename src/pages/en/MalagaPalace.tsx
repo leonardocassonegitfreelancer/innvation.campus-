@@ -17,10 +17,10 @@ import serviceCommunity from "@/assets/service-community.jpg";
 import palaceOutsideFront from "@/assets/palace-outside-front.jpg";
 import palaceOutside from "@/assets/palace-outside.jpg";
 import palaceCourtyard from "@/assets/palace-courtyard.jpg";
-import historicExterior from "@/assets/historic-exterior.jpg";
-import historicInterior from "@/assets/historic-interior.jpg";
-import aboutCampus from "@/assets/about-campus.jpg";
-import servicePerks from "@/assets/service-perks.jpg";
+import palaceSkylight from "@/assets/palace-skylight.jpg";
+import palaceCoffeeBar from "@/assets/palace-coffee-bar.jpg";
+import palaceCatering from "@/assets/palace-catering.jpg";
+import palaceCoworking from "@/assets/palace-coworking.jpg";
 
 const galleryTop = [
   { src: palaceCourtyard, alt: "Málaga Palace courtyard with ornate tiles and balcony" },
@@ -29,10 +29,10 @@ const galleryTop = [
   { src: palaceSecondFloor, alt: "Málaga Palace second floor workspace" },
 ];
 const galleryBottom = [
-  { src: palaceOutsideFront, alt: "Málaga Palace exterior front view" },
-  { src: historicExterior, alt: "Historic building exterior" },
-  { src: historicInterior, alt: "Historic interior details" },
-  { src: aboutCampus, alt: "Innovation Campus workspace" },
+  { src: palaceSkylight, alt: "Málaga Palace skylight and atrium view" },
+  { src: palaceCoffeeBar, alt: "Málaga Palace coffee bar" },
+  { src: palaceCatering, alt: "Málaga Palace catering and events" },
+  { src: palaceCoworking, alt: "Málaga Palace coworking area" },
 ];
 const highlights = [
   "Stone-walled meeting rooms",
