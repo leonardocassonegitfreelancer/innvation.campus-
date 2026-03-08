@@ -271,7 +271,7 @@ export default function MalagaTerrace() {
                   Book the terrace for your next corporate event. Sunset views, sea breeze, and a venue your guests won't forget.
                 </p>
                 <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
-                  <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Plan Your Event</a>
+                  <Link to="/en/host-your-event">Plan Your Event</Link>
                 </Button>
               </div>
             </div>
