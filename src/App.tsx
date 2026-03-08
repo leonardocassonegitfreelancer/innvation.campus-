@@ -13,6 +13,8 @@ import CoworkingSpace from "./pages/en/CoworkingSpace";
 import Events from "./pages/en/Events";
 import Academy from "./pages/en/Academy";
 import Benefits from "./pages/en/Benefits";
+import Ancora from "./pages/en/Ancora";
+import Olbia from "./pages/en/Olbia";
 
 const queryClient = new QueryClient();
 
