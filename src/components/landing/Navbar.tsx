@@ -107,14 +107,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="/" className="flex items-center gap-1 text-white">
-            <span className="font-display text-xl md:text-2xl font-bold tracking-tight">
-              Innovation
-            </span>
-            <span className="text-primary font-display text-2xl md:text-3xl font-bold">/</span>
-            <span className="font-body text-xl md:text-2xl font-light tracking-wide">
-              Campus
-            </span>
+          <a href="/" className="flex items-center">
+            <img src={logoWhite} alt="Innovation/Campus" className="h-6 md:h-8 w-auto" />
           </a>
 
           {/* Desktop */}
