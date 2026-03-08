@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Coffee } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import historicExt from "@/assets/historic-exterior.jpg";
+import palaceEntrance from "@/assets/palace-entrance.jpg";
 import historicInt from "@/assets/historic-interior.jpg";
 import serviceMeeting from "@/assets/service-meeting.jpg";
 import servicePrivate from "@/assets/service-private.jpg";
