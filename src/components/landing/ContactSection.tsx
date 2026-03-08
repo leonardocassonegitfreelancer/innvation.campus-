@@ -131,6 +131,24 @@ export default function ContactSection() {
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>
+                What are you looking for?
+              </Label>
+              <Select value={service} onValueChange={setService}>
+                <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
+                  <SelectValue placeholder="Select a service" />
+                </SelectTrigger>
+                <SelectContent className="bg-neutral-dark border-white/20 text-white">
+                  {serviceOptions.map((opt) => (
+                    <SelectItem key={opt} value={opt}>
+                      {opt}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <Label className={`font-body text-sm ${mutedColor}`}>
                 How did you hear about us?
               </Label>
               <Select value={hearAbout} onValueChange={setHearAbout}>
