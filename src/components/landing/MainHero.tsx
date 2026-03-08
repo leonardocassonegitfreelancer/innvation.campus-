@@ -9,6 +9,12 @@ export default function MainHero() {
     return () => clearTimeout(t);
   }, []);
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5;
+    }
+  }, []);
+
   return (
     <section className="relative min-h-screen bg-[hsl(var(--neutral-dark))] overflow-hidden">
       {/* Video background */}
