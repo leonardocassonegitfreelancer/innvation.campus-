@@ -4,7 +4,7 @@ import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Coffee } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Calendar } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import palaceEntrance from "@/assets/palace-entrance.jpg";
 import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
