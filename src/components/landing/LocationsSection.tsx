@@ -89,7 +89,7 @@ function LocationCard({
         </div>
         <p
           className={`font-body text-sm leading-relaxed mb-6 ${
-          isHistoric ? "text-white/80" : "text-seaside-muted"}`
+          isHistoric ? "text-white/90" : "text-seaside-text"}`
           }>
           
           {desc}
