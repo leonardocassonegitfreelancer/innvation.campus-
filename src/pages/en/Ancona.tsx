@@ -38,6 +38,11 @@ export default function Ancona() {
 
   return (
     <main className="overflow-x-hidden">
+      <SEOHead
+        title="Coworking Space in Ancona"
+        description="A modern coworking space in the historical center of Ancona. Flexible desks, meeting rooms, and community."
+        path="/en/ancona"
+      />
       <Navbar />
 
       {/* Hero */}
