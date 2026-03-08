@@ -115,10 +115,10 @@ function LocationCard({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {highlights.map((h) =>
+          {highlights.map((h, i) =>
           <span
             key={h}
-            className={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${
+            className={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${i >= 4 ? "hidden md:inline-flex" : ""} ${
             isHistoric ?
             "bg-historic-text/10 text-historic-text/80" :
             "bg-seaside-text/10 text-seaside-text/80"}`
