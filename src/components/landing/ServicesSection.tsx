@@ -25,10 +25,10 @@ const individualServices = [
   { img: servicePerks, label: "Member Perks", subtitle: "Discounts & offers for our members", href: "/en/benefits" },
 ];
 
-function ServiceCard({ img, label, subtitle }: { img: string; label: string; subtitle: string }) {
+function ServiceCard({ img, label, subtitle, href }: { img: string; label: string; subtitle: string; href: string }) {
   return (
-    <a
-      href="#contact"
+    <Link
+      to={href}
       className="group relative aspect-[4/5] rounded-xl overflow-hidden block"
     >
       <img
@@ -46,7 +46,7 @@ function ServiceCard({ img, label, subtitle }: { img: string; label: string; sub
           {subtitle}
         </p>
       </div>
-    </a>
+    </Link>
   );
 }
 
