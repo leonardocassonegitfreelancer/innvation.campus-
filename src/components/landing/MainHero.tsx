@@ -40,7 +40,7 @@ export default function MainHero() {
   }, [current]);
 
   return (
-    <section className="relative min-h-screen bg-[hsl(var(--neutral-dark))] overflow-hidden">
+    <section className="relative h-screen max-h-screen bg-[hsl(var(--neutral-dark))] overflow-hidden">
       {/* Slideshow images */}
       {slides.map((src, i) => (
         <img
