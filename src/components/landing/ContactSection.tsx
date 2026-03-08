@@ -12,11 +12,8 @@ export default function ContactSection() {
 
   const bgStyle = "bg-neutral-dark";
 
-  const textColor =
-    location === "seaside" ? "text-seaside-text" : "text-white";
-
-  const mutedColor =
-    location === "seaside" ? "text-seaside-muted" : "text-white/60";
+  const textColor = "text-white";
+  const mutedColor = "text-white/60";
 
   return (
     <section id="contact" className={`relative py-24 md:py-36 transition-all duration-1000 ${bgStyle} overflow-hidden`}>
