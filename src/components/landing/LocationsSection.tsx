@@ -36,7 +36,7 @@ export default function LocationsSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div ref={titleRef} className={`scroll-animate ${titleVis ? "visible" : ""} text-center mb-16`}>
           <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">
-            Our Locations
+            Our Malaga Locations
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
             Two worlds. <span className="text-primary">Your choice.</span>
