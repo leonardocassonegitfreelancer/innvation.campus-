@@ -20,6 +20,7 @@ import MalagaTerrace from "./pages/en/MalagaTerrace";
 import Blog from "./pages/en/Blog";
 import BlogPostPage from "./pages/en/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/en/malaga-terrace" element={<MalagaTerrace />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
