@@ -5,7 +5,8 @@ import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Calendar, Briefcase, User, Sparkles, Palette, HeartHandshake, PartyPopper } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import palaceEntrance from "@/assets/palace-entrance.jpg";
 import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
@@ -13,7 +14,15 @@ import serviceMeeting from "@/assets/service-meeting.jpg";
 import servicePrivate from "@/assets/service-private.jpg";
 import serviceCoworking from "@/assets/service-coworking.jpg";
 import serviceCommunity from "@/assets/service-community.jpg";
+import palaceOutsideFront from "@/assets/palace-outside-front.jpg";
+import palaceOutside from "@/assets/palace-outside.jpg";
 
+const galleryImages = [
+  { src: palaceOutsideFront, alt: "Málaga Palace exterior front view" },
+  { src: palaceOutside, alt: "Málaga Palace courtyard and exterior" },
+  { src: palaceEntrance, alt: "Málaga Palace ornate entrance hall" },
+  { src: palaceSecondFloor, alt: "Málaga Palace second floor workspace" },
+];
 const highlights = [
   "Stone-walled meeting rooms",
   "Library corner",
@@ -32,9 +41,19 @@ const services = [
 
 export default function MalagaPalace() {
   const { ref: aboutRef, isVisible: aboutVis } = useScrollAnimation();
+  const { ref: galleryRef, isVisible: galleryVis } = useScrollAnimation();
   const { ref: hotRef, isVisible: hotVis } = useScrollAnimation();
   const { ref: servicesRef, isVisible: servicesVis } = useScrollAnimation();
   const [hotTab, setHotTab] = useState<"business" | "individual">("business");
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
 
   return (
     <main className="overflow-x-hidden">
@@ -114,6 +133,52 @@ export default function MalagaPalace() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Gallery + Video */}
+      <section className="py-20 md:py-28 bg-background">
+        <div ref={galleryRef} className={`scroll-animate ${galleryVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
+          <p className="font-body uppercase tracking-[0.4em] text-primary mb-4 text-xl font-semibold text-center">
+            Explore
+          </p>
+          <h2 className="font-display md:text-5xl text-foreground text-5xl font-semibold text-center mb-12 md:mb-16">
+            Inside the Palace
+          </h2>
+
+          {/* Video */}
+          <div className="relative rounded-xl overflow-hidden mb-8 aspect-video cursor-pointer group" onClick={handlePlayVideo}>
+            <video
+              ref={videoRef}
+              src="/videos/malaga-palace.mp4"
+              className="w-full h-full object-cover"
+              controls={isPlaying}
+              playsInline
+              preload="metadata"
+              onEnded={() => setIsPlaying(false)}
+            />
+            {!isPlaying && (
+              <div className="absolute inset-0 bg-neutral-dark/30 flex items-center justify-center transition-opacity group-hover:bg-neutral-dark/40">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 flex items-center justify-center transition-transform group-hover:scale-110">
+                  <Play className="w-7 h-7 md:w-9 md:h-9 text-primary-foreground ml-1" />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Photo Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {galleryImages.map((img) => (
+              <div key={img.alt} className="rounded-xl overflow-hidden group">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
