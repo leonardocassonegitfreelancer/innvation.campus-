@@ -108,8 +108,14 @@ export default function FindUs() {
             <div
               key={loc.name}
               id={loc.id}
-              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 flex flex-col gap-4 scroll-mt-24"
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden flex flex-col scroll-mt-24"
             >
+              {loc.image && (
+                <div className="h-48 overflow-hidden">
+                  <img src={loc.image} alt={loc.name} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+              )}
+              <div className="p-8 flex flex-col gap-4 flex-1">
               <div>
                 <h2 className="font-display text-2xl font-bold text-white">{loc.name}</h2>
                 <p className="font-body text-sm text-white/50">{loc.subtitle}</p>
