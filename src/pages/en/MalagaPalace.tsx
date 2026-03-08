@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Coffee } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import historicExt from "@/assets/historic-exterior.jpg";
+import palaceEntrance from "@/assets/palace-entrance.jpg";
 import historicInt from "@/assets/historic-interior.jpg";
 import serviceMeeting from "@/assets/service-meeting.jpg";
 import servicePrivate from "@/assets/service-private.jpg";
@@ -43,7 +43,7 @@ export default function MalagaPalace() {
 
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
-        <img src={historicExt} alt="Málaga Palace historic exterior" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={palaceEntrance} alt="Málaga Palace historic entrance with ornate tiles and marble columns" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/50 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
           <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
