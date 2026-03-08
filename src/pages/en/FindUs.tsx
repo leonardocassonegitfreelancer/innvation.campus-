@@ -112,9 +112,9 @@ export default function FindUs() {
               id={loc.id}
               className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden flex flex-col scroll-mt-24"
             >
-              {loc.image && (
+              {loc.image != null && (
                 <div className="overflow-hidden bg-white/5">
-                  <img src={loc.image} alt={loc.name} className="w-full h-auto" loading="lazy" />
+                  <img src={loc.image as string} alt={loc.name} className="w-full h-auto" loading="lazy" />
                 </div>
               )}
               <div className="p-8 flex flex-col gap-4 flex-1">
