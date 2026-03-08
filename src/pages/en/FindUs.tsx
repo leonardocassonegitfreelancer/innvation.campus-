@@ -14,6 +14,7 @@ const locations = [
     phone: "+34 671 44 12 88",
     email: "info@innovationcampus.biz",
     mapUrl: "https://maps.google.com/?q=Calle+Álamos+7+29012+Málaga",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4215!3d36.7213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+%C3%81lamos+7%2C+29012+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1",
     link: "/en/malaga-palace",
   },
   {
@@ -24,6 +25,7 @@ const locations = [
     phone: "+34 676 94 39 78",
     email: "malaga.terrace@innovationcampus.biz",
     mapUrl: "https://maps.google.com/?q=Calle+Puerto+14+29016+Málaga",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4185!3d36.7143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+Puerto+14%2C+29016+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1",
     link: "/en/malaga-terrace",
   },
   {
@@ -124,11 +126,26 @@ export default function FindUs() {
                 </a>
               </div>
 
-              <Link to={loc.link} className="mt-auto pt-4">
-                <Button variant="outline" className="w-full font-body text-sm uppercase tracking-widest border-white/20 text-white hover:bg-white/10 hover:text-white">
-                  View Location
-                </Button>
-              </Link>
+              {loc.mapEmbed ? (
+                <div className="mt-auto pt-4 rounded-lg overflow-hidden">
+                  <iframe
+                    src={loc.mapEmbed}
+                    width="100%"
+                    height="200"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`Map – ${loc.name}`}
+                  />
+                </div>
+              ) : (
+                <Link to={loc.link} className="mt-auto pt-4">
+                  <Button variant="outline" className="w-full font-body text-sm uppercase tracking-widest border-white/20 text-white hover:bg-white/10 hover:text-white">
+                    View Location
+                  </Button>
+                </Link>
+              )}
             </div>
           ))}
         </div>
