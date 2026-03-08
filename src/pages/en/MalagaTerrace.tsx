@@ -27,8 +27,8 @@ const highlights = [
 ];
 
 const services = [
-  { img: serviceCoworking, label: "Coworking Spaces", icon: Users },
-  { img: serviceMeeting, label: "Meeting Rooms", icon: Building2 },
+  { img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", label: "Coworking Spaces", icon: Users },
+  { img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", label: "Meeting Rooms", icon: Building2 },
   { img: serviceTerrace, label: "Private Terrace", icon: Sun },
   { img: serviceCommunity, label: "Community Events", icon: Wifi },
 ];
