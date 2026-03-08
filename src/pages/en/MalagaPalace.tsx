@@ -64,10 +64,7 @@ export default function MalagaPalace() {
 
       {/* About */}
       <section
-        className="py-20 md:py-28"
-        style={{
-          background: "linear-gradient(180deg, hsl(var(--historic-bg)), hsl(var(--historic-bg-warm)))",
-        }}
+        className="py-20 md:py-28 stone-texture-bg"
       >
         <div ref={aboutRef} className={`scroll-animate ${aboutVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
