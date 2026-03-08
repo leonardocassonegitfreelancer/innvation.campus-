@@ -19,6 +19,7 @@ const locations = [
     link: "/en/malaga-palace",
   },
   {
+    id: "malaga-terrace",
     name: "Málaga Terrace",
     subtitle: "Sea Side",
     address: "Calle Puerto 14, 29016 Málaga",
