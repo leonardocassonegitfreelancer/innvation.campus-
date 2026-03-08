@@ -12,7 +12,7 @@ const locations = [
     address: "Calle Álamos 7, 29012 Málaga",
     hours: "Mon–Fri 8:00–22:00 · Sat 9:00–18:00",
     phone: "+34 671 44 12 88",
-    email: "palace@innovationcampus.biz",
+    email: "info@innovationcampus.biz",
     mapUrl: "https://maps.google.com/?q=Calle+Álamos+7+29012+Málaga",
     link: "/en/malaga-palace",
   },
