@@ -36,7 +36,7 @@ const services = [
 const galleryTop = [
   { src: terraceEntrance, alt: "Málaga Terrace entrance and reception" },
   { src: terraceBar, alt: "Málaga Terrace bar area" },
-  { src: seasideInt, alt: "Málaga Terrace interior workspace" },
+  { src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.jpg", alt: "Málaga Terrace interior workspace" },
   { src: terraceCommunity, alt: "Málaga Terrace community event" },
 ];
 const galleryBottom = [
