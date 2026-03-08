@@ -82,14 +82,14 @@ function LocationCard({
             {tagline}
           </p>
           <h3
-            className={`${isHistoric ? "font-display italic text-white" : "font-body font-light text-seaside-text"} text-3xl md:text-4xl font-bold`}>
+            className={`${isHistoric ? "font-display italic text-neutral-dark" : "font-body font-light text-seaside-text"} text-3xl md:text-4xl font-bold`}>
             
             {name}
           </h3>
         </div>
         <p
           className={`font-body text-sm leading-relaxed mb-6 ${
-          isHistoric ? "text-white/90" : "text-seaside-text"}`
+          isHistoric ? "text-neutral-dark/80" : "text-seaside-text"}`
           }>
           
           {desc}
@@ -98,13 +98,13 @@ function LocationCard({
         <div className="space-y-3 mb-6">
           <div className="flex items-start gap-3">
             <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-            <span className={`font-body text-sm ${isHistoric ? "text-white/90" : "text-seaside-text"}`}>
+            <span className={`font-body text-sm ${isHistoric ? "text-neutral-dark/70" : "text-seaside-text"}`}>
               {address}
             </span>
           </div>
           <div className="flex items-start gap-3">
             <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-            <span className={`font-body text-sm ${isHistoric ? "text-white/90" : "text-seaside-text"}`}>
+            <span className={`font-body text-sm ${isHistoric ? "text-neutral-dark/70" : "text-seaside-text"}`}>
               {hours}
             </span>
           </div>
@@ -116,7 +116,7 @@ function LocationCard({
             key={h}
             className={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${
             isHistoric ?
-            "bg-white/15 text-white/90" :
+            "bg-neutral-dark/10 text-neutral-dark/80" :
             "bg-seaside-text/10 text-seaside-text"}`
             }>
             
