@@ -87,7 +87,7 @@ export default function MalagaPalace() {
               </p>
               <div className="flex items-start gap-3 mb-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                <span className="font-body text-sm text-primary-foreground/70">
+                <span className="font-body text-sm text-neutral-dark/70">
                   Calle Álamos 7 29012, Málaga
                 </span>
               </div>
