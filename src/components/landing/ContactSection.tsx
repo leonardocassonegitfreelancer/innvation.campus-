@@ -125,7 +125,7 @@ export default function ContactSection() {
                 <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!hearAbout ? "text-white/30" : ""}`}>
                   <SelectValue placeholder="Select an option" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-neutral-dark border-white/20 text-white">
                   {hearAboutOptions.map((opt) => (
                     <SelectItem key={opt} value={opt}>
                       {opt}
