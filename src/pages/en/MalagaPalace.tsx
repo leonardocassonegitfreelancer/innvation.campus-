@@ -147,23 +147,25 @@ export default function MalagaPalace() {
           </h2>
 
           {/* Video */}
-          <div className="relative rounded-xl overflow-hidden mb-8 aspect-video cursor-pointer group" onClick={handlePlayVideo}>
-            <video
-              ref={videoRef}
-              src="/videos/malaga-palace.mp4"
-              className="w-full h-full object-cover"
-              controls={isPlaying}
-              playsInline
-              preload="metadata"
-              onEnded={() => setIsPlaying(false)}
-            />
-            {!isPlaying && (
-              <div className="absolute inset-0 bg-neutral-dark/30 flex items-center justify-center transition-opacity group-hover:bg-neutral-dark/40">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 flex items-center justify-center transition-transform group-hover:scale-110">
-                  <Play className="w-7 h-7 md:w-9 md:h-9 text-primary-foreground ml-1" />
+          <div className="flex justify-center mb-8">
+            <div className="relative w-full md:w-auto md:aspect-[9/16] md:h-[75vh] rounded-xl overflow-hidden cursor-pointer group" onClick={handlePlayVideo}>
+              <video
+                ref={videoRef}
+                src="/videos/malaga-palace.mp4"
+                className="w-full h-full object-cover"
+                controls={isPlaying}
+                playsInline
+                preload="metadata"
+                onEnded={() => setIsPlaying(false)}
+              />
+              {!isPlaying && (
+                <div className="absolute inset-0 bg-neutral-dark/30 flex items-center justify-center transition-opacity group-hover:bg-neutral-dark/40">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 flex items-center justify-center transition-transform group-hover:scale-110">
+                    <Play className="w-7 h-7 md:w-9 md:h-9 text-primary-foreground ml-1" />
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
           {/* Photo Grid */}
