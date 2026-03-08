@@ -7,6 +7,7 @@ import { ArrowLeft, MapPin, Clock, Star, Users, Building2, Sun, Wifi } from "luc
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import terraceBar from "@/assets/terrace-bar.jpg";
 import terraceEvents from "@/assets/terrace-events.jpg";
+import terraceHero from "@/assets/terrace-hero.jpg";
 import seasideInt from "@/assets/seaside-interior.jpg";
 import serviceCoworking from "@/assets/service-coworking.jpg";
 import serviceMeeting from "@/assets/service-meeting.jpg";
@@ -44,7 +45,7 @@ export default function MalagaTerrace() {
 
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
-        <img src={terraceEvents} alt="Málaga Terrace rooftop event" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={terraceHero} alt="Málaga Terrace rooftop event" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/70 to-neutral-dark/30" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
           <Link to="/" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-body mb-4 transition-colors drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
@@ -109,15 +110,11 @@ export default function MalagaTerrace() {
 
           {/* Highlights */}
           <div className="flex flex-wrap gap-2 mt-12">
-            {highlights.map((h) => {}
-
-
-
-
-
-
-
-            )}
+            {highlights.map((h) => (
+              <span key={h} className="px-4 py-2 rounded-full border border-primary/30 text-sm font-body text-seaside-text/80 bg-primary/5">
+                {h}
+              </span>
+            ))}
           </div>
         </div>
       </section>
