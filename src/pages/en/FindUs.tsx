@@ -36,6 +36,7 @@ const locations = [
     phone: "+39 338 335 5908",
     email: "michela@i-campus.biz",
     mapUrl: "https://maps.google.com/?q=Via+Montebello+71+60122+Ancona+AN+Italia",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5!2d13.5127!3d43.6158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVia+Montebello+71%2C+60122+Ancona!5e0!3m2!1sen!2sit!4v1",
     link: "/en/ancona",
   },
   {
