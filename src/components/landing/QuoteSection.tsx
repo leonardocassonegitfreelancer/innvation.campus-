@@ -23,9 +23,9 @@ export default function QuoteSection() {
             Choose your world.
           </blockquote>
           <div className="mt-10 w-16 h-[2px] bg-primary mx-auto" />
-          <p className="font-body text-white/40 text-sm mt-6 uppercase tracking-widest">
-            Innovation/Campus
-          </p>
+          
+
+          
         </div>
       </div>
     </section>);
