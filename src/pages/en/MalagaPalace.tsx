@@ -79,7 +79,7 @@ export default function MalagaPalace() {
               <h2 className="font-display italic text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
                 A palace reborn for the modern mind
               </h2>
-              <p className="font-body text-neutral-dark/80 leading-relaxed mb-6">
+              <p className="font-body text-primary-foreground/80 leading-relaxed mb-6">
                 Nestled in a restored 18th-century building, this space wraps you in centuries of history.
                 Stone arches frame your morning coffee; courtyard light filters through your afternoon focus session.
                 Every detail — from the hand-laid tiles to the iron balustrades — reminds you that great work
