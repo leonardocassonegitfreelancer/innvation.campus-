@@ -117,6 +117,13 @@ export default function Navbar() {
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
             <DropdownMenu
+              label="Locations"
+              links={locationLinks}
+              open={openDropdown === "locations"}
+              onToggle={() => setOpenDropdown(openDropdown === "locations" ? null : "locations")}
+              onClose={() => setOpenDropdown(null)}
+            />
+            <DropdownMenu
               label="For Businesses"
               links={businessLinks}
               open={openDropdown === "business"}
