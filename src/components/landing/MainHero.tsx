@@ -68,7 +68,7 @@ export default function MainHero() {
 
         {/* Tagline */}
         <p
-          className={`font-display italic text-lg md:text-xl lg:text-2xl font-light text-white/70 mb-4 leading-snug transition-all duration-1000 delay-600 ${
+          className={`font-display italic text-lg md:text-xl lg:text-2xl font-light text-white/90 mb-4 leading-snug transition-all duration-1000 delay-600 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
