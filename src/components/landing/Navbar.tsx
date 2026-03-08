@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const locationLinks = [
-  { label: "Málaga", href: "/#locations" },
+  { label: "Málaga Palace", href: "/en/malaga-palace" },
+  { label: "Málaga Terrace", href: "/en/malaga-terrace" },
   { label: "Ancona", href: "/en/ancona" },
 ];
 
