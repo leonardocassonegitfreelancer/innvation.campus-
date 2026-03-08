@@ -4,14 +4,17 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { label: "The Campus", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Málaga", href: "#locations" },
-  { label: "Áncora", href: "/en/ancora" },
-  { label: "Olbia", href: "/en/olbia" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "The Campus", href: "#about", isRoute: false },
+  { label: "Services", href: "#services", isRoute: false },
+  { label: "Málaga", href: "#locations", isRoute: false },
+  { label: "Áncora", href: "/en/ancora", isRoute: true },
+  { label: "Olbia", href: "/en/olbia", isRoute: true },
+  { label: "FAQ", href: "#faq", isRoute: false },
+  { label: "Contact", href: "#contact", isRoute: false },
 ];
+
+const linkClass = "text-white/70 hover:text-white text-sm font-body font-medium tracking-wide transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full";
+const mobileLinkClass = "text-white/80 hover:text-white text-lg font-body transition-colors";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,7 +36,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="flex items-center gap-1 text-white">
+          <Link to="/" className="flex items-center gap-1 text-white">
             <span className="font-display text-xl md:text-2xl font-bold tracking-tight">
               Innovation
             </span>
@@ -41,19 +44,21 @@ export default function Navbar() {
             <span className="font-body text-xl md:text-2xl font-light tracking-wide">
               Campus
             </span>
-          </a>
+          </Link>
 
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-white/70 hover:text-white text-sm font-body font-medium tracking-wide transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link key={link.label} to={link.href} className={linkClass}>
+                  {link.label}
+                </Link>
+              ) : (
+                <a key={link.label} href={link.href} className={linkClass}>
+                  {link.label}
+                </a>
+              )
+            )}
             <Button
               asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm animate-pulse-red"
@@ -76,16 +81,27 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-neutral-dark/98 backdrop-blur-lg border-t border-white/10">
           <div className="px-6 py-6 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-white/80 hover:text-white text-lg font-body transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={mobileLinkClass}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={mobileLinkClass}
+                >
+                  {link.label}
+                </a>
+              )
+            )}
             <Button
               asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground mt-2 w-full"
