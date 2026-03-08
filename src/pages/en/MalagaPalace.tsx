@@ -148,11 +148,11 @@ export default function MalagaPalace() {
 
           {/* Video */}
           <div className="flex justify-center mb-8">
-            <div className="relative w-full md:w-auto md:aspect-[9/16] md:h-[75vh] rounded-xl overflow-hidden cursor-pointer group" onClick={handlePlayVideo}>
+            <div className="relative w-full max-w-sm aspect-[9/16] md:max-w-5xl md:aspect-video bg-neutral-dark rounded-xl overflow-hidden cursor-pointer group" onClick={handlePlayVideo}>
               <video
                 ref={videoRef}
                 src="/videos/malaga-palace.mp4"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover md:object-contain"
                 controls={isPlaying}
                 playsInline
                 preload="metadata"
