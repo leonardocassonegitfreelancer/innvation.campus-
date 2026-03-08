@@ -16,6 +16,7 @@ import serviceCoworking from "@/assets/service-coworking.jpg";
 import serviceCommunity from "@/assets/service-community.jpg";
 import palaceOutsideFront from "@/assets/palace-outside-front.jpg";
 import palaceOutside from "@/assets/palace-outside.jpg";
+import palaceCourtyard from "@/assets/palace-courtyard.jpg";
 
 const galleryImages = [
   { src: palaceOutsideFront, alt: "Málaga Palace exterior front view" },
