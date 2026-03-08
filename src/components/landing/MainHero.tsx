@@ -66,7 +66,7 @@ export default function MainHero() {
       ))}
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[hsl(var(--neutral-dark))]/65" />
+      <div className="absolute inset-0 bg-[hsl(var(--neutral-dark))]/75" />
 
       {/* Content centered */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
@@ -85,7 +85,7 @@ export default function MainHero() {
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <span className="block text-primary font-body text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight leading-none">
+          <span className="block text-primary font-body text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             Innovation<span className="font-light">/</span>Campus
           </span>
           <span className="block text-primary font-body text-sm md:text-base lg:text-lg font-light uppercase tracking-[0.45em] mt-2 md:mt-3">
@@ -102,7 +102,7 @@ export default function MainHero() {
 
         {/* Tagline */}
         <p
-          className={`font-display italic text-lg md:text-xl lg:text-2xl font-light text-white/90 mb-4 leading-snug transition-all duration-1000 delay-600 ${
+          className={`font-display italic text-lg md:text-xl lg:text-2xl font-light text-white mb-4 leading-snug drop-shadow-[0_1px_4px_rgba(0,0,0,0.4)] transition-all duration-1000 delay-600 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
