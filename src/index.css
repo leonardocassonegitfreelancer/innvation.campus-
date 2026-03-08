@@ -138,7 +138,7 @@
   }
 
   .stone-texture-bg {
-    background: linear-gradient(170deg, hsl(25 30% 22%), hsl(20 35% 26%), hsl(30 25% 24%), hsl(18 20% 20%));
+    background: linear-gradient(170deg, hsl(30 25% 85%), hsl(25 30% 82%), hsl(35 20% 88%), hsl(28 22% 80%));
     background-size: 200% 200%;
     animation: stone-warmth 14s ease-in-out infinite;
     position: relative;

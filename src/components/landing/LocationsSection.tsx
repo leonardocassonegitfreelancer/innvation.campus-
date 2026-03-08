@@ -116,7 +116,7 @@ function LocationCard({
             key={h}
             className={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${
             isHistoric ?
-            "bg-white/15 text-white/90" :
+            "bg-neutral-dark/10 text-neutral-dark/80" :
             "bg-seaside-text/10 text-seaside-text"}`
             }>
             
