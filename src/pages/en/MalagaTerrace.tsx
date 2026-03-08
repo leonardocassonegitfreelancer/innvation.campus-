@@ -313,6 +313,21 @@ export default function MalagaTerrace() {
         </div>
       </section>
 
+      {/* CTA */}
+      <section className="py-16 bg-neutral-dark text-center">
+        <div className="max-w-2xl mx-auto px-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
+            Experience the Terrace
+          </h2>
+          <p className="font-body text-primary-foreground/70 mb-8">
+            Book a visit and discover your seaside workspace in Málaga.
+          </p>
+          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
+            <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Book a Visit</a>
+          </Button>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="py-20 md:py-28 bg-background">
         <div ref={servicesRef} className={`scroll-animate ${servicesVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
@@ -335,21 +350,6 @@ export default function MalagaTerrace() {
               </Link>
             )}
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-neutral-dark text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-            Experience the Terrace
-          </h2>
-          <p className="font-body text-primary-foreground/70 mb-8">
-            Book a visit and discover your seaside workspace in Málaga.
-          </p>
-          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
-            <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Book a Visit</a>
-          </Button>
         </div>
       </section>
 
