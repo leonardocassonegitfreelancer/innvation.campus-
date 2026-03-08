@@ -11,23 +11,23 @@ export default function CoworkingCTA() {
           Ready to Start?
         </h2>
         <p className="font-body text-lg text-primary-foreground/60 mb-10 max-w-xl mx-auto">
-          Book a free tour of our spaces — we'll help you find the right plan.
+          Book a free tour of our spaces, 
+we'll help you find the right plan.
         </p>
 
-        <Button
-          asChild
-          size="lg"
-          className="bg-primary hover:bg-primary/90 text-primary-foreground font-body uppercase tracking-widest text-sm"
-        >
+        <Button asChild
+        size="lg"
+        className="bg-primary hover:bg-primary/90 text-primary-foreground font-body uppercase tracking-widest text-sm">
+          
           <a
             href="https://members.innovationcampus.biz/tours/locations"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
+            
             Book a Tour
           </a>
         </Button>
       </div>
-    </section>
-  );
+    </section>);
+
 }
