@@ -210,7 +210,7 @@ export default function MalagaTerrace() {
       </section>
 
       {/* What's Hot */}
-      <section className="py-24 md:py-36 bg-background">
+      <section className="py-24 md:py-36" style={{ background: "linear-gradient(160deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))" }}>
         <div ref={hotRef} className={`scroll-animate ${hotVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
           <p className="font-body uppercase tracking-[0.4em] text-primary mb-4 text-xl font-semibold text-center">
             Discover
