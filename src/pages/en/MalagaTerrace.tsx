@@ -128,6 +128,9 @@ export default function MalagaTerrace() {
                   Mon–Fri 09:30–18:30
                 </span>
               </div>
+              <Button asChild variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 w-fit">
+                <Link to="/en/find-us#malaga-terrace">Find Us</Link>
+              </Button>
             </div>
             <div className="rounded-2xl overflow-hidden">
               <img
