@@ -141,11 +141,11 @@ export default function MalagaTerrace() {
 
           {/* Highlights */}
           <div className="flex flex-wrap gap-2 mt-12">
-            {highlights.map((h) => (
-              <span key={h} className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/20 bg-card text-sm font-body text-seaside-text">
+            {highlights.map((h) =>
+            <span key={h} className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary/20 bg-card text-sm font-body text-seaside-text">
                 <Star className="w-3.5 h-3.5 text-primary" /> {h}
               </span>
-            ))}
+            )}
 
           </div>
         </div>
@@ -265,7 +265,7 @@ export default function MalagaTerrace() {
                   Your event deserves a rooftop
                 </p>
                 <p className="font-body text-muted-foreground max-w-xl mx-auto">
-                  Book the terrace for your next corporate event. Sunset views, sea breeze, and a venue your guests won't forget.
+                  Book the terrace for your next  event. Sunset views, sea breeze, and a venue your guests won't forget.
                 </p>
                 <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
                   <Link to="/en/host-your-event">Plan Your Event</Link>
