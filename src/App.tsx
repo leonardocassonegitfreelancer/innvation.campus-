@@ -13,6 +13,8 @@ import CoworkingSpace from "./pages/en/CoworkingSpace";
 import Events from "./pages/en/Events";
 import Academy from "./pages/en/Academy";
 import Benefits from "./pages/en/Benefits";
+import Ancora from "./pages/en/Ancora";
+import Olbia from "./pages/en/Olbia";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +34,8 @@ const App = () => (
           <Route path="/en/events" element={<Events />} />
           <Route path="/en/academy" element={<Academy />} />
           <Route path="/en/benefits" element={<Benefits />} />
+          <Route path="/en/ancora" element={<Ancora />} />
+          <Route path="/en/olbia" element={<Olbia />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
