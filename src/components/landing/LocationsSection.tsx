@@ -66,7 +66,7 @@ function LocationCard({
       >
       
       {/* Image */}
-      <div className="relative h-80 md:h-[28rem] overflow-hidden">
+      <div className="relative h-80 md:h-[28rem] overflow-hidden z-10">
         <img
           src={img}
           alt={alt}
