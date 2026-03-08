@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import { MapPin, Clock, Phone, Mail, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import palaceOutside from "@/assets/palace-outside.jpg";
+import palaceOutside from "@/assets/palace-outside-front.jpg";
 
 const locations = [
   {
