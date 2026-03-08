@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="text-white font-body" style={{ backgroundColor: "#1A1A1A" }}>
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_0.8fr_0.8fr] gap-12">
           {/* Column 1 — Logo + Badges */}
           <div>
             <div className="mb-6">
