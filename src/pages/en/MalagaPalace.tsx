@@ -102,7 +102,7 @@ export default function MalagaPalace() {
               <img
                 src={palaceSecondFloor}
                 alt="Málaga Palace second floor with Innovation Campus branding"
-                className="w-full h-72 md:h-[24rem] object-cover"
+                className="w-full h-[50vh] md:h-[24rem] object-cover"
                 loading="lazy"
               />
             </div>
