@@ -14,6 +14,7 @@ import Events from "./pages/en/Events";
 import Academy from "./pages/en/Academy";
 import Benefits from "./pages/en/Benefits";
 import Ancona from "./pages/en/Ancona";
+import Olbia from "./pages/en/Olbia";
 import MalagaPalace from "./pages/en/MalagaPalace";
 import MalagaTerrace from "./pages/en/MalagaTerrace";
 import Blog from "./pages/en/Blog";
