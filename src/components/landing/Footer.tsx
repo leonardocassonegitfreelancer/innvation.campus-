@@ -54,11 +54,10 @@ export default function Footer() {
           <div>
             <h4 className="text-white/40 text-sm font-light italic mb-6">Contact</h4>
             <div className="space-y-3 text-sm text-white/70">
-              <p>Málaga Palace (Historic Center): 
-+34 671 44 12 88</p>
-              <p>Málaga Terrace (Sea Side): +34 676 94 39 78</p>
-              <p>Ancona/Olbia: +39 338 335 5908</p>
-              <p>Management: +34 673 737235</p>
+              <p>Málaga Palace (Historic Center): <a href="tel:+34671441288" className="hover:text-primary transition-colors">+34 671 44 12 88</a></p>
+              <p>Málaga Terrace (Sea Side): <a href="tel:+34676943978" className="hover:text-primary transition-colors">+34 676 94 39 78</a></p>
+              <p>Ancona/Olbia: <a href="tel:+393383355908" className="hover:text-primary transition-colors">+39 338 335 5908</a></p>
+              <p>Management: <a href="tel:+34673737235" className="hover:text-primary transition-colors">+34 673 737235</a></p>
             </div>
           </div>
 
