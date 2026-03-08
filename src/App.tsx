@@ -20,6 +20,7 @@ import MalagaTerrace from "./pages/en/MalagaTerrace";
 import Blog from "./pages/en/Blog";
 import BlogPostPage from "./pages/en/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
