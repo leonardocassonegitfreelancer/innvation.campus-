@@ -78,21 +78,19 @@ export default function FindUs() {
       </section>
 
       {/* Locations grid */}
-      <section
-        className="py-20 md:py-28"
-        style={{
-          background: "linear-gradient(170deg, hsl(35 30% 92%), hsl(30 25% 90%), hsl(40 20% 93%))",
-        }}
-      >
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+      <section className="py-20 md:py-28 bg-neutral-dark relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
           {locations.map((loc) => (
             <div
               key={loc.name}
-              className="rounded-xl border border-border bg-card p-8 flex flex-col gap-4"
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 flex flex-col gap-4"
             >
               <div>
-                <h2 className="font-display text-2xl font-bold text-foreground">{loc.name}</h2>
-                <p className="font-body text-sm text-muted-foreground">{loc.subtitle}</p>
+                <h2 className="font-display text-2xl font-bold text-white">{loc.name}</h2>
+                <p className="font-body text-sm text-white/50">{loc.subtitle}</p>
               </div>
 
               <div className="flex items-start gap-3">
@@ -101,7 +99,7 @@ export default function FindUs() {
                   href={loc.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-body text-sm text-foreground/80 hover:text-primary transition-colors underline-offset-2 hover:underline"
+                  className="font-body text-sm text-white/70 hover:text-primary transition-colors underline-offset-2 hover:underline"
                 >
                   {loc.address}
                 </a>
@@ -109,25 +107,25 @@ export default function FindUs() {
 
               <div className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                <span className="font-body text-sm text-foreground/70">{loc.hours}</span>
+                <span className="font-body text-sm text-white/60">{loc.hours}</span>
               </div>
 
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                <a href={`tel:${loc.phone.replace(/\s/g, "")}`} className="font-body text-sm text-foreground/80 hover:text-primary transition-colors">
+                <a href={`tel:${loc.phone.replace(/\s/g, "")}`} className="font-body text-sm text-white/70 hover:text-primary transition-colors">
                   {loc.phone}
                 </a>
               </div>
 
               <div className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                <a href={`mailto:${loc.email}`} className="font-body text-sm text-foreground/80 hover:text-primary transition-colors">
+                <a href={`mailto:${loc.email}`} className="font-body text-sm text-white/70 hover:text-primary transition-colors">
                   {loc.email}
                 </a>
               </div>
 
               <Link to={loc.link} className="mt-auto pt-4">
-                <Button variant="outline" className="w-full font-body text-sm uppercase tracking-widest">
+                <Button variant="outline" className="w-full font-body text-sm uppercase tracking-widest border-white/20 text-white hover:bg-white/10 hover:text-white">
                   View Location
                 </Button>
               </Link>
