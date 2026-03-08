@@ -81,6 +81,17 @@ export default function FindUs() {
           <p className="font-body text-primary-foreground/70 mt-3 max-w-xl">
             Addresses, hours, and directions for every Innovation Campus location.
           </p>
+          <div className="flex flex-wrap gap-3 mt-6">
+            {locations.map((loc) => (
+              <a
+                key={loc.id}
+                href={`#${loc.id}`}
+                className="font-body text-sm px-4 py-2 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-primary hover:bg-primary/10 transition-all"
+              >
+                {loc.name}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
