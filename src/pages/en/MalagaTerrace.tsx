@@ -3,11 +3,14 @@ import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Clock, Star, Users, Building2, Sun, Wifi } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, Star, Users, Building2, Sun, Wifi, Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useRef, useState } from "react";
 import terraceBar from "@/assets/terrace-bar.jpg";
 import terraceEvents from "@/assets/terrace-events.jpg";
 import terraceHero from "@/assets/terrace-hero.jpg";
+import terraceEntrance from "@/assets/terrace-entrance.jpg";
+import terraceCommunity from "@/assets/terrace-community.jpg";
 import seasideInt from "@/assets/seaside-interior.jpg";
 import serviceCoworking from "@/assets/service-coworking.jpg";
 import serviceMeeting from "@/assets/service-meeting.jpg";
@@ -15,32 +18,56 @@ import serviceTerrace from "@/assets/service-terrace.jpg";
 import serviceCommunity from "@/assets/service-community.jpg";
 
 const highlights = [
-"Panoramic rooftop terrace",
-"Ocean-view desks",
-"Open-plan creative zone",
-"Beachfront location",
-"Sunset networking events",
-"High-speed fiber WiFi"];
-
+  "Panoramic rooftop terrace",
+  "Ocean-view desks",
+  "Open-plan creative zone",
+  "Beachfront location",
+  "Sunset networking events",
+  "High-speed fiber WiFi",
+];
 
 const services = [
-{ img: serviceCoworking, label: "Coworking Spaces", icon: Users },
-{ img: serviceMeeting, label: "Meeting Rooms", icon: Building2 },
-{ img: serviceTerrace, label: "Private Terrace", icon: Sun },
-{ img: serviceCommunity, label: "Community Events", icon: Wifi }];
+  { img: serviceCoworking, label: "Coworking Spaces", icon: Users },
+  { img: serviceMeeting, label: "Meeting Rooms", icon: Building2 },
+  { img: serviceTerrace, label: "Private Terrace", icon: Sun },
+  { img: serviceCommunity, label: "Community Events", icon: Wifi },
+];
 
+const galleryTop = [
+  { src: terraceEntrance, alt: "Málaga Terrace entrance and reception" },
+  { src: terraceBar, alt: "Málaga Terrace bar area" },
+  { src: seasideInt, alt: "Málaga Terrace interior workspace" },
+  { src: terraceCommunity, alt: "Málaga Terrace community event" },
+];
+const galleryBottom = [
+  { src: terraceEvents, alt: "Málaga Terrace rooftop event" },
+  { src: serviceCoworking, alt: "Coworking space at Málaga Terrace" },
+  { src: serviceMeeting, alt: "Meeting room at Málaga Terrace" },
+  { src: serviceTerrace, alt: "Private terrace at Málaga Terrace" },
+];
 
 export default function MalagaTerrace() {
   const { ref: aboutRef, isVisible: aboutVis } = useScrollAnimation();
+  const { ref: galleryRef, isVisible: galleryVis } = useScrollAnimation();
   const { ref: servicesRef, isVisible: servicesVis } = useScrollAnimation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
 
   return (
     <main className="overflow-x-hidden">
       <SEOHead
         title="Málaga Terrace"
         description="Seaside coworking with panoramic rooftop terrace in Málaga. Ocean-view desks, creative open-plan spaces, and beachfront networking events."
-        path="/en/malaga-terrace" />
-      
+        path="/en/malaga-terrace"
+      />
+
       <Navbar />
 
       {/* Hero */}
@@ -70,9 +97,9 @@ export default function MalagaTerrace() {
       <section
         className="py-20 md:py-28"
         style={{
-          background: "linear-gradient(160deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))"
-        }}>
-        
+          background: "linear-gradient(160deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))",
+        }}
+      >
         <div ref={aboutRef} className={`scroll-animate ${aboutVis ? "visible" : ""} max-w-6xl mx-auto px-6 relative z-10`}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -96,27 +123,86 @@ export default function MalagaTerrace() {
               <div className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                 <span className="font-body text-sm text-seaside-text/80">
-                  ​Mon–Fri 9.30–18.30 · 24/7 
+                  Mon–Fri 09:30–18:30
                 </span>
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden">
               <img
-
                 alt="Innovation Campus Terrace bar"
                 className="w-full h-80 md:h-[24rem] object-cover"
-                loading="lazy" src="/lovable-uploads/d9d2b368-e5c7-40e9-af7b-7e21ef4e7e61.png" />
-              
+                loading="lazy"
+                src="/lovable-uploads/d9d2b368-e5c7-40e9-af7b-7e21ef4e7e61.png"
+              />
             </div>
           </div>
 
           {/* Highlights */}
           <div className="flex flex-wrap gap-2 mt-12">
-            {highlights.map((h) => {}
+            {highlights.map((h) => (
+              <span
+                key={h}
+                className="inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full bg-seaside-text/10 text-seaside-text"
+              >
+                <Star className="w-3 h-3 text-primary" />
+                {h}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* Gallery + Video */}
+      <section className="py-20 md:py-28 bg-background">
+        <div ref={galleryRef} className={`scroll-animate ${galleryVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
+          <p className="font-body uppercase tracking-[0.4em] text-primary mb-4 text-xl font-semibold text-center">
+            Explore
+          </p>
+          <h2 className="font-display md:text-5xl text-foreground text-5xl font-semibold text-center mb-12 md:mb-16">
+            Inside the Terrace
+          </h2>
 
+          {/* Photo Grid Top */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
+            {galleryTop.map((img) => (
+              <div key={img.alt} className="rounded-xl overflow-hidden group">
+                <img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              </div>
+            ))}
+          </div>
 
-            )}
+          {/* Video */}
+          <div className="flex justify-center mb-6">
+            <div
+              className="relative w-full max-w-sm aspect-[9/16] md:max-w-5xl md:aspect-video bg-neutral-dark rounded-xl overflow-hidden cursor-pointer group"
+              onClick={handlePlayVideo}
+            >
+              <video
+                ref={videoRef}
+                src="/videos/malaga-terrace.mp4"
+                className="w-full h-full object-cover md:object-contain"
+                controls={isPlaying}
+                playsInline
+                preload="metadata"
+                onEnded={() => setIsPlaying(false)}
+              />
+              {!isPlaying && (
+                <div className="absolute inset-0 bg-neutral-dark/30 flex items-center justify-center transition-opacity group-hover:bg-neutral-dark/40">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 flex items-center justify-center transition-transform group-hover:scale-110">
+                    <Play className="w-7 h-7 md:w-9 md:h-9 text-primary-foreground ml-1" />
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Photo Grid Bottom */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {galleryBottom.map((img) => (
+              <div key={img.alt} className="rounded-xl overflow-hidden group">
+                <img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -131,8 +217,8 @@ export default function MalagaTerrace() {
             Services
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((s) =>
-            <div key={s.label} className="rounded-xl overflow-hidden bg-card border border-border group">
+            {services.map((s) => (
+              <div key={s.label} className="rounded-xl overflow-hidden bg-card border border-border group">
                 <div className="h-44 overflow-hidden">
                   <img src={s.img} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
@@ -141,7 +227,7 @@ export default function MalagaTerrace() {
                   <span className="font-body text-sm font-medium text-foreground">{s.label}</span>
                 </div>
               </div>
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -162,6 +248,6 @@ export default function MalagaTerrace() {
       </section>
 
       <Footer />
-    </main>);
-
+    </main>
+  );
 }
