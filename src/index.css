@@ -258,7 +258,6 @@
     50% { transform: translateX(-2%) translateY(2px); }
     75% { transform: translateX(4%) translateY(-2px); }
   }
-  }
 
   @keyframes kenburns {
     0% { transform: scale(1); }
