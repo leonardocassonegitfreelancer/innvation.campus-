@@ -33,7 +33,10 @@ const teamSections = [
     name: "For Developers",
     icon: <Code className="w-5 h-5 text-primary" />,
     instructions: [
-      "Developer guidelines and technical notes.",
+      "Note tecniche sul progetto.",
+      "— Il sito è stato realizzato interamente con Lovable SPA (Single Page Application).",
+      "— Tutte le risorse sono pubblicate su GitHub in una repository privata.",
+      "— Nessun accesso backend è stato eseguito.",
       "— All pages follow the ServicePageLayout pattern.",
       "— Images are stored in src/assets/.",
       "— Routes are defined in src/App.tsx.",
