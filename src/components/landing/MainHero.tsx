@@ -1,38 +1,65 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
+
+import palaceEntrance from "@/assets/palace-entrance.jpg";
+import historicInterior from "@/assets/historic-interior.jpg";
+import palaceCoworking from "@/assets/palace-coworking.jpg";
+import terraceCommunity from "@/assets/terrace-community.jpg";
+import palaceSkylight from "@/assets/palace-skylight.jpg";
+import seasideInterior from "@/assets/seaside-interior.jpg";
+import palaceCourtyard from "@/assets/palace-courtyard.jpg";
+
+const slides = [
+  palaceEntrance,
+  historicInterior,
+  palaceCoworking,
+  terraceCommunity,
+  palaceSkylight,
+  seasideInterior,
+  palaceCourtyard,
+];
 
 export default function MainHero() {
   const [loaded, setLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 200);
     return () => clearTimeout(t);
   }, []);
 
+  // Auto-advance every 5s
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.5;
-    }
+    const interval = setInterval(() => {
+      setDirection(1);
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
+
+  const goTo = useCallback((index: number) => {
+    setDirection(index > current ? 1 : -1);
+    setCurrent(index);
+  }, [current]);
 
   return (
     <section className="relative min-h-screen bg-[hsl(var(--neutral-dark))] overflow-hidden">
-      {/* Video background */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2s] ${
-          loaded ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <source src="/videos/hero-intro.mp4" type="video/mp4" />
-      </video>
+      {/* Slideshow images */}
+      {slides.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={`Innovation Campus space ${i + 1}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1.8s] ease-in-out ${
+            i === current
+              ? "opacity-100 scale-100"
+              : "opacity-0 scale-105"
+          }`}
+        />
+      ))}
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[hsl(var(--neutral-dark))]/70" />
+      <div className="absolute inset-0 bg-[hsl(var(--neutral-dark))]/65" />
 
       {/* Content centered */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
@@ -102,6 +129,26 @@ export default function MainHero() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
           </svg>
         </a>
+      </div>
+
+      {/* Slide indicators */}
+      <div
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2 transition-all duration-1000 delay-1000 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            className={`h-[2px] rounded-full transition-all duration-500 ${
+              i === current
+                ? "w-8 bg-primary"
+                : "w-4 bg-white/30 hover:bg-white/50"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
       </div>
     </section>
   );
