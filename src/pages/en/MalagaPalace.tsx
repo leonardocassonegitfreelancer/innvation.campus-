@@ -98,11 +98,11 @@ export default function MalagaPalace() {
                 </span>
               </div>
             </div>
-            <div className="rounded-none md:rounded-2xl overflow-hidden -mx-6 md:mx-0">
+            <div className="rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src={palaceSecondFloor}
                 alt="Málaga Palace second floor with Innovation Campus branding"
-                className="w-full h-[70vh] md:h-[24rem] object-cover"
+                className="w-full h-[60vh] md:h-[24rem] object-cover"
                 loading="lazy"
               />
             </div>
