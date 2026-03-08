@@ -44,19 +44,19 @@ export default function MalagaTerrace() {
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
         <img src={terraceBar} alt="Innovation Campus Terrace bar" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/70 to-neutral-dark/30" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
-          <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
+          <Link to="/" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-body mb-4 transition-colors drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
-          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-2 font-semibold">
+          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-2 font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
             Malaga TERRACE
           </p>
-          <h1 className="font-body font-light text-4xl md:text-6xl text-primary-foreground">
+          <h1 className="font-body font-light text-4xl md:text-6xl text-primary-foreground drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
             Seaside
           </h1>
-          <p className="font-body text-lg md:text-xl text-primary-foreground/70 mt-3 max-w-2xl">
+          <p className="font-body text-lg md:text-xl text-primary-foreground/90 mt-3 max-w-2xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
             Glass, light, and sea. Creative energy, collaboration, and the freedom that comes from working with the horizon in view.
           </p>
         </div>
