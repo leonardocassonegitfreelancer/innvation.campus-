@@ -90,7 +90,15 @@ export default function MalagaPalace() {
 
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
-        <img src={palaceEntrance} alt="Málaga Palace historic entrance with ornate tiles and marble columns" className="absolute inset-0 w-full h-full object-cover" />
+        {heroImages.map((src, idx) => (
+          <img
+            key={idx}
+            src={src}
+            alt={`Málaga Palace view ${idx + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === currentHeroImage ? "opacity-100" : "opacity-0"}`}
+            loading={idx === 0 ? "eager" : "lazy"}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/50 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
           <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
