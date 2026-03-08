@@ -9,7 +9,7 @@ const locations = [
   tagline: "Malaga palace",
   img: historicExt,
   alt: "Historic Málaga old town street with golden light",
-  address: "Calle Granada 42, Centro Histórico, Málaga",
+  address: "Calle Álamos 7 29012, Málaga",
   hours: "Mon–Fri 8:00–22:00 · Sat 9:00–18:00",
   highlights: ["Stone-walled meeting rooms", "Library corner", "Courtyard garden", "Steps from Picasso Museum"],
   desc: "Nestled in a restored 18th-century building, this space wraps you in centuries of history. Perfect for deep work, strategic thinking, and conversations that matter.",
