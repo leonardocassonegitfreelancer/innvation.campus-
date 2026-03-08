@@ -40,7 +40,7 @@ export default function MainHero() {
   }, [current]);
 
   return (
-    <section className="relative min-h-screen bg-[hsl(var(--neutral-dark))] overflow-hidden">
+    <section className="relative h-screen max-h-screen bg-[hsl(var(--neutral-dark))] overflow-hidden">
       {/* Slideshow images */}
       {slides.map((src, i) => (
         <img
@@ -63,10 +63,10 @@ export default function MainHero() {
       ))}
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[hsl(var(--neutral-dark))]/75" />
+      <div className="absolute inset-0 bg-[hsl(var(--neutral-dark))]/80 md:bg-[hsl(var(--neutral-dark))]/75" />
 
       {/* Content centered */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
+      <div className="relative z-10 h-screen flex flex-col items-center justify-center text-center px-6">
         {/* Locations */}
         <p
           className={`font-body text-[10px] md:text-[11px] uppercase tracking-[0.5em] text-white/60 mb-8 md:mb-10 transition-all duration-1000 delay-200 ${
