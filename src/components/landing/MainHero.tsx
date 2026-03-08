@@ -1,20 +1,16 @@
 import { useState, useEffect, useCallback } from "react";
 
 import palaceEntrance from "@/assets/palace-entrance.jpg";
-import historicInterior from "@/assets/historic-interior.jpg";
 import palaceCoworking from "@/assets/palace-coworking.jpg";
 import terraceCommunity from "@/assets/terrace-community.jpg";
 import palaceSkylight from "@/assets/palace-skylight.jpg";
-import seasideInterior from "@/assets/seaside-interior.jpg";
 import palaceCourtyard from "@/assets/palace-courtyard.jpg";
 
 const slides = [
   palaceEntrance,
-  historicInterior,
   palaceCoworking,
   terraceCommunity,
   palaceSkylight,
-  seasideInterior,
   palaceCourtyard,
 ];
 
