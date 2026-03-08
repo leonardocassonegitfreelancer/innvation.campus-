@@ -4,7 +4,8 @@ import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Calendar } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Calendar, Briefcase, User, Sparkles, Palette, HeartHandshake, PartyPopper } from "lucide-react";
+import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import palaceEntrance from "@/assets/palace-entrance.jpg";
 import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
@@ -31,7 +32,9 @@ const services = [
 
 export default function MalagaPalace() {
   const { ref: aboutRef, isVisible: aboutVis } = useScrollAnimation();
+  const { ref: hotRef, isVisible: hotVis } = useScrollAnimation();
   const { ref: servicesRef, isVisible: servicesVis } = useScrollAnimation();
+  const [hotTab, setHotTab] = useState<"business" | "individual">("business");
 
   return (
     <main className="overflow-x-hidden">
@@ -114,7 +117,112 @@ export default function MalagaPalace() {
         </div>
       </section>
 
-      {/* Services */}
+      {/* What's Hot */}
+      <section className="py-20 md:py-28 bg-neutral-dark">
+        <div ref={hotRef} className={`scroll-animate ${hotVis ? "visible" : ""} max-w-5xl mx-auto px-6`}>
+          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold text-center">
+            Discover
+          </p>
+          <h2 className="font-display italic text-3xl md:text-4xl font-bold text-primary-foreground text-center mb-10">
+            What's Hot in Málaga Palace
+          </h2>
+
+          {/* Tab Buttons */}
+          <div className="flex justify-center gap-4 mb-12">
+            <button
+              onClick={() => setHotTab("business")}
+              className={`font-body text-sm uppercase tracking-widest px-6 py-3 rounded-lg border transition-all duration-300 ${
+                hotTab === "business"
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-transparent text-primary-foreground/60 border-primary-foreground/20 hover:border-primary-foreground/40"
+              }`}
+            >
+              <Briefcase className="w-4 h-4 inline mr-2" />
+              For Businesses
+            </button>
+            <button
+              onClick={() => setHotTab("individual")}
+              className={`font-body text-sm uppercase tracking-widest px-6 py-3 rounded-lg border transition-all duration-300 ${
+                hotTab === "individual"
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-transparent text-primary-foreground/60 border-primary-foreground/20 hover:border-primary-foreground/40"
+              }`}
+            >
+              <User className="w-4 h-4 inline mr-2" />
+              For Individuals
+            </button>
+          </div>
+
+          {/* Business Content */}
+          {hotTab === "business" && (
+            <div className="animate-fade-in">
+              <h3 className="font-display italic text-2xl md:text-3xl font-bold text-primary-foreground mb-6">
+                Host Your Event Here
+              </h3>
+              <div className="grid sm:grid-cols-3 gap-6 mb-10">
+                {[
+                  { icon: Briefcase, title: "Business Events", desc: "Product launches, team offsites, and corporate gatherings in stone-walled rooms that impress." },
+                  { icon: Palette, title: "Cultural Events", desc: "Art exhibitions, book readings, and creative showcases in a setting that breathes inspiration." },
+                  { icon: HeartHandshake, title: "Community Events", desc: "Networking nights, workshops, and meetups that connect the brightest minds in Málaga." },
+                ].map((item) => (
+                  <div key={item.title} className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-xl p-6 hover:border-primary/40 transition-colors">
+                    <item.icon className="w-8 h-8 text-primary mb-4" />
+                    <h4 className="font-display text-lg font-bold text-primary-foreground mb-2">{item.title}</h4>
+                    <p className="font-body text-sm text-primary-foreground/60 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-primary/10 border border-primary/20 rounded-xl p-8 text-center">
+                <PartyPopper className="w-8 h-8 text-primary mx-auto mb-4" />
+                <p className="font-display italic text-xl md:text-2xl font-bold text-primary-foreground mb-3">
+                  Make this event unforgettable
+                </p>
+                <p className="font-body text-primary-foreground/70 max-w-xl mx-auto">
+                  Select one of our private rooms and let your guests get lost in the heart of Málaga afterwards. They will love it.
+                </p>
+                <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
+                  <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Plan Your Event</a>
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* Individual Content */}
+          {hotTab === "individual" && (
+            <div className="animate-fade-in">
+              <h3 className="font-display italic text-2xl md:text-3xl font-bold text-primary-foreground mb-6">
+                Become Part of Something Bigger
+              </h3>
+              <div className="grid sm:grid-cols-3 gap-6 mb-10">
+                {[
+                  { icon: Sparkles, title: "Work in a Living Masterpiece", desc: "Your daily office is an 18th-century palace. Stone arches, tiled courtyards, and natural light that fuels creativity." },
+                  { icon: Users, title: "Fast-Paced Community", desc: "Surround yourself with founders, freelancers, and creatives who move fast and think big. Your next collaboration starts at the coffee bar." },
+                  { icon: Star, title: "Art, History & Hustle", desc: "Steps from the Picasso Museum, immersed in Málaga's cultural heartbeat. Inspiration isn't something you search for — it finds you here." },
+                ].map((item) => (
+                  <div key={item.title} className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-xl p-6 hover:border-primary/40 transition-colors">
+                    <item.icon className="w-8 h-8 text-primary mb-4" />
+                    <h4 className="font-display text-lg font-bold text-primary-foreground mb-2">{item.title}</h4>
+                    <p className="font-body text-sm text-primary-foreground/60 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-primary/10 border border-primary/20 rounded-xl p-8 text-center">
+                <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
+                <p className="font-display italic text-xl md:text-2xl font-bold text-primary-foreground mb-3">
+                  Your palace awaits
+                </p>
+                <p className="font-body text-primary-foreground/70 max-w-xl mx-auto">
+                  Join a community where ambition meets beauty. Flexible plans, no long-term commitments — just show up and create.
+                </p>
+                <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
+                  <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Start Your Journey</a>
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
       <section className="py-20 md:py-28 bg-background">
         <div ref={servicesRef} className={`scroll-animate ${servicesVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold text-center">
