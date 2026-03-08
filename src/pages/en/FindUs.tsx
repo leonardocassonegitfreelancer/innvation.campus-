@@ -19,6 +19,7 @@ const locations = [
     mapUrl: "https://maps.google.com/?q=Calle+Álamos+7+29012+Málaga",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4215!3d36.7213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+%C3%81lamos+7%2C+29012+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1",
     image: palaceOutside,
+    imagePosition: "bottom",
     link: "/en/malaga-palace",
   },
   {
@@ -32,6 +33,7 @@ const locations = [
     mapUrl: "https://maps.google.com/?q=Calle+Puerto+14+29016+Málaga",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4185!3d36.7143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+Puerto+14%2C+29016+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1",
     image: terraceEntrance,
+    imagePosition: "top",
     link: "/en/malaga-terrace",
   },
   {
@@ -114,7 +116,7 @@ export default function FindUs() {
             >
               {loc.image != null && (
                 <div className="overflow-hidden bg-white/5 md:h-[340px]">
-                  <img src={loc.image as string} alt={loc.name} className="w-full h-full object-cover md:object-cover" loading="lazy" />
+                  <img src={loc.image as string} alt={loc.name} className={`w-full h-full object-cover ${loc.imagePosition === "bottom" ? "md:object-bottom" : "md:object-top"}`} loading="lazy" />
                 </div>
               )}
               <div className="p-8 flex flex-col gap-4 flex-1">
