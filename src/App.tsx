@@ -14,6 +14,7 @@ import Events from "./pages/en/Events";
 import Academy from "./pages/en/Academy";
 import Benefits from "./pages/en/Benefits";
 import Ancona from "./pages/en/Ancona";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/en/conference-rooms" element={<ConferenceRoom />} />
