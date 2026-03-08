@@ -102,7 +102,7 @@ export default function MainHero() {
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          We turn workspaces<br className="hidden md:block" /> into experiences
+          We turn workspaces into experiences
         </p>
 
         {/* Services */}
