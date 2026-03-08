@@ -1,12 +1,20 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
 import serviceCoworking from "@/assets/service-coworking.jpg";
+import SEOHead from "@/components/SEOHead";
 
 export default function CoworkingSpace() {
   return (
-    <ServicePageLayout
-      title="Coworking Space"
-      subtitle="Flexible plans and pricing for individuals and small teams."
-      image={serviceCoworking}
-    />
+    <>
+      <SEOHead
+        title="Coworking Space"
+        description="Flexible coworking plans and pricing for individuals and small teams in Málaga."
+        path="/en/coworking-space"
+      />
+      <ServicePageLayout
+        title="Coworking Space"
+        subtitle="Flexible plans and pricing for individuals and small teams."
+        image={serviceCoworking}
+      />
+    </>
   );
 }
