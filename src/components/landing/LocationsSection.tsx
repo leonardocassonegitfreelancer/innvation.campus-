@@ -63,11 +63,10 @@ function LocationCard({
     <div
       ref={ref}
       className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group`}
-      style={{
-        background: isHistoric ?
-        "linear-gradient(180deg, hsl(var(--historic-bg)), hsl(var(--historic-bg-warm)))" :
-        "linear-gradient(180deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))"
-      }}>
+      style={isHistoric ? {
+        background: "linear-gradient(180deg, hsl(var(--historic-bg)), hsl(var(--historic-bg-warm)))"
+      } : undefined}
+      >
       
       {/* Image */}
       <div className="relative h-80 md:h-[28rem] overflow-hidden">
