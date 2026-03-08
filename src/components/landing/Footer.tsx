@@ -87,13 +87,15 @@ export default function Footer() {
           {/* Social icons — left */}
           <div className="flex gap-5">
             {[
-              { Icon: Facebook, label: "Facebook" },
-              { Icon: Linkedin, label: "LinkedIn" },
-              { Icon: Instagram, label: "Instagram" },
-            ].map(({ Icon, label }) => (
+              { Icon: Facebook, label: "Facebook", href: "#" },
+              { Icon: Linkedin, label: "LinkedIn", href: "#" },
+              { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/innovation_campus/" },
+            ].map(({ Icon, label, href }) => (
               <a
                 key={label}
-                href="#"
+                href={href}
+                target={href !== "#" ? "_blank" : undefined}
+                rel={href !== "#" ? "noopener noreferrer" : undefined}
                 aria-label={label}
                 className="text-white/60 hover:text-primary transition-colors"
               >
