@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Star, Users, Building2, Sun, Wifi } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import terraceBar from "@/assets/terrace-bar.jpg";
+import terraceEvents from "@/assets/terrace-events.jpg";
 import seasideInt from "@/assets/seaside-interior.jpg";
 import serviceCoworking from "@/assets/service-coworking.jpg";
 import serviceMeeting from "@/assets/service-meeting.jpg";
