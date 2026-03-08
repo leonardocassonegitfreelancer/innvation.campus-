@@ -34,7 +34,7 @@ const locations = [
     address: "Via Montebello 71, 60122 Ancona AN, Italia",
     hours: "Mon–Fri 09:30–18:30",
     phone: "+39 338 335 5908",
-    email: "ancona@innovationcampus.biz",
+    email: "michela@i-campus.biz",
     mapUrl: "https://maps.google.com/?q=Via+Montebello+71+60122+Ancona+AN+Italia",
     link: "/en/ancona",
   },
