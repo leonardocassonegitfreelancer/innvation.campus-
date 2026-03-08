@@ -64,21 +64,18 @@ export default function MalagaPalace() {
 
       {/* About */}
       <section
-        className="py-20 md:py-28"
-        style={{
-          background: "linear-gradient(180deg, hsl(var(--historic-bg)), hsl(var(--historic-bg-warm)))",
-        }}
+        className="py-20 md:py-28 stone-texture-bg"
       >
-        <div ref={aboutRef} className={`scroll-animate ${aboutVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
+        <div ref={aboutRef} className={`scroll-animate ${aboutVis ? "visible" : ""} max-w-6xl mx-auto px-6 relative z-10`}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
                 About this location
               </p>
-              <h2 className="font-display italic text-3xl md:text-4xl font-bold text-historic-text mb-6">
+              <h2 className="font-display italic text-3xl md:text-4xl font-bold text-foreground mb-6">
                 A palace reborn for the modern mind
               </h2>
-              <p className="font-body text-historic-muted leading-relaxed mb-6">
+              <p className="font-body text-muted-foreground leading-relaxed mb-6">
                 Nestled in a restored 18th-century building, this space wraps you in centuries of history.
                 Stone arches frame your morning coffee; courtyard light filters through your afternoon focus session.
                 Every detail — from the hand-laid tiles to the iron balustrades — reminds you that great work
@@ -86,13 +83,13 @@ export default function MalagaPalace() {
               </p>
               <div className="flex items-start gap-3 mb-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                <span className="font-body text-sm text-historic-text/80">
+                <span className="font-body text-sm text-foreground/80">
                   Calle Álamos 7 29012, Málaga
                 </span>
               </div>
               <div className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                <span className="font-body text-sm text-historic-text/80">
+                <span className="font-body text-sm text-foreground/80">
                   Mon–Fri 8:00–22:00 · Sat 9:00–18:00
                 </span>
               </div>
@@ -112,7 +109,7 @@ export default function MalagaPalace() {
             {highlights.map((h) => (
               <span
                 key={h}
-                className="inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full bg-historic-text/10 text-historic-text/80"
+                className="inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full bg-foreground/10 text-foreground/80"
               >
                 <Star className="w-3 h-3 text-primary" />
                 {h}
