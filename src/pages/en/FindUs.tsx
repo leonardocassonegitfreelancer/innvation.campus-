@@ -10,7 +10,7 @@ const locations = [
     name: "Málaga Palace",
     subtitle: "Historic Center",
     address: "Calle Álamos 7, 29012 Málaga",
-    hours: "Mon–Fri 8:00–22:00 · Sat 9:00–18:00",
+    hours: "Mon–Fri 09:30–18:30",
     phone: "+34 671 44 12 88",
     email: "info@innovationcampus.biz",
     mapUrl: "https://maps.google.com/?q=Calle+Álamos+7+29012+Málaga",
