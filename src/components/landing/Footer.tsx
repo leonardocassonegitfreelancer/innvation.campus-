@@ -87,7 +87,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Social icons — left */}
           <div className="flex gap-5">
-            {[{ Icon: Facebook, label: "Facebook", href: "#" },
+            {[{ Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/icampuscoworking" },
             { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/innovationcampus-coworking/" },
             { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/innovation_campus/" }].
             map(({ Icon, label, href }) =>
