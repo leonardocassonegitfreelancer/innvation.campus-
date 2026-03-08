@@ -168,6 +168,30 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-neutral-dark/98 backdrop-blur-lg border-t border-white/10">
           <div className="px-6 py-6 flex flex-col gap-2">
+            {/* Locations */}
+            <button
+              onClick={() => setMobileExpanded(mobileExpanded === "locations" ? null : "locations")}
+              className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2"
+            >
+              Locations
+              <ChevronDown size={16} className={`transition-transform ${mobileExpanded === "locations" ? "rotate-180" : ""}`} />
+            </button>
+            {mobileExpanded === "locations" && (
+              <div className="pl-4 flex flex-col gap-1 mb-2">
+                {locationLinks.map((link) =>
+                  link.href.startsWith("/") && !link.href.includes("#") ? (
+                    <Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">
+                      {link.label}
+                    </a>
+                  )
+                )}
+              </div>
+            )}
+
             {/* For Businesses */}
             <button
               onClick={() => setMobileExpanded(mobileExpanded === "business" ? null : "business")}
