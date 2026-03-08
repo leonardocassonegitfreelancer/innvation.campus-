@@ -126,11 +126,26 @@ export default function FindUs() {
                 </a>
               </div>
 
-              <Link to={loc.link} className="mt-auto pt-4">
-                <Button variant="outline" className="w-full font-body text-sm uppercase tracking-widest border-white/20 text-white hover:bg-white/10 hover:text-white">
-                  View Location
-                </Button>
-              </Link>
+              {loc.mapEmbed ? (
+                <div className="mt-auto pt-4 rounded-lg overflow-hidden">
+                  <iframe
+                    src={loc.mapEmbed}
+                    width="100%"
+                    height="200"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={`Map – ${loc.name}`}
+                  />
+                </div>
+              ) : (
+                <Link to={loc.link} className="mt-auto pt-4">
+                  <Button variant="outline" className="w-full font-body text-sm uppercase tracking-widest border-white/20 text-white hover:bg-white/10 hover:text-white">
+                    View Location
+                  </Button>
+                </Link>
+              )}
             </div>
           ))}
         </div>
