@@ -66,7 +66,7 @@ export default function MalagaTerrace() {
       <section
         className="py-20 md:py-28 sea-wave-bg"
       >
-        <div ref={aboutRef} className={`scroll-animate ${aboutVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
+        <div ref={aboutRef} className={`scroll-animate ${aboutVis ? "visible" : ""} max-w-6xl mx-auto px-6 relative z-10`}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
