@@ -100,8 +100,8 @@ export default function MalagaPalace() {
             </div>
             <div className="rounded-2xl overflow-hidden">
               <img
-                src={historicInt}
-                alt="Málaga Palace interior with stone walls"
+                src={palaceSecondFloor}
+                alt="Málaga Palace second floor with Innovation Campus branding"
                 className="w-full h-80 md:h-[24rem] object-cover"
                 loading="lazy"
               />
