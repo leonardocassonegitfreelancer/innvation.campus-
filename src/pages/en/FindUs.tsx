@@ -31,6 +31,7 @@ const locations = [
     link: "/en/malaga-terrace",
   },
   {
+    id: "ancona",
     name: "Ancona",
     subtitle: "Italy",
     address: "Via Montebello 71, 60122 Ancona AN, Italia",
