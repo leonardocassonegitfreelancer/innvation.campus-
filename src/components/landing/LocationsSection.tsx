@@ -116,8 +116,8 @@ function LocationCard({
             key={h}
             className={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${
             isHistoric ?
-            "bg-historic-text/10 text-historic-text/80" :
-            "bg-seaside-text/10 text-seaside-text/80"}`
+            "bg-white/15 text-white/90" :
+            "bg-seaside-text/10 text-seaside-text"}`
             }>
             
               <Star className="w-3 h-3 text-primary" />
