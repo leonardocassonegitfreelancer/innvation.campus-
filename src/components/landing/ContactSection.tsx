@@ -10,12 +10,7 @@ export default function ContactSection() {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const { ref, isVisible } = useScrollAnimation();
 
-  const bgStyle =
-    location === "historic"
-      ? "bg-gradient-to-br from-historic-bg to-historic-bg-warm"
-      : location === "seaside"
-      ? "bg-gradient-to-br from-seaside-bg to-seaside-bg-cool"
-      : "bg-gradient-to-br from-historic-bg via-neutral-dark to-seaside-bg";
+  const bgStyle = "bg-neutral-dark";
 
   const textColor =
     location === "seaside" ? "text-seaside-text" : "text-white";
