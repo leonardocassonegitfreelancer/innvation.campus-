@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function CoworkingCTA() {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section className="py-20 md:py-28 bg-primary">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+      <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} max-w-3xl mx-auto px-6 text-center`}>
         <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">
           Ready to Start?
         </h2>
