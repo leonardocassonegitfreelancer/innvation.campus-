@@ -25,18 +25,17 @@ export default function MainHero() {
             Málaga · Olbia · Ancona
           </p>
 
-          {/* Brand */}
+          {/* Brand — matching logo lockup */}
           <h1
             className={`mb-6 md:mb-8 transition-all duration-1000 delay-400 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="block font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white tracking-tight leading-[0.9]">
-              Innovation
+            <span className="block text-primary font-body text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight leading-none">
+              Innovation<span className="font-light">/</span>Campus
             </span>
-            <span className="block font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.9] mt-1">
-              <span className="text-primary">/</span>
-              <span className="text-white ml-3">Campus</span>
+            <span className="block text-primary font-body text-sm md:text-base lg:text-lg font-light uppercase tracking-[0.45em] mt-2 md:mt-3">
+              Coworking Spaces
             </span>
           </h1>
 
