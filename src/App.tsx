@@ -14,6 +14,7 @@ import Events from "./pages/en/Events";
 import Academy from "./pages/en/Academy";
 import Benefits from "./pages/en/Benefits";
 import Ancona from "./pages/en/Ancona";
+import Olbia from "./pages/en/Olbia";
 import MalagaPalace from "./pages/en/MalagaPalace";
 import MalagaTerrace from "./pages/en/MalagaTerrace";
 import Blog from "./pages/en/Blog";
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/en/academy" element={<Academy />} />
           <Route path="/en/benefits" element={<Benefits />} />
           <Route path="/en/ancona" element={<Ancona />} />
+          <Route path="/en/olbia" element={<Olbia />} />
           <Route path="/en/malaga-palace" element={<MalagaPalace />} />
           <Route path="/en/malaga-terrace" element={<MalagaTerrace />} />
           <Route path="/blog" element={<Blog />} />
