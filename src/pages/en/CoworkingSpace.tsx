@@ -13,7 +13,7 @@ export default function CoworkingSpace() {
       />
       <ServicePageLayout
         title="Coworking & Pricing"
-        subtitle="Flexible plans and pricing for individuals and small teams."
+        subtitle="Flexible plans and pricing for individuals"
         image={serviceCoworking}
       >
         <CoworkingPricing />
