@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import claimWhite from "@/assets/claim-white.png";
 
 import palaceEntrance from "@/assets/palace-entrance.jpg";
 import palaceCoworking from "@/assets/palace-coworking.jpg";
