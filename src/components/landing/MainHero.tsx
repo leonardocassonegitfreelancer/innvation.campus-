@@ -20,7 +20,7 @@ export default function MainHero() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover scale-105"
       >
-        <source src="/videos/malaga-palace.mp4" type="video/mp4" />
+        <source src="/videos/hero-coworking.mp4" type="video/mp4" />
       </video>
 
       {/* Cinematic overlays */}
