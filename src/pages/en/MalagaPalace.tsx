@@ -112,7 +112,7 @@ export default function MalagaPalace() {
             {highlights.map((h) => (
               <span
                 key={h}
-                className="inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full bg-historic-text/10 text-historic-text/80"
+                className="inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full bg-foreground/10 text-foreground/80"
               >
                 <Star className="w-3 h-3 text-primary" />
                 {h}
