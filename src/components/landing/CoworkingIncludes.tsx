@@ -4,7 +4,7 @@ import {
   Printer,
   Lock,
   UtensilsCrossed,
-  Monitor,
+  Cctv,
   Wind,
   CalendarHeart,
 } from "lucide-react";
@@ -12,11 +12,11 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const items = [
   { icon: Wifi, label: "High-Speed WiFi" },
-  { icon: Coffee, label: "Coffee & Tea" },
+  { icon: Coffee, label: "Free Coffee/Tea" },
   { icon: Printer, label: "Printing" },
   { icon: Lock, label: "Personal Locker" },
   { icon: UtensilsCrossed, label: "Fully Equipped Kitchen" },
-  { icon: Monitor, label: "External Monitor" },
+  { icon: Cctv, label: "Video surveillance" },
   { icon: Wind, label: "Air Conditioning" },
   { icon: CalendarHeart, label: "Community Events" },
 ];
