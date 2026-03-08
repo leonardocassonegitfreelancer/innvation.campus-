@@ -4,14 +4,14 @@ import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Coffee } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Calendar } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import palaceEntrance from "@/assets/palace-entrance.jpg";
 import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
 import serviceMeeting from "@/assets/service-meeting.jpg";
 import servicePrivate from "@/assets/service-private.jpg";
 import serviceCoworking from "@/assets/service-coworking.jpg";
-import serviceRegistration from "@/assets/service-registration.jpg";
+import serviceCommunity from "@/assets/service-community.jpg";
 
 const highlights = [
   "Stone-walled meeting rooms",
@@ -26,7 +26,7 @@ const services = [
   { img: serviceCoworking, label: "Coworking Spaces", icon: Users, href: "/en/coworking-space" },
   { img: serviceMeeting, label: "Meeting Rooms", icon: Building2, href: "/en/conference-rooms" },
   { img: servicePrivate, label: "Private Offices", icon: BookOpen, href: "/en/private-offices" },
-  { img: serviceRegistration, label: "Business Registration", icon: Coffee, href: "/en/business-registration" },
+  { img: serviceCommunity, label: "Community Events", icon: Calendar, href: "/en/events" },
 ];
 
 export default function MalagaPalace() {
