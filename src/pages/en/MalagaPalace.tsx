@@ -118,12 +118,17 @@ export default function MalagaPalace() {
       </section>
 
       {/* What's Hot */}
-      <section className="py-20 md:py-28 bg-neutral-dark">
+      <section
+        className="py-20 md:py-28"
+        style={{
+          background: "linear-gradient(170deg, hsl(35 30% 92%), hsl(30 25% 90%), hsl(40 20% 93%))",
+        }}
+      >
         <div ref={hotRef} className={`scroll-animate ${hotVis ? "visible" : ""} max-w-5xl mx-auto px-6`}>
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold text-center">
             Discover
           </p>
-          <h2 className="font-display italic text-3xl md:text-4xl font-bold text-primary-foreground text-center mb-10">
+          <h2 className="font-display italic text-3xl md:text-4xl font-bold text-neutral-dark text-center mb-10">
             What's Hot in Málaga Palace
           </h2>
 
@@ -134,7 +139,7 @@ export default function MalagaPalace() {
               className={`font-body text-sm uppercase tracking-widest px-6 py-3 rounded-lg border transition-all duration-300 ${
                 hotTab === "business"
                   ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-transparent text-primary-foreground/60 border-primary-foreground/20 hover:border-primary-foreground/40"
+                  : "bg-transparent text-neutral-dark/60 border-neutral-dark/20 hover:border-neutral-dark/40"
               }`}
             >
               <Briefcase className="w-4 h-4 inline mr-2" />
@@ -145,7 +150,7 @@ export default function MalagaPalace() {
               className={`font-body text-sm uppercase tracking-widest px-6 py-3 rounded-lg border transition-all duration-300 ${
                 hotTab === "individual"
                   ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-transparent text-primary-foreground/60 border-primary-foreground/20 hover:border-primary-foreground/40"
+                  : "bg-transparent text-neutral-dark/60 border-neutral-dark/20 hover:border-neutral-dark/40"
               }`}
             >
               <User className="w-4 h-4 inline mr-2" />
@@ -156,7 +161,7 @@ export default function MalagaPalace() {
           {/* Business Content */}
           {hotTab === "business" && (
             <div className="animate-fade-in">
-              <h3 className="font-display italic text-2xl md:text-3xl font-bold text-primary-foreground mb-6">
+              <h3 className="font-display italic text-2xl md:text-3xl font-bold text-neutral-dark mb-6">
                 Host Your Event Here
               </h3>
               <div className="grid sm:grid-cols-3 gap-6 mb-10">
@@ -165,19 +170,19 @@ export default function MalagaPalace() {
                   { icon: Palette, title: "Cultural Events", desc: "Art exhibitions, book readings, and creative showcases in a setting that breathes inspiration." },
                   { icon: HeartHandshake, title: "Community Events", desc: "Networking nights, workshops, and meetups that connect the brightest minds in Málaga." },
                 ].map((item) => (
-                  <div key={item.title} className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-xl p-6 hover:border-primary/40 transition-colors">
+                  <div key={item.title} className="bg-white/50 border border-neutral-dark/10 rounded-xl p-6 hover:border-primary/40 transition-colors">
                     <item.icon className="w-8 h-8 text-primary mb-4" />
-                    <h4 className="font-display text-lg font-bold text-primary-foreground mb-2">{item.title}</h4>
-                    <p className="font-body text-sm text-primary-foreground/60 leading-relaxed">{item.desc}</p>
+                    <h4 className="font-display text-lg font-bold text-neutral-dark mb-2">{item.title}</h4>
+                    <p className="font-body text-sm text-neutral-dark/60 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
-              <div className="bg-primary/10 border border-primary/20 rounded-xl p-8 text-center">
+              <div className="bg-white/40 border border-primary/20 rounded-xl p-8 text-center">
                 <PartyPopper className="w-8 h-8 text-primary mx-auto mb-4" />
-                <p className="font-display italic text-xl md:text-2xl font-bold text-primary-foreground mb-3">
+                <p className="font-display italic text-xl md:text-2xl font-bold text-neutral-dark mb-3">
                   Make this event unforgettable
                 </p>
-                <p className="font-body text-primary-foreground/70 max-w-xl mx-auto">
+                <p className="font-body text-neutral-dark/70 max-w-xl mx-auto">
                   Select one of our private rooms and let your guests get lost in the heart of Málaga afterwards. They will love it.
                 </p>
                 <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
@@ -190,7 +195,7 @@ export default function MalagaPalace() {
           {/* Individual Content */}
           {hotTab === "individual" && (
             <div className="animate-fade-in">
-              <h3 className="font-display italic text-2xl md:text-3xl font-bold text-primary-foreground mb-6">
+              <h3 className="font-display italic text-2xl md:text-3xl font-bold text-neutral-dark mb-6">
                 Become Part of Something Bigger
               </h3>
               <div className="grid sm:grid-cols-3 gap-6 mb-10">
@@ -199,19 +204,19 @@ export default function MalagaPalace() {
                   { icon: Users, title: "Fast-Paced Community", desc: "Surround yourself with founders, freelancers, and creatives who move fast and think big. Your next collaboration starts at the coffee bar." },
                   { icon: Star, title: "Art, History & Hustle", desc: "Steps from the Picasso Museum, immersed in Málaga's cultural heartbeat. Inspiration isn't something you search for — it finds you here." },
                 ].map((item) => (
-                  <div key={item.title} className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-xl p-6 hover:border-primary/40 transition-colors">
+                  <div key={item.title} className="bg-white/50 border border-neutral-dark/10 rounded-xl p-6 hover:border-primary/40 transition-colors">
                     <item.icon className="w-8 h-8 text-primary mb-4" />
-                    <h4 className="font-display text-lg font-bold text-primary-foreground mb-2">{item.title}</h4>
-                    <p className="font-body text-sm text-primary-foreground/60 leading-relaxed">{item.desc}</p>
+                    <h4 className="font-display text-lg font-bold text-neutral-dark mb-2">{item.title}</h4>
+                    <p className="font-body text-sm text-neutral-dark/60 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
-              <div className="bg-primary/10 border border-primary/20 rounded-xl p-8 text-center">
+              <div className="bg-white/40 border border-primary/20 rounded-xl p-8 text-center">
                 <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
-                <p className="font-display italic text-xl md:text-2xl font-bold text-primary-foreground mb-3">
+                <p className="font-display italic text-xl md:text-2xl font-bold text-neutral-dark mb-3">
                   Your palace awaits
                 </p>
-                <p className="font-body text-primary-foreground/70 max-w-xl mx-auto">
+                <p className="font-body text-neutral-dark/70 max-w-xl mx-auto">
                   Join a community where ambition meets beauty. Flexible plans, no long-term commitments — just show up and create.
                 </p>
                 <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
