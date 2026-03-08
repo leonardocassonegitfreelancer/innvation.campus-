@@ -62,14 +62,11 @@ function LocationCard({
   return (
     <div
       ref={ref}
-      className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group ${!isHistoric ? "sea-wave-bg" : ""}`}
-      style={isHistoric ? {
-        background: "linear-gradient(180deg, hsl(var(--historic-bg)), hsl(var(--historic-bg-warm)))"
-      } : undefined}
+      className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group ${isHistoric ? "stone-texture-bg" : "sea-wave-bg"}`}
       >
       
       {/* Image */}
-      <div className="relative h-80 md:h-[28rem] overflow-hidden">
+      <div className="relative h-80 md:h-[28rem] overflow-hidden z-10">
         <img
           src={img}
           alt={alt}
