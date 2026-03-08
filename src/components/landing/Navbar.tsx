@@ -37,24 +37,28 @@ function DropdownMenu({ label, links, open, onToggle, onClose }: {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!open) return;
     const handler = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) onClose();
     };
-    document.addEventListener("click", handler);
-    return () => document.removeEventListener("click", handler);
-  }, [onClose]);
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [onClose, open]);
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative"
+      onMouseEnter={onToggle}
+      onMouseLeave={onClose}
+    >
       <button
         onClick={onToggle}
-        className="text-white/70 hover:text-white text-sm font-body font-medium tracking-wide transition-colors duration-300 flex items-center gap-1"
+        className="text-white/70 hover:text-white text-sm font-body font-medium tracking-wide transition-colors duration-300 flex items-center gap-1 py-2"
       >
         {label}
         <ChevronDown size={14} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 mt-3 w-56 bg-neutral-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl py-2 z-50">
+        <div className="absolute top-full left-0 mt-0 w-56 bg-neutral-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl py-2 z-50">
           {links.map((link) =>
             link.href.startsWith("/") && !link.href.includes("#") ? (
               <Link
