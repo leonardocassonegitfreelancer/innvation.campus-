@@ -11,7 +11,7 @@ const locations = [
   alt: "Historic Málaga old town street with golden light",
   address: "Calle Álamos 7 29012, Málaga",
   hours: "Monday – Friday 09:30–18:30 · 24/7 available",
-  highlights: ["4 Floors", "2 Rooftop terraces", "Bar", "Fast internet", "24/7 Access", "Stone-walled meeting rooms", "Steps from Picasso Museum"],
+  highlights: ["4 Floors", "2 Rooftop terraces", "Bar", "24/7 Access"],
   desc: "Nestled in a restored 18th-century building, this space wraps you in centuries of history. Perfect for deep work, strategic thinking, and conversations that matter.",
   theme: "historic" as const
 },
@@ -114,17 +114,17 @@ function LocationCard({
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-1.5 md:gap-2">
+        <div className="flex flex-wrap gap-2">
           {highlights.map((h) =>
           <span
             key={h}
-            className={`inline-flex items-center gap-1 font-body text-[10px] md:text-xs px-2 py-1 md:px-3 md:py-1.5 rounded-full ${
+            className={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${
             isHistoric ?
             "bg-historic-text/10 text-historic-text/80" :
             "bg-seaside-text/10 text-seaside-text/80"}`
             }>
             
-              <Star className="w-2.5 h-2.5 md:w-3 md:h-3 text-primary" />
+              <Star className="w-3 h-3 text-primary" />
               {h}
             </span>
           )}
