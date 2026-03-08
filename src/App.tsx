@@ -11,6 +11,7 @@ import PrivateOffices from "./pages/en/PrivateOffices";
 import BusinessRegistration from "./pages/en/BusinessRegistration";
 import CoworkingSpace from "./pages/en/CoworkingSpace";
 import Events from "./pages/en/Events";
+import HostYourEvent from "./pages/en/HostYourEvent";
 import Academy from "./pages/en/Academy";
 import Benefits from "./pages/en/Benefits";
 import Ancona from "./pages/en/Ancona";
