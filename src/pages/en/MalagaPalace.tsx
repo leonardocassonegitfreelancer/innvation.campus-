@@ -11,7 +11,7 @@ import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
 import serviceMeeting from "@/assets/service-meeting.jpg";
 import servicePrivate from "@/assets/service-private.jpg";
 import serviceCoworking from "@/assets/service-coworking.jpg";
-import serviceRegistration from "@/assets/service-registration.jpg";
+import serviceCommunity from "@/assets/service-community.jpg";
 
 const highlights = [
   "Stone-walled meeting rooms",
