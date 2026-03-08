@@ -20,7 +20,7 @@ const locations = [
   tagline: "Malaga TERRACE",
   img: seasideExt,
   alt: "Rooftop terrace community event at Innovation Campus Málaga",
-  address: "Paseo Marítimo 15, La Malagueta, Málaga",
+  address: "Calle Puerto 14 29016, Málaga",
   hours: "Mon–Fri 7:00–22:00 · Sat–Sun 9:00–20:00",
   highlights: ["Panoramic rooftop terrace", "Ocean-view desks", "Open-plan creative zone", "Beachfront location"],
   desc: "Glass, light, and sea. A modern space designed for creative energy, collaboration, and the kind of freedom that only comes from working with the horizon in view.",
