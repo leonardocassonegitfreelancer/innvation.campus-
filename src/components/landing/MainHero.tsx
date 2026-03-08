@@ -117,7 +117,7 @@ export default function MainHero() {
         {/* CTA */}
         <a
           href="#contact"
-          className={`inline-flex items-center gap-3 bg-destructive text-destructive-foreground font-body text-xs md:text-sm uppercase tracking-[0.3em] px-8 py-3 rounded hover:bg-destructive/85 transition-all duration-500 delay-800 ${
+          className={`inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-xs md:text-sm uppercase tracking-[0.3em] px-8 py-3 rounded animate-pulse-red transition-all duration-500 delay-800 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
