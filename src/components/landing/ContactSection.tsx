@@ -15,12 +15,9 @@ import { Send } from "lucide-react";
 
 const serviceOptions = [
   "I want to host my event at Innovation Campus",
-  "I want to become a coworker",
   "I want to rent a private office",
-  "I want to book a conference room",
+  "I want to become a coworker",
   "I want to register my business",
-  "I'm interested in the Academy",
-  "I want to rent the private terrace",
   "Other / General info",
 ] as const;
 
