@@ -3,9 +3,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { label: "About", href: "#about" },
+  { label: "The Campus", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Locations", href: "#locations" },
+  { label: "Málaga", href: "#locations" },
+  { label: "Áncora", href: "/en/ancora" },
+  { label: "Olbia", href: "/en/olbia" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
