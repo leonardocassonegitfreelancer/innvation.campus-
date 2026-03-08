@@ -17,6 +17,7 @@ import Ancona from "./pages/en/Ancona";
 import Olbia from "./pages/en/Olbia";
 import MalagaPalace from "./pages/en/MalagaPalace";
 import MalagaTerrace from "./pages/en/MalagaTerrace";
+import FindUs from "./pages/en/FindUs";
 import Blog from "./pages/en/Blog";
 import BlogPostPage from "./pages/en/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/en/olbia" element={<Olbia />} />
           <Route path="/en/malaga-palace" element={<MalagaPalace />} />
           <Route path="/en/malaga-terrace" element={<MalagaTerrace />} />
+          <Route path="/en/find-us" element={<FindUs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/admin" element={<Admin />} />

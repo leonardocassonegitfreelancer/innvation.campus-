@@ -96,6 +96,10 @@ export default function MalagaPalace() {
                   Mon–Fri 8:00–22:00 · Sat 9:00–18:00
                 </span>
               </div>
+              <Link to="/en/find-us" className="inline-flex items-center gap-2 font-body text-sm text-primary hover:text-primary/80 mt-4 transition-colors font-semibold">
+                <MapPin className="w-4 h-4" />
+                Find us there →
+              </Link>
             </div>
             <div className="rounded-xl md:rounded-2xl overflow-hidden">
               <img
