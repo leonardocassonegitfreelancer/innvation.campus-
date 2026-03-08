@@ -55,16 +55,27 @@ function DropdownMenu({ label, links, open, onToggle, onClose }: {
       </button>
       {open && (
         <div className="absolute top-full left-0 mt-3 w-56 bg-neutral-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl py-2 z-50">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              onClick={onClose}
-              className="block px-4 py-2.5 text-sm font-body text-white/70 hover:text-white hover:bg-white/5 transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) =>
+            link.href.startsWith("/") && !link.href.includes("#") ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={onClose}
+                className="block px-4 py-2.5 text-sm font-body text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={onClose}
+                className="block px-4 py-2.5 text-sm font-body text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </div>
       )}
     </div>
