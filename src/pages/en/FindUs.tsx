@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import { MapPin, Clock, Phone, Mail, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import palaceOutside from "@/assets/palace-outside.jpg";
+import palaceOutside from "@/assets/palace-outside-front.jpg";
 
 const locations = [
   {
@@ -111,8 +111,8 @@ export default function FindUs() {
               className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden flex flex-col scroll-mt-24"
             >
               {loc.image && (
-                <div className="h-48 overflow-hidden">
-                  <img src={loc.image} alt={loc.name} className="w-full h-full object-cover" loading="lazy" />
+                <div className="h-56 md:h-64 overflow-hidden bg-white/5">
+                  <img src={loc.image} alt={loc.name} className="w-full h-full object-cover object-top" loading="lazy" />
                 </div>
               )}
               <div className="p-8 flex flex-col gap-4 flex-1">
