@@ -158,7 +158,7 @@ export default function MalagaPalace() {
             Book a visit and discover your new workspace in the heart of Málaga.
           </p>
           <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
-            <a href="/#contact">Book a Visit</a>
+            <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Book a Visit</a>
           </Button>
         </div>
       </section>
