@@ -88,6 +88,7 @@ export default function ContactSection() {
               <div>
                 <Label className={`font-body text-sm ${mutedColor}`}>Company Name</Label>
                 <Input
+                  required
                   placeholder="Your company"
                   className={inputClass}
                 />
