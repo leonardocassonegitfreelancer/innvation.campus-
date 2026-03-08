@@ -88,7 +88,7 @@ export default function Footer() {
           {/* Social icons — left */}
           <div className="flex gap-5">
             {[{ Icon: Facebook, label: "Facebook", href: "#" },
-            { Icon: Linkedin, label: "LinkedIn", href: "#" },
+            { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/innovationcampus-coworking/" },
             { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/innovation_campus/" }].
             map(({ Icon, label, href }) =>
             <a
