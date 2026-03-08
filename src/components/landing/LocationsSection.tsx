@@ -39,7 +39,7 @@ export default function LocationsSection() {
             Our Malaga Locations
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            Two worlds. <span className="text-primary">Your choice.</span>
+            Two worlds.{" "}<br className="md:hidden" /><span className="text-primary">Your choice.</span>
           </h2>
         </div>
 
