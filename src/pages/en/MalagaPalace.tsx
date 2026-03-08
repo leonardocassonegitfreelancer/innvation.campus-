@@ -22,6 +22,11 @@ import palaceCoffeeBar from "@/assets/palace-coffee-bar.jpg";
 import palaceCatering from "@/assets/palace-catering.jpg";
 import palaceCoworking from "@/assets/palace-coworking.jpg";
 
+const heroImages = [
+  palaceEntrance, palaceCourtyard, palaceOutside, palaceSecondFloor,
+  palaceSkylight, palaceCoffeeBar, palaceCatering, palaceCoworking,
+];
+
 const galleryTop = [
   { src: palaceCourtyard, alt: "Málaga Palace courtyard with ornate tiles and balcony" },
   { src: palaceOutside, alt: "Málaga Palace courtyard and exterior" },
