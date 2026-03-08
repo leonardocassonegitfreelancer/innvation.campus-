@@ -6,14 +6,17 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Send } from "lucide-react";
 
+const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"] as const;
+
 export default function ContactSection() {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
+  const [hearAbout, setHearAbout] = useState<string>("");
   const { ref, isVisible } = useScrollAnimation();
 
   const bgStyle = "bg-neutral-dark";
-
   const textColor = "text-white";
   const mutedColor = "text-white/60";
+  const inputClass = "mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary";
 
   return (
     <section id="contact" className={`relative py-24 md:py-36 transition-all duration-1000 ${bgStyle} overflow-hidden`}>
@@ -47,7 +50,7 @@ export default function ContactSection() {
                 <Input
                   required
                   placeholder="Your name"
-                  className="mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary"
+                  className={inputClass}
                 />
               </div>
               <div>
@@ -56,7 +59,25 @@ export default function ContactSection() {
                   type="email"
                   required
                   placeholder="you@example.com"
-                  className="mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary"
+                  className={inputClass}
+                />
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <Label className={`font-body text-sm ${mutedColor}`}>Company Name</Label>
+                <Input
+                  placeholder="Your company"
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <Label className={`font-body text-sm ${mutedColor}`}>Phone Number</Label>
+                <Input
+                  type="tel"
+                  placeholder="+34 600 000 000"
+                  className={inputClass}
                 />
               </div>
             </div>
@@ -90,11 +111,33 @@ export default function ContactSection() {
             </div>
 
             <div>
+              <Label className={`font-body text-sm ${mutedColor}`}>
+                How did you hear about us?
+              </Label>
+              <div className="flex flex-wrap gap-3 mt-2">
+                {hearAboutOptions.map((opt) => (
+                  <button
+                    key={opt}
+                    type="button"
+                    onClick={() => setHearAbout(opt)}
+                    className={`font-body text-sm px-4 py-2 rounded-full border transition-all duration-500 ${
+                      hearAbout === opt
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-transparent border-white/20 text-white/60 hover:border-primary/50"
+                    }`}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
               <Label className={`font-body text-sm ${mutedColor}`}>Message</Label>
               <Textarea
                 placeholder="Tell us what you're looking for..."
                 rows={4}
-                className="mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary"
+                className={inputClass}
               />
             </div>
 
