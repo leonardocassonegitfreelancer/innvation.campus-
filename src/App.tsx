@@ -17,6 +17,7 @@ import Ancona from "./pages/en/Ancona";
 import Olbia from "./pages/en/Olbia";
 import MalagaPalace from "./pages/en/MalagaPalace";
 import MalagaTerrace from "./pages/en/MalagaTerrace";
+import FindUs from "./pages/en/FindUs";
 import Blog from "./pages/en/Blog";
 import BlogPostPage from "./pages/en/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
