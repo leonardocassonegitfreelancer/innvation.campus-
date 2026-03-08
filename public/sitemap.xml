@@ -46,6 +46,16 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://malaga-duality-landing.lovable.app/en/malaga-palace</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://malaga-duality-landing.lovable.app/en/malaga-terrace</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://malaga-duality-landing.lovable.app/en/ancona</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
