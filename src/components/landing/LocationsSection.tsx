@@ -11,7 +11,7 @@ const locations = [
   alt: "Historic Málaga old town street with golden light",
   address: "Calle Álamos 7 29012, Málaga",
   hours: "Monday – Friday 09:30–18:30 · 24/7 available",
-  highlights: ["4 Floors", "2 Rooftop terraces", "Bar", "Fast internet", "24/7 Access", "Stone-walled meeting rooms", "Courtyard garden", "Steps from Picasso Museum"],
+  highlights: ["4 Floors", "2 Rooftop terraces", "Bar", "Fast internet", "24/7 Access", "Stone-walled meeting rooms", "Steps from Picasso Museum"],
   desc: "Nestled in a restored 18th-century building, this space wraps you in centuries of history. Perfect for deep work, strategic thinking, and conversations that matter.",
   theme: "historic" as const
 },
