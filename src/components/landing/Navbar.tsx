@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import logoWhite from "@/assets/logo-white.png";
 
 const locationLinks = [
   { label: "Málaga Palace", href: "/en/malaga-palace" },
