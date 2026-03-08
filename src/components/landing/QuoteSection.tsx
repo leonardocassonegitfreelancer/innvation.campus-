@@ -8,8 +8,7 @@ export default function QuoteSection() {
 
       <div className="max-w-5xl mx-auto px-6 text-center" ref={ref}>
         <div className={`scroll-animate ${isVisible ? "visible" : ""}`}>
-          <div className="text-primary text-6xl md:text-8xl font-display leading-none mb-6">"</div>
-          <blockquote className="font-display text-2xl md:text-4xl lg:text-5xl text-white/90 leading-snug italic">
+          <blockquote className="font-display text-2xl md:text-4xl lg:text-5xl text-foreground/90 leading-snug italic">
             The place where you sit
             <br />
             changes{" "}
@@ -18,8 +17,7 @@ export default function QuoteSection() {
             <br />
             Choose your world.
           </blockquote>
-          <div className="mt-10 w-16 h-[2px] bg-primary mx-auto" />
-          <p className="font-body text-white/40 text-sm mt-6 uppercase tracking-widest">
+          <p className="font-body text-muted-foreground text-sm mt-4 uppercase tracking-widest">
             Innovation/Campus
           </p>
         </div>
