@@ -93,7 +93,7 @@ export default function MalagaTerrace() {
               <div className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                 <span className="font-body text-sm text-seaside-text/80">
-                  Mon–Fri 7:00–22:00 · Sat–Sun 9:00–20:00
+                  Mon–Fri 09:30–18:30
                 </span>
               </div>
             </div>
