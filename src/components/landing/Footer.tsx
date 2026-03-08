@@ -63,7 +63,7 @@ export default function Footer() {
 
           {/* Column 3 — Company */}
           <div>
-            <h4 className="text-white/40 text-sm font-light italic mb-6">Company</h4>
+            <h4 className="text-white/40 text-sm font-light italic mb-6">​Locations</h4>
             <div className="space-y-3 text-sm text-white/70">
               <Link to="/en/malaga-palace" className="block hover:text-primary transition-colors">Malaga Palace</Link>
               <Link to="/en/malaga-terrace" className="block hover:text-primary transition-colors">Malaga Terrace</Link>
