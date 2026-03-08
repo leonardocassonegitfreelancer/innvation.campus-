@@ -5,6 +5,7 @@ import { MapPin, Clock, Phone, Mail, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import palaceOutside from "@/assets/palace-outside-front.jpg";
+import terraceEntrance from "@/assets/terrace-entrance.jpg";
 
 const locations = [
   {
@@ -30,6 +31,7 @@ const locations = [
     email: "malaga.terrace@innovationcampus.biz",
     mapUrl: "https://maps.google.com/?q=Calle+Puerto+14+29016+Málaga",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4185!3d36.7143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+Puerto+14%2C+29016+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1",
+    image: terraceEntrance,
     link: "/en/malaga-terrace",
   },
   {
