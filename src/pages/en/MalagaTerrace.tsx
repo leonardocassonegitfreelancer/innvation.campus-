@@ -18,33 +18,33 @@ import serviceTerrace from "@/assets/service-terrace.jpg";
 import serviceCommunity from "@/assets/service-community.jpg";
 
 const highlights = [
-  "Panoramic rooftop terrace",
-  "Ocean-view desks",
-  "Open-plan creative zone",
-  "Beachfront location",
-  "Sunset networking events",
-  "High-speed fiber WiFi",
-];
+"Panoramic rooftop terrace",
+"Ocean-view desks",
+"Open-plan creative zone",
+"Beachfront location",
+"Sunset networking events",
+"High-speed fiber WiFi"];
+
 
 const services = [
-  { img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", label: "Coworking Spaces", icon: Users, href: "/en/coworking-space" },
-  { img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", label: "Meeting Rooms", icon: Building2, href: "/en/conference-rooms" },
-  { img: serviceTerrace, label: "Private Terrace", icon: Sun, href: "/en/private-terrace" },
-  { img: serviceCommunity, label: "Community Events", icon: Wifi, href: "/en/events" },
-];
+{ img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", label: "Coworking Spaces", icon: Users, href: "/en/coworking-space" },
+{ img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", label: "Meeting Rooms", icon: Building2, href: "/en/conference-rooms" },
+{ img: serviceTerrace, label: "Private Terrace", icon: Sun, href: "/en/private-terrace" },
+{ img: serviceCommunity, label: "Community Events", icon: Wifi, href: "/en/events" }];
+
 
 const galleryTop = [
-  { src: "/lovable-uploads/d002f55d-0b40-4966-a3c1-172cb490f76f.png", alt: "Málaga Terrace entrance and reception" },
-  { src: "/lovable-uploads/237d9ba8-6193-4e35-a922-d914b6bd9079.jpg", alt: "Málaga Terrace bar area" },
-  { src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.jpg", alt: "Málaga Terrace interior workspace" },
-  { src: terraceCommunity, alt: "Málaga Terrace community event" },
-];
+{ src: "/lovable-uploads/d002f55d-0b40-4966-a3c1-172cb490f76f.png", alt: "Málaga Terrace entrance and reception" },
+{ src: "/lovable-uploads/237d9ba8-6193-4e35-a922-d914b6bd9079.jpg", alt: "Málaga Terrace bar area" },
+{ src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.jpg", alt: "Málaga Terrace interior workspace" },
+{ src: terraceCommunity, alt: "Málaga Terrace community event" }];
+
 const galleryBottom = [
-  { src: terraceEvents, alt: "Málaga Terrace rooftop event" },
-  { src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", alt: "Coworking space at Málaga Terrace" },
-  { src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", alt: "Meeting room at Málaga Terrace" },
-  { src: serviceTerrace, alt: "Private terrace at Málaga Terrace" },
-];
+{ src: terraceEvents, alt: "Málaga Terrace rooftop event" },
+{ src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", alt: "Coworking space at Málaga Terrace" },
+{ src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", alt: "Meeting room at Málaga Terrace" },
+{ src: serviceTerrace, alt: "Private terrace at Málaga Terrace" }];
+
 
 export default function MalagaTerrace() {
   const { ref: aboutRef, isVisible: aboutVis } = useScrollAnimation();
@@ -67,8 +67,8 @@ export default function MalagaTerrace() {
       <SEOHead
         title="Málaga Terrace"
         description="Seaside coworking with panoramic rooftop terrace in Málaga. Ocean-view desks, creative open-plan spaces, and beachfront networking events."
-        path="/en/malaga-terrace"
-      />
+        path="/en/malaga-terrace" />
+      
 
       <Navbar />
 
@@ -99,9 +99,9 @@ export default function MalagaTerrace() {
       <section
         className="py-20 md:py-28"
         style={{
-          background: "linear-gradient(160deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))",
-        }}
-      >
+          background: "linear-gradient(160deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))"
+        }}>
+        
         <div ref={aboutRef} className={`scroll-animate ${aboutVis ? "visible" : ""} max-w-6xl mx-auto px-6 relative z-10`}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -134,22 +134,22 @@ export default function MalagaTerrace() {
                 alt="Innovation Campus Terrace bar"
                 className="w-full h-80 md:h-[24rem] object-cover"
                 loading="lazy"
-                src="/lovable-uploads/d9d2b368-e5c7-40e9-af7b-7e21ef4e7e61.png"
-              />
+                src="/lovable-uploads/d9d2b368-e5c7-40e9-af7b-7e21ef4e7e61.png" />
+              
             </div>
           </div>
 
           {/* Highlights */}
           <div className="flex flex-wrap gap-2 mt-12">
-            {highlights.map((h) => (
-              <span
-                key={h}
-                className="inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full bg-seaside-text/10 text-seaside-text"
-              >
-                <Star className="w-3 h-3 text-primary" />
-                {h}
-              </span>
-            ))}
+            {highlights.map((h) => {}
+
+
+
+
+
+
+
+            )}
           </div>
         </div>
       </section>
@@ -166,19 +166,19 @@ export default function MalagaTerrace() {
 
           {/* Photo Grid Top */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
-            {galleryTop.map((img) => (
-              <div key={img.alt} className="rounded-xl overflow-hidden group">
+            {galleryTop.map((img) =>
+            <div key={img.alt} className="rounded-xl overflow-hidden group">
                 <img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
-            ))}
+            )}
           </div>
 
           {/* Video */}
           <div className="flex justify-center mb-6">
             <div
               className="relative w-full max-w-sm aspect-[9/16] md:max-w-5xl md:aspect-video bg-neutral-dark rounded-xl overflow-hidden cursor-pointer group"
-              onClick={handlePlayVideo}
-            >
+              onClick={handlePlayVideo}>
+              
               <video
                 ref={videoRef}
                 src="/videos/malaga-terrace.mp4"
@@ -186,25 +186,25 @@ export default function MalagaTerrace() {
                 controls={isPlaying}
                 playsInline
                 preload="metadata"
-                onEnded={() => setIsPlaying(false)}
-              />
-              {!isPlaying && (
-                <div className="absolute inset-0 bg-neutral-dark/30 flex items-center justify-center transition-opacity group-hover:bg-neutral-dark/40">
+                onEnded={() => setIsPlaying(false)} />
+              
+              {!isPlaying &&
+              <div className="absolute inset-0 bg-neutral-dark/30 flex items-center justify-center transition-opacity group-hover:bg-neutral-dark/40">
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 flex items-center justify-center transition-transform group-hover:scale-110">
                     <Play className="w-7 h-7 md:w-9 md:h-9 text-primary-foreground ml-1" />
                   </div>
                 </div>
-              )}
+              }
             </div>
           </div>
 
           {/* Photo Grid Bottom */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {galleryBottom.map((img) => (
-              <div key={img.alt} className="rounded-xl overflow-hidden group">
+            {galleryBottom.map((img) =>
+            <div key={img.alt} className="rounded-xl overflow-hidden group">
                 <img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -224,43 +224,43 @@ export default function MalagaTerrace() {
             <button
               onClick={() => setHotTab("business")}
               className={`max-w-[200px] py-3 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${
-                hotTab === "business"
-                  ? "bg-primary text-primary-foreground"
-                  : "border border-primary text-primary bg-transparent"
-              }`}
-            >
+              hotTab === "business" ?
+              "bg-primary text-primary-foreground" :
+              "border border-primary text-primary bg-transparent"}`
+              }>
+              
               For Businesses
             </button>
             <button
               onClick={() => setHotTab("individual")}
               className={`max-w-[200px] py-3 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${
-                hotTab === "individual"
-                  ? "bg-primary text-primary-foreground"
-                  : "border border-primary text-primary bg-transparent"
-              }`}
-            >
+              hotTab === "individual" ?
+              "bg-primary text-primary-foreground" :
+              "border border-primary text-primary bg-transparent"}`
+              }>
+              
               For Individuals
             </button>
           </div>
 
           {/* Business Content */}
-          {hotTab === "business" && (
-            <div className="animate-fade-in">
+          {hotTab === "business" &&
+          <div className="animate-fade-in">
               <h3 className="font-display text-xl md:text-2xl font-bold text-foreground uppercase tracking-[0.2em] mb-8 text-center">
                 Host Your Event Here
               </h3>
               <div className="grid sm:grid-cols-3 gap-6 mb-10">
                 {[
-                  { icon: Briefcase, title: "Corporate Retreats", desc: "Team offsites with ocean views, product launches on the rooftop, and strategy sessions where the Mediterranean does the brainstorming." },
-                  { icon: Palette, title: "Creative Showcases", desc: "Sunset exhibitions, open-air presentations, and brand activations that leave a lasting impression against the coastline." },
-                  { icon: HeartHandshake, title: "Networking Events", desc: "Rooftop mixers, after-work drinks, and community gatherings where deals happen between the waves and the sunset." },
-                ].map((item) => (
-                  <div key={item.title} className="border border-border rounded-xl p-6 hover:border-primary/40 transition-colors bg-card">
+              { icon: Briefcase, title: "Corporate Retreats", desc: "Team offsites with ocean views, product launches on the rooftop, and strategy sessions where the Mediterranean does the brainstorming." },
+              { icon: Palette, title: "Creative Showcases", desc: "Sunset exhibitions, open-air presentations, and brand activations that leave a lasting impression against the coastline." },
+              { icon: HeartHandshake, title: "Networking Events", desc: "Rooftop mixers, after-work drinks, and community gatherings where deals happen between the waves and the sunset." }].
+              map((item) =>
+              <div key={item.title} className="border border-border rounded-xl p-6 hover:border-primary/40 transition-colors bg-card">
                     <item.icon className="w-8 h-8 text-primary mb-4" />
                     <h4 className="font-display text-lg font-bold text-foreground mb-2">{item.title}</h4>
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
-                ))}
+              )}
               </div>
               <div className="border border-primary/20 rounded-xl p-8 text-center bg-card">
                 <PartyPopper className="w-8 h-8 text-primary mx-auto mb-4" />
@@ -275,26 +275,26 @@ export default function MalagaTerrace() {
                 </Button>
               </div>
             </div>
-          )}
+          }
 
           {/* Individual Content */}
-          {hotTab === "individual" && (
-            <div className="animate-fade-in">
+          {hotTab === "individual" &&
+          <div className="animate-fade-in">
               <h3 className="font-display text-xl md:text-2xl font-bold text-foreground uppercase tracking-[0.2em] mb-8 text-center">
                 Become a Coworker
               </h3>
               <div className="grid sm:grid-cols-3 gap-6 mb-10">
                 {[
-                  { icon: Waves, title: "Work with the Sea", desc: "Ocean-view desks, natural light flooding through floor-to-ceiling glass, and a breeze that clears your mind between deep work sessions." },
-                  { icon: Compass, title: "Explore & Connect", desc: "A community of digital nomads, remote workers, and local creators. Your next co-founder might be sharing your table at the rooftop bar." },
-                  { icon: Sparkles, title: "Sunset State of Mind", desc: "End every workday watching the sun dip into the Mediterranean. It's not just a perk — it's a lifestyle that fuels your best work." },
-                ].map((item) => (
-                  <div key={item.title} className="border border-border rounded-xl p-6 hover:border-primary/40 transition-colors bg-card">
+              { icon: Waves, title: "Work with the Sea", desc: "Ocean-view desks, natural light flooding through floor-to-ceiling glass, and a breeze that clears your mind between deep work sessions." },
+              { icon: Compass, title: "Explore & Connect", desc: "A community of digital nomads, remote workers, and local creators. Your next co-founder might be sharing your table at the rooftop bar." },
+              { icon: Sparkles, title: "Sunset State of Mind", desc: "End every workday watching the sun dip into the Mediterranean. It's not just a perk — it's a lifestyle that fuels your best work." }].
+              map((item) =>
+              <div key={item.title} className="border border-border rounded-xl p-6 hover:border-primary/40 transition-colors bg-card">
                     <item.icon className="w-8 h-8 text-primary mb-4" />
                     <h4 className="font-display text-lg font-bold text-foreground mb-2">{item.title}</h4>
                     <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
-                ))}
+              )}
               </div>
               <div className="border border-primary/20 rounded-xl p-8 text-center bg-card">
                 <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
@@ -309,7 +309,7 @@ export default function MalagaTerrace() {
                 </Button>
               </div>
             </div>
-          )}
+          }
         </div>
       </section>
 
@@ -323,8 +323,8 @@ export default function MalagaTerrace() {
             Services
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((s) => (
-              <Link key={s.label} to={s.href} className="rounded-xl overflow-hidden bg-card border border-border group hover:shadow-lg transition-shadow">
+            {services.map((s) =>
+            <Link key={s.label} to={s.href} className="rounded-xl overflow-hidden bg-card border border-border group hover:shadow-lg transition-shadow">
                 <div className="h-44 overflow-hidden">
                   <img src={s.img} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
@@ -333,7 +333,7 @@ export default function MalagaTerrace() {
                   <span className="font-body text-sm font-medium text-foreground">{s.label}</span>
                 </div>
               </Link>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -354,6 +354,6 @@ export default function MalagaTerrace() {
       </section>
 
       <Footer />
-    </main>
-  );
+    </main>);
+
 }
