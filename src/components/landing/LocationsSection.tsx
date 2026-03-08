@@ -104,7 +104,7 @@ function LocationCard({
           </div>
           <div className="flex items-start gap-3">
             <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-            <span className={`font-body text-sm ${isHistoric ? "text-historic-text/80" : "text-seaside-text/80"}`}>
+            <span className={`font-body text-sm ${isHistoric ? "text-white/90" : "text-seaside-text"}`}>
               {hours}
             </span>
           </div>
