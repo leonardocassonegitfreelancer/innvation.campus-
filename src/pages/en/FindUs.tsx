@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 
 const locations = [
   {
+    id: "malaga-palace",
     name: "Málaga Palace",
     subtitle: "Historic Center",
     address: "Calle Álamos 7, 29012 Málaga",
