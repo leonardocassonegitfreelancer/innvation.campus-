@@ -62,7 +62,7 @@ function LocationCard({
   return (
     <div
       ref={ref}
-      className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group ${isHistoric ? "stone-texture-bg" : "sea-wave-bg"}`}
+      className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group flex flex-col ${isHistoric ? "stone-texture-bg" : "sea-wave-bg"}`}
       >
       
       {/* Image */}
@@ -76,7 +76,7 @@ function LocationCard({
       </div>
 
       {/* Content */}
-      <div className="p-6 md:p-8 relative z-10">
+      <div className="p-6 md:p-8 relative z-10 flex flex-col flex-1">
         <div className="mb-4">
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1 font-semibold">
             {tagline}
@@ -126,12 +126,13 @@ function LocationCard({
           )}
         </div>
 
-        <a
-          href="#contact"
-          className="inline-block mt-8 bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
-          
-          Book a visit
-        </a>
+        <div className="mt-auto pt-8">
+          <a
+            href="#contact"
+            className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
+            Book a visit
+          </a>
+        </div>
       </div>
     </div>);
 
