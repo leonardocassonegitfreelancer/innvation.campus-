@@ -34,11 +34,9 @@ export default function MainHero() {
             <span className="block font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white tracking-tight leading-[0.9]">
               Innovation
             </span>
-            <span className="block mt-2">
-              <span className="text-primary text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display font-bold leading-none">/</span>
-              <span className="font-body text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight text-white/90 tracking-[0.15em] leading-none">
-                Campus
-              </span>
+            <span className="block font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.9] mt-1">
+              <span className="text-primary">/</span>
+              <span className="text-white ml-3">Campus</span>
             </span>
           </h1>
 
@@ -51,7 +49,7 @@ export default function MainHero() {
 
           {/* Tagline */}
           <p
-            className={`font-display italic text-xl md:text-2xl lg:text-3xl font-normal text-white/70 mb-4 leading-snug transition-all duration-1000 delay-600 ${
+            className={`font-display italic text-lg md:text-xl lg:text-2xl font-light text-white/70 mb-4 leading-snug transition-all duration-1000 delay-600 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
