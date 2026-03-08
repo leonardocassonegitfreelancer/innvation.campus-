@@ -112,11 +112,11 @@ export default function MalagaTerrace() {
 
           {/* Highlights */}
           <div className="flex flex-wrap gap-2 mt-12">
-            {highlights.map((h) => (
-              <span key={h} className="px-4 py-2 rounded-full border border-primary/30 text-sm font-body text-seaside-text/80 bg-primary/5">
-                {h}
-              </span>
-            ))}
+            {highlights.map((h) => {}
+
+
+
+            )}
           </div>
         </div>
       </section>
