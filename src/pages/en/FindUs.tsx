@@ -4,6 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import { MapPin, Clock, Phone, Mail, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import palaceOutside from "@/assets/palace-outside.jpg";
 
 const locations = [
   {
@@ -16,6 +17,7 @@ const locations = [
     email: "info@innovationcampus.biz",
     mapUrl: "https://maps.google.com/?q=Calle+Álamos+7+29012+Málaga",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4215!3d36.7213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+%C3%81lamos+7%2C+29012+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1",
+    image: palaceOutside,
     link: "/en/malaga-palace",
   },
   {
@@ -106,8 +108,14 @@ export default function FindUs() {
             <div
               key={loc.name}
               id={loc.id}
-              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 flex flex-col gap-4 scroll-mt-24"
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden flex flex-col scroll-mt-24"
             >
+              {loc.image && (
+                <div className="h-48 overflow-hidden">
+                  <img src={loc.image} alt={loc.name} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+              )}
+              <div className="p-8 flex flex-col gap-4 flex-1">
               <div>
                 <h2 className="font-display text-2xl font-bold text-white">{loc.name}</h2>
                 <p className="font-body text-sm text-white/50">{loc.subtitle}</p>
@@ -164,6 +172,7 @@ export default function FindUs() {
                   </Button>
                 </Link>
               )}
+              </div>
             </div>
           ))}
         </div>
