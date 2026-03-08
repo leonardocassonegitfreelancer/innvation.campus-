@@ -88,7 +88,7 @@ export default function Navbar() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground mt-2 w-full"
             >
               <a href="#contact" onClick={() => setMobileOpen(false)}>
-                Book a Tour
+                Get in Touch
               </a>
             </Button>
           </div>
