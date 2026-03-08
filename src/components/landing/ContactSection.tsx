@@ -80,7 +80,7 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <Label className={`font-body text-sm ${mutedColor}`}>Phone Number</Label>
+                <Label className={`font-body text-sm ${mutedColor}`}>Phone Number (with country code)</Label>
                 <Input
                   type="tel"
                   placeholder="+34 600 000 000"
