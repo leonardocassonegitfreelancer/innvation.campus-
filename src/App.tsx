@@ -16,6 +16,8 @@ import Benefits from "./pages/en/Benefits";
 import Ancona from "./pages/en/Ancona";
 import MalagaPalace from "./pages/en/MalagaPalace";
 import MalagaTerrace from "./pages/en/MalagaTerrace";
+import Blog from "./pages/en/Blog";
+import BlogPostPage from "./pages/en/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
