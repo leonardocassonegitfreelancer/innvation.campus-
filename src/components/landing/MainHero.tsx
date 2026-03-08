@@ -69,7 +69,7 @@ export default function MainHero() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
         {/* Locations */}
         <p
-          className={`font-bebas text-sm md:text-base uppercase tracking-[0.5em] text-white/60 mb-8 md:mb-10 transition-all duration-1000 delay-200 ${
+          className={`font-body text-[10px] md:text-[11px] uppercase tracking-[0.5em] text-white/60 mb-8 md:mb-10 transition-all duration-1000 delay-200 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -107,7 +107,7 @@ export default function MainHero() {
 
         {/* Services */}
         <p
-          className={`font-bebas text-sm md:text-base uppercase tracking-[0.4em] text-white/50 mb-10 md:mb-14 transition-all duration-1000 delay-700 ${
+          className={`font-body text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/50 mb-10 md:mb-14 transition-all duration-1000 delay-700 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -117,7 +117,7 @@ export default function MainHero() {
         {/* CTA */}
         <a
           href="#contact"
-          className={`inline-flex items-center gap-3 backdrop-blur-[10px] bg-primary/80 border border-primary/30 text-primary-foreground font-bebas text-base md:text-lg uppercase tracking-[0.3em] px-8 py-3 rounded hover:bg-primary/95 hover:border-primary/50 transition-all duration-500 delay-800 ${
+          className={`inline-flex items-center gap-3 backdrop-blur-[10px] bg-primary/80 border border-primary/30 text-primary-foreground font-body text-xs md:text-sm uppercase tracking-[0.3em] px-8 py-3 rounded hover:bg-primary/95 hover:border-primary/50 transition-all duration-500 delay-800 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
