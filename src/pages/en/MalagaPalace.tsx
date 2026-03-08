@@ -87,7 +87,7 @@ export default function MalagaPalace() {
               <div className="flex items-start gap-3 mb-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                 <span className="font-body text-sm text-historic-text/80">
-                  Calle Granada 42, Centro Histórico, Málaga
+                  Calle Álamos 7 29012, Málaga
                 </span>
               </div>
               <div className="flex items-start gap-3">
