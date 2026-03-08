@@ -1,4 +1,5 @@
 import { Wifi, Users, MapPin } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const highlights = [
   { icon: Wifi, label: "200Mbps WiFi", desc: "Fiber-optic, reliable connection" },
@@ -7,9 +8,11 @@ const highlights = [
 ];
 
 export default function CoworkingIntro() {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
     <section className="py-20 md:py-28 bg-neutral-dark text-primary-foreground">
-      <div className="max-w-5xl mx-auto px-6 text-center">
+      <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} max-w-5xl mx-auto px-6 text-center`}>
         <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
           Your Workspace in Málaga
         </p>

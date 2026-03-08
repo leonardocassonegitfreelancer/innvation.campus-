@@ -8,6 +8,7 @@ import {
   Wind,
   CalendarHeart,
 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const items = [
   { icon: Wifi, label: "High-Speed WiFi" },
@@ -21,17 +22,22 @@ const items = [
 ];
 
 export default function CoworkingIncludes() {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation(0.1);
+
   return (
     <section className="py-20 md:py-28 bg-muted/50">
       <div className="max-w-5xl mx-auto px-6">
-        <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold text-center">
-          Amenities
-        </p>
-        <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground text-center mb-14">
-          What's Included
-        </h2>
+        <div ref={headerRef} className={`scroll-animate ${headerVisible ? "visible" : ""} text-center mb-14`}>
+          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
+            Amenities
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+            What's Included
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+        <div ref={gridRef} className={`scroll-animate ${gridVisible ? "visible" : ""} grid grid-cols-2 sm:grid-cols-4 gap-8`}>
           {items.map((item) => (
             <div key={item.label} className="flex flex-col items-center gap-3 text-center">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
