@@ -27,10 +27,10 @@ const highlights = [
 ];
 
 const services = [
-  { img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", label: "Coworking Spaces", icon: Users },
-  { img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", label: "Meeting Rooms", icon: Building2 },
-  { img: serviceTerrace, label: "Private Terrace", icon: Sun },
-  { img: serviceCommunity, label: "Community Events", icon: Wifi },
+  { img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", label: "Coworking Spaces", icon: Users, href: "/en/coworking-space" },
+  { img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", label: "Meeting Rooms", icon: Building2, href: "/en/conference-rooms" },
+  { img: serviceTerrace, label: "Private Terrace", icon: Sun, href: "/en/private-terrace" },
+  { img: serviceCommunity, label: "Community Events", icon: Wifi, href: "/en/events" },
 ];
 
 const galleryTop = [
