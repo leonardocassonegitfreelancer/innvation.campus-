@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Coffee } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import palaceEntrance from "@/assets/palace-entrance.jpg";
-import historicInt from "@/assets/historic-interior.jpg";
+import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
 import serviceMeeting from "@/assets/service-meeting.jpg";
 import servicePrivate from "@/assets/service-private.jpg";
 import serviceCoworking from "@/assets/service-coworking.jpg";
@@ -100,8 +100,8 @@ export default function MalagaPalace() {
             </div>
             <div className="rounded-2xl overflow-hidden">
               <img
-                src={historicInt}
-                alt="Málaga Palace interior with stone walls"
+                src={palaceSecondFloor}
+                alt="Málaga Palace second floor with Innovation Campus branding"
                 className="w-full h-80 md:h-[24rem] object-cover"
                 loading="lazy"
               />
