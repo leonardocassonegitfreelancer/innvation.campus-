@@ -35,7 +35,7 @@ const Index = () => {
   return (
     <main className="overflow-x-hidden">
       <SEOHead
-        title="Coworking Spaces in Málaga & Ancona"
+        title="Uffici - Coworking - Eventi"
         description="Two coworking spaces in Málaga, Spain. One in the historic heart, one by the sea. Find your rhythm at Innovation/Campus."
         path="/"
         jsonLd={localBusinessJsonLd}

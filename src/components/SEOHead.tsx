@@ -10,7 +10,7 @@ interface SEOHeadProps {
 const BASE_URL = "https://malaga-duality-landing.lovable.app";
 
 export default function SEOHead({ title, description, path = "/", jsonLd }: SEOHeadProps) {
-  const fullTitle = `${title} | Innovation Campus`;
+  const fullTitle = `Innovation Campus | ${title}`;
   const url = `${BASE_URL}${path}`;
 
   return (
