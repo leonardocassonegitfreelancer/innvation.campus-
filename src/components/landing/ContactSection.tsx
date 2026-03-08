@@ -97,6 +97,7 @@ export default function ContactSection() {
                 <Label className={`font-body text-sm ${mutedColor}`}>Phone Number (with country code)</Label>
                 <Input
                   type="tel"
+                  required
                   placeholder="+34 600 000 000"
                   className={inputClass}
                 />
