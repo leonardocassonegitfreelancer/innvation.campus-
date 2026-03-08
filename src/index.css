@@ -175,10 +175,10 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 15% 85%, hsl(35 40% 25% / 0.2) 0%, transparent 55%),
-      radial-gradient(ellipse at 85% 15%, hsl(25 35% 22% / 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 100%, hsl(30 30% 20% / 0.25) 0%, transparent 40%),
-      linear-gradient(180deg, transparent 60%, hsl(25 25% 10% / 0.3) 100%);
+      radial-gradient(ellipse at 15% 85%, hsl(35 30% 70% / 0.2) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 15%, hsl(25 25% 72% / 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, hsl(30 20% 68% / 0.2) 0%, transparent 40%),
+      linear-gradient(180deg, transparent 60%, hsl(25 20% 75% / 0.2) 100%);
     pointer-events: none;
     z-index: 0;
   }
