@@ -116,7 +116,7 @@ export default function FindUs() {
             >
               {loc.image != null && (
                 <div className="overflow-hidden bg-white/5 md:h-[340px]">
-                  <img src={loc.image as string} alt={loc.name} className="w-full h-full object-cover md:object-cover" loading="lazy" />
+                  <img src={loc.image as string} alt={loc.name} className={`w-full h-full object-cover ${loc.imagePosition === "bottom" ? "md:object-bottom" : "md:object-top"}`} loading="lazy" />
                 </div>
               )}
               <div className="p-8 flex flex-col gap-4 flex-1">
