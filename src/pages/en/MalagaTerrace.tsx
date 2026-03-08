@@ -45,7 +45,7 @@ export default function MalagaTerrace() {
 
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
-        <img src={terraceHero} alt="Málaga Terrace rooftop event" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={terraceHero} alt="Málaga Terrace rooftop event" className="absolute inset-0 w-full h-full object-cover object-center scale-[0.85] origin-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/70 to-neutral-dark/30" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
           <Link to="/" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-body mb-4 transition-colors drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
