@@ -55,7 +55,7 @@ export default function Navbar() {
               asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm animate-pulse-red"
             >
-              <a href="#contact">Book a Tour</a>
+              <a href="#contact">Get in Touch</a>
             </Button>
           </div>
 
