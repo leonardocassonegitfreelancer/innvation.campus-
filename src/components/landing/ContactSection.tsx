@@ -13,10 +13,22 @@ import {
 } from "@/components/ui/select";
 import { Send } from "lucide-react";
 
+const serviceOptions = [
+  "I want to host my event at Innovation Campus",
+  "I want to become a coworker",
+  "I want to rent a private office",
+  "I want to book a conference room",
+  "I want to register my business",
+  "I'm interested in the Academy",
+  "I want to rent the private terrace",
+  "Other / General info",
+] as const;
+
 const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"] as const;
 
 export default function ContactSection() {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
+  const [service, setService] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
   const { ref, isVisible } = useScrollAnimation();
 
@@ -115,6 +127,24 @@ export default function ContactSection() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            <div>
+              <Label className={`font-body text-sm ${mutedColor}`}>
+                What are you looking for?
+              </Label>
+              <Select value={service} onValueChange={setService}>
+                <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
+                  <SelectValue placeholder="Select a service" />
+                </SelectTrigger>
+                <SelectContent className="bg-neutral-dark border-white/20 text-white">
+                  {serviceOptions.map((opt) => (
+                    <SelectItem key={opt} value={opt}>
+                      {opt}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div>
