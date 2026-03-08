@@ -14,20 +14,20 @@ import serviceTerrace from "@/assets/service-terrace.jpg";
 import serviceCommunity from "@/assets/service-community.jpg";
 
 const highlights = [
-  "Panoramic rooftop terrace",
-  "Ocean-view desks",
-  "Open-plan creative zone",
-  "Beachfront location",
-  "Sunset networking events",
-  "High-speed fiber WiFi",
-];
+"Panoramic rooftop terrace",
+"Ocean-view desks",
+"Open-plan creative zone",
+"Beachfront location",
+"Sunset networking events",
+"High-speed fiber WiFi"];
+
 
 const services = [
-  { img: serviceCoworking, label: "Coworking Spaces", icon: Users },
-  { img: serviceMeeting, label: "Meeting Rooms", icon: Building2 },
-  { img: serviceTerrace, label: "Private Terrace", icon: Sun },
-  { img: serviceCommunity, label: "Community Events", icon: Wifi },
-];
+{ img: serviceCoworking, label: "Coworking Spaces", icon: Users },
+{ img: serviceMeeting, label: "Meeting Rooms", icon: Building2 },
+{ img: serviceTerrace, label: "Private Terrace", icon: Sun },
+{ img: serviceCommunity, label: "Community Events", icon: Wifi }];
+
 
 export default function MalagaTerrace() {
   const { ref: aboutRef, isVisible: aboutVis } = useScrollAnimation();
@@ -38,8 +38,8 @@ export default function MalagaTerrace() {
       <SEOHead
         title="Málaga Terrace"
         description="Seaside coworking with panoramic rooftop terrace in Málaga. Ocean-view desks, creative open-plan spaces, and beachfront networking events."
-        path="/en/malaga-terrace"
-      />
+        path="/en/malaga-terrace" />
+      
       <Navbar />
 
       {/* Hero */}
@@ -67,9 +67,9 @@ export default function MalagaTerrace() {
       <section
         className="py-20 md:py-28"
         style={{
-          background: "linear-gradient(160deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))",
-        }}
-      >
+          background: "linear-gradient(160deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))"
+        }}>
+        
         <div ref={aboutRef} className={`scroll-animate ${aboutVis ? "visible" : ""} max-w-6xl mx-auto px-6 relative z-10`}>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -99,25 +99,25 @@ export default function MalagaTerrace() {
             </div>
             <div className="rounded-2xl overflow-hidden">
               <img
-                src={terraceBar}
+
                 alt="Innovation Campus Terrace bar"
                 className="w-full h-80 md:h-[24rem] object-cover"
-                loading="lazy"
-              />
+                loading="lazy" src="/lovable-uploads/d9d2b368-e5c7-40e9-af7b-7e21ef4e7e61.png" />
+              
             </div>
           </div>
 
           {/* Highlights */}
           <div className="flex flex-wrap gap-2 mt-12">
-            {highlights.map((h) => (
-              <span
-                key={h}
-                className="inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full bg-seaside-text/10 text-seaside-text/80"
-              >
+            {highlights.map((h) =>
+            <span
+              key={h}
+              className="inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full bg-seaside-text/10 text-seaside-text/80">
+              
                 <Star className="w-3 h-3 text-primary" />
                 {h}
               </span>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -132,8 +132,8 @@ export default function MalagaTerrace() {
             Services
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((s) => (
-              <div key={s.label} className="rounded-xl overflow-hidden bg-card border border-border group">
+            {services.map((s) =>
+            <div key={s.label} className="rounded-xl overflow-hidden bg-card border border-border group">
                 <div className="h-44 overflow-hidden">
                   <img src={s.img} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
@@ -142,7 +142,7 @@ export default function MalagaTerrace() {
                   <span className="font-body text-sm font-medium text-foreground">{s.label}</span>
                 </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -163,6 +163,6 @@ export default function MalagaTerrace() {
       </section>
 
       <Footer />
-    </main>
-  );
+    </main>);
+
 }
