@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import historicImg from "@/assets/historic-interior.jpg";
+import heroImg from "@/assets/palace-branding-wall.jpg";
 
 export default function MainHero() {
   const [loaded, setLoaded] = useState(false);
@@ -13,7 +13,7 @@ export default function MainHero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <img
-        src={historicImg}
+        src={heroImg}
         alt="Innovation Campus coworking space interior in Málaga historic center"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
