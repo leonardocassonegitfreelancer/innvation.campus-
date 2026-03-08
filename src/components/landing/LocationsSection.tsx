@@ -62,11 +62,15 @@ function LocationCard({
   return (
     <div
       ref={ref}
-      className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group flex flex-col ${isHistoric ? "stone-texture-bg" : "sea-wave-bg"}`}
-      >
+      className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group`}
+      style={{
+        background: isHistoric ?
+        "linear-gradient(180deg, hsl(var(--historic-bg)), hsl(var(--historic-bg-warm)))" :
+        "linear-gradient(180deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))"
+      }}>
       
       {/* Image */}
-      <div className="relative h-80 md:h-[28rem] overflow-hidden z-10">
+      <div className="relative h-80 md:h-[28rem] overflow-hidden">
         <img
           src={img}
           alt={alt}
@@ -76,20 +80,20 @@ function LocationCard({
       </div>
 
       {/* Content */}
-      <div className="p-6 md:p-8 relative z-10 flex flex-col flex-1">
-        <div className="mb-4">
+      <div className="p-6 md:p-8">
+        <div className="mb-4 font-semibold">
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1 font-semibold">
             {tagline}
           </p>
-          <h3
-            className={`${isHistoric ? "font-display italic text-neutral-dark" : "font-body font-light text-seaside-text"} text-3xl md:text-4xl font-bold`}>
+        <h3
+            className={`font-display text-3xl md:text-4xl font-bold ${isHistoric ? "italic text-historic-text" : "text-seaside-text"}`}>
             
             {name}
           </h3>
         </div>
         <p
           className={`font-body text-sm leading-relaxed mb-6 ${
-          isHistoric ? "text-neutral-dark/80" : "text-seaside-text"}`
+          isHistoric ? "text-white/80" : "text-seaside-muted"}`
           }>
           
           {desc}
@@ -98,13 +102,13 @@ function LocationCard({
         <div className="space-y-3 mb-6">
           <div className="flex items-start gap-3">
             <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-            <span className={`font-body text-sm ${isHistoric ? "text-neutral-dark/70" : "text-seaside-text"}`}>
+            <span className={`font-body text-sm ${isHistoric ? "text-historic-text/80" : "text-seaside-text/80"}`}>
               {address}
             </span>
           </div>
           <div className="flex items-start gap-3">
             <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-            <span className={`font-body text-sm ${isHistoric ? "text-neutral-dark/70" : "text-seaside-text"}`}>
+            <span className={`font-body text-sm ${isHistoric ? "text-historic-text/80" : "text-seaside-text/80"}`}>
               {hours}
             </span>
           </div>
@@ -116,8 +120,8 @@ function LocationCard({
             key={h}
             className={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${
             isHistoric ?
-            "bg-neutral-dark/10 text-neutral-dark/80" :
-            "bg-seaside-text/10 text-seaside-text"}`
+            "bg-historic-text/10 text-historic-text/80" :
+            "bg-seaside-text/10 text-seaside-text/80"}`
             }>
             
               <Star className="w-3 h-3 text-primary" />
@@ -126,13 +130,12 @@ function LocationCard({
           )}
         </div>
 
-        <div className="mt-auto pt-8">
-          <a
-            href="#contact"
-            className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
-            Book a visit
-          </a>
-        </div>
+        <a
+          href="#contact"
+          className="inline-block mt-8 bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
+          
+          Book a visit
+        </a>
       </div>
     </div>);
 
