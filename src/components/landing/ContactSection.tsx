@@ -56,6 +56,10 @@ export default function ContactSection() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
+              if (!service) {
+                alert("Please select a service.");
+                return;
+              }
               alert("Thank you! We'll get back to you soon.");
             }}
             className="space-y-6"
