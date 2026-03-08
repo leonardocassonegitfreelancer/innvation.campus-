@@ -126,12 +126,13 @@ function LocationCard({
           )}
         </div>
 
-        <a
-          href="#contact"
-          className="inline-block mt-8 bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
-          
-          Book a visit
-        </a>
+        <div className="mt-auto pt-8">
+          <a
+            href="#contact"
+            className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
+            Book a visit
+          </a>
+        </div>
       </div>
     </div>);
 
