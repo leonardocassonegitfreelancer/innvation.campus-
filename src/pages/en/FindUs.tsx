@@ -42,7 +42,7 @@ const locations = [
     name: "Olbia",
     subtitle: "Sardinia",
     address: "Olbia, Sardinia, Italy",
-    hours: "Mon–Fri 09:00–18:00",
+    hours: "Mon–Fri 09:30–18:30",
     phone: "+39 338 335 5908",
     email: "olbia@innovationcampus.biz",
     mapUrl: "https://maps.google.com/?q=Olbia+Sardinia+Italy",
