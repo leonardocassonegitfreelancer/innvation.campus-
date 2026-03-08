@@ -121,22 +121,18 @@ export default function ContactSection() {
               <Label className={`font-body text-sm ${mutedColor}`}>
                 How did you hear about us?
               </Label>
-              <div className="flex flex-wrap gap-3 mt-2">
-                {hearAboutOptions.map((opt) => (
-                  <button
-                    key={opt}
-                    type="button"
-                    onClick={() => setHearAbout(opt)}
-                    className={`font-body text-sm px-4 py-2 rounded-full border transition-all duration-500 ${
-                      hearAbout === opt
-                        ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-transparent border-white/20 text-white/60 hover:border-primary/50"
-                    }`}
-                  >
-                    {opt}
-                  </button>
-                ))}
-              </div>
+              <Select value={hearAbout} onValueChange={setHearAbout}>
+                <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!hearAbout ? "text-white/30" : ""}`}>
+                  <SelectValue placeholder="Select an option" />
+                </SelectTrigger>
+                <SelectContent>
+                  {hearAboutOptions.map((opt) => (
+                    <SelectItem key={opt} value={opt}>
+                      {opt}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div>
