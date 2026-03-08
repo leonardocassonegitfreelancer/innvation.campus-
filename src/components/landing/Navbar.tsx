@@ -23,7 +23,6 @@ const individualLinks = [
 ];
 
 const navLinks = [
-  { label: "Locations", href: "#locations" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
