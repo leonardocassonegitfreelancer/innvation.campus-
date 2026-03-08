@@ -32,7 +32,9 @@ const services = [
 
 export default function MalagaPalace() {
   const { ref: aboutRef, isVisible: aboutVis } = useScrollAnimation();
+  const { ref: hotRef, isVisible: hotVis } = useScrollAnimation();
   const { ref: servicesRef, isVisible: servicesVis } = useScrollAnimation();
+  const [hotTab, setHotTab] = useState<"business" | "individual">("business");
 
   return (
     <main className="overflow-x-hidden">
