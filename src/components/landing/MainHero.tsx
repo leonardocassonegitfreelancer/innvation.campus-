@@ -117,7 +117,7 @@ export default function MainHero() {
         {/* CTA */}
         <a
           href="#contact"
-          className={`inline-flex items-center gap-3 border-b border-white/30 text-white font-body text-xs md:text-sm uppercase tracking-[0.3em] pb-2 hover:border-primary hover:text-primary transition-all duration-500 delay-800 ${
+          className={`inline-flex items-center gap-3 bg-accent text-white font-body text-xs md:text-sm uppercase tracking-[0.3em] px-8 py-3 rounded hover:bg-accent/85 transition-all duration-500 delay-800 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -127,7 +127,7 @@ export default function MainHero() {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            strokeWidth={1}
+            strokeWidth={2}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
           </svg>
