@@ -22,7 +22,7 @@ export default function QuoteSection() {
             <br />
             Choose your world.
           </blockquote>
-          <div className="mt-10 w-16 h-[2px] bg-primary mx-auto" />
+          
           
 
           
