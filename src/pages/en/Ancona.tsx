@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
+import SEOHead from "@/components/SEOHead";
 import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Users, Building2, GraduationCap, Briefcase, Monitor, FileText } from "lucide-react";
@@ -37,6 +38,11 @@ export default function Ancona() {
 
   return (
     <main className="overflow-x-hidden">
+      <SEOHead
+        title="Coworking Space in Ancona"
+        description="A modern coworking space in the historical center of Ancona. Flexible desks, meeting rooms, and community."
+        path="/en/ancona"
+      />
       <Navbar />
 
       {/* Hero */}

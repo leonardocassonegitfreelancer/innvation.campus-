@@ -14,8 +14,7 @@ export default function MainHero() {
       {/* Background */}
       <img
         src={historicImg}
-        alt=""
-        aria-hidden
+        alt="Innovation Campus coworking space interior in Málaga historic center"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
       />
