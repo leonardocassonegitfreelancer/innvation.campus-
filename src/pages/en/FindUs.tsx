@@ -43,6 +43,7 @@ const locations = [
     link: "/en/ancona",
   },
   {
+    id: "olbia",
     name: "Olbia",
     subtitle: "Sardinia",
     address: "Olbia, Sardinia, Italy",
