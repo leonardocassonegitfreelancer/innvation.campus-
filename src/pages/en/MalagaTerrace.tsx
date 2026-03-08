@@ -114,10 +114,7 @@ export default function MalagaTerrace() {
               <span key={h} className="px-4 py-2 rounded-full border border-primary/30 text-sm font-body text-seaside-text/80 bg-primary/5">
                 {h}
               </span>
-            
-
-
-            )}
+            ))}
           </div>
         </div>
       </section>
