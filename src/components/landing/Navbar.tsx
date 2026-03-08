@@ -244,16 +244,27 @@ export default function Navbar() {
               </div>
             )}
 
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-white/80 hover:text-white text-lg font-body transition-colors py-2"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white/80 hover:text-white text-lg font-body transition-colors py-2"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white/80 hover:text-white text-lg font-body transition-colors py-2"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
             <Button
               asChild
               className="bg-primary hover:bg-primary/90 text-primary-foreground mt-2 w-full"
