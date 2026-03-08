@@ -5,7 +5,7 @@ import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Calendar, Briefcase, User, Sparkles, Palette, HeartHandshake, PartyPopper } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import palaceEntrance from "@/assets/palace-entrance.jpg";
@@ -21,11 +21,6 @@ import palaceSkylight from "@/assets/palace-skylight.jpg";
 import palaceCoffeeBar from "@/assets/palace-coffee-bar.jpg";
 import palaceCatering from "@/assets/palace-catering.jpg";
 import palaceCoworking from "@/assets/palace-coworking.jpg";
-
-const heroImages = [
-  palaceEntrance, palaceCourtyard, palaceOutside, palaceSecondFloor,
-  palaceSkylight, palaceCoffeeBar, palaceCatering, palaceCoworking,
-];
 
 const galleryTop = [
   { src: palaceCourtyard, alt: "Málaga Palace courtyard with ornate tiles and balcony" },
@@ -63,14 +58,6 @@ export default function MalagaPalace() {
   const [hotTab, setHotTab] = useState<"business" | "individual">("business");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentHeroImage, setCurrentHeroImage] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
@@ -90,15 +77,7 @@ export default function MalagaPalace() {
 
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
-        {heroImages.map((src, idx) => (
-          <img
-            key={idx}
-            src={src}
-            alt={`Málaga Palace view ${idx + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === currentHeroImage ? "opacity-100" : "opacity-0"}`}
-            loading={idx === 0 ? "eager" : "lazy"}
-          />
-        ))}
+        <img src={palaceEntrance} alt="Málaga Palace historic entrance with ornate tiles and marble columns" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/50 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
           <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
