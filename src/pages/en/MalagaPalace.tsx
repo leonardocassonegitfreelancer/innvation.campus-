@@ -291,7 +291,7 @@ export default function MalagaPalace() {
       <section className="py-20 md:py-28 bg-background">
         <div ref={servicesRef} className={`scroll-animate ${servicesVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold text-center">
-            Available at this location
+            Also Available at this location
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
             Services
