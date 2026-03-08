@@ -40,7 +40,7 @@ export default function ContactSection() {
               Start your journey
             </h2>
             <p className={`font-body mt-4 ${mutedColor}`}>
-              Book a tour, ask a question, or just say hello.
+              Ask a question, check availability or become a member.
             </p>
           </div>
 
