@@ -253,7 +253,7 @@ export default function MalagaPalace() {
                   Select one of our private rooms and let your guests get lost in the heart of Málaga afterwards. They will love it.
                 </p>
                 <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
-                  <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Plan Your Event</a>
+                  <Link to="/en/host-your-event">Plan Your Event</Link>
                 </Button>
               </div>
             </div>
