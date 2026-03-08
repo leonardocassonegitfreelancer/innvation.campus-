@@ -54,8 +54,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white/40 text-sm font-light italic mb-6">Contact</h4>
             <div className="space-y-3 text-sm text-white/70">
-              <p>Málaga Palace: +34 671 44 12 88</p>
-              <p>Málaga Terrace: +34 676 94 39 78</p>
+              <p>Málaga Palace (Historic Center): +34 671 44 12 88</p>
+              <p>Málaga Terrace (Sea Side): +34 676 94 39 78</p>
               <p>Ancona/Olbia: +39 338 335 5908</p>
               <p>Management: +34 673 737235</p>
             </div>
