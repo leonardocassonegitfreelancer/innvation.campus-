@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import claimWhite from "@/assets/claim-white.png";
 
 import palaceEntrance from "@/assets/palace-entrance.jpg";
 import palaceCoworking from "@/assets/palace-coworking.jpg";
@@ -81,12 +82,11 @@ export default function MainHero() {
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <span className="block text-white font-body text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase tracking-tight leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-            Innovation<span className="font-light">/</span>Campus
-          </span>
-          <span className="block text-primary font-body text-sm md:text-base lg:text-lg font-light uppercase tracking-[0.45em] mt-2 md:mt-3">
-            Coworking Spaces
-          </span>
+          <img
+            src={claimWhite}
+            alt="Innovation Campus - Coworking Spaces"
+            className="h-8 sm:h-12 md:h-16 lg:h-20 xl:h-24 w-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+          />
         </h1>
 
         {/* Divider */}
