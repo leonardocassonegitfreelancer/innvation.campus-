@@ -22,7 +22,7 @@ const locations = [
     address: "Calle Puerto 14, 29016 Málaga",
     hours: "Mon–Fri 09:30–18:30 · 24/7",
     phone: "+34 676 94 39 78",
-    email: "terrace@innovationcampus.biz",
+    email: "malaga.terrace@innovationcampus.biz",
     mapUrl: "https://maps.google.com/?q=Calle+Puerto+14+29016+Málaga",
     link: "/en/malaga-terrace",
   },
