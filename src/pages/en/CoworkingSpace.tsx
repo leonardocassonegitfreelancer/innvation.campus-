@@ -1,6 +1,7 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
 import serviceCoworking from "@/assets/service-coworking.jpg";
 import SEOHead from "@/components/SEOHead";
+import CoworkingPricing from "@/components/landing/CoworkingPricing";
 
 export default function CoworkingSpace() {
   return (
@@ -14,7 +15,9 @@ export default function CoworkingSpace() {
         title="Coworking Space"
         subtitle="Flexible plans and pricing for individuals and small teams."
         image={serviceCoworking}
-      />
+      >
+        <CoworkingPricing />
+      </ServicePageLayout>
     </>
   );
 }
