@@ -26,6 +26,7 @@ const individualLinks = [
 ];
 
 const navLinks = [
+  { label: "Host Your Event", href: "/en/host-your-event" },
   { label: "Blog", href: "/blog" },
   { label: "Find Us", href: "/en/find-us" },
 ];
