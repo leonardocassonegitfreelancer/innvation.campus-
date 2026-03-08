@@ -41,8 +41,8 @@ const galleryTop = [
 ];
 const galleryBottom = [
   { src: terraceEvents, alt: "Málaga Terrace rooftop event" },
-  { src: serviceCoworking, alt: "Coworking space at Málaga Terrace" },
-  { src: serviceMeeting, alt: "Meeting room at Málaga Terrace" },
+  { src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", alt: "Coworking space at Málaga Terrace" },
+  { src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", alt: "Meeting room at Málaga Terrace" },
   { src: serviceTerrace, alt: "Private terrace at Málaga Terrace" },
 ];
 
