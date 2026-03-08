@@ -73,10 +73,10 @@ export default function MalagaPalace() {
         <div ref={aboutRef} className={`scroll-animate ${aboutVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
           <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
+               <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
                 About this location
               </p>
-              <h2 className="font-display italic text-3xl md:text-4xl font-bold text-neutral-dark mb-6">
+              <h2 className="font-display italic text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
                 A palace reborn for the modern mind
               </h2>
               <p className="font-body text-neutral-dark/80 leading-relaxed mb-6">
