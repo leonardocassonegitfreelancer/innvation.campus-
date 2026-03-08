@@ -38,7 +38,7 @@ export default function MainHero() {
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
         {/* Locations */}
         <p
-          className={`font-body text-[10px] md:text-[11px] uppercase tracking-[0.5em] text-white/40 mb-8 md:mb-10 transition-all duration-1000 delay-200 ${
+          className={`font-body text-[10px] md:text-[11px] uppercase tracking-[0.5em] text-white/60 mb-8 md:mb-10 transition-all duration-1000 delay-200 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
