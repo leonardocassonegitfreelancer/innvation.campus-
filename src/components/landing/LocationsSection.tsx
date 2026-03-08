@@ -79,7 +79,7 @@ function LocationCard({
       </div>
 
       {/* Content */}
-      <div className="p-6 md:p-8">
+      <div className="p-6 md:p-8 relative z-10">
         <div className="mb-4">
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1 font-semibold">
             {tagline}
