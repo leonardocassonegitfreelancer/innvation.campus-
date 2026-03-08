@@ -107,7 +107,7 @@ export default function MainHero() {
 
         {/* Services */}
         <p
-          className={`font-bebas text-sm md:text-base uppercase tracking-[0.4em] text-white/50 mb-10 md:mb-14 transition-all duration-1000 delay-700 ${
+          className={`font-body text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/50 mb-10 md:mb-14 transition-all duration-1000 delay-700 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
