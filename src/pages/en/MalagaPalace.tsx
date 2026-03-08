@@ -67,7 +67,7 @@ export default function MalagaPalace() {
       <section
         className="py-20 md:py-28"
         style={{
-          background: "linear-gradient(170deg, #C8442A, #b33d26, #a03722)",
+          background: "linear-gradient(170deg, hsl(35 30% 92%), hsl(30 25% 90%), hsl(40 20% 93%))",
         }}
       >
         <div ref={aboutRef} className={`scroll-animate ${aboutVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
