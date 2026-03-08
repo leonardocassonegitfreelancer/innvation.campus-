@@ -80,10 +80,9 @@ export default function MalagaPalace() {
                 A palace reborn for the modern mind
               </h2>
               <p className="font-body text-neutral-dark/80 leading-relaxed mb-6">
-                Nestled in a restored 18th-century building, this space wraps you in centuries of history.
-                Stone arches frame your morning coffee; courtyard light filters through your afternoon focus session.
-                Every detail — from the hand-laid tiles to the iron balustrades — reminds you that great work
-                deserves a great setting.
+                Nestled in a restored 18th-century building near the Picasso Museum, this space wraps you in centuries of history.
+                <br />
+                Perfect for deep work, strategic thinking, and conversations that matter.
               </p>
               <div className="flex items-start gap-3 mb-3">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
