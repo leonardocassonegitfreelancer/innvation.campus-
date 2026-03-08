@@ -113,7 +113,7 @@ export default function FindUs() {
               className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden flex flex-col scroll-mt-24"
             >
               {loc.image != null && (
-                <div className="overflow-hidden bg-white/5 md:h-[280px]">
+                <div className="overflow-hidden bg-white/5 md:h-[340px]">
                   <img src={loc.image as string} alt={loc.name} className="w-full h-full object-cover md:object-cover" loading="lazy" />
                 </div>
               )}
