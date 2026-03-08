@@ -99,8 +99,8 @@ export default function MalagaTerrace() {
             </div>
             <div className="rounded-2xl overflow-hidden">
               <img
-                src={seasideInt}
-                alt="Málaga Terrace interior with ocean views"
+                src={terraceBar}
+                alt="Innovation Campus Terrace bar"
                 className="w-full h-80 md:h-[24rem] object-cover"
                 loading="lazy"
               />
