@@ -104,7 +104,8 @@ export default function FindUs() {
           {locations.map((loc) => (
             <div
               key={loc.name}
-              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 flex flex-col gap-4"
+              id={loc.id}
+              className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 flex flex-col gap-4 scroll-mt-24"
             >
               <div>
                 <h2 className="font-display text-2xl font-bold text-white">{loc.name}</h2>
