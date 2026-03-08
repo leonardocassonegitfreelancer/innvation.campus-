@@ -68,7 +68,7 @@ export default function Footer() {
               <Link to="/en/malaga-palace" className="block hover:text-primary transition-colors">Malaga Palace</Link>
               <Link to="/en/malaga-terrace" className="block hover:text-primary transition-colors">Malaga Terrace</Link>
               <Link to="/en/ancona" className="block hover:text-primary transition-colors">Ancona</Link>
-              <a href="#" className="block hover:text-primary transition-colors">Olbia</a>
+              <Link to="/en/olbia" className="block hover:text-primary transition-colors">Olbia</Link>
             </div>
           </div>
 

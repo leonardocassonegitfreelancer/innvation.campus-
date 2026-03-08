@@ -7,6 +7,7 @@ const locationLinks = [
   { label: "Málaga Palace", href: "/en/malaga-palace" },
   { label: "Málaga Terrace", href: "/en/malaga-terrace" },
   { label: "Ancona", href: "/en/ancona" },
+  { label: "Olbia", href: "/en/olbia" },
 ];
 
 const businessLinks = [
