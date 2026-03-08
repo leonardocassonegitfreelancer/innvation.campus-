@@ -118,42 +118,35 @@ export default function MalagaPalace() {
       </section>
 
       {/* What's Hot */}
-      <section
-        className="py-20 md:py-28"
-        style={{
-          background: "linear-gradient(170deg, hsl(35 30% 92%), hsl(30 25% 90%), hsl(40 20% 93%))",
-        }}
-      >
-        <div ref={hotRef} className={`scroll-animate ${hotVis ? "visible" : ""} max-w-5xl mx-auto px-6`}>
-          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold text-center">
+      <section className="py-24 md:py-36 bg-background">
+        <div ref={hotRef} className={`scroll-animate ${hotVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
+          <p className="font-body uppercase tracking-[0.4em] text-primary mb-4 text-xl font-semibold text-center">
             Discover
           </p>
-          <h2 className="font-display italic text-3xl md:text-4xl font-bold text-neutral-dark text-center mb-10">
+          <h2 className="font-display md:text-5xl text-foreground text-5xl font-semibold text-center mb-12 md:mb-20">
             What's Hot in Málaga Palace
           </h2>
 
           {/* Tab Buttons */}
-          <div className="flex justify-center gap-4 mb-12">
+          <div className="flex gap-3 mb-12 justify-center">
             <button
               onClick={() => setHotTab("business")}
-              className={`font-body text-sm uppercase tracking-widest px-6 py-3 rounded-lg border transition-all duration-300 ${
+              className={`max-w-[200px] py-3 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${
                 hotTab === "business"
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-transparent text-neutral-dark/60 border-neutral-dark/20 hover:border-neutral-dark/40"
+                  ? "bg-primary text-primary-foreground"
+                  : "border border-primary text-primary bg-transparent"
               }`}
             >
-              <Briefcase className="w-4 h-4 inline mr-2" />
               For Businesses
             </button>
             <button
               onClick={() => setHotTab("individual")}
-              className={`font-body text-sm uppercase tracking-widest px-6 py-3 rounded-lg border transition-all duration-300 ${
+              className={`max-w-[200px] py-3 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${
                 hotTab === "individual"
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-transparent text-neutral-dark/60 border-neutral-dark/20 hover:border-neutral-dark/40"
+                  ? "bg-primary text-primary-foreground"
+                  : "border border-primary text-primary bg-transparent"
               }`}
             >
-              <User className="w-4 h-4 inline mr-2" />
               For Individuals
             </button>
           </div>
