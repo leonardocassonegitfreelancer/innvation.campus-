@@ -26,7 +26,7 @@ const individualLinks = [
 
 const navLinks = [
   { label: "Blog", href: "/blog" },
-  { label: "Find Us", href: "#contact" },
+  { label: "Find Us", href: "/en/find-us" },
 ];
 
 function DropdownMenu({ label, links, open, onToggle, onClose }: {
