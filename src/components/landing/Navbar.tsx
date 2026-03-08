@@ -19,7 +19,7 @@ const businessLinks = [
 ];
 
 const individualLinks = [
-  { label: "Coworking Space", href: "/en/coworking-space" },
+  { label: "Coworking & Pricing", href: "/en/coworking-space" },
   { label: "Community Events", href: "/en/events" },
   { label: "Academy", href: "/en/academy" },
   { label: "Member Perks", href: "/en/benefits" },
