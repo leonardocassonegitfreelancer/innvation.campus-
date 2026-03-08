@@ -21,7 +21,7 @@ const locations = [
     name: "Málaga Terrace",
     subtitle: "Sea Side",
     address: "Calle Puerto 14, 29016 Málaga",
-    hours: "Mon–Fri 09:30–18:30 · 24/7",
+    hours: "Mon–Fri 09:30–18:30",
     phone: "+34 676 94 39 78",
     email: "malaga.terrace@innovationcampus.biz",
     mapUrl: "https://maps.google.com/?q=Calle+Puerto+14+29016+Málaga",
