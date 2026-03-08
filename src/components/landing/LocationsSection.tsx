@@ -12,7 +12,7 @@ const locations = [
   address: "Calle Álamos 7 29012, Málaga",
   hours: "Monday – Friday 09:30–18:30 · 24/7 available",
   highlights: ["4 Floors", "2 Rooftop terraces", "Bar", "24/7 Access"],
-  desc: "Nestled in a restored 18th-century building, this space wraps you in centuries of history. Perfect for deep work, strategic thinking, and conversations that matter.",
+  desc: "Nestled in a restored 18th-century building near the Picasso Museum, this space wraps you in centuries of history. Perfect for deep work, strategic thinking, and conversations that matter.",
   theme: "historic" as const
 },
 {
