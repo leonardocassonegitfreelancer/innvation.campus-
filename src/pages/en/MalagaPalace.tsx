@@ -17,12 +17,22 @@ import serviceCommunity from "@/assets/service-community.jpg";
 import palaceOutsideFront from "@/assets/palace-outside-front.jpg";
 import palaceOutside from "@/assets/palace-outside.jpg";
 import palaceCourtyard from "@/assets/palace-courtyard.jpg";
+import historicExterior from "@/assets/historic-exterior.jpg";
+import historicInterior from "@/assets/historic-interior.jpg";
+import aboutCampus from "@/assets/about-campus.jpg";
+import servicePerks from "@/assets/service-perks.jpg";
 
-const galleryImages = [
+const galleryTop = [
   { src: palaceCourtyard, alt: "Málaga Palace courtyard with ornate tiles and balcony" },
   { src: palaceOutside, alt: "Málaga Palace courtyard and exterior" },
   { src: palaceEntrance, alt: "Málaga Palace ornate entrance hall" },
   { src: palaceSecondFloor, alt: "Málaga Palace second floor workspace" },
+];
+const galleryBottom = [
+  { src: palaceOutsideFront, alt: "Málaga Palace exterior front view" },
+  { src: historicExterior, alt: "Historic building exterior" },
+  { src: historicInterior, alt: "Historic interior details" },
+  { src: aboutCampus, alt: "Innovation Campus workspace" },
 ];
 const highlights = [
   "Stone-walled meeting rooms",
@@ -147,18 +157,19 @@ export default function MalagaPalace() {
             Inside the Palace
           </h2>
 
+          {/* Photo Grid Top */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
+            {galleryTop.map((img) => (
+              <div key={img.alt} className="rounded-xl overflow-hidden group">
+                <img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              </div>
+            ))}
+          </div>
+
           {/* Video */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-6">
             <div className="relative w-full max-w-sm aspect-[9/16] md:max-w-5xl md:aspect-video bg-neutral-dark rounded-xl overflow-hidden cursor-pointer group" onClick={handlePlayVideo}>
-              <video
-                ref={videoRef}
-                src="/videos/malaga-palace.mp4"
-                className="w-full h-full object-cover md:object-contain"
-                controls={isPlaying}
-                playsInline
-                preload="metadata"
-                onEnded={() => setIsPlaying(false)}
-              />
+              <video ref={videoRef} src="/videos/malaga-palace.mp4" className="w-full h-full object-cover md:object-contain" controls={isPlaying} playsInline preload="metadata" onEnded={() => setIsPlaying(false)} />
               {!isPlaying && (
                 <div className="absolute inset-0 bg-neutral-dark/30 flex items-center justify-center transition-opacity group-hover:bg-neutral-dark/40">
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 flex items-center justify-center transition-transform group-hover:scale-110">
@@ -169,16 +180,11 @@ export default function MalagaPalace() {
             </div>
           </div>
 
-          {/* Photo Grid */}
+          {/* Photo Grid Bottom */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {galleryImages.map((img) => (
+            {galleryBottom.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
+                <img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
             ))}
           </div>
