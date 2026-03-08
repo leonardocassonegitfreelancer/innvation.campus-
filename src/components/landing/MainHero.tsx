@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import historicImg from "@/assets/historic-interior.jpg";
+import heroImg from "@/assets/palace-branding-wall.jpg";
 
 export default function MainHero() {
   const [loaded, setLoaded] = useState(false);
