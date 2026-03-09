@@ -96,6 +96,7 @@ const App = () => (
           <Route path="/admin" element={<Admin />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/legal-notice" element={<LegalNotice />} />
 
           {/* Spanish routes */}
           <Route path="/es" element={<IndexES />} />
