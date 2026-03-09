@@ -114,19 +114,19 @@ export default function MalagaPalaceIT() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-background">
-        <div ref={servicesRef} className={`scroll-animate ${servicesVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
-          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold text-center">Disponibile Anche in Questa Sede</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Servizi</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">{services.map((s) => (<Link key={s.label} to={s.href} className="rounded-xl overflow-hidden bg-card border border-border group hover:shadow-lg transition-shadow"><div className="h-44 overflow-hidden"><img src={s.img} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" /></div><div className="p-4 flex items-center gap-3"><s.icon className="w-5 h-5 text-primary shrink-0" /><span className="font-body text-sm font-medium text-foreground">{s.label}</span></div></Link>))}</div>
-        </div>
-      </section>
-
       <section className="py-16 bg-neutral-dark text-center">
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-4">Vivi il Palazzo</h2>
           <p className="font-body text-primary-foreground/70 mb-8">Prenota una visita e scopri il tuo nuovo spazio di lavoro nel cuore di Málaga.</p>
           <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3"><a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Prenota una Visita</a></Button>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 bg-background">
+        <div ref={servicesRef} className={`scroll-animate ${servicesVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
+          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold text-center">Disponibile Anche in Questa Sede</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Servizi</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">{services.map((s) => (<Link key={s.label} to={s.href} className="rounded-xl overflow-hidden bg-card border border-border group hover:shadow-lg transition-shadow"><div className="h-44 overflow-hidden"><img src={s.img} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" /></div><div className="p-4 flex items-center gap-3"><s.icon className="w-5 h-5 text-primary shrink-0" /><span className="font-body text-sm font-medium text-foreground">{s.label}</span></div></Link>))}</div>
         </div>
       </section>
 
