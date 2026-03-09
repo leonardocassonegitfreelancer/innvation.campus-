@@ -8,7 +8,7 @@ const translations = {
     title: "Host Meetings That Matter",
     subtitle: "From intimate brainstorms to large presentations, our conference rooms are designed for productivity and impact.",
     highlights: [
-      { icon: Users, title: "Up to 30 People", desc: "Flexible room sizes for any meeting" },
+      { icon: Users, title: "Up to 80 People", desc: "Flexible room sizes for any meeting" },
       { icon: Monitor, title: "Premium Tech", desc: "4K displays & video conferencing" },
       { icon: UtensilsCrossed, title: "Catering Available", desc: "Quality food improves satisfaction by 3x" },
     ],
@@ -18,7 +18,7 @@ const translations = {
     title: "Organiza Reuniones que Importan",
     subtitle: "Desde lluvias de ideas íntimas hasta grandes presentaciones, nuestras salas están diseñadas para la productividad.",
     highlights: [
-      { icon: Users, title: "Hasta 30 Personas", desc: "Tamaños flexibles para cualquier reunión" },
+      { icon: Users, title: "Hasta 80 Personas", desc: "Tamaños flexibles para cualquier reunión" },
       { icon: Monitor, title: "Tecnología Premium", desc: "Pantallas 4K y videoconferencia" },
       { icon: UtensilsCrossed, title: "Catering Disponible", desc: "La comida de calidad mejora la satisfacción 3x" },
     ],
@@ -28,7 +28,7 @@ const translations = {
     title: "Organizza Riunioni che Contano",
     subtitle: "Da brainstorming intimi a grandi presentazioni, le nostre sale sono progettate per produttività e impatto.",
     highlights: [
-      { icon: Users, title: "Fino a 30 Persone", desc: "Sale flessibili per ogni riunione" },
+      { icon: Users, title: "Fino a 80 Persone", desc: "Sale flessibili per ogni riunione" },
       { icon: Monitor, title: "Tecnologia Premium", desc: "Display 4K e videoconferenza" },
       { icon: UtensilsCrossed, title: "Catering Disponibile", desc: "Il cibo di qualità migliora la soddisfazione 3x" },
     ],
