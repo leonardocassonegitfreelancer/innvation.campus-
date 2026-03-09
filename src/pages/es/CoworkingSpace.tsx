@@ -1,12 +1,12 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
 import serviceCoworking from "@/assets/service-coworking.jpg";
 import SEOHead from "@/components/SEOHead";
-import CoworkingIntro from "@/components/landing/CoworkingIntro";
-import CoworkingPricing from "@/components/landing/CoworkingPricing";
-import CoworkingIncludes from "@/components/landing/CoworkingIncludes";
-import CoworkingGallery from "@/components/landing/CoworkingGallery";
-import CoworkingFAQ from "@/components/landing/CoworkingFAQ";
-import CoworkingCTA from "@/components/landing/CoworkingCTA";
+import CoworkingIntroES from "@/components/landing/es/CoworkingIntroES";
+import CoworkingPricingES from "@/components/landing/es/CoworkingPricingES";
+import CoworkingIncludesES from "@/components/landing/es/CoworkingIncludesES";
+import CoworkingGalleryES from "@/components/landing/es/CoworkingGalleryES";
+import CoworkingFAQES from "@/components/landing/es/CoworkingFAQES";
+import CoworkingCTAES from "@/components/landing/es/CoworkingCTAES";
 
 export default function CoworkingSpaceES() {
   return (
@@ -21,12 +21,12 @@ export default function CoworkingSpaceES() {
         subtitle="Planes flexibles y precios para individuos"
         image={serviceCoworking}
       >
-        <CoworkingIntro />
-        <CoworkingPricing />
-        <CoworkingIncludes />
-        <CoworkingGallery />
-        <CoworkingFAQ />
-        <CoworkingCTA />
+        <CoworkingIntroES />
+        <CoworkingPricingES />
+        <CoworkingIncludesES />
+        <CoworkingGalleryES />
+        <CoworkingFAQES />
+        <CoworkingCTAES />
       </ServicePageLayout>
     </>
   );
