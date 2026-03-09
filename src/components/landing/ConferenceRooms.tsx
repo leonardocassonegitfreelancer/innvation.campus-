@@ -117,6 +117,29 @@ const translations = {
   },
 };
 
+const roomSlugs = ["big-conference-room", "half-conference-room", "quarter-room", "meeting-room"];
+
+const roomPaths: Record<string, Record<string, string>> = {
+  en: {
+    "big-conference-room": "/en/meeting-rooms/big-conference-room",
+    "half-conference-room": "/en/meeting-rooms/half-conference-room",
+    "quarter-room": "/en/meeting-rooms/quarter-room",
+    "meeting-room": "/en/meeting-rooms/meeting-room",
+  },
+  es: {
+    "big-conference-room": "/es/salas/gran-sala-conferencias",
+    "half-conference-room": "/es/salas/media-sala-conferencias",
+    "quarter-room": "/es/salas/sala-quarter",
+    "meeting-room": "/es/salas/sala-reuniones",
+  },
+  it: {
+    "big-conference-room": "/it/sale/grande-sala-conferenze",
+    "half-conference-room": "/it/sale/mezza-sala-conferenze",
+    "quarter-room": "/it/sale/sala-quarter",
+    "meeting-room": "/it/sale/sala-riunioni",
+  },
+};
+
 const featureIcons: Record<string, typeof Monitor> = {
   display: Monitor,
   video: Video,
