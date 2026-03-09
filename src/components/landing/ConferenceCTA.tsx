@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Send } from "lucide-react";
-import ConferenceBookingFields from "./ConferenceBookingFields";
+import ConferenceBookingFields, { type ConferenceBookingFieldsHandle } from "./ConferenceBookingFields";
 
 const translations = {
   en: {
@@ -129,6 +129,7 @@ export default function ConferenceCTA() {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const [service, setService] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
+  const conferenceRef = useRef<ConferenceBookingFieldsHandle>(null);
   const { ref, isVisible } = useScrollAnimation();
   const routeLocation = useLocation();
   const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
@@ -163,6 +164,9 @@ export default function ConferenceCTA() {
               if (!service) {
                 alert(t.selectService);
                 return;
+              }
+              if (isConference && conferenceRef.current) {
+                if (!conferenceRef.current.validate()) return;
               }
               alert(t.thankYou);
             }}
@@ -224,7 +228,14 @@ export default function ConferenceCTA() {
               </Select>
             </div>
 
-            {isConference && <ConferenceBookingFields lang={lang} />}
+            {isConference && <ConferenceBookingFields ref={conferenceRef} lang={lang} />}
+
+            {!isConference && (
+              <div>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.message}</Label>
+                <Textarea placeholder={t.messagePlaceholder} rows={4} className={inputClass} />
+              </div>
+            )}
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>{t.hearLabel}</Label>
@@ -238,11 +249,6 @@ export default function ConferenceCTA() {
                   ))}
                 </SelectContent>
               </Select>
-            </div>
-
-            <div>
-              <Label className={`font-body text-sm ${mutedColor}`}>{t.message}</Label>
-              <Textarea placeholder={t.messagePlaceholder} rows={4} className={inputClass} />
             </div>
 
             <Button
