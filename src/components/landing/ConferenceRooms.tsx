@@ -1,5 +1,6 @@
 import { Users, Monitor, Video, PenTool, LayoutGrid } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -116,6 +117,29 @@ const translations = {
   },
 };
 
+const roomSlugs = ["big-conference-room", "half-conference-room", "quarter-room", "meeting-room"];
+
+const roomPaths: Record<string, Record<string, string>> = {
+  en: {
+    "big-conference-room": "/en/meeting-rooms/big-conference-room",
+    "half-conference-room": "/en/meeting-rooms/half-conference-room",
+    "quarter-room": "/en/meeting-rooms/quarter-room",
+    "meeting-room": "/en/meeting-rooms/meeting-room",
+  },
+  es: {
+    "big-conference-room": "/es/salas/gran-sala-conferencias",
+    "half-conference-room": "/es/salas/media-sala-conferencias",
+    "quarter-room": "/es/salas/sala-quarter",
+    "meeting-room": "/es/salas/sala-reuniones",
+  },
+  it: {
+    "big-conference-room": "/it/sale/grande-sala-conferenze",
+    "half-conference-room": "/it/sale/mezza-sala-conferenze",
+    "quarter-room": "/it/sale/sala-quarter",
+    "meeting-room": "/it/sale/sala-riunioni",
+  },
+};
+
 const featureIcons: Record<string, typeof Monitor> = {
   display: Monitor,
   video: Video,
@@ -142,48 +166,64 @@ export default function ConferenceRooms() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {t.rooms.map((room, i) => (
-            <Card
-              key={room.id}
-              className={`relative overflow-hidden transition-all duration-300 hover:shadow-lg ${
-                room.highlight
-                  ? "border-2 border-primary bg-primary/5 md:col-span-2"
-                  : "border-border"
-              }`}
-            >
-              {room.highlight && (
-                <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
-                  {t.flagship}
-                </Badge>
-              )}
-              <CardHeader>
-                <CardTitle className={`font-display ${room.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
-                  {room.name}
-                </CardTitle>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Users className="w-4 h-4" />
-                  <span className="font-body text-sm">{room.capacity}</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className={`grid ${room.highlight ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2"} gap-3 mb-6`}>
-                  {room.features.map((feature, j) => (
-                    <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      <span className="font-body">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button
-                  asChild
-                  variant={room.highlight ? "default" : "outline"}
-                  className={room.highlight ? "bg-primary hover:bg-primary/90" : ""}
-                >
-                  <a href="/#contact">{t.requestQuote}</a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+          {t.rooms.map((room, i) => {
+            const roomPath = roomPaths[lang]?.[room.id];
+            return (
+              <Card
+                key={room.id}
+                className={`relative overflow-hidden transition-all duration-300 hover:shadow-lg ${
+                  room.highlight
+                    ? "border-2 border-primary bg-primary/5 md:col-span-2"
+                    : "border-border"
+                }`}
+              >
+                {room.highlight && (
+                  <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
+                    {t.flagship}
+                  </Badge>
+                )}
+                <CardHeader>
+                  <CardTitle className={`font-display ${room.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
+                    {roomPath ? (
+                      <Link to={roomPath} className="hover:text-primary transition-colors">
+                        {room.name}
+                      </Link>
+                    ) : room.name}
+                  </CardTitle>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Users className="w-4 h-4" />
+                    <span className="font-body text-sm">{room.capacity}</span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className={`grid ${room.highlight ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2"} gap-3 mb-6`}>
+                    {room.features.map((feature, j) => (
+                      <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        <span className="font-body">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex gap-3">
+                    {roomPath && (
+                      <Button asChild variant="outline">
+                        <Link to={roomPath}>
+                          {lang === "en" ? "View Details" : lang === "es" ? "Ver Detalles" : "Vedi Dettagli"}
+                        </Link>
+                      </Button>
+                    )}
+                    <Button
+                      asChild
+                      variant={room.highlight ? "default" : "outline"}
+                      className={room.highlight ? "bg-primary hover:bg-primary/90" : ""}
+                    >
+                      <a href="/#contact">{t.requestQuote}</a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

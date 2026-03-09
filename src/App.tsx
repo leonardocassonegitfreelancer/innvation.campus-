@@ -25,6 +25,13 @@ import Blog from "./pages/en/Blog";
 import BlogPostPage from "./pages/en/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
 import Admin from "./pages/Admin";
+
+// Meeting room sub-pages (EN)
+import BigConferenceRoom from "./pages/en/BigConferenceRoom";
+import HalfConferenceRoom from "./pages/en/HalfConferenceRoom";
+import QuarterRoom from "./pages/en/QuarterRoom";
+import TrainingRoom from "./pages/en/TrainingRoom";
+import MeetingRoom from "./pages/en/MeetingRoom";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import LegalNotice from "./pages/LegalNotice";
@@ -47,6 +54,13 @@ import AcademyES from "./pages/es/Academy";
 import BenefitsES from "./pages/es/Benefits";
 import BlogES from "./pages/es/Blog";
 
+// Meeting room sub-pages (ES)
+import BigConferenceRoomES from "./pages/es/BigConferenceRoom";
+import HalfConferenceRoomES from "./pages/es/HalfConferenceRoom";
+import QuarterRoomES from "./pages/es/QuarterRoom";
+import TrainingRoomES from "./pages/es/TrainingRoom";
+import MeetingRoomES from "./pages/es/MeetingRoom";
+
 // Italian pages
 import IndexIT from "./pages/it/Index";
 import MalagaPalaceIT from "./pages/it/MalagaPalace";
@@ -64,6 +78,13 @@ import HostYourEventIT from "./pages/it/HostYourEvent";
 import AcademyIT from "./pages/it/Academy";
 import BenefitsIT from "./pages/it/Benefits";
 import BlogIT from "./pages/it/Blog";
+
+// Meeting room sub-pages (IT)
+import BigConferenceRoomIT from "./pages/it/BigConferenceRoom";
+import HalfConferenceRoomIT from "./pages/it/HalfConferenceRoom";
+import QuarterRoomIT from "./pages/it/QuarterRoom";
+import TrainingRoomIT from "./pages/it/TrainingRoom";
+import MeetingRoomIT from "./pages/it/MeetingRoom";
 
 const queryClient = new QueryClient();
 
@@ -91,6 +112,11 @@ const App = () => (
           <Route path="/en/malaga-palace" element={<MalagaPalace />} />
           <Route path="/en/malaga-terrace" element={<MalagaTerrace />} />
           <Route path="/en/find-us" element={<FindUs />} />
+          <Route path="/en/meeting-rooms/big-conference-room" element={<BigConferenceRoom />} />
+          <Route path="/en/meeting-rooms/half-conference-room" element={<HalfConferenceRoom />} />
+          <Route path="/en/meeting-rooms/quarter-room" element={<QuarterRoom />} />
+          <Route path="/en/meeting-rooms/training-room" element={<TrainingRoom />} />
+          <Route path="/en/meeting-rooms/meeting-room" element={<MeetingRoom />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/admin" element={<Admin />} />
@@ -115,6 +141,11 @@ const App = () => (
           <Route path="/es/academia" element={<AcademyES />} />
           <Route path="/es/beneficios" element={<BenefitsES />} />
           <Route path="/es/blog" element={<BlogES />} />
+          <Route path="/es/salas/gran-sala-conferencias" element={<BigConferenceRoomES />} />
+          <Route path="/es/salas/media-sala-conferencias" element={<HalfConferenceRoomES />} />
+          <Route path="/es/salas/sala-quarter" element={<QuarterRoomES />} />
+          <Route path="/es/salas/sala-formacion" element={<TrainingRoomES />} />
+          <Route path="/es/salas/sala-reuniones" element={<MeetingRoomES />} />
 
           {/* Italian routes */}
           <Route path="/it" element={<IndexIT />} />
@@ -133,6 +164,11 @@ const App = () => (
           <Route path="/it/academy" element={<AcademyIT />} />
           <Route path="/it/vantaggi" element={<BenefitsIT />} />
           <Route path="/it/blog" element={<BlogIT />} />
+          <Route path="/it/sale/grande-sala-conferenze" element={<BigConferenceRoomIT />} />
+          <Route path="/it/sale/mezza-sala-conferenze" element={<HalfConferenceRoomIT />} />
+          <Route path="/it/sale/sala-quarter" element={<QuarterRoomIT />} />
+          <Route path="/it/sale/sala-formazione" element={<TrainingRoomIT />} />
+          <Route path="/it/sale/sala-riunioni" element={<MeetingRoomIT />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
