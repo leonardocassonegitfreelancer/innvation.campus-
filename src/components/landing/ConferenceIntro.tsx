@@ -18,7 +18,7 @@ const translations = {
     title: "Organiza Reuniones que Importan",
     subtitle: "Desde lluvias de ideas íntimas hasta grandes presentaciones, nuestras salas están diseñadas para la productividad.",
     highlights: [
-      { icon: Users, title: "Hasta 30 Personas", desc: "Tamaños flexibles para cualquier reunión" },
+      { icon: Users, title: "Hasta 80 Personas", desc: "Tamaños flexibles para cualquier reunión" },
       { icon: Monitor, title: "Tecnología Premium", desc: "Pantallas 4K y videoconferencia" },
       { icon: UtensilsCrossed, title: "Catering Disponible", desc: "La comida de calidad mejora la satisfacción 3x" },
     ],
