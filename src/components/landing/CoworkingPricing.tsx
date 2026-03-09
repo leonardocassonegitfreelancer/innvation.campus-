@@ -90,7 +90,7 @@ const shortStayPlans: PlanCard[] = [
   name: "DAY PASS",
   price: "€24",
   period: "+ VAT",
-  url: "https://members.innovationcampus.biz/signup?plan=FL12",
+  url: "https://members.innovationcampus.biz/signup?plan=DAY",
   features: [
   "Monday to Friday, 9:30–18:30",
   "Flex Desk",
