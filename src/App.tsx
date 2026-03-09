@@ -129,6 +129,11 @@ const App = () => (
           <Route path="/es/academia" element={<AcademyES />} />
           <Route path="/es/beneficios" element={<BenefitsES />} />
           <Route path="/es/blog" element={<BlogES />} />
+          <Route path="/es/salas/gran-sala-conferencias" element={<BigConferenceRoomES />} />
+          <Route path="/es/salas/media-sala-conferencias" element={<HalfConferenceRoomES />} />
+          <Route path="/es/salas/sala-quarter" element={<QuarterRoomES />} />
+          <Route path="/es/salas/sala-formacion" element={<TrainingRoomES />} />
+          <Route path="/es/salas/sala-reuniones" element={<MeetingRoomES />} />
 
           {/* Italian routes */}
           <Route path="/it" element={<IndexIT />} />
