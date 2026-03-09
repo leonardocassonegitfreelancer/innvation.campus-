@@ -87,7 +87,7 @@ const translations = {
       {
         id: "picasso",
         name: "City Center Picasso",
-        capacity: "Fino a 30 persone",
+        capacity: "Fino a 80 persone",
         features: ["Display 4K 85\"", "Videoconferenza Premium", "Grande Lavagna", "Layout Flessibile"],
         highlight: true,
       },
