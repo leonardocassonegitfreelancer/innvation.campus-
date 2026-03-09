@@ -28,7 +28,7 @@ const translations = {
     title: "Organizza Riunioni che Contano",
     subtitle: "Da brainstorming intimi a grandi presentazioni, le nostre sale sono progettate per produttività e impatto.",
     highlights: [
-      { icon: Users, title: "Fino a 30 Persone", desc: "Sale flessibili per ogni riunione" },
+      { icon: Users, title: "Fino a 80 Persone", desc: "Sale flessibili per ogni riunione" },
       { icon: Monitor, title: "Tecnologia Premium", desc: "Display 4K e videoconferenza" },
       { icon: UtensilsCrossed, title: "Catering Disponibile", desc: "Il cibo di qualità migliora la soddisfazione 3x" },
     ],
