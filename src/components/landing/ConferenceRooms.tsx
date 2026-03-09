@@ -29,7 +29,7 @@ const translations = {
       {
         id: "quarter-picasso",
         name: "Quarter Picasso",
-        capacity: "Up to 8 people",
+        capacity: "Up to 30 people",
         features: ["43\" Display", "Video Conferencing", "Whiteboard", "Intimate Setting"],
         highlight: false,
       },
