@@ -101,7 +101,7 @@ const translations = {
       {
         id: "quarter-picasso",
         name: "Quarter Picasso",
-        capacity: "Fino a 8 persone",
+        capacity: "Fino a 30 persone",
         features: ["Display 43\"", "Videoconferenza", "Lavagna", "Ambiente Intimo"],
         highlight: false,
       },
