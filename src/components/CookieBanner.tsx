@@ -85,6 +85,10 @@ export default function CookieBanner() {
             <Link to="/privacy" className="text-primary underline hover:text-primary/80 transition-colors">
               {lang === "en" ? "Privacy Policy" : lang === "es" ? "Política de Privacidad" : "Informativa sulla Privacy"}
             </Link>
+            {" · "}
+            <Link to="/cookie-policy" className="text-primary underline hover:text-primary/80 transition-colors">
+              Cookie Policy
+            </Link>
           </p>
         </div>
 
