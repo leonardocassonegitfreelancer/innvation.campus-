@@ -195,6 +195,20 @@ export default function ConferenceCTA() {
             </div>
 
             <div>
+              <Label className={`font-body text-sm ${mutedColor}`}>{t.hearLabel}</Label>
+              <Select value={hearAbout} onValueChange={setHearAbout}>
+                <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!hearAbout ? "text-white/30" : ""}`}>
+                  <SelectValue placeholder={t.hearPlaceholder} />
+                </SelectTrigger>
+                <SelectContent className="bg-neutral-dark border-white/20 text-white">
+                  {hearAboutOptions.map((opt) => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
               <Label className={`font-body text-sm ${mutedColor}`}>{t.locationLabel}</Label>
               <div className="flex flex-wrap gap-3 mt-2">
                 {t.locations.map((opt) => (
@@ -236,20 +250,6 @@ export default function ConferenceCTA() {
                 <Textarea placeholder={t.messagePlaceholder} rows={4} className={inputClass} />
               </div>
             )}
-
-            <div>
-              <Label className={`font-body text-sm ${mutedColor}`}>{t.hearLabel}</Label>
-              <Select value={hearAbout} onValueChange={setHearAbout}>
-                <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!hearAbout ? "text-white/30" : ""}`}>
-                  <SelectValue placeholder={t.hearPlaceholder} />
-                </SelectTrigger>
-                <SelectContent className="bg-neutral-dark border-white/20 text-white">
-                  {hearAboutOptions.map((opt) => (
-                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
 
             <Button
               type="submit"
