@@ -120,7 +120,7 @@ const translations = {
     ],
     seatsLabel: "Numero di Posti",
     seatsPlaceholder: "Seleziona il numero di posti",
-    seatOptions: ["1-4", "5-8", "9-12", "13-20", "20+"],
+    seatOptions: ["5", "15", "30", "50", "80"],
     hearLabel: "Come ci hai conosciuto?",
     hearPlaceholder: "Seleziona un'opzione",
     message: "Messaggio",
