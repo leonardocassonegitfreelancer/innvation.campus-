@@ -11,7 +11,7 @@ const translations = {
       { icon: Wifi, label: "High-Speed WiFi" },
       { icon: Coffee, label: "Coffee & Tea" },
       { icon: KeyRound, label: "Private Access" },
-      { icon: Music, label: "Open Bar" },
+      { icon: Music, label: "Open Bar
       { icon: Wind, label: "Covered Areas" },
       { icon: Users, label: "Event Support" },
       { icon: UtensilsCrossed, label: "Full Catering" },
@@ -25,7 +25,7 @@ const translations = {
       { icon: Wifi, label: "WiFi Alta Velocidad" },
       { icon: Coffee, label: "Café y Té" },
       { icon: KeyRound, label: "Acceso Privado" },
-      { icon: Music, label: "Sistema de Sonido" },
+      { icon: Music, label: "SistOpen Bar
       { icon: Wind, label: "Zonas Cubiertas" },
       { icon: Users, label: "Soporte para Eventos" },
       { icon: UtensilsCrossed, label: "Catering Completo" },
