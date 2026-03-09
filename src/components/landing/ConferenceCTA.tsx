@@ -143,9 +143,7 @@ const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Refe
 export default function ConferenceCTA() {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const [service, setService] = useState<string>("");
-  const [seats, setSeats] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
-  const [preferredDate, setPreferredDate] = useState<Date>();
   const { ref, isVisible } = useScrollAnimation();
   const routeLocation = useLocation();
   const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
