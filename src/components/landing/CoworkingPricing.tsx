@@ -147,7 +147,7 @@ function PricingCard({ plan }: {plan: PlanCard;}) {
         <a
 
           target="_blank"
-          rel="noopener noreferrer" href="https://members.innovationcampus.biz/signup?plan=FL12">
+          rel="noopener noreferrer" href={plan.url}>
           
           Book Now
         </a>
