@@ -12,7 +12,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Send } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Send, CalendarIcon } from "lucide-react";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 const translations = {
   en: {
@@ -45,6 +53,8 @@ const translations = {
     seatsLabel: "Number of Seats",
     seatsPlaceholder: "Select number of seats",
     seatOptions: ["5", "15", "30", "50", "80"],
+    dateLabel: "Preferred Date",
+    datePlaceholder: "Select a date",
     hearLabel: "How did you hear about us?",
     hearPlaceholder: "Select an option",
     message: "Message",
@@ -83,6 +93,8 @@ const translations = {
     seatsLabel: "Número de Asientos",
     seatsPlaceholder: "Selecciona el número de asientos",
     seatOptions: ["5", "15", "30", "50", "80"],
+    dateLabel: "Fecha Preferida",
+    datePlaceholder: "Selecciona una fecha",
     hearLabel: "¿Cómo nos conociste?",
     hearPlaceholder: "Selecciona una opción",
     message: "Mensaje",
@@ -121,6 +133,8 @@ const translations = {
     seatsLabel: "Numero di Posti",
     seatsPlaceholder: "Seleziona il numero di posti",
     seatOptions: ["5", "15", "30", "50", "80"],
+    dateLabel: "Data Preferita",
+    datePlaceholder: "Seleziona una data",
     hearLabel: "Come ci hai conosciuto?",
     hearPlaceholder: "Seleziona un'opzione",
     message: "Messaggio",
@@ -138,6 +152,7 @@ export default function ConferenceCTA() {
   const [service, setService] = useState<string>("");
   const [seats, setSeats] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
+  const [preferredDate, setPreferredDate] = useState<Date>();
   const { ref, isVisible } = useScrollAnimation();
   const routeLocation = useLocation();
   const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
@@ -250,6 +265,37 @@ export default function ConferenceCTA() {
                 </div>
               )}
             </div>
+
+            {isConference && (
+              <div className="transition-all duration-300 animate-in fade-in slide-in-from-top-4">
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.dateLabel}</Label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className={cn(
+                        "w-full mt-1 justify-start text-left font-normal bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white focus:border-primary",
+                        !preferredDate && "text-white/30"
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {preferredDate ? format(preferredDate, "PPP") : <span>{t.datePlaceholder}</span>}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0 bg-neutral-dark border-white/20" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={preferredDate}
+                      onSelect={setPreferredDate}
+                      disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+                      initialFocus
+                      className={cn("p-3 pointer-events-auto text-white")}
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+            )}
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>{t.hearLabel}</Label>
