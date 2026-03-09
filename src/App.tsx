@@ -51,6 +51,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <LanguageDetector />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
