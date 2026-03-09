@@ -25,6 +25,13 @@ import Blog from "./pages/en/Blog";
 import BlogPostPage from "./pages/en/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
 import Admin from "./pages/Admin";
+
+// Meeting room sub-pages (EN)
+import BigConferenceRoom from "./pages/en/BigConferenceRoom";
+import HalfConferenceRoom from "./pages/en/HalfConferenceRoom";
+import QuarterRoom from "./pages/en/QuarterRoom";
+import TrainingRoom from "./pages/en/TrainingRoom";
+import MeetingRoom from "./pages/en/MeetingRoom";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import LegalNotice from "./pages/LegalNotice";
