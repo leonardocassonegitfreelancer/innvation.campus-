@@ -38,7 +38,7 @@ const translations = {
     servicePlaceholder: "Select a service",
     services: [
       { value: "conference", label: "I want to book a conference room" },
-      { value: "event", label: "I want to host my event at Innovation Campus" },
+      { value: "terrace", label: "I want to book a private rooftop terrace" },
       { value: "office", label: "I want to rent a private office" },
       { value: "coworker", label: "I want to become a coworker" },
       { value: "other", label: "Other / General info" },
