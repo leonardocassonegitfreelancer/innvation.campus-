@@ -20,10 +20,49 @@ function LanguageSwitcher() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const currentLang = location.pathname.startsWith("/es") ? "ES" : location.pathname.startsWith("/it") ? "IT" : "EN";
-  useEffect(() => { if (!open) return; const handler = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); }; document.addEventListener("mousedown", handler); return () => document.removeEventListener("mousedown", handler); }, [open]);
-  const switchLanguage = (toLang: "en" | "es" | "it") => { const target = routeMap[toLang]?.[location.pathname] || (toLang === "es" ? "/es" : toLang === "it" ? "/it" : "/"); navigate(target); setOpen(false); };
-  return (<div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}><button onClick={() => setOpen(!open)} className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-body font-medium transition-colors"><Globe size={16} />{currentLang}<ChevronDown size={14} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} /></button>{open && (<div className="absolute top-full right-0 mt-2 w-24 bg-neutral-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl py-1 z-50"><button onClick={() => switchLanguage("en")} className={`w-full text-left px-4 py-2 text-sm font-body transition-colors ${currentLang === "EN" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5"}`}>English</button><button onClick={() => switchLanguage("es")} className={`w-full text-left px-4 py-2 text-sm font-body transition-colors ${currentLang === "ES" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5"}`}>Español</button><button onClick={() => switchLanguage("it")} className={`w-full text-left px-4 py-2 text-sm font-body transition-colors ${currentLang === "IT" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5"}`}>Italiano</button></div>)}</div>);
+  
+  useEffect(() => { 
+    if (!open) return; 
+    const handler = (e: MouseEvent) => { 
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); 
+    }; 
+    document.addEventListener("mousedown", handler); 
+    return () => document.removeEventListener("mousedown", handler); 
+  }, [open]);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150);
+  };
+
+  const switchLanguage = (toLang: "en" | "es" | "it") => { 
+    const target = routeMap[toLang]?.[location.pathname] || (toLang === "es" ? "/es" : toLang === "it" ? "/it" : "/"); 
+    navigate(target); 
+    setOpen(false); 
+  };
+
+  return (
+    <div ref={ref} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <button onClick={() => setOpen(!open)} className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm font-body font-medium transition-colors py-2">
+        <Globe size={16} />
+        {currentLang}
+        <ChevronDown size={14} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="absolute top-full right-0 mt-0 w-28 bg-neutral-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl py-1 z-50">
+          <button onClick={() => switchLanguage("en")} className={`w-full text-left px-4 py-2 text-sm font-body transition-colors ${currentLang === "EN" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5"}`}>English</button>
+          <button onClick={() => switchLanguage("es")} className={`w-full text-left px-4 py-2 text-sm font-body transition-colors ${currentLang === "ES" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5"}`}>Español</button>
+          <button onClick={() => switchLanguage("it")} className={`w-full text-left px-4 py-2 text-sm font-body transition-colors ${currentLang === "IT" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5"}`}>Italiano</button>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function Navbar() {
