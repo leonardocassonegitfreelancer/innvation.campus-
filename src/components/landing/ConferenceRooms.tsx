@@ -22,7 +22,7 @@ const translations = {
       {
         id: "half-picasso",
         name: "Half Picasso",
-        capacity: "Up to 15 people",
+        capacity: "Up to 50 people",
         features: ["55\" 4K Display", "Video Conferencing", "Whiteboard", "Boardroom Setup"],
         highlight: false,
       },
