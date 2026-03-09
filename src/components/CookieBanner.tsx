@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Cookie } from "lucide-react";
 
 const texts = {
@@ -81,7 +81,10 @@ export default function CookieBanner() {
         <div className="flex items-start gap-3 mb-4">
           <Cookie className="w-5 h-5 text-primary mt-0.5 shrink-0" />
           <p className="font-body text-sm text-white/80 leading-relaxed">
-            {t.message}
+            {t.message}{" "}
+            <Link to="/privacy" className="text-primary underline hover:text-primary/80 transition-colors">
+              {lang === "en" ? "Privacy Policy" : lang === "es" ? "Política de Privacidad" : "Informativa sulla Privacy"}
+            </Link>
           </p>
         </div>
 
