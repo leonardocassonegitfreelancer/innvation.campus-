@@ -266,6 +266,37 @@ export default function ConferenceCTA() {
               )}
             </div>
 
+            {isConference && (
+              <div className="transition-all duration-300 animate-in fade-in slide-in-from-top-4">
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.dateLabel}</Label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className={cn(
+                        "w-full mt-1 justify-start text-left font-normal bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white focus:border-primary",
+                        !preferredDate && "text-white/30"
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {preferredDate ? format(preferredDate, "PPP") : <span>{t.datePlaceholder}</span>}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0 bg-neutral-dark border-white/20" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={preferredDate}
+                      onSelect={setPreferredDate}
+                      disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
+                      initialFocus
+                      className={cn("p-3 pointer-events-auto text-white")}
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+            )}
+
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>{t.hearLabel}</Label>
               <Select value={hearAbout} onValueChange={setHearAbout}>
