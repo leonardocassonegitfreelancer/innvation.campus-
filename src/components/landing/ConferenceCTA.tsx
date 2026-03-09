@@ -12,15 +12,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Send, CalendarIcon } from "lucide-react";
-import { format } from "date-fns";
-import { cn } from "@/lib/utils";
+import { Send } from "lucide-react";
+import ConferenceBookingFields from "./ConferenceBookingFields";
 
 const translations = {
   en: {
@@ -50,11 +43,6 @@ const translations = {
       { value: "coworker", label: "I want to become a coworker" },
       { value: "other", label: "Other / General info" },
     ],
-    seatsLabel: "Number of Seats",
-    seatsPlaceholder: "Select number of seats",
-    seatOptions: ["5", "15", "30", "50", "80"],
-    dateLabel: "Preferred Date",
-    datePlaceholder: "Select a date",
     hearLabel: "How did you hear about us?",
     hearPlaceholder: "Select an option",
     message: "Message",
@@ -90,11 +78,6 @@ const translations = {
       { value: "coworker", label: "Quiero ser coworker" },
       { value: "other", label: "Otro / Información general" },
     ],
-    seatsLabel: "Número de Asientos",
-    seatsPlaceholder: "Selecciona el número de asientos",
-    seatOptions: ["5", "15", "30", "50", "80"],
-    dateLabel: "Fecha Preferida",
-    datePlaceholder: "Selecciona una fecha",
     hearLabel: "¿Cómo nos conociste?",
     hearPlaceholder: "Selecciona una opción",
     message: "Mensaje",
@@ -130,11 +113,6 @@ const translations = {
       { value: "coworker", label: "Voglio diventare coworker" },
       { value: "other", label: "Altro / Informazioni generali" },
     ],
-    seatsLabel: "Numero di Posti",
-    seatsPlaceholder: "Seleziona il numero di posti",
-    seatOptions: ["5", "15", "30", "50", "80"],
-    dateLabel: "Data Preferita",
-    datePlaceholder: "Seleziona una data",
     hearLabel: "Come ci hai conosciuto?",
     hearPlaceholder: "Seleziona un'opzione",
     message: "Messaggio",
@@ -150,9 +128,7 @@ const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Refe
 export default function ConferenceCTA() {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const [service, setService] = useState<string>("");
-  const [seats, setSeats] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
-  const [preferredDate, setPreferredDate] = useState<Date>();
   const { ref, isVisible } = useScrollAnimation();
   const routeLocation = useLocation();
   const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
@@ -234,68 +210,21 @@ export default function ConferenceCTA() {
               </div>
             </div>
 
-            <div className={isConference ? "grid sm:grid-cols-2 gap-4" : ""}>
-              <div>
-                <Label className={`font-body text-sm ${mutedColor}`}>{t.serviceLabel}</Label>
-                <Select value={service} onValueChange={(val) => { setService(val); if (val !== "conference") setSeats(""); }}>
-                  <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
-                    <SelectValue placeholder={t.servicePlaceholder} />
-                  </SelectTrigger>
-                  <SelectContent className="bg-neutral-dark border-white/20 text-white">
-                    {t.services.map((opt) => (
-                      <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              {isConference && (
-                <div className="transition-all duration-300 animate-in fade-in slide-in-from-left-4">
-                  <Label className={`font-body text-sm ${mutedColor}`}>{t.seatsLabel}</Label>
-                  <Select value={seats} onValueChange={setSeats}>
-                    <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!seats ? "text-white/30" : ""}`}>
-                      <SelectValue placeholder={t.seatsPlaceholder} />
-                    </SelectTrigger>
-                    <SelectContent className="bg-neutral-dark border-white/20 text-white">
-                      {t.seatOptions.map((opt) => (
-                        <SelectItem key={opt} value={opt}>{opt}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              )}
+            <div>
+              <Label className={`font-body text-sm ${mutedColor}`}>{t.serviceLabel}</Label>
+              <Select value={service} onValueChange={setService}>
+                <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
+                  <SelectValue placeholder={t.servicePlaceholder} />
+                </SelectTrigger>
+                <SelectContent className="bg-neutral-dark border-white/20 text-white">
+                  {t.services.map((opt) => (
+                    <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
-            {isConference && (
-              <div className="transition-all duration-300 animate-in fade-in slide-in-from-top-4">
-                <Label className={`font-body text-sm ${mutedColor}`}>{t.dateLabel}</Label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      type="button"
-                      variant="outline"
-                      className={cn(
-                        "w-full mt-1 justify-start text-left font-normal bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white focus:border-primary",
-                        !preferredDate && "text-white/30"
-                      )}
-                    >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
-                      {preferredDate ? format(preferredDate, "PPP") : <span>{t.datePlaceholder}</span>}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0 bg-neutral-dark border-white/20" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={preferredDate}
-                      onSelect={setPreferredDate}
-                      disabled={(date) => date < new Date(new Date().setHours(0, 0, 0, 0))}
-                      initialFocus
-                      className={cn("p-3 pointer-events-auto text-white")}
-                    />
-                  </PopoverContent>
-                </Popover>
-              </div>
-            )}
+            {isConference && <ConferenceBookingFields lang={lang} />}
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>{t.hearLabel}</Label>
