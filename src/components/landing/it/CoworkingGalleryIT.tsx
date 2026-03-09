@@ -1,41 +1,101 @@
-import palaceCoworking from "@/assets/palace-coworking.jpg";
-import palaceCoffeeBar from "@/assets/palace-coffee-bar.jpg";
-import terraceCommunity from "@/assets/terrace-community.jpg";
+import { useState, useRef } from "react";
+import { Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const images = [
-  { src: palaceCoworking, alt: "Area coworking aperta al Palace" },
-  { src: palaceCoffeeBar, alt: "Zona caffè e bar" },
-  { src: terraceCommunity, alt: "Spazio comunitario sulla terrazza" },
+import palaceCourtyard from "@/assets/palace-courtyard.jpg";
+import palaceOutside from "@/assets/palace-outside.jpg";
+import palaceEntrance from "@/assets/palace-entrance.jpg";
+import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
+import palaceSkylight from "@/assets/palace-skylight.jpg";
+import palaceCoffeeBar from "@/assets/palace-coffee-bar.jpg";
+import palaceCatering from "@/assets/palace-catering.jpg";
+import palaceCoworking from "@/assets/palace-coworking.jpg";
+import terraceCommunity from "@/assets/terrace-community.jpg";
+import terraceEvents from "@/assets/terrace-events.jpg";
+import serviceTerrace from "@/assets/service-terrace.jpg";
+
+const palaceTop = [
+  { src: palaceCourtyard, alt: "Cortile del Málaga Palace" },
+  { src: palaceOutside, alt: "Esterno del Málaga Palace" },
+  { src: palaceEntrance, alt: "Ingresso del Málaga Palace" },
+  { src: palaceSecondFloor, alt: "Secondo piano del Málaga Palace" },
+];
+const palaceBottom = [
+  { src: palaceSkylight, alt: "Lucernario del Málaga Palace" },
+  { src: palaceCoffeeBar, alt: "Coffee bar del Málaga Palace" },
+  { src: palaceCatering, alt: "Catering del Málaga Palace" },
+  { src: palaceCoworking, alt: "Coworking del Málaga Palace" },
+];
+const terraceTop = [
+  { src: "/lovable-uploads/d002f55d-0b40-4966-a3c1-172cb490f76f.png", alt: "Ingresso Málaga Terrace" },
+  { src: "/lovable-uploads/237d9ba8-6193-4e35-a922-d914b6bd9079.jpg", alt: "Bar Málaga Terrace" },
+  { src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.jpg", alt: "Interni Málaga Terrace" },
+  { src: terraceCommunity, alt: "Community Málaga Terrace" },
+];
+const terraceBottom = [
+  { src: terraceEvents, alt: "Evento sulla terrazza" },
+  { src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", alt: "Coworking al Málaga Terrace" },
+  { src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", alt: "Sala riunioni Málaga Terrace" },
+  { src: serviceTerrace, alt: "Terrazza privata" },
 ];
 
+const videos = { palace: "/videos/malaga-palace.mp4", terrace: "/videos/malaga-terrace.mp4" };
+
 export default function CoworkingGalleryIT() {
+  const [tab, setTab] = useState<"palace" | "terrace">("palace");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation(0.1);
+
+  const galleryTop = tab === "palace" ? palaceTop : terraceTop;
+  const galleryBottom = tab === "palace" ? palaceBottom : terraceBottom;
+
+  const handlePlayVideo = () => { videoRef.current?.play(); setIsPlaying(true); };
+  const handleTabSwitch = (t: "palace" | "terrace") => {
+    if (t === tab) return;
+    setTab(t); setIsPlaying(false);
+    if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; }
+  };
 
   return (
     <section className="py-20 md:py-28 bg-neutral-dark">
       <div className="max-w-6xl mx-auto px-6">
-        <div ref={headerRef} className={`scroll-animate ${headerVisible ? "visible" : ""} text-center mb-12`}>
-          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
-            Gli Spazi
-          </p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground">
-            Dove Lavorerai
-          </h2>
+        <div ref={headerRef} className={`scroll-animate ${headerVisible ? "visible" : ""} text-center mb-10`}>
+          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">Esplora</p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-8">I Nostri Spazi a Málaga</h2>
+          <div className="flex gap-3 justify-center">
+            <button onClick={() => handleTabSwitch("palace")} className={`py-2.5 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${tab === "palace" ? "bg-primary text-primary-foreground" : "border border-primary text-primary bg-transparent hover:bg-primary/10"}`}>Málaga Palace</button>
+            <button onClick={() => handleTabSwitch("terrace")} className={`py-2.5 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${tab === "terrace" ? "bg-primary text-primary-foreground" : "border border-primary text-primary bg-transparent hover:bg-primary/10"}`}>Málaga Terrace</button>
+          </div>
         </div>
-
-        <div ref={gridRef} className={`scroll-animate ${gridVisible ? "visible" : ""} grid sm:grid-cols-3 gap-4`}>
-          {images.map((img) => (
-            <div key={img.alt} className="overflow-hidden rounded-xl aspect-[4/3]">
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
+        <div ref={gridRef} className={`scroll-animate ${gridVisible ? "visible" : ""}`}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
+            {galleryTop.map((img) => (
+              <div key={img.alt} className="rounded-xl overflow-hidden group aspect-[4/3]">
+                <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center mb-6">
+            <div className="relative w-full max-w-sm aspect-[9/16] md:max-w-5xl md:aspect-video bg-neutral-dark rounded-xl overflow-hidden cursor-pointer group" onClick={handlePlayVideo}>
+              <video key={videos[tab]} ref={videoRef} src={videos[tab]} className="w-full h-full object-cover md:object-contain" controls={isPlaying} playsInline preload="metadata" onEnded={() => setIsPlaying(false)} />
+              {!isPlaying && (
+                <div className="absolute inset-0 bg-neutral-dark/30 flex items-center justify-center transition-opacity group-hover:bg-neutral-dark/40">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/90 flex items-center justify-center transition-transform group-hover:scale-110">
+                    <Play className="w-7 h-7 md:w-9 md:h-9 text-primary-foreground ml-1" />
+                  </div>
+                </div>
+              )}
             </div>
-          ))}
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {galleryBottom.map((img) => (
+              <div key={img.alt} className="rounded-xl overflow-hidden group aspect-[4/3]">
+                <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
