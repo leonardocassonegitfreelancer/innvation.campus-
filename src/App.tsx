@@ -27,6 +27,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Admin from "./pages/Admin";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
+import LegalNotice from "./pages/LegalNotice";
 
 // Spanish pages
 import IndexES from "./pages/es/Index";
@@ -95,6 +96,7 @@ const App = () => (
           <Route path="/admin" element={<Admin />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/legal-notice" element={<LegalNotice />} />
 
           {/* Spanish routes */}
           <Route path="/es" element={<IndexES />} />
