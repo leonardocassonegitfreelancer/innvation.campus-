@@ -76,7 +76,7 @@ const shortStayPlans: PlanCard[] = [
   name: "ONE WEEK",
   price: "€90",
   period: "+ VAT",
-  url: "https://members.innovationcampus.biz/signup?plan=FL12",
+  url: "https://members.innovationcampus.biz/signup?plan=1WE",
   features: [
   "One week in a row",
   "7am–11pm",
