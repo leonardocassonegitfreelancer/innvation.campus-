@@ -112,6 +112,11 @@ const App = () => (
           <Route path="/en/malaga-palace" element={<MalagaPalace />} />
           <Route path="/en/malaga-terrace" element={<MalagaTerrace />} />
           <Route path="/en/find-us" element={<FindUs />} />
+          <Route path="/en/meeting-rooms/big-conference-room" element={<BigConferenceRoom />} />
+          <Route path="/en/meeting-rooms/half-conference-room" element={<HalfConferenceRoom />} />
+          <Route path="/en/meeting-rooms/quarter-room" element={<QuarterRoom />} />
+          <Route path="/en/meeting-rooms/training-room" element={<TrainingRoom />} />
+          <Route path="/en/meeting-rooms/meeting-room" element={<MeetingRoom />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/admin" element={<Admin />} />
