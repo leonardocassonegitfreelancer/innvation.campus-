@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { getAlternateLinks } from "@/lib/i18n";
 
 interface SEOHeadProps {
   title: string;
@@ -12,6 +13,7 @@ const BASE_URL = "https://malaga-duality-landing.lovable.app";
 export default function SEOHead({ title, description, path = "/", jsonLd }: SEOHeadProps) {
   const fullTitle = `Innovation Campus | ${title}`;
   const url = `${BASE_URL}${path}`;
+  const alternates = getAlternateLinks(path);
 
   return (
     <Helmet>
