@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import OfficesIntro from "@/components/landing/OfficesIntro";
 import OfficesIncludes from "@/components/landing/OfficesIncludes";
 import OfficesGallery from "@/components/landing/OfficesGallery";
-import OfficesCTA from "@/components/landing/OfficesCTA";
+import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
 export default function PrivateOffices() {
   return (
@@ -22,7 +22,7 @@ export default function PrivateOffices() {
         <OfficesIntro />
         <OfficesIncludes />
         <OfficesGallery />
-        <OfficesCTA />
+        <ConferenceCTA />
       </ServicePageLayout>
     </>
   );

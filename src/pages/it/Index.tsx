@@ -5,7 +5,7 @@ import ServicesSectionIT from "@/components/landing/it/ServicesSectionIT";
 import QuoteSectionIT from "@/components/landing/it/QuoteSectionIT";
 import LocationsSectionIT from "@/components/landing/it/LocationsSectionIT";
 import FAQSectionIT from "@/components/landing/it/FAQSectionIT";
-import ContactSectionIT from "@/components/landing/it/ContactSectionIT";
+import ConferenceCTA from "@/components/landing/ConferenceCTA";
 import FooterIT from "@/components/landing/it/FooterIT";
 import SEOHead from "@/components/SEOHead";
 
@@ -39,7 +39,7 @@ const IndexIT = () => {
       <QuoteSectionIT />
       <LocationsSectionIT />
       <FAQSectionIT />
-      <ContactSectionIT />
+      <ConferenceCTA titleOverride={{ en: "Start your journey", es: "Comienza tu viaje", it: "Inizia il tuo viaggio" }} subtitleOverride={{ en: "Ask a question, check availability or become a member.", es: "Haz una pregunta, consulta disponibilidad o hazte miembro.", it: "Fai una domanda, verifica la disponibilità o diventa membro." }} />
       <FooterIT />
     </main>
   );

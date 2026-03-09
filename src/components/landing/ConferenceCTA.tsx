@@ -125,7 +125,12 @@ const translations = {
 
 const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"] as const;
 
-export default function ConferenceCTA() {
+interface ConferenceCTAProps {
+  titleOverride?: { en: string; es: string; it: string };
+  subtitleOverride?: { en: string; es: string; it: string };
+}
+
+export default function ConferenceCTA({ titleOverride, subtitleOverride }: ConferenceCTAProps = {}) {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const [service, setService] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
@@ -134,13 +139,15 @@ export default function ConferenceCTA() {
   const routeLocation = useLocation();
   const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
+  const displayTitle = titleOverride ? titleOverride[lang] : t.title;
+  const displaySubtitle = subtitleOverride ? subtitleOverride[lang] : t.subtitle;
 
   const isConference = service === "conference";
   const mutedColor = "text-white/60";
   const inputClass = "mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary";
 
   return (
-    <section className="relative py-24 md:py-36 bg-neutral-dark overflow-hidden">
+    <section id="contact" className="relative py-24 md:py-36 bg-neutral-dark overflow-hidden">
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"
       }} />
@@ -151,10 +158,10 @@ export default function ConferenceCTA() {
               {t.sectionLabel}
             </p>
             <h2 className="font-display text-3xl md:text-5xl font-bold text-white">
-              {t.title}
+              {displayTitle}
             </h2>
             <p className={`font-body mt-4 ${mutedColor}`}>
-              {t.subtitle}
+              {displaySubtitle}
             </p>
           </div>
 

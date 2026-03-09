@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import TerraceIntro from "@/components/landing/TerraceIntro";
 import TerraceIncludes from "@/components/landing/TerraceIncludes";
 import TerraceGallery from "@/components/landing/TerraceGallery";
-import TerraceCTA from "@/components/landing/TerraceCTA";
+import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
 export default function PrivateTerraceES() {
   return (
@@ -22,7 +22,7 @@ export default function PrivateTerraceES() {
         <TerraceIntro />
         <TerraceIncludes />
         <TerraceGallery />
-        <TerraceCTA />
+        <ConferenceCTA />
       </ServicePageLayout>
     </>
   );
