@@ -62,7 +62,7 @@ const shortStayPlans: PlanCard[] = [
   name: "TWO WEEKS",
   price: "€139",
   period: "+ VAT",
-  url: "https://members.innovationcampus.biz/signup?plan=FL12",
+  url: "https://members.innovationcampus.biz/signup?plan=2We",
   features: [
   "Two weeks in a row",
   "7am–11pm",
