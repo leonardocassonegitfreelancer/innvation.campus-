@@ -63,14 +63,39 @@
     ]
   },
   "contact": {
-    "label": "Contact",
-    "title": "Get in Touch",
-    "description": "Ready to find your perfect workspace? Reach out and we'll help you get started.",
+    "label": "Get in Touch",
+    "title": "Start your journey",
+    "description": "Ask a question, check availability or become a member.",
     "form": {
       "name": "Name",
+      "namePlaceholder": "Your name",
       "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "company": "Company Name",
+      "companyPlaceholder": "Your company",
+      "phone": "Phone Number (with country code)",
+      "phonePlaceholder": "+34 600 000 000",
+      "location": "Which location interests you?",
+      "locationHistoric": "Historic Center",
+      "locationSeaside": "Seaside",
+      "locationBoth": "Both",
+      "service": "What are you looking for?",
+      "servicePlaceholder": "Select a service",
+      "serviceOptions": [
+        "I want to host my event at Innovation Campus",
+        "I want to rent a private office",
+        "I want to become a coworker",
+        "I want to register my business",
+        "Other / General info"
+      ],
+      "hearAbout": "How did you hear about us?",
+      "hearAboutPlaceholder": "Select an option",
+      "hearAboutOptions": ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"],
       "message": "Message",
-      "submit": "Send Message"
+      "messagePlaceholder": "Tell us what you're looking for...",
+      "submit": "Send Message",
+      "selectService": "Please select a service.",
+      "thankYou": "Thank you! We'll get back to you soon."
     }
   },
   "footer": {

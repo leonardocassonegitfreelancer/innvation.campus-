@@ -1,9 +1,11 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useTranslation } from "react-i18next";
 import aboutImage from "@/assets/about-campus.jpg";
 
 export default function AboutSection() {
   const { ref: r1, isVisible: v1 } = useScrollAnimation();
   const { ref: r2, isVisible: v2 } = useScrollAnimation();
+  const { t } = useTranslation();
 
   return (
     <section
@@ -15,7 +17,6 @@ export default function AboutSection() {
       }} />
       <div className="relative max-w-6xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
-          {/* Image — left side */}
           <div
             ref={r2}
             className={`scroll-animate ${v2 ? "visible" : ""} w-full md:w-1/2`}>
@@ -27,57 +28,45 @@ export default function AboutSection() {
             
           </div>
 
-          {/* Text — right side */}
           <div
             ref={r1}
             className={`scroll-animate ${v1 ? "visible" : ""} w-full md:w-1/2`}
             style={{ transitionDelay: "0.15s" }}>
             
             <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">
-              The Campus
+              {t("about.label")}
             </p>
 
             <h2
               className="text-4xl md:text-5xl lg:text-6xl leading-none mb-6 uppercase text-secondary bg-inherit font-medium"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}>BETWEEN SPAIN AND ITALY, A PROJECT THAT NEVER STANDS STILL
-
-
+              style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              {t("about.title")}
             </h2>
 
             <div className="w-12 h-[3px] bg-primary mb-6" />
 
             <div className="space-y-4 font-body text-base leading-relaxed text-historic-muted">
-              <p className="text-secondary">Innovation Campus is an independent coworking present across two countries, two cultures and two ways of working:
-We offer spaces in Málaga, Olbia and Ancona and our eyes always on the people building something real.
+              <p className="text-secondary">{t("about.p1")}</p>
 
-
-
-              </p>
-
-              <p className="text-secondary">In Málaga we are in two places that couldn't be more different.</p>
+              <p className="text-secondary">{t("about.p2")}</p>
 
               <p className="text-secondary">
-                <strong className="bg-inherit text-primary">Málaga Palace</strong>, in
-                the heart of the old town, within the walls of a frescoed and
-                restored historic palace: where silence and history walk
-                alongside you while you work.
+                <strong className="bg-inherit text-primary">{t("about.p3_palace")}</strong>
+                {t("about.p3_text")}
               </p>
 
               <p className="text-secondary">
-                And{" "}
-                <strong className="text-primary">Málaga Terrace</strong>,
-                overlooking the Mediterranean: where the blue of the sea is the
-                backdrop to your days and the terrace is waiting whenever you
-                need it.
+                <strong className="text-primary">{t("about.p4_terrace")}</strong>
+                {t("about.p4_text")}
               </p>
 
               <p className="font-display text-xl text-primary font-semibold pt-2">
-                Two spaces, one community.
+                {t("about.tagline")}
               </p>
             </div>
           </div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }
