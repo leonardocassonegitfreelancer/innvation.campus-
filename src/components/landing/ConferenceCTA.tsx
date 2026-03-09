@@ -158,10 +158,10 @@ export default function ConferenceCTA({ titleOverride, subtitleOverride }: Confe
               {t.sectionLabel}
             </p>
             <h2 className="font-display text-3xl md:text-5xl font-bold text-white">
-              {t.title}
+              {displayTitle}
             </h2>
             <p className={`font-body mt-4 ${mutedColor}`}>
-              {t.subtitle}
+              {displaySubtitle}
             </p>
           </div>
 
