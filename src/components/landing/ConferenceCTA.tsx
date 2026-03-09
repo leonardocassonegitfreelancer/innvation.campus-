@@ -136,12 +136,14 @@ const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Refe
 export default function ConferenceCTA() {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const [service, setService] = useState<string>("");
+  const [seats, setSeats] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
   const { ref, isVisible } = useScrollAnimation();
   const routeLocation = useLocation();
   const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
+  const isConference = service === "conference";
   const mutedColor = "text-white/60";
   const inputClass = "mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary";
 
@@ -217,18 +219,36 @@ export default function ConferenceCTA() {
               </div>
             </div>
 
-            <div>
-              <Label className={`font-body text-sm ${mutedColor}`}>{t.serviceLabel}</Label>
-              <Select value={service} onValueChange={setService}>
-                <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
-                  <SelectValue placeholder={t.servicePlaceholder} />
-                </SelectTrigger>
-                <SelectContent className="bg-neutral-dark border-white/20 text-white">
-                  {t.services.map((opt) => (
-                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+            <div className={isConference ? "grid sm:grid-cols-2 gap-4" : ""}>
+              <div>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.serviceLabel}</Label>
+                <Select value={service} onValueChange={(val) => { setService(val); if (val !== "conference") setSeats(""); }}>
+                  <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
+                    <SelectValue placeholder={t.servicePlaceholder} />
+                  </SelectTrigger>
+                  <SelectContent className="bg-neutral-dark border-white/20 text-white">
+                    {t.services.map((opt) => (
+                      <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {isConference && (
+                <div className="transition-all duration-300 animate-in fade-in slide-in-from-left-4">
+                  <Label className={`font-body text-sm ${mutedColor}`}>{t.seatsLabel}</Label>
+                  <Select value={seats} onValueChange={setSeats}>
+                    <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!seats ? "text-white/30" : ""}`}>
+                      <SelectValue placeholder={t.seatsPlaceholder} />
+                    </SelectTrigger>
+                    <SelectContent className="bg-neutral-dark border-white/20 text-white">
+                      {t.seatOptions.map((opt) => (
+                        <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
             </div>
 
             <div>
