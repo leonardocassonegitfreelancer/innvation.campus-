@@ -8,6 +8,7 @@ interface PlanCard {
   period: string;
   features: string[];
   bestSeller?: boolean;
+  url: string;
 }
 
 const monthlyPlans: PlanCard[] = [
