@@ -1,10 +1,74 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Lock, Users, Code, FileText } from "lucide-react";
+import { Lock, Users, Code, FileText, Map, Globe } from "lucide-react";
 
 const PASS = "@Malaga73";
+
+const siteMap = {
+  "🇬🇧 English": [
+    { label: "Home", path: "/" },
+    { label: "Málaga Palace", path: "/en/malaga-palace" },
+    { label: "Málaga Terrace", path: "/en/malaga-terrace" },
+    { label: "Ancona", path: "/en/ancona" },
+    { label: "Olbia", path: "/en/olbia" },
+    { label: "Find Us", path: "/en/find-us" },
+    { label: "Coworking Space", path: "/en/coworking-space" },
+    { label: "Conference Rooms", path: "/en/conference-rooms" },
+    { label: "Private Terrace", path: "/en/private-terrace" },
+    { label: "Private Offices", path: "/en/private-offices" },
+    { label: "Business Registration", path: "/en/business-registration" },
+    { label: "Events", path: "/en/events" },
+    { label: "Host Your Event", path: "/en/host-your-event" },
+    { label: "Academy", path: "/en/academy" },
+    { label: "Benefits", path: "/en/benefits" },
+    { label: "Blog", path: "/blog" },
+  ],
+  "🇪🇸 Español": [
+    { label: "Inicio", path: "/es" },
+    { label: "Málaga Palace", path: "/es/malaga-palace" },
+    { label: "Málaga Terrace", path: "/es/malaga-terrace" },
+    { label: "Ancona", path: "/es/ancona" },
+    { label: "Olbia", path: "/es/olbia" },
+    { label: "Encuéntranos", path: "/es/encuentranos" },
+    { label: "Coworking", path: "/es/coworking" },
+    { label: "Salas de Conferencias", path: "/es/salas-de-conferencias" },
+    { label: "Terraza Privada", path: "/es/terraza-privada" },
+    { label: "Oficinas Privadas", path: "/es/oficinas-privadas" },
+    { label: "Registro de Empresas", path: "/es/registro-de-empresas" },
+    { label: "Eventos", path: "/es/eventos" },
+    { label: "Organiza Tu Evento", path: "/es/organiza-tu-evento" },
+    { label: "Academia", path: "/es/academia" },
+    { label: "Beneficios", path: "/es/beneficios" },
+    { label: "Blog", path: "/es/blog" },
+  ],
+  "🇮🇹 Italiano": [
+    { label: "Home", path: "/it" },
+    { label: "Málaga Palace", path: "/it/malaga-palace" },
+    { label: "Málaga Terrace", path: "/it/malaga-terrace" },
+    { label: "Ancona", path: "/it/ancona" },
+    { label: "Olbia", path: "/it/olbia" },
+    { label: "Trovaci", path: "/it/trovaci" },
+    { label: "Coworking", path: "/it/coworking" },
+    { label: "Sale Conferenze", path: "/it/sale-conferenze" },
+    { label: "Terrazza Privata", path: "/it/terrazza-privata" },
+    { label: "Uffici Privati", path: "/it/uffici-privati" },
+    { label: "Registrazione Aziendale", path: "/it/registrazione-aziendale" },
+    { label: "Eventi", path: "/it/eventi" },
+    { label: "Organizza Evento", path: "/it/organizza-evento" },
+    { label: "Academy", path: "/it/academy" },
+    { label: "Vantaggi", path: "/it/vantaggi" },
+    { label: "Blog", path: "/it/blog" },
+  ],
+  "📄 Legal & Utility": [
+    { label: "Privacy Policy", path: "/privacy" },
+    { label: "Cookie Policy", path: "/cookie-policy" },
+    { label: "Legal Notice", path: "/legal-notice" },
+    { label: "Admin", path: "/admin" },
+  ],
+};
 
 const teamSections = [
   {
@@ -132,6 +196,39 @@ export default function Admin() {
           </h1>
         </div>
 
+        {/* Site Map */}
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Map className="w-5 h-5 text-primary" />
+              Site Map
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-2 gap-6">
+              {Object.entries(siteMap).map(([lang, pages]) => (
+                <div key={lang}>
+                  <h3 className="font-display font-semibold text-foreground mb-3 text-sm">{lang}</h3>
+                  <ul className="space-y-1">
+                    {pages.map((page) => (
+                      <li key={page.path}>
+                        <Link
+                          to={page.path}
+                          className="text-sm text-primary hover:text-primary/70 hover:underline transition-colors"
+                        >
+                          {page.label}
+                          <span className="text-muted-foreground ml-2 text-xs">{page.path}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Team Sections */}
         <div className="flex flex-col gap-6">
           {teamSections.map((section) => (
             <Card key={section.name}>
