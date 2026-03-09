@@ -8,7 +8,7 @@ const translations = {
     title: "Host Meetings That Matter",
     subtitle: "From intimate brainstorms to large presentations, our conference rooms are designed for productivity and impact.",
     highlights: [
-      { icon: Users, title: "Up to 30 People", desc: "Flexible room sizes for any meeting" },
+      { icon: Users, title: "Up to 80 People", desc: "Flexible room sizes for any meeting" },
       { icon: Monitor, title: "Premium Tech", desc: "4K displays & video conferencing" },
       { icon: UtensilsCrossed, title: "Catering Available", desc: "Quality food improves satisfaction by 3x" },
     ],
