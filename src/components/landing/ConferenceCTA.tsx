@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Send } from "lucide-react";
-import ConferenceBookingFields from "./ConferenceBookingFields";
+import ConferenceBookingFields, { type ConferenceBookingFieldsHandle } from "./ConferenceBookingFields";
 
 const translations = {
   en: {
