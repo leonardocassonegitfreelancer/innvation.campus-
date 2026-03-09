@@ -1,0 +1,48 @@
+import Navbar from "@/components/landing/Navbar";
+import MainHeroIT from "@/components/landing/it/MainHeroIT";
+import AboutSectionIT from "@/components/landing/it/AboutSectionIT";
+import ServicesSectionIT from "@/components/landing/it/ServicesSectionIT";
+import QuoteSectionIT from "@/components/landing/it/QuoteSectionIT";
+import LocationsSectionIT from "@/components/landing/it/LocationsSectionIT";
+import FAQSectionIT from "@/components/landing/it/FAQSectionIT";
+import ContactSectionIT from "@/components/landing/it/ContactSectionIT";
+import FooterIT from "@/components/landing/it/FooterIT";
+import SEOHead from "@/components/SEOHead";
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CoworkingSpace",
+  "name": "Innovation Campus",
+  "description": "Due spazi di coworking a Málaga, Spagna. Uno nel centro storico, uno sul mare.",
+  "url": "https://malaga-duality-landing.lovable.app/it",
+  "address": [
+    { "@type": "PostalAddress", "addressLocality": "Málaga", "addressCountry": "ES" },
+    { "@type": "PostalAddress", "addressLocality": "Ancona", "addressCountry": "IT" }
+  ],
+  "openingHours": "Mo-Fr 09:00-19:00",
+  "sameAs": []
+};
+
+const IndexIT = () => {
+  return (
+    <main className="overflow-x-hidden">
+      <SEOHead
+        title="Uffici - Coworking - Eventi"
+        description="Due spazi di coworking a Málaga, Spagna. Uno nel centro storico, uno sul mare. Trova il tuo ritmo a Innovation/Campus."
+        path="/it"
+        jsonLd={localBusinessJsonLd}
+      />
+      <Navbar />
+      <MainHeroIT />
+      <AboutSectionIT />
+      <ServicesSectionIT />
+      <QuoteSectionIT />
+      <LocationsSectionIT />
+      <FAQSectionIT />
+      <ContactSectionIT />
+      <FooterIT />
+    </main>
+  );
+};
+
+export default IndexIT;
