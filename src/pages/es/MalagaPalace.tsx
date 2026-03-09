@@ -224,6 +224,17 @@ export default function MalagaPalaceES() {
         </div>
       </section>
 
+      {/* CTA */}
+      <section className="py-16 bg-neutral-dark text-center">
+        <div className="max-w-2xl mx-auto px-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-4">Experimenta el Palacio</h2>
+          <p className="font-body text-primary-foreground/70 mb-8">Reserva una visita y descubre tu nuevo espacio de trabajo en el corazón de Málaga.</p>
+          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
+            <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Reservar Visita</a>
+          </Button>
+        </div>
+      </section>
+
       <section className="py-20 md:py-28 bg-background">
         <div ref={servicesRef} className={`scroll-animate ${servicesVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold text-center">También Disponible en esta ubicación</p>
@@ -241,17 +252,6 @@ export default function MalagaPalaceES() {
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-neutral-dark text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-4">Experimenta el Palacio</h2>
-          <p className="font-body text-primary-foreground/70 mb-8">Reserva una visita y descubre tu nuevo espacio de trabajo en el corazón de Málaga.</p>
-          <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
-            <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Reservar Visita</a>
-          </Button>
         </div>
       </section>
 
