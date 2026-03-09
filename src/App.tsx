@@ -25,6 +25,7 @@ import Blog from "./pages/en/Blog";
 import BlogPostPage from "./pages/en/BlogPost";
 import ScrollToTop from "./components/ScrollToTop";
 import Admin from "./pages/Admin";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 // Spanish pages
 import IndexES from "./pages/es/Index";
