@@ -1,6 +1,10 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
 import serviceTerrace from "@/assets/service-terrace.jpg";
 import SEOHead from "@/components/SEOHead";
+import TerraceIntro from "@/components/landing/TerraceIntro";
+import TerraceIncludes from "@/components/landing/TerraceIncludes";
+import TerraceGallery from "@/components/landing/TerraceGallery";
+import TerraceCTA from "@/components/landing/TerraceCTA";
 
 export default function PrivateTerraceES() {
   return (
@@ -14,7 +18,12 @@ export default function PrivateTerraceES() {
         title="Terraza Privada"
         subtitle="Un espacio exterior exclusivo con opciones de catering para tus eventos y reuniones."
         image={serviceTerrace}
-      />
+      >
+        <TerraceIntro />
+        <TerraceIncludes />
+        <TerraceGallery />
+        <TerraceCTA />
+      </ServicePageLayout>
     </>
   );
 }

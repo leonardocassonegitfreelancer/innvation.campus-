@@ -1,6 +1,10 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
 import servicePrivate from "@/assets/service-private.jpg";
 import SEOHead from "@/components/SEOHead";
+import OfficesIntro from "@/components/landing/OfficesIntro";
+import OfficesIncludes from "@/components/landing/OfficesIncludes";
+import OfficesGallery from "@/components/landing/OfficesGallery";
+import OfficesCTA from "@/components/landing/OfficesCTA";
 
 export default function PrivateOffices() {
   return (
@@ -14,7 +18,12 @@ export default function PrivateOffices() {
         title="Private Offices"
         subtitle="Dedicated office spaces in different sizes to suit your team's needs."
         image={servicePrivate}
-      />
+      >
+        <OfficesIntro />
+        <OfficesIncludes />
+        <OfficesGallery />
+        <OfficesCTA />
+      </ServicePageLayout>
     </>
   );
 }
