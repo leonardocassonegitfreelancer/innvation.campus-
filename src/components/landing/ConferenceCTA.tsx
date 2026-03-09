@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "react-router-dom";
 import { Input } from "@/components/ui/input";
