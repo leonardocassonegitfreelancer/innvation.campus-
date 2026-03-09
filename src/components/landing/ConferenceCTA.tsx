@@ -228,7 +228,14 @@ export default function ConferenceCTA() {
               </Select>
             </div>
 
-            {isConference && <ConferenceBookingFields lang={lang} />}
+            {isConference && <ConferenceBookingFields ref={conferenceRef} lang={lang} />}
+
+            {!isConference && (
+              <div>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.message}</Label>
+                <Textarea placeholder={t.messagePlaceholder} rows={4} className={inputClass} />
+              </div>
+            )}
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>{t.hearLabel}</Label>
@@ -242,11 +249,6 @@ export default function ConferenceCTA() {
                   ))}
                 </SelectContent>
               </Select>
-            </div>
-
-            <div>
-              <Label className={`font-body text-sm ${mutedColor}`}>{t.message}</Label>
-              <Textarea placeholder={t.messagePlaceholder} rows={4} className={inputClass} />
             </div>
 
             <Button
