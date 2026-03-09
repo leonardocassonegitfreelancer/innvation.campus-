@@ -125,7 +125,12 @@ const translations = {
 
 const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"] as const;
 
-export default function ConferenceCTA() {
+interface ConferenceCTAProps {
+  titleOverride?: { en: string; es: string; it: string };
+  subtitleOverride?: { en: string; es: string; it: string };
+}
+
+export default function ConferenceCTA({ titleOverride, subtitleOverride }: ConferenceCTAProps = {}) {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const [service, setService] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
@@ -134,6 +139,8 @@ export default function ConferenceCTA() {
   const routeLocation = useLocation();
   const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
+  const displayTitle = titleOverride ? titleOverride[lang] : t.title;
+  const displaySubtitle = subtitleOverride ? subtitleOverride[lang] : t.subtitle;
 
   const isConference = service === "conference";
   const mutedColor = "text-white/60";
