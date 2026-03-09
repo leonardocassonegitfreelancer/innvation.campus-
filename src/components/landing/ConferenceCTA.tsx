@@ -165,6 +165,9 @@ export default function ConferenceCTA() {
                 alert(t.selectService);
                 return;
               }
+              if (isConference && conferenceRef.current) {
+                if (!conferenceRef.current.validate()) return;
+              }
               alert(t.thankYou);
             }}
             className="space-y-6"
