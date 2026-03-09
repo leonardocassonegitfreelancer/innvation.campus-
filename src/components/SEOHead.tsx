@@ -10,7 +10,7 @@ interface SEOHeadProps {
 }
 
 const BASE_URL = "https://malaga-duality-landing.lovable.app";
-const DEFAULT_OG_IMAGE = "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.jpg";
+const DEFAULT_OG_IMAGE = "/og-image.jpg";
 
 export default function SEOHead({ title, description, path = "/", jsonLd, ogImage }: SEOHeadProps) {
   const fullTitle = `Innovation Campus | ${title}`;
