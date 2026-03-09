@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { getAlternateLinks } from "@/lib/i18n";
+import { getAlternateLinks, generateBreadcrumbJsonLd } from "@/lib/i18n";
 
 interface SEOHeadProps {
   title: string;
@@ -14,6 +14,9 @@ export default function SEOHead({ title, description, path = "/", jsonLd }: SEOH
   const fullTitle = `Innovation Campus | ${title}`;
   const url = `${BASE_URL}${path}`;
   const alternates = getAlternateLinks(path);
+  const breadcrumbJsonLd = path !== "/" && path !== "/es" && path !== "/it" 
+    ? generateBreadcrumbJsonLd(path, BASE_URL) 
+    : null;
 
   return (
     <Helmet>
@@ -34,6 +37,9 @@ export default function SEOHead({ title, description, path = "/", jsonLd }: SEOH
       <meta name="twitter:description" content={description} />
       {jsonLd && (
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      )}
+      {breadcrumbJsonLd && (
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
       )}
     </Helmet>
   );
