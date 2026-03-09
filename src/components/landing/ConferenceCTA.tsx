@@ -1,55 +1,256 @@
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "react-router-dom";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Send } from "lucide-react";
 
 const translations = {
   en: {
+    sectionLabel: "Get in Touch",
     title: "Book Your Meeting Room",
-    subtitle: "Get in touch to reserve your space or request a personalized quote.",
-    cta: "Request a Quote",
+    subtitle: "Ask a question, check availability or request a personalized quote.",
+    name: "Name",
+    namePlaceholder: "Your name",
+    email: "Email",
+    emailPlaceholder: "you@example.com",
+    company: "Company Name",
+    companyPlaceholder: "Your company",
+    phone: "Phone Number (with country code)",
+    phonePlaceholder: "+34 600 000 000",
+    locationLabel: "Which location interests you?",
+    locations: [
+      { value: "historic" as const, label: "Historic Center" },
+      { value: "seaside" as const, label: "Seaside" },
+      { value: "both" as const, label: "Both" },
+    ],
+    serviceLabel: "What are you looking for?",
+    servicePlaceholder: "Select a service",
+    services: [
+      "I want to book a conference room",
+      "I want to host my event at Innovation Campus",
+      "I want to rent a private office",
+      "I want to become a coworker",
+      "Other / General info",
+    ],
+    hearLabel: "How did you hear about us?",
+    hearPlaceholder: "Select an option",
+    message: "Message",
+    messagePlaceholder: "Tell us what you're looking for...",
+    submit: "Send Message",
+    thankYou: "Thank you! We'll get back to you soon.",
+    selectService: "Please select a service.",
   },
   es: {
+    sectionLabel: "Contáctanos",
     title: "Reserva Tu Sala de Reuniones",
-    subtitle: "Contáctanos para reservar tu espacio o solicitar un presupuesto personalizado.",
-    cta: "Solicitar Presupuesto",
+    subtitle: "Haz una pregunta, consulta disponibilidad o solicita un presupuesto personalizado.",
+    name: "Nombre",
+    namePlaceholder: "Tu nombre",
+    email: "Email",
+    emailPlaceholder: "tu@ejemplo.com",
+    company: "Nombre de Empresa",
+    companyPlaceholder: "Tu empresa",
+    phone: "Teléfono (con código de país)",
+    phonePlaceholder: "+34 600 000 000",
+    locationLabel: "¿Qué ubicación te interesa?",
+    locations: [
+      { value: "historic" as const, label: "Centro Histórico" },
+      { value: "seaside" as const, label: "Frente al Mar" },
+      { value: "both" as const, label: "Ambas" },
+    ],
+    serviceLabel: "¿Qué estás buscando?",
+    servicePlaceholder: "Selecciona un servicio",
+    services: [
+      "Quiero reservar una sala de conferencias",
+      "Quiero organizar mi evento en Innovation Campus",
+      "Quiero alquilar una oficina privada",
+      "Quiero ser coworker",
+      "Otro / Información general",
+    ],
+    hearLabel: "¿Cómo nos conociste?",
+    hearPlaceholder: "Selecciona una opción",
+    message: "Mensaje",
+    messagePlaceholder: "Cuéntanos qué necesitas...",
+    submit: "Enviar Mensaje",
+    thankYou: "¡Gracias! Te responderemos pronto.",
+    selectService: "Por favor selecciona un servicio.",
   },
   it: {
+    sectionLabel: "Contattaci",
     title: "Prenota la Tua Sala Riunioni",
-    subtitle: "Contattaci per prenotare il tuo spazio o richiedere un preventivo personalizzato.",
-    cta: "Richiedi Preventivo",
+    subtitle: "Fai una domanda, verifica la disponibilità o richiedi un preventivo personalizzato.",
+    name: "Nome",
+    namePlaceholder: "Il tuo nome",
+    email: "Email",
+    emailPlaceholder: "tu@esempio.com",
+    company: "Nome Azienda",
+    companyPlaceholder: "La tua azienda",
+    phone: "Telefono (con prefisso internazionale)",
+    phonePlaceholder: "+39 333 000 0000",
+    locationLabel: "Quale sede ti interessa?",
+    locations: [
+      { value: "historic" as const, label: "Centro Storico" },
+      { value: "seaside" as const, label: "Lungomare" },
+      { value: "both" as const, label: "Entrambe" },
+    ],
+    serviceLabel: "Cosa stai cercando?",
+    servicePlaceholder: "Seleziona un servizio",
+    services: [
+      "Voglio prenotare una sala conferenze",
+      "Voglio organizzare il mio evento all'Innovation Campus",
+      "Voglio affittare un ufficio privato",
+      "Voglio diventare coworker",
+      "Altro / Informazioni generali",
+    ],
+    hearLabel: "Come ci hai conosciuto?",
+    hearPlaceholder: "Seleziona un'opzione",
+    message: "Messaggio",
+    messagePlaceholder: "Raccontaci cosa stai cercando...",
+    submit: "Invia Messaggio",
+    thankYou: "Grazie! Ti risponderemo presto.",
+    selectService: "Per favore seleziona un servizio.",
   },
 };
 
+const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"] as const;
+
 export default function ConferenceCTA() {
+  const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
+  const [service, setService] = useState<string>("");
+  const [hearAbout, setHearAbout] = useState<string>("");
   const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+  const routeLocation = useLocation();
+  const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
-  return (
-    <section className="relative py-20 md:py-28 bg-neutral-dark overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-        }}
-      />
-      <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} max-w-3xl mx-auto px-6 text-center relative`}>
-        <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">
-          {t.title}
-        </h2>
-        <p className="font-body text-lg text-primary-foreground/60 mb-10 max-w-xl mx-auto">
-          {t.subtitle}
-        </p>
+  const mutedColor = "text-white/60";
+  const inputClass = "mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary";
 
-        <Button
-          asChild
-          size="lg"
-          className="bg-primary hover:bg-primary/90 text-primary-foreground font-body uppercase tracking-widest text-sm"
-        >
-          <a href="/#contact">{t.cta}</a>
-        </Button>
+  return (
+    <section className="relative py-24 md:py-36 bg-neutral-dark overflow-hidden">
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"
+      }} />
+      <div className="relative max-w-2xl mx-auto px-6">
+        <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""}`}>
+          <div className="text-center mb-12">
+            <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">
+              {t.sectionLabel}
+            </p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-white">
+              {t.title}
+            </h2>
+            <p className={`font-body mt-4 ${mutedColor}`}>
+              {t.subtitle}
+            </p>
+          </div>
+
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (!service) {
+                alert(t.selectService);
+                return;
+              }
+              alert(t.thankYou);
+            }}
+            className="space-y-6"
+          >
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.name}</Label>
+                <Input required placeholder={t.namePlaceholder} className={inputClass} />
+              </div>
+              <div>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.email}</Label>
+                <Input type="email" required placeholder={t.emailPlaceholder} className={inputClass} />
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.company}</Label>
+                <Input required placeholder={t.companyPlaceholder} className={inputClass} />
+              </div>
+              <div>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.phone}</Label>
+                <Input type="tel" required placeholder={t.phonePlaceholder} className={inputClass} />
+              </div>
+            </div>
+
+            <div>
+              <Label className={`font-body text-sm ${mutedColor}`}>{t.locationLabel}</Label>
+              <div className="flex flex-wrap gap-3 mt-2">
+                {t.locations.map((opt) => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => setLocation(opt.value)}
+                    className={`font-body text-sm px-4 py-2 rounded-full border transition-all duration-500 ${
+                      location === opt.value
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-transparent border-white/20 text-white/60 hover:border-primary/50"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <Label className={`font-body text-sm ${mutedColor}`}>{t.serviceLabel}</Label>
+              <Select value={service} onValueChange={setService}>
+                <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
+                  <SelectValue placeholder={t.servicePlaceholder} />
+                </SelectTrigger>
+                <SelectContent className="bg-neutral-dark border-white/20 text-white">
+                  {t.services.map((opt) => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <Label className={`font-body text-sm ${mutedColor}`}>{t.hearLabel}</Label>
+              <Select value={hearAbout} onValueChange={setHearAbout}>
+                <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!hearAbout ? "text-white/30" : ""}`}>
+                  <SelectValue placeholder={t.hearPlaceholder} />
+                </SelectTrigger>
+                <SelectContent className="bg-neutral-dark border-white/20 text-white">
+                  {hearAboutOptions.map((opt) => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <Label className={`font-body text-sm ${mutedColor}`}>{t.message}</Label>
+              <Textarea placeholder={t.messagePlaceholder} rows={4} className={inputClass} />
+            </div>
+
+            <Button
+              type="submit"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-body uppercase tracking-widest gap-2"
+              size="lg"
+            >
+              <Send className="w-4 h-4" />
+              {t.submit}
+            </Button>
+          </form>
+        </div>
       </div>
     </section>
   );
