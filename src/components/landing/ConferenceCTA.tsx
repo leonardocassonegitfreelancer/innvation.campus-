@@ -108,7 +108,7 @@ const translations = {
     servicePlaceholder: "Seleziona un servizio",
     services: [
       { value: "conference", label: "Voglio prenotare una sala conferenze" },
-      { value: "event", label: "Voglio organizzare il mio evento all'Innovation Campus" },
+      { value: "terrace", label: "Voglio prenotare una terrazza privata sul tetto" },
       { value: "office", label: "Voglio affittare un ufficio privato" },
       { value: "coworker", label: "Voglio diventare coworker" },
       { value: "other", label: "Altro / Informazioni generali" },
