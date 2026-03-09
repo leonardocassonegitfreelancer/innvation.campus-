@@ -166,48 +166,64 @@ export default function ConferenceRooms() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {t.rooms.map((room, i) => (
-            <Card
-              key={room.id}
-              className={`relative overflow-hidden transition-all duration-300 hover:shadow-lg ${
-                room.highlight
-                  ? "border-2 border-primary bg-primary/5 md:col-span-2"
-                  : "border-border"
-              }`}
-            >
-              {room.highlight && (
-                <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
-                  {t.flagship}
-                </Badge>
-              )}
-              <CardHeader>
-                <CardTitle className={`font-display ${room.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
-                  {room.name}
-                </CardTitle>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Users className="w-4 h-4" />
-                  <span className="font-body text-sm">{room.capacity}</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className={`grid ${room.highlight ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2"} gap-3 mb-6`}>
-                  {room.features.map((feature, j) => (
-                    <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      <span className="font-body">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button
-                  asChild
-                  variant={room.highlight ? "default" : "outline"}
-                  className={room.highlight ? "bg-primary hover:bg-primary/90" : ""}
-                >
-                  <a href="/#contact">{t.requestQuote}</a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+          {t.rooms.map((room, i) => {
+            const roomPath = roomPaths[lang]?.[room.id];
+            return (
+              <Card
+                key={room.id}
+                className={`relative overflow-hidden transition-all duration-300 hover:shadow-lg ${
+                  room.highlight
+                    ? "border-2 border-primary bg-primary/5 md:col-span-2"
+                    : "border-border"
+                }`}
+              >
+                {room.highlight && (
+                  <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
+                    {t.flagship}
+                  </Badge>
+                )}
+                <CardHeader>
+                  <CardTitle className={`font-display ${room.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
+                    {roomPath ? (
+                      <Link to={roomPath} className="hover:text-primary transition-colors">
+                        {room.name}
+                      </Link>
+                    ) : room.name}
+                  </CardTitle>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Users className="w-4 h-4" />
+                    <span className="font-body text-sm">{room.capacity}</span>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className={`grid ${room.highlight ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2"} gap-3 mb-6`}>
+                    {room.features.map((feature, j) => (
+                      <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        <span className="font-body">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex gap-3">
+                    {roomPath && (
+                      <Button asChild variant="outline">
+                        <Link to={roomPath}>
+                          {lang === "en" ? "View Details" : lang === "es" ? "Ver Detalles" : "Vedi Dettagli"}
+                        </Link>
+                      </Button>
+                    )}
+                    <Button
+                      asChild
+                      variant={room.highlight ? "default" : "outline"}
+                      className={room.highlight ? "bg-primary hover:bg-primary/90" : ""}
+                    >
+                      <a href="/#contact">{t.requestQuote}</a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
