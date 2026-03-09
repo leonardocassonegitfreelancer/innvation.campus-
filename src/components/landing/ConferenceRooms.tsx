@@ -15,7 +15,7 @@ const translations = {
       {
         id: "picasso",
         name: "City Center Picasso",
-        capacity: "Up to 30 people",
+        capacity: "Up to 80 people",
         features: ["85\" 4K Display", "Premium Video Conferencing", "Large Whiteboard", "Flexible Layout"],
         highlight: true,
       },
@@ -51,7 +51,7 @@ const translations = {
       {
         id: "picasso",
         name: "City Center Picasso",
-        capacity: "Hasta 30 personas",
+        capacity: "Hasta 80 personas",
         features: ["Pantalla 4K 85\"", "Videoconferencia Premium", "Pizarra Grande", "Disposición Flexible"],
         highlight: true,
       },
@@ -87,7 +87,7 @@ const translations = {
       {
         id: "picasso",
         name: "City Center Picasso",
-        capacity: "Fino a 30 persone",
+        capacity: "Fino a 80 persone",
         features: ["Display 4K 85\"", "Videoconferenza Premium", "Grande Lavagna", "Layout Flessibile"],
         highlight: true,
       },
