@@ -38,7 +38,7 @@ const translations = {
     servicePlaceholder: "Select a service",
     services: [
       { value: "conference", label: "I want to book a conference room" },
-      { value: "event", label: "I want to host my event at Innovation Campus" },
+      { value: "terrace", label: "I want to book a private rooftop terrace" },
       { value: "office", label: "I want to rent a private office" },
       { value: "coworker", label: "I want to become a coworker" },
       { value: "other", label: "Other / General info" },
@@ -73,7 +73,7 @@ const translations = {
     servicePlaceholder: "Selecciona un servicio",
     services: [
       { value: "conference", label: "Quiero reservar una sala de conferencias" },
-      { value: "event", label: "Quiero organizar mi evento en Innovation Campus" },
+      { value: "terrace", label: "Quiero reservar una terraza privada en la azotea" },
       { value: "office", label: "Quiero alquilar una oficina privada" },
       { value: "coworker", label: "Quiero ser coworker" },
       { value: "other", label: "Otro / Información general" },
@@ -108,7 +108,7 @@ const translations = {
     servicePlaceholder: "Seleziona un servizio",
     services: [
       { value: "conference", label: "Voglio prenotare una sala conferenze" },
-      { value: "event", label: "Voglio organizzare il mio evento all'Innovation Campus" },
+      { value: "terrace", label: "Voglio prenotare una terrazza privata sul tetto" },
       { value: "office", label: "Voglio affittare un ufficio privato" },
       { value: "coworker", label: "Voglio diventare coworker" },
       { value: "other", label: "Altro / Informazioni generali" },
