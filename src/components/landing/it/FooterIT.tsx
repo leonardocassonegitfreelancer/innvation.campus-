@@ -76,9 +76,9 @@ export default function FooterIT() {
           <div>
             <h4 className="text-white/40 text-sm font-light italic mb-6">Politiche</h4>
             <div className="space-y-3 text-sm text-white/70">
-              <a href="#" className="block hover:text-primary transition-colors">Uso dei Cookie</a>
-              <a href="#" className="block hover:text-primary transition-colors">Note Legali</a>
-              <a href="#" className="block hover:text-primary transition-colors">Privacy Policy</a>
+              <a href="/cookie-policy" className="block hover:text-primary transition-colors">Uso dei Cookie</a>
+              <a href="/legal-notice" className="block hover:text-primary transition-colors">Note Legali</a>
+              <a href="/privacy" className="block hover:text-primary transition-colors">Privacy Policy</a>
             </div>
           </div>
         </div>
