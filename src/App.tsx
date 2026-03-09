@@ -54,6 +54,13 @@ import AcademyES from "./pages/es/Academy";
 import BenefitsES from "./pages/es/Benefits";
 import BlogES from "./pages/es/Blog";
 
+// Meeting room sub-pages (ES)
+import BigConferenceRoomES from "./pages/es/BigConferenceRoom";
+import HalfConferenceRoomES from "./pages/es/HalfConferenceRoom";
+import QuarterRoomES from "./pages/es/QuarterRoom";
+import TrainingRoomES from "./pages/es/TrainingRoom";
+import MeetingRoomES from "./pages/es/MeetingRoom";
+
 // Italian pages
 import IndexIT from "./pages/it/Index";
 import MalagaPalaceIT from "./pages/it/MalagaPalace";
