@@ -29,7 +29,7 @@ export default function MainHeroES() {
   }, []);
 
   return (
-    <section className="relative h-[calc(90vh+5px)] md:h-screen md:max-h-screen bg-[hsl(var(--neutral-dark))] overflow-hidden">
+    <section <section className="relative h-screen md:max-h-screen bg-[hsl(var(--neutral-dark))] overflow-hidden"> bg-[hsl(var(--neutral-dark))] overflow-hidden">
       {slides.map((src, i) => (
         <img
           key={i}
