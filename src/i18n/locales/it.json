@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "services": "Servizi",
+    "locations": "Sedi",
+    "about": "Chi Siamo",
+    "contact": "Contatti",
+    "blog": "Blog"
+  },
+  "hero": {
+    "tagline": "Il tuo spazio di lavoro, a modo tuo",
+    "cta": "Esplora gli Spazi"
+  },
+  "about": {
+    "label": "Il Campus",
+    "title": "TRA SPAGNA E ITALIA, UN PROGETTO CHE NON SI FERMA MAI",
+    "p1": "Innovation Campus è un coworking indipendente presente in due paesi, due culture e due modi di lavorare: Offriamo spazi a Málaga, Olbia e Ancona con gli occhi sempre puntati sulle persone che costruiscono qualcosa di reale.",
+    "p2": "A Málaga siamo in due luoghi che non potrebbero essere più diversi.",
+    "p3_palace": "Málaga Palace",
+    "p3_text": ", nel cuore del centro storico, tra le mura di un palazzo storico affrescato e restaurato: dove il silenzio e la storia camminano al tuo fianco mentre lavori.",
+    "p4_terrace": "Málaga Terrace",
+    "p4_text": ", affacciato sul Mediterraneo: dove l'azzurro del mare è lo sfondo delle tue giornate e la terrazza ti aspetta quando ne hai bisogno.",
+    "tagline": "Due spazi, una comunità."
+  },
+  "quote": {
+    "line1": "Dove ti siedi",
+    "line2": "cambia",
+    "line2_highlight": "cosa",
+    "line2_end": "pensi.",
+    "line3": "Scegli il tuo mondo."
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Domande e Risposte",
+    "items": [
+      {
+        "q": "Posso usare entrambe le sedi con un abbonamento?",
+        "a": "Sì! Tutti gli abbonamenti ti danno accesso sia al Centro Storico che allo spazio Sul Mare. Lavora dal mondo che meglio si adatta al tuo umore."
+      },
+      {
+        "q": "Offrite pass giornalieri o giorni di prova?",
+        "a": "Assolutamente. Offriamo pass giornalieri e un giorno di prova gratuito per farti sperimentare lo spazio prima di impegnarti. Prenota tramite il nostro modulo di contatto."
+      },
+      {
+        "q": "Quali piani di abbonamento sono disponibili?",
+        "a": "Offriamo opzioni flessibili: pass hot-desk (giornaliero/settimanale/mensile), scrivanie dedicate e uffici privati. Piani personalizzati sono disponibili per team di 5+ persone."
+      },
+      {
+        "q": "C'è accesso 24/7?",
+        "a": "I membri con scrivania dedicata e ufficio privato godono di accesso 24/7 in entrambe le sedi. I pass hot-desk sono disponibili durante l'orario di lavoro."
+      },
+      {
+        "q": "Organizzate eventi?",
+        "a": "Sì — organizziamo eventi comunitari settimanali tra cui talk, workshop, serate di networking e demo day mensili. Entrambe le sedi ospitano eventi, spesso con temi diversi."
+      },
+      {
+        "q": "Posso prenotare sale riunioni separatamente?",
+        "a": "Le sale riunioni possono essere prenotate sia dai membri che dai non membri. Le nostre sale del Centro Storico sono particolarmente popolari per incontri con clienti."
+      },
+      {
+        "q": "È disponibile il parcheggio?",
+        "a": "La sede Sul Mare ha parcheggio pubblico nelle vicinanze. Il Centro Storico è meglio accessibile a piedi o con i mezzi pubblici — è a pochi passi dal centro città."
+      }
+    ]
+  },
+  "contact": {
+    "label": "Contatti",
+    "title": "Contattaci",
+    "description": "Pronto a trovare il tuo spazio di lavoro perfetto? Scrivici e ti aiuteremo a iniziare.",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Messaggio",
+      "submit": "Invia Messaggio"
+    }
+  },
+  "footer": {
+    "tagline": "Il tuo spazio di lavoro, reinventato",
+    "services": "Servizi",
+    "locations": "Sedi",
+    "company": "Azienda",
+    "legal": "Legale",
+    "privacy": "Privacy Policy",
+    "terms": "Termini di Servizio",
+    "cookies": "Cookie Policy",
+    "rights": "Tutti i diritti riservati."
+  }
+}
