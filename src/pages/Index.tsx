@@ -5,7 +5,7 @@ import ServicesSection from "@/components/landing/ServicesSection";
 import QuoteSection from "@/components/landing/QuoteSection";
 import LocationsSection from "@/components/landing/LocationsSection";
 import FAQSection from "@/components/landing/FAQSection";
-import ContactSection from "@/components/landing/ContactSection";
+import ConferenceCTA from "@/components/landing/ConferenceCTA";
 import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 
