@@ -1,63 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- HOME -->
   <url>
     <loc>https://malaga-duality-landing.lovable.app/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://malaga-duality-landing.lovable.app/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://malaga-duality-landing.lovable.app/es"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://malaga-duality-landing.lovable.app/it"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/coworking-space</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/conference-rooms</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/private-offices</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/private-terrace</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/business-registration</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/events</loc>
+    <loc>https://malaga-duality-landing.lovable.app/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://malaga-duality-landing.lovable.app/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://malaga-duality-landing.lovable.app/es"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://malaga-duality-landing.lovable.app/it"/>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/academy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://malaga-duality-landing.lovable.app/it</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://malaga-duality-landing.lovable.app/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://malaga-duality-landing.lovable.app/es"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://malaga-duality-landing.lovable.app/it"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/benefits</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/malaga-palace</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/malaga-terrace</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://malaga-duality-landing.lovable.app/en/ancona</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
+  <!-- LOCATIONS -->
+  <url><loc>https://malaga-duality-landing.lovable.app/en/malaga-palace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/malaga-palace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/malaga-palace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/malaga-terrace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/malaga-terrace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/malaga-terrace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/ancona</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/ancona</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/ancona</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/find-us</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/encuentranos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/trovaci</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- SERVICES -->
+  <url><loc>https://malaga-duality-landing.lovable.app/en/coworking-space</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/coworking</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/coworking</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/conference-rooms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/salas-de-conferencias</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/sale-conferenze</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/private-offices</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/oficinas-privadas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/uffici-privati</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/private-terrace</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/terraza-privada</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/terrazza-privata</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/business-registration</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/registro-de-empresas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/registrazione-aziendale</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/events</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/eventos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/eventi</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/host-your-event</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/organiza-tu-evento</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/organizza-evento</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/academy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/academia</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/academy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <url><loc>https://malaga-duality-landing.lovable.app/en/benefits</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/beneficios</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/vantaggi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- BLOG -->
+  <url><loc>https://malaga-duality-landing.lovable.app/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- LEGAL -->
+  <url><loc>https://malaga-duality-landing.lovable.app/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/cookie-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/legal-notice</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
