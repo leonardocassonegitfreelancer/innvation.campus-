@@ -16,6 +16,7 @@ const monthlyPlans: PlanCard[] = [
   name: "UNLIMITED",
   price: "€179",
   period: "/month + VAT",
+  url: "https://members.innovationcampus.biz/signup?plan=UNL",
   features: [
   "24/7 Access",
   "Fixed Desk",
@@ -24,12 +25,12 @@ const monthlyPlans: PlanCard[] = [
   "200 prints",
   "Discounts in shops and services",
   "Events and Community"]
-
 },
 {
   name: "FLEXI 12",
   price: "€139",
   period: "/month + VAT",
+  url: "https://members.innovationcampus.biz/signup?plan=FL12",
   features: [
   "Access 12 days/month",
   "Monday to Friday, 7am–11pm",
@@ -38,13 +39,13 @@ const monthlyPlans: PlanCard[] = [
   "150 prints",
   "Discounts in shops and services",
   "Events and Community"]
-
 },
 {
   name: "FLEXI 7",
   price: "€90",
   period: "/month + VAT",
   bestSeller: true,
+  url: "https://members.innovationcampus.biz/signup?plan=FL7",
   features: [
   "Access 7 days/month",
   "Monday to Friday, 7am–11pm",
@@ -53,7 +54,6 @@ const monthlyPlans: PlanCard[] = [
   "50 prints",
   "Discounts in shops and services",
   "Events and Community"]
-
 }];
 
 
@@ -62,6 +62,7 @@ const shortStayPlans: PlanCard[] = [
   name: "TWO WEEKS",
   price: "€139",
   period: "+ VAT",
+  url: "https://members.innovationcampus.biz/signup?plan=FL12",
   features: [
   "Two weeks in a row",
   "7am–11pm",
@@ -70,12 +71,12 @@ const shortStayPlans: PlanCard[] = [
   "100 prints",
   "Discounts in shops and services",
   "Events and Community"]
-
 },
 {
   name: "ONE WEEK",
   price: "€90",
   period: "+ VAT",
+  url: "https://members.innovationcampus.biz/signup?plan=FL12",
   features: [
   "One week in a row",
   "7am–11pm",
@@ -84,20 +85,18 @@ const shortStayPlans: PlanCard[] = [
   "50 prints",
   "Discounts in shops and services",
   "Events and Community"]
-
 },
 {
   name: "DAY PASS",
   price: "€24",
   period: "+ VAT",
+  url: "https://members.innovationcampus.biz/signup?plan=FL12",
   features: [
   "Monday to Friday, 9:30–18:30",
   "Flex Desk",
   "Monitor included",
   "10 prints"]
-
 }];
-
 
 const extras = [
 "Half-day pass (4h): €14 + VAT",
