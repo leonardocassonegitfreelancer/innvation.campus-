@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -13,26 +14,26 @@ import {
 } from "@/components/ui/select";
 import { Send } from "lucide-react";
 
-const serviceOptions = [
-  "I want to host my event at Innovation Campus",
-  "I want to rent a private office",
-  "I want to become a coworker",
-  "I want to register my business",
-  "Other / General info",
-] as const;
-
-const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"] as const;
-
 export default function ContactSection() {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const [service, setService] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
   const { ref, isVisible } = useScrollAnimation();
+  const { t } = useTranslation();
+
+  const serviceOptions = t("contact.form.serviceOptions", { returnObjects: true }) as string[];
+  const hearAboutOptions = t("contact.form.hearAboutOptions", { returnObjects: true }) as string[];
 
   const bgStyle = "bg-neutral-dark";
   const textColor = "text-white";
   const mutedColor = "text-white/60";
   const inputClass = "mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary";
+
+  const locationOptions = [
+    { value: "historic", label: t("contact.form.locationHistoric") },
+    { value: "seaside", label: t("contact.form.locationSeaside") },
+    { value: "both", label: t("contact.form.locationBoth") },
+  ] as const;
 
   return (
     <section id="contact" className={`relative py-24 md:py-36 transition-all duration-1000 ${bgStyle} overflow-hidden`}>
@@ -43,13 +44,13 @@ export default function ContactSection() {
         <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""}`}>
           <div className="text-center mb-12">
             <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">
-              Get in Touch
+              {t("contact.label")}
             </p>
             <h2 className={`font-display text-3xl md:text-5xl font-bold ${textColor}`}>
-              Start your journey
+              {t("contact.title")}
             </h2>
             <p className={`font-body mt-4 ${mutedColor}`}>
-              Ask a question, check availability or become a member.
+              {t("contact.description")}
             </p>
           </div>
 
@@ -57,28 +58,28 @@ export default function ContactSection() {
             onSubmit={(e) => {
               e.preventDefault();
               if (!service) {
-                alert("Please select a service.");
+                alert(t("contact.form.selectService"));
                 return;
               }
-              alert("Thank you! We'll get back to you soon.");
+              alert(t("contact.form.thankYou"));
             }}
             className="space-y-6"
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <Label className={`font-body text-sm ${mutedColor}`}>Name</Label>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t("contact.form.name")}</Label>
                 <Input
                   required
-                  placeholder="Your name"
+                  placeholder={t("contact.form.namePlaceholder")}
                   className={inputClass}
                 />
               </div>
               <div>
-                <Label className={`font-body text-sm ${mutedColor}`}>Email</Label>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t("contact.form.email")}</Label>
                 <Input
                   type="email"
                   required
-                  placeholder="you@example.com"
+                  placeholder={t("contact.form.emailPlaceholder")}
                   className={inputClass}
                 />
               </div>
@@ -86,19 +87,19 @@ export default function ContactSection() {
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <Label className={`font-body text-sm ${mutedColor}`}>Company Name</Label>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t("contact.form.company")}</Label>
                 <Input
                   required
-                  placeholder="Your company"
+                  placeholder={t("contact.form.companyPlaceholder")}
                   className={inputClass}
                 />
               </div>
               <div>
-                <Label className={`font-body text-sm ${mutedColor}`}>Phone Number (with country code)</Label>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t("contact.form.phone")}</Label>
                 <Input
                   type="tel"
                   required
-                  placeholder="+34 600 000 000"
+                  placeholder={t("contact.form.phonePlaceholder")}
                   className={inputClass}
                 />
               </div>
@@ -106,16 +107,10 @@ export default function ContactSection() {
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>
-                Which location interests you?
+                {t("contact.form.location")}
               </Label>
               <div className="flex flex-wrap gap-3 mt-2">
-                {(
-                  [
-                    { value: "historic", label: "Historic Center" },
-                    { value: "seaside", label: "Seaside" },
-                    { value: "both", label: "Both" },
-                  ] as const
-                ).map((opt) => (
+                {locationOptions.map((opt) => (
                   <button
                     key={opt.value}
                     type="button"
@@ -134,11 +129,11 @@ export default function ContactSection() {
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>
-                What are you looking for?
+                {t("contact.form.service")}
               </Label>
               <Select value={service} onValueChange={setService}>
                 <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
-                  <SelectValue placeholder="Select a service" />
+                  <SelectValue placeholder={t("contact.form.servicePlaceholder")} />
                 </SelectTrigger>
                 <SelectContent className="bg-neutral-dark border-white/20 text-white">
                   {serviceOptions.map((opt) => (
@@ -152,11 +147,11 @@ export default function ContactSection() {
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>
-                How did you hear about us?
+                {t("contact.form.hearAbout")}
               </Label>
               <Select value={hearAbout} onValueChange={setHearAbout}>
                 <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!hearAbout ? "text-white/30" : ""}`}>
-                  <SelectValue placeholder="Select an option" />
+                  <SelectValue placeholder={t("contact.form.hearAboutPlaceholder")} />
                 </SelectTrigger>
                 <SelectContent className="bg-neutral-dark border-white/20 text-white">
                   {hearAboutOptions.map((opt) => (
@@ -169,9 +164,9 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <Label className={`font-body text-sm ${mutedColor}`}>Message</Label>
+              <Label className={`font-body text-sm ${mutedColor}`}>{t("contact.form.message")}</Label>
               <Textarea
-                placeholder="Tell us what you're looking for..."
+                placeholder={t("contact.form.messagePlaceholder")}
                 rows={4}
                 className={inputClass}
               />
@@ -183,7 +178,7 @@ export default function ContactSection() {
               size="lg"
             >
               <Send className="w-4 h-4" />
-              Send Message
+              {t("contact.form.submit")}
             </Button>
           </form>
         </div>

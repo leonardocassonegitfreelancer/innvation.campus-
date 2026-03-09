@@ -63,14 +63,39 @@
     ]
   },
   "contact": {
-    "label": "Contatti",
-    "title": "Contattaci",
-    "description": "Pronto a trovare il tuo spazio di lavoro perfetto? Scrivici e ti aiuteremo a iniziare.",
+    "label": "Contattaci",
+    "title": "Inizia il tuo viaggio",
+    "description": "Fai una domanda, verifica la disponibilità o diventa membro.",
     "form": {
       "name": "Nome",
+      "namePlaceholder": "Il tuo nome",
       "email": "Email",
+      "emailPlaceholder": "tu@esempio.com",
+      "company": "Nome azienda",
+      "companyPlaceholder": "La tua azienda",
+      "phone": "Telefono (con prefisso)",
+      "phonePlaceholder": "+39 300 000 0000",
+      "location": "Quale sede ti interessa?",
+      "locationHistoric": "Centro Storico",
+      "locationSeaside": "Sul Mare",
+      "locationBoth": "Entrambe",
+      "service": "Cosa stai cercando?",
+      "servicePlaceholder": "Seleziona un servizio",
+      "serviceOptions": [
+        "Voglio organizzare il mio evento a Innovation Campus",
+        "Voglio affittare un ufficio privato",
+        "Voglio diventare coworker",
+        "Voglio registrare la mia azienda",
+        "Altro / Informazioni generali"
+      ],
+      "hearAbout": "Come ci hai conosciuto?",
+      "hearAboutPlaceholder": "Seleziona un'opzione",
+      "hearAboutOptions": ["Google", "Instagram", "LinkedIn", "Newsletter", "Passaparola", "Altro"],
       "message": "Messaggio",
-      "submit": "Invia Messaggio"
+      "messagePlaceholder": "Raccontaci cosa stai cercando...",
+      "submit": "Invia Messaggio",
+      "selectService": "Per favore seleziona un servizio.",
+      "thankYou": "Grazie! Ti contatteremo presto."
     }
   },
   "footer": {
