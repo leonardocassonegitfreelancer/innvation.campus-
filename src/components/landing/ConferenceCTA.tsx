@@ -93,6 +93,8 @@ const translations = {
     seatsLabel: "Número de Asientos",
     seatsPlaceholder: "Selecciona el número de asientos",
     seatOptions: ["5", "15", "30", "50", "80"],
+    dateLabel: "Fecha Preferida",
+    datePlaceholder: "Selecciona una fecha",
     hearLabel: "¿Cómo nos conociste?",
     hearPlaceholder: "Selecciona una opción",
     message: "Mensaje",
