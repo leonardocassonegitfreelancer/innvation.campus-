@@ -36,12 +36,15 @@ const translations = {
     serviceLabel: "What are you looking for?",
     servicePlaceholder: "Select a service",
     services: [
-      "I want to book a conference room",
-      "I want to host my event at Innovation Campus",
-      "I want to rent a private office",
-      "I want to become a coworker",
-      "Other / General info",
+      { value: "conference", label: "I want to book a conference room" },
+      { value: "event", label: "I want to host my event at Innovation Campus" },
+      { value: "office", label: "I want to rent a private office" },
+      { value: "coworker", label: "I want to become a coworker" },
+      { value: "other", label: "Other / General info" },
     ],
+    seatsLabel: "Number of Seats",
+    seatsPlaceholder: "Select number of seats",
+    seatOptions: ["1-4", "5-8", "9-12", "13-20", "20+"],
     hearLabel: "How did you hear about us?",
     hearPlaceholder: "Select an option",
     message: "Message",
@@ -71,12 +74,15 @@ const translations = {
     serviceLabel: "¿Qué estás buscando?",
     servicePlaceholder: "Selecciona un servicio",
     services: [
-      "Quiero reservar una sala de conferencias",
-      "Quiero organizar mi evento en Innovation Campus",
-      "Quiero alquilar una oficina privada",
-      "Quiero ser coworker",
-      "Otro / Información general",
+      { value: "conference", label: "Quiero reservar una sala de conferencias" },
+      { value: "event", label: "Quiero organizar mi evento en Innovation Campus" },
+      { value: "office", label: "Quiero alquilar una oficina privada" },
+      { value: "coworker", label: "Quiero ser coworker" },
+      { value: "other", label: "Otro / Información general" },
     ],
+    seatsLabel: "Número de Asientos",
+    seatsPlaceholder: "Selecciona el número de asientos",
+    seatOptions: ["1-4", "5-8", "9-12", "13-20", "20+"],
     hearLabel: "¿Cómo nos conociste?",
     hearPlaceholder: "Selecciona una opción",
     message: "Mensaje",
@@ -106,12 +112,15 @@ const translations = {
     serviceLabel: "Cosa stai cercando?",
     servicePlaceholder: "Seleziona un servizio",
     services: [
-      "Voglio prenotare una sala conferenze",
-      "Voglio organizzare il mio evento all'Innovation Campus",
-      "Voglio affittare un ufficio privato",
-      "Voglio diventare coworker",
-      "Altro / Informazioni generali",
+      { value: "conference", label: "Voglio prenotare una sala conferenze" },
+      { value: "event", label: "Voglio organizzare il mio evento all'Innovation Campus" },
+      { value: "office", label: "Voglio affittare un ufficio privato" },
+      { value: "coworker", label: "Voglio diventare coworker" },
+      { value: "other", label: "Altro / Informazioni generali" },
     ],
+    seatsLabel: "Numero di Posti",
+    seatsPlaceholder: "Seleziona il numero di posti",
+    seatOptions: ["1-4", "5-8", "9-12", "13-20", "20+"],
     hearLabel: "Come ci hai conosciuto?",
     hearPlaceholder: "Seleziona un'opzione",
     message: "Messaggio",
@@ -127,12 +136,14 @@ const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Refe
 export default function ConferenceCTA() {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const [service, setService] = useState<string>("");
+  const [seats, setSeats] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
   const { ref, isVisible } = useScrollAnimation();
   const routeLocation = useLocation();
   const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
+  const isConference = service === "conference";
   const mutedColor = "text-white/60";
   const inputClass = "mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary";
 
@@ -208,18 +219,36 @@ export default function ConferenceCTA() {
               </div>
             </div>
 
-            <div>
-              <Label className={`font-body text-sm ${mutedColor}`}>{t.serviceLabel}</Label>
-              <Select value={service} onValueChange={setService}>
-                <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
-                  <SelectValue placeholder={t.servicePlaceholder} />
-                </SelectTrigger>
-                <SelectContent className="bg-neutral-dark border-white/20 text-white">
-                  {t.services.map((opt) => (
-                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+            <div className={isConference ? "grid sm:grid-cols-2 gap-4" : ""}>
+              <div>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.serviceLabel}</Label>
+                <Select value={service} onValueChange={(val) => { setService(val); if (val !== "conference") setSeats(""); }}>
+                  <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
+                    <SelectValue placeholder={t.servicePlaceholder} />
+                  </SelectTrigger>
+                  <SelectContent className="bg-neutral-dark border-white/20 text-white">
+                    {t.services.map((opt) => (
+                      <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {isConference && (
+                <div className="transition-all duration-300 animate-in fade-in slide-in-from-left-4">
+                  <Label className={`font-body text-sm ${mutedColor}`}>{t.seatsLabel}</Label>
+                  <Select value={seats} onValueChange={setSeats}>
+                    <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!seats ? "text-white/30" : ""}`}>
+                      <SelectValue placeholder={t.seatsPlaceholder} />
+                    </SelectTrigger>
+                    <SelectContent className="bg-neutral-dark border-white/20 text-white">
+                      {t.seatOptions.map((opt) => (
+                        <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
             </div>
 
             <div>
