@@ -79,6 +79,13 @@ import AcademyIT from "./pages/it/Academy";
 import BenefitsIT from "./pages/it/Benefits";
 import BlogIT from "./pages/it/Blog";
 
+// Meeting room sub-pages (IT)
+import BigConferenceRoomIT from "./pages/it/BigConferenceRoom";
+import HalfConferenceRoomIT from "./pages/it/HalfConferenceRoom";
+import QuarterRoomIT from "./pages/it/QuarterRoom";
+import TrainingRoomIT from "./pages/it/TrainingRoom";
+import MeetingRoomIT from "./pages/it/MeetingRoom";
+
 const queryClient = new QueryClient();
 
 const App = () => (
