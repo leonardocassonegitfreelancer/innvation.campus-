@@ -153,6 +153,7 @@ export default function ConferenceCTA() {
   const [seats, setSeats] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
   const [preferredDate, setPreferredDate] = useState<Date>();
+  const { ref, isVisible } = useScrollAnimation();
   const routeLocation = useLocation();
   const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
