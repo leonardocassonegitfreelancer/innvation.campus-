@@ -27,3 +27,100 @@ export const getAlternateLinks = (currentPath: string) => {
     it: routeMap.it[canonicalEnPath] || canonicalEnPath,
   };
 };
+
+// Breadcrumb name mappings by language
+const breadcrumbNames: Record<string, Record<string, string>> = {
+  en: {
+    "": "Home",
+    "malaga-palace": "Málaga Palace",
+    "malaga-terrace": "Málaga Terrace",
+    "ancona": "Ancona",
+    "olbia": "Olbia",
+    "find-us": "Find Us",
+    "conference-rooms": "Conference Rooms",
+    "private-terrace": "Private Terrace",
+    "private-offices": "Private Offices",
+    "business-registration": "Business Registration",
+    "coworking-space": "Coworking Space",
+    "events": "Events",
+    "host-your-event": "Host Your Event",
+    "academy": "Academy",
+    "benefits": "Benefits",
+    "blog": "Blog",
+  },
+  es: {
+    "": "Inicio",
+    "malaga-palace": "Málaga Palace",
+    "malaga-terrace": "Málaga Terrace",
+    "ancona": "Ancona",
+    "olbia": "Olbia",
+    "encuentranos": "Encuéntranos",
+    "salas-de-conferencias": "Salas de Conferencias",
+    "terraza-privada": "Terraza Privada",
+    "oficinas-privadas": "Oficinas Privadas",
+    "registro-de-empresas": "Registro de Empresas",
+    "coworking": "Coworking",
+    "eventos": "Eventos",
+    "organiza-tu-evento": "Organiza Tu Evento",
+    "academia": "Academia",
+    "beneficios": "Beneficios",
+    "blog": "Blog",
+  },
+  it: {
+    "": "Home",
+    "malaga-palace": "Málaga Palace",
+    "malaga-terrace": "Málaga Terrace",
+    "ancona": "Ancona",
+    "olbia": "Olbia",
+    "trovaci": "Trovaci",
+    "sale-conferenze": "Sale Conferenze",
+    "terrazza-privata": "Terrazza Privata",
+    "uffici-privati": "Uffici Privati",
+    "registrazione-aziendale": "Registrazione Aziendale",
+    "coworking": "Coworking",
+    "eventi": "Eventi",
+    "organizza-evento": "Organizza Evento",
+    "academy": "Academy",
+    "vantaggi": "Vantaggi",
+    "blog": "Blog",
+  },
+};
+
+export const generateBreadcrumbJsonLd = (path: string, baseUrl: string) => {
+  const segments = path.split("/").filter(Boolean);
+  const lang = segments[0] === "es" || segments[0] === "it" ? segments[0] : "en";
+  const names = breadcrumbNames[lang] || breadcrumbNames.en;
+  
+  const homePath = lang === "en" ? "/" : `/${lang}`;
+  const homeName = names[""] || "Home";
+  
+  const items = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: homeName,
+      item: `${baseUrl}${homePath}`,
+    },
+  ];
+  
+  const pathSegments = lang === "en" ? segments.slice(1) : segments.slice(1);
+  let currentPath = lang === "en" ? "/en" : `/${lang}`;
+  
+  pathSegments.forEach((segment, index) => {
+    currentPath += `/${segment}`;
+    const name = names[segment] || segment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    
+    items.push({
+      "@type": "ListItem",
+      position: index + 2,
+      name,
+      item: `${baseUrl}${currentPath}`,
+    });
+  });
+  
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items,
+  };
+};
