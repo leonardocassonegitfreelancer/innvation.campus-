@@ -27,6 +27,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Admin from "./pages/Admin";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
+import LegalNotice from "./pages/LegalNotice";
 
 // Spanish pages
 import IndexES from "./pages/es/Index";
