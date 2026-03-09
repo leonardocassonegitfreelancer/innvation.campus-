@@ -43,6 +43,24 @@ import AcademyES from "./pages/es/Academy";
 import BenefitsES from "./pages/es/Benefits";
 import BlogES from "./pages/es/Blog";
 
+// Italian pages
+import IndexIT from "./pages/it/Index";
+import MalagaPalaceIT from "./pages/it/MalagaPalace";
+import MalagaTerraceIT from "./pages/it/MalagaTerrace";
+import AnconaIT from "./pages/it/Ancona";
+import OlbiaIT from "./pages/it/Olbia";
+import FindUsIT from "./pages/it/FindUs";
+import ConferenceRoomIT from "./pages/it/ConferenceRoom";
+import PrivateTerraceIT from "./pages/it/PrivateTerrace";
+import PrivateOfficesIT from "./pages/it/PrivateOffices";
+import BusinessRegistrationIT from "./pages/it/BusinessRegistration";
+import CoworkingSpaceIT from "./pages/it/CoworkingSpace";
+import EventsIT from "./pages/it/Events";
+import HostYourEventIT from "./pages/it/HostYourEvent";
+import AcademyIT from "./pages/it/Academy";
+import BenefitsIT from "./pages/it/Benefits";
+import BlogIT from "./pages/it/Blog";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -91,7 +109,24 @@ const App = () => (
           <Route path="/es/beneficios" element={<BenefitsES />} />
           <Route path="/es/blog" element={<BlogES />} />
 
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* Italian routes */}
+          <Route path="/it" element={<IndexIT />} />
+          <Route path="/it/malaga-palace" element={<MalagaPalaceIT />} />
+          <Route path="/it/malaga-terrace" element={<MalagaTerraceIT />} />
+          <Route path="/it/ancona" element={<AnconaIT />} />
+          <Route path="/it/olbia" element={<OlbiaIT />} />
+          <Route path="/it/trovaci" element={<FindUsIT />} />
+          <Route path="/it/sale-conferenze" element={<ConferenceRoomIT />} />
+          <Route path="/it/terrazza-privata" element={<PrivateTerraceIT />} />
+          <Route path="/it/uffici-privati" element={<PrivateOfficesIT />} />
+          <Route path="/it/registrazione-aziendale" element={<BusinessRegistrationIT />} />
+          <Route path="/it/coworking" element={<CoworkingSpaceIT />} />
+          <Route path="/it/eventi" element={<EventsIT />} />
+          <Route path="/it/organizza-evento" element={<HostYourEventIT />} />
+          <Route path="/it/academy" element={<AcademyIT />} />
+          <Route path="/it/vantaggi" element={<BenefitsIT />} />
+          <Route path="/it/blog" element={<BlogIT />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
