@@ -164,6 +164,11 @@ const App = () => (
           <Route path="/it/academy" element={<AcademyIT />} />
           <Route path="/it/vantaggi" element={<BenefitsIT />} />
           <Route path="/it/blog" element={<BlogIT />} />
+          <Route path="/it/sale/grande-sala-conferenze" element={<BigConferenceRoomIT />} />
+          <Route path="/it/sale/mezza-sala-conferenze" element={<HalfConferenceRoomIT />} />
+          <Route path="/it/sale/sala-quarter" element={<QuarterRoomIT />} />
+          <Route path="/it/sale/sala-formazione" element={<TrainingRoomIT />} />
+          <Route path="/it/sale/sala-riunioni" element={<MeetingRoomIT />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
