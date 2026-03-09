@@ -22,7 +22,7 @@ export default function PrivateOfficesES() {
         <OfficesIntro />
         <OfficesIncludes />
         <OfficesGallery />
-        <OfficesCTA />
+        <ConferenceCTA />
       </ServicePageLayout>
     </>
   );

@@ -14,7 +14,7 @@ export default function PrivateOfficesIT() {
         <OfficesIntro />
         <OfficesIncludes />
         <OfficesGallery />
-        <OfficesCTA />
+        <ConferenceCTA />
       </ServicePageLayout>
     </>
   );

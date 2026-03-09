@@ -14,7 +14,7 @@ export default function PrivateTerraceIT() {
         <TerraceIntro />
         <TerraceIncludes />
         <TerraceGallery />
-        <TerraceCTA />
+        <ConferenceCTA />
       </ServicePageLayout>
     </>
   );

@@ -22,7 +22,7 @@ export default function PrivateTerrace() {
         <TerraceIntro />
         <TerraceIncludes />
         <TerraceGallery />
-        <TerraceCTA />
+        <ConferenceCTA />
       </ServicePageLayout>
     </>
   );
