@@ -13,7 +13,7 @@ const translations = {
   en: {
     tagline: "Our Rooms",
     title: "Choose Your Space",
-    flagship: "Flagship Room",
+    flagship: "popular",
     requestQuote: "Request Quote",
     rooms: [
       {
