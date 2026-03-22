@@ -32,7 +32,7 @@ const rooms: RoomData[] = [
       it: { title: "Grande Sala Conferenze – City Center Picasso", description: "La nostra sala principale per fino a 80 persone con display 4K da 85\", videoconferenza premium e layout flessibile a Málaga." },
     },
     capacity: { en: "Up to 80 people", es: "Hasta 80 personas", it: "Fino a 80 persone" },
-    heroImage: serviceMeeting,
+    heroImage: conferencePicasso,
     highlight: true,
     features: {
       en: ["85\" 4K Display", "Premium Video Conferencing", "Large Whiteboard", "Flexible Layout"],
