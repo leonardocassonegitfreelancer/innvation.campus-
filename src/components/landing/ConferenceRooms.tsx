@@ -121,6 +121,11 @@ const translations = {
 
 const roomSlugs = ["big-conference-room", "half-conference-room", "quarter-room", "meeting-room"];
 
+const roomImages: Record<string, string> = {
+  "picasso": conferencePicasso2,
+  "half-picasso": conferenceHalfPicasso2,
+};
+
 const roomPaths: Record<string, Record<string, string>> = {
   en: {
     "big-conference-room": "/en/meeting-rooms/big-conference-room",
