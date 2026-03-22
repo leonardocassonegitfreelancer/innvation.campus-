@@ -1,5 +1,6 @@
 import { Users, Monitor, Video, PenTool, LayoutGrid } from "lucide-react";
 import conferencePicasso2 from "@/assets/conference-picasso-2.jpg";
+import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.jpg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
@@ -120,6 +121,11 @@ const translations = {
 
 const roomSlugs = ["big-conference-room", "half-conference-room", "quarter-room", "meeting-room"];
 
+const roomImages: Record<string, string> = {
+  "picasso": conferencePicasso2,
+  "half-picasso": conferenceHalfPicasso2,
+};
+
 const roomPaths: Record<string, Record<string, string>> = {
   en: {
     "big-conference-room": "/en/meeting-rooms/big-conference-room",
@@ -178,10 +184,10 @@ export default function ConferenceRooms() {
                     : "border-border"
                 }`}
               >
-                {room.highlight && (
-                  <div className="w-full h-48 md:h-64 overflow-hidden">
+                {roomImages[room.id] && (
+                  <div className={`w-full ${room.highlight ? "h-48 md:h-64" : "h-40 md:h-48"} overflow-hidden`}>
                     <img
-                      src={conferencePicasso2}
+                      src={roomImages[room.id]}
                       alt={room.name}
                       className="w-full h-full object-cover"
                       loading="lazy"
