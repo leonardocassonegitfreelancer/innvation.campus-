@@ -4,7 +4,7 @@ import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Calendar, Briefcase, User, Sparkles, Palette, HeartHandshake, PartyPopper } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Calendar } from "lucide-react";
 import { useState, useRef } from "react";
 import { Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -53,9 +53,7 @@ const services = [
 export default function MalagaPalace() {
   const { ref: aboutRef, isVisible: aboutVis } = useScrollAnimation();
   const { ref: galleryRef, isVisible: galleryVis } = useScrollAnimation();
-  const { ref: hotRef, isVisible: hotVis } = useScrollAnimation();
   const { ref: servicesRef, isVisible: servicesVis } = useScrollAnimation();
-  const [hotTab, setHotTab] = useState<"business" | "individual">("business");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -187,110 +185,6 @@ export default function MalagaPalace() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* What's Hot */}
-      <section className="py-24 md:py-36" style={{ background: "linear-gradient(170deg, hsl(35 30% 92%), hsl(30 25% 90%), hsl(40 20% 93%))" }}>
-        <div ref={hotRef} className={`scroll-animate ${hotVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
-          <p className="font-body uppercase tracking-[0.4em] text-primary mb-4 text-xl font-semibold text-center">
-            Discover
-          </p>
-          <h2 className="font-display md:text-5xl text-foreground text-5xl font-semibold text-center mb-12 md:mb-20">
-            What's Hot in Málaga Palace
-          </h2>
-
-          {/* Tab Buttons */}
-          <div className="flex gap-3 mb-12 justify-center">
-            <button
-              onClick={() => setHotTab("business")}
-              className={`max-w-[200px] py-3 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${
-                hotTab === "business"
-                  ? "bg-primary text-primary-foreground"
-                  : "border border-primary text-primary bg-transparent"
-              }`}
-            >
-              For Businesses
-            </button>
-            <button
-              onClick={() => setHotTab("individual")}
-              className={`max-w-[200px] py-3 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${
-                hotTab === "individual"
-                  ? "bg-primary text-primary-foreground"
-                  : "border border-primary text-primary bg-transparent"
-              }`}
-            >
-              For Individuals
-            </button>
-          </div>
-
-          {/* Business Content */}
-          {hotTab === "business" && (
-            <div className="animate-fade-in">
-              <h3 className="font-display text-xl md:text-2xl font-bold text-foreground uppercase tracking-[0.2em] mb-8 text-center">
-                Host Your Event Here
-              </h3>
-              <div className="grid sm:grid-cols-3 gap-6 mb-10">
-                {[
-                  { icon: Briefcase, title: "Business Events", desc: "Product launches, team offsites, and corporate gatherings in stone-walled rooms that impress." },
-                  { icon: Palette, title: "Cultural Events", desc: "Art exhibitions, book readings, and creative showcases in a setting that breathes inspiration." },
-                  { icon: HeartHandshake, title: "Community Events", desc: "Networking nights, workshops, and meetups that connect the brightest minds in Málaga." },
-                ].map((item) => (
-                  <div key={item.title} className="border border-border rounded-xl p-6 hover:border-primary/40 transition-colors bg-card">
-                    <item.icon className="w-8 h-8 text-primary mb-4" />
-                    <h4 className="font-display text-lg font-bold text-foreground mb-2">{item.title}</h4>
-                    <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="border border-primary/20 rounded-xl p-8 text-center bg-card">
-                <PartyPopper className="w-8 h-8 text-primary mx-auto mb-4" />
-                <p className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">
-                  Make this event unforgettable
-                </p>
-                <p className="font-body text-muted-foreground max-w-xl mx-auto">
-                  Select one of our private rooms and let your guests get lost in the heart of Málaga afterwards. They will love it.
-                </p>
-                <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
-                  <Link to="/en/host-your-event">Plan Your Event</Link>
-                </Button>
-              </div>
-            </div>
-          )}
-
-          {/* Individual Content */}
-          {hotTab === "individual" && (
-            <div className="animate-fade-in">
-              <h3 className="font-display text-xl md:text-2xl font-bold text-foreground uppercase tracking-[0.2em] mb-8 text-center">
-                Become Part of Something Bigger
-              </h3>
-              <div className="grid sm:grid-cols-3 gap-6 mb-10">
-                {[
-                  { icon: Sparkles, title: "Work in a Living Masterpiece", desc: "Your daily office is an 18th-century palace. Stone arches, tiled courtyards, and natural light that fuels creativity." },
-                  { icon: Users, title: "Fast-Paced Community", desc: "Surround yourself with founders, freelancers, and creatives who move fast and think big. Your next collaboration starts at the coffee bar." },
-                  { icon: Star, title: "Art, History & Hustle", desc: "Steps from the Picasso Museum, immersed in Málaga's cultural heartbeat. Inspiration isn't something you search for — it finds you here." },
-                ].map((item) => (
-                  <div key={item.title} className="border border-border rounded-xl p-6 hover:border-primary/40 transition-colors bg-card">
-                    <item.icon className="w-8 h-8 text-primary mb-4" />
-                    <h4 className="font-display text-lg font-bold text-foreground mb-2">{item.title}</h4>
-                    <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="border border-primary/20 rounded-xl p-8 text-center bg-card">
-                <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
-                <p className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">
-                  Your palace awaits
-                </p>
-                <p className="font-body text-muted-foreground max-w-xl mx-auto">
-                  Join a community where ambition meets beauty. Flexible plans, no long-term commitments — just show up and create.
-                </p>
-                <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
-                  <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Start Your Journey</a>
-                </Button>
-              </div>
-            </div>
-          )}
         </div>
       </section>
 
