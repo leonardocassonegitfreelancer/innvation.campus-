@@ -125,6 +125,7 @@ const roomSlugs = ["big-conference-room", "half-conference-room", "quarter-room"
 const roomImages: Record<string, string> = {
   "picasso": conferencePicasso2,
   "half-picasso": conferenceHalfPicasso2,
+  "quarter-picasso": conferenceQuarterPicasso,
 };
 
 const roomPaths: Record<string, Record<string, string>> = {
