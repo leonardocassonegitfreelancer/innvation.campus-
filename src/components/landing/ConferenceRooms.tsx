@@ -184,10 +184,10 @@ export default function ConferenceRooms() {
                     : "border-border"
                 }`}
               >
-                {room.highlight && (
-                  <div className="w-full h-48 md:h-64 overflow-hidden">
+                {roomImages[room.id] && (
+                  <div className={`w-full ${room.highlight ? "h-48 md:h-64" : "h-40 md:h-48"} overflow-hidden`}>
                     <img
-                      src={conferencePicasso2}
+                      src={roomImages[room.id]}
                       alt={room.name}
                       className="w-full h-full object-cover"
                       loading="lazy"
