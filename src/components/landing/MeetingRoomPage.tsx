@@ -65,7 +65,7 @@ const rooms: RoomData[] = [
       it: { title: "Mezza Sala Conferenze – Half Picasso", description: "Una sala versatile per fino a 50 persone con display 4K da 55\" e videoconferenza professionale a Málaga." },
     },
     capacity: { en: "Up to 50 people", es: "Hasta 50 personas", it: "Fino a 50 persone" },
-    heroImage: serviceMeeting,
+    heroImage: conferenceHalfPicasso,
     features: {
       en: ["55\" 4K Display", "Video Conferencing", "Whiteboard", "Boardroom Setup"],
       es: ["Pantalla 4K 55\"", "Videoconferencia", "Pizarra", "Mesa de Juntas"],
