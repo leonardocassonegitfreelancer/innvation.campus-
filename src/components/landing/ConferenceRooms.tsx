@@ -1,6 +1,7 @@
 import { Users, Monitor, Video, PenTool, LayoutGrid } from "lucide-react";
 import conferencePicasso2 from "@/assets/conference-picasso-2.jpg";
 import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.jpg";
+import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.jpg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
@@ -124,6 +125,7 @@ const roomSlugs = ["big-conference-room", "half-conference-room", "quarter-room"
 const roomImages: Record<string, string> = {
   "picasso": conferencePicasso2,
   "half-picasso": conferenceHalfPicasso2,
+  "quarter-picasso": conferenceQuarterPicasso,
 };
 
 const roomPaths: Record<string, Record<string, string>> = {
