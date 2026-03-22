@@ -7,6 +7,7 @@ import ServicePageLayout from "./ServicePageLayout";
 import ConferenceCTA from "./ConferenceCTA";
 import serviceMeeting from "@/assets/service-meeting.jpg";
 import conferencePicasso from "@/assets/conference-picasso.jpg";
+import conferenceHalfPicasso from "@/assets/conference-half-picasso.jpg";
 import SEOHead from "@/components/SEOHead";
 
 export interface RoomData {
