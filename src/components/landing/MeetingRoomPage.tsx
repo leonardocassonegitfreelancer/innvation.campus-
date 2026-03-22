@@ -97,7 +97,7 @@ const rooms: RoomData[] = [
       it: { title: "Sala Quarter – Quarter Picasso", description: "Una sala intima per fino a 30 persone con display da 43\" e videoconferenza a Málaga." },
     },
     capacity: { en: "Up to 30 people", es: "Hasta 30 personas", it: "Fino a 30 persone" },
-    heroImage: serviceMeeting,
+    heroImage: conferenceQuarterPicasso,
     features: {
       en: ["43\" Display", "Video Conferencing", "Whiteboard", "Intimate Setting"],
       es: ["Pantalla 43\"", "Videoconferencia", "Pizarra", "Ambiente Íntimo"],
