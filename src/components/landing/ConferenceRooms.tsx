@@ -1,4 +1,5 @@
 import { Users, Monitor, Video, PenTool, LayoutGrid } from "lucide-react";
+import conferencePicasso2 from "@/assets/conference-picasso-2.jpg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
@@ -177,6 +178,16 @@ export default function ConferenceRooms() {
                     : "border-border"
                 }`}
               >
+                {room.highlight && (
+                  <div className="w-full h-48 md:h-64 overflow-hidden">
+                    <img
+                      src={conferencePicasso2}
+                      alt={room.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
                 {room.highlight && (
                   <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
                     {t.flagship}
