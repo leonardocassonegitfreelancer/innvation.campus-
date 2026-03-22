@@ -3,7 +3,7 @@ import FooterIT from "@/components/landing/it/FooterIT";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Clock, Users, Building2, Sun, Wifi, Play, Briefcase, Palette, HeartHandshake, PartyPopper, Sparkles, Waves, Compass } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, Users, Building2, Sun, Wifi, Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useRef, useState } from "react";
 import terraceHero from "@/assets/terrace-hero.jpg";
@@ -36,9 +36,7 @@ const galleryBottom = [
 export default function MalagaTerraceIT() {
   const { ref: aboutRef, isVisible: aboutVis } = useScrollAnimation();
   const { ref: galleryRef, isVisible: galleryVis } = useScrollAnimation();
-  const { ref: hotRef, isVisible: hotVis } = useScrollAnimation();
   const { ref: servicesRef, isVisible: servicesVis } = useScrollAnimation();
-  const [hotTab, setHotTab] = useState<"business" | "individual">("business");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -88,19 +86,6 @@ export default function MalagaTerraceIT() {
             </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">{galleryBottom.map((img) => (<div key={img.alt} className="rounded-xl overflow-hidden group"><img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" /></div>))}</div>
-        </div>
-      </section>
-
-      <section className="py-24 md:py-36" style={{ background: "linear-gradient(160deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))" }}>
-        <div ref={hotRef} className={`scroll-animate ${hotVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
-          <p className="font-body uppercase tracking-[0.4em] text-primary mb-4 text-xl font-semibold text-center">Scopri</p>
-          <h2 className="font-display md:text-5xl text-foreground text-5xl font-semibold text-center mb-12 md:mb-20">Il Meglio di Málaga Terrace</h2>
-          <div className="flex gap-3 mb-12 justify-center">
-            <button onClick={() => setHotTab("business")} className={`max-w-[200px] py-3 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${hotTab === "business" ? "bg-primary text-primary-foreground" : "border border-primary text-primary bg-transparent"}`}>Per Aziende</button>
-            <button onClick={() => setHotTab("individual")} className={`max-w-[200px] py-3 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${hotTab === "individual" ? "bg-primary text-primary-foreground" : "border border-primary text-primary bg-transparent"}`}>Per Individui</button>
-          </div>
-          {hotTab === "business" && (<div className="animate-fade-in"><h3 className="font-display text-xl md:text-2xl font-bold text-foreground uppercase tracking-[0.2em] mb-8 text-center">Organizza il Tuo Evento Qui</h3><div className="grid sm:grid-cols-3 gap-6 mb-10">{[{ icon: Briefcase, title: "Ritiri Aziendali", desc: "Ritiri di team con vista sull'oceano, lanci di prodotti sul tetto e sessioni di strategia dove il Mediterraneo fa il brainstorming." },{ icon: Palette, title: "Showcase Creativi", desc: "Mostre al tramonto, presentazioni all'aperto e attivazioni di brand che lasciano un'impressione duratura contro la costa." },{ icon: HeartHandshake, title: "Eventi di Networking", desc: "Mixer sul tetto, aperitivi dopo lavoro e incontri della comunità dove gli affari accadono tra le onde e il tramonto." }].map((item) => (<div key={item.title} className="border border-border rounded-xl p-6 hover:border-primary/40 transition-colors bg-card"><item.icon className="w-8 h-8 text-primary mb-4" /><h4 className="font-display text-lg font-bold text-foreground mb-2">{item.title}</h4><p className="font-body text-sm text-muted-foreground leading-relaxed">{item.desc}</p></div>))}</div><div className="border border-primary/20 rounded-xl p-8 text-center bg-card"><PartyPopper className="w-8 h-8 text-primary mx-auto mb-4" /><p className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">Il tuo evento merita un rooftop</p><p className="font-body text-muted-foreground max-w-xl mx-auto">Prenota la terrazza per il tuo prossimo evento. Vista al tramonto, brezza marina e un luogo che i tuoi ospiti non dimenticheranno.</p><Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3"><Link to="/it/organizza-evento">Pianifica il Tuo Evento</Link></Button></div></div>)}
-          {hotTab === "individual" && (<div className="animate-fade-in"><h3 className="font-display text-xl md:text-2xl font-bold text-foreground uppercase tracking-[0.2em] mb-8 text-center">Diventa un Coworker</h3><div className="grid sm:grid-cols-3 gap-6 mb-10">{[{ icon: Waves, title: "Lavora con il Mare", desc: "Scrivanie vista oceano, luce naturale che inonda attraverso vetrate dal pavimento al soffitto, e una brezza che schiarisce la mente tra le sessioni di lavoro." },{ icon: Compass, title: "Esplora e Connetti", desc: "Una comunità di nomadi digitali, lavoratori remoti e creatori locali. Il tuo prossimo co-fondatore potrebbe condividere il tuo tavolo al bar sul tetto." },{ icon: Sparkles, title: "Stato d'Animo da Tramonto", desc: "Termina ogni giornata lavorativa guardando il sole tuffarsi nel Mediterraneo. Non è solo un vantaggio — è uno stile di vita che alimenta il tuo miglior lavoro." }].map((item) => (<div key={item.title} className="border border-border rounded-xl p-6 hover:border-primary/40 transition-colors bg-card"><item.icon className="w-8 h-8 text-primary mb-4" /><h4 className="font-display text-lg font-bold text-foreground mb-2">{item.title}</h4><p className="font-body text-sm text-muted-foreground leading-relaxed">{item.desc}</p></div>))}</div><div className="border border-primary/20 rounded-xl p-8 text-center bg-card"><Sparkles className="w-8 h-8 text-primary mx-auto mb-4" /><p className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">La tua scrivania sul mare ti aspetta</p><p className="font-body text-muted-foreground max-w-xl mx-auto">Unisciti a una vibrante comunità di creatori e realizzatori. Piani flessibili, vista oceano e la libertà di lavorare a modo tuo.</p><Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3"><a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Inizia il Tuo Viaggio</a></Button></div></div>)}
         </div>
       </section>
 

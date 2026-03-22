@@ -3,7 +3,7 @@ import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MapPin, Clock, Star, Users, Building2, Sun, Wifi, Play, Briefcase, Palette, HeartHandshake, PartyPopper, Sparkles, Waves, Compass } from "lucide-react";
+import { ArrowLeft, MapPin, Clock, Star, Users, Building2, Sun, Wifi, Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useRef, useState } from "react";
 import terraceBar from "@/assets/terrace-bar.jpg";
@@ -49,9 +49,7 @@ const galleryBottom = [
 export default function MalagaTerrace() {
   const { ref: aboutRef, isVisible: aboutVis } = useScrollAnimation();
   const { ref: galleryRef, isVisible: galleryVis } = useScrollAnimation();
-  const { ref: hotRef, isVisible: hotVis } = useScrollAnimation();
   const { ref: servicesRef, isVisible: servicesVis } = useScrollAnimation();
-  const [hotTab, setHotTab] = useState<"business" | "individual">("business");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -197,110 +195,6 @@ export default function MalagaTerrace() {
               </div>
             )}
           </div>
-        </div>
-      </section>
-
-      {/* What's Hot */}
-      <section className="py-24 md:py-36" style={{ background: "linear-gradient(160deg, hsl(var(--seaside-bg)), hsl(var(--seaside-bg-cool)))" }}>
-        <div ref={hotRef} className={`scroll-animate ${hotVis ? "visible" : ""} max-w-6xl mx-auto px-6`}>
-          <p className="font-body uppercase tracking-[0.4em] text-primary mb-4 text-xl font-semibold text-center">
-            Discover
-          </p>
-          <h2 className="font-display md:text-5xl text-foreground text-5xl font-semibold text-center mb-12 md:mb-20">
-            What's Hot in Málaga Terrace
-          </h2>
-
-          {/* Tab Buttons */}
-          <div className="flex gap-3 mb-12 justify-center">
-            <button
-              onClick={() => setHotTab("business")}
-              className={`max-w-[200px] py-3 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${
-              hotTab === "business" ?
-              "bg-primary text-primary-foreground" :
-              "border border-primary text-primary bg-transparent"}`
-              }>
-              
-              For Businesses
-            </button>
-            <button
-              onClick={() => setHotTab("individual")}
-              className={`max-w-[200px] py-3 px-6 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${
-              hotTab === "individual" ?
-              "bg-primary text-primary-foreground" :
-              "border border-primary text-primary bg-transparent"}`
-              }>
-              
-              For Individuals
-            </button>
-          </div>
-
-          {/* Business Content */}
-          {hotTab === "business" &&
-          <div className="animate-fade-in">
-              <h3 className="font-display text-xl md:text-2xl font-bold text-foreground uppercase tracking-[0.2em] mb-8 text-center">
-                Host Your Event Here
-              </h3>
-              <div className="grid sm:grid-cols-3 gap-6 mb-10">
-                {[
-              { icon: Briefcase, title: "Corporate Retreats", desc: "Team offsites with ocean views, product launches on the rooftop, and strategy sessions where the Mediterranean does the brainstorming." },
-              { icon: Palette, title: "Creative Showcases", desc: "Sunset exhibitions, open-air presentations, and brand activations that leave a lasting impression against the coastline." },
-              { icon: HeartHandshake, title: "Networking Events", desc: "Rooftop mixers, after-work drinks, and community gatherings where deals happen between the waves and the sunset." }].
-              map((item) =>
-              <div key={item.title} className="border border-border rounded-xl p-6 hover:border-primary/40 transition-colors bg-card">
-                    <item.icon className="w-8 h-8 text-primary mb-4" />
-                    <h4 className="font-display text-lg font-bold text-foreground mb-2">{item.title}</h4>
-                    <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </div>
-              )}
-              </div>
-              <div className="border border-primary/20 rounded-xl p-8 text-center bg-card">
-                <PartyPopper className="w-8 h-8 text-primary mx-auto mb-4" />
-                <p className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">
-                  Your event deserves a rooftop
-                </p>
-                <p className="font-body text-muted-foreground max-w-xl mx-auto">
-                  Book the terrace for your next  event. Sunset views, sea breeze, and a venue your guests won't forget.
-                </p>
-                <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
-                  <Link to="/en/host-your-event">Plan Your Event</Link>
-                </Button>
-              </div>
-            </div>
-          }
-
-          {/* Individual Content */}
-          {hotTab === "individual" &&
-          <div className="animate-fade-in">
-              <h3 className="font-display text-xl md:text-2xl font-bold text-foreground uppercase tracking-[0.2em] mb-8 text-center">
-                Become a Coworker
-              </h3>
-              <div className="grid sm:grid-cols-3 gap-6 mb-10">
-                {[
-              { icon: Waves, title: "Work with the Sea", desc: "Ocean-view desks, natural light flooding through floor-to-ceiling glass, and a breeze that clears your mind between deep work sessions." },
-              { icon: Compass, title: "Explore & Connect", desc: "A community of digital nomads, remote workers, and local creators. Your next co-founder might be sharing your table at the rooftop bar." },
-              { icon: Sparkles, title: "Sunset State of Mind", desc: "End every workday watching the sun dip into the Mediterranean. It's not just a perk — it's a lifestyle that fuels your best work." }].
-              map((item) =>
-              <div key={item.title} className="border border-border rounded-xl p-6 hover:border-primary/40 transition-colors bg-card">
-                    <item.icon className="w-8 h-8 text-primary mb-4" />
-                    <h4 className="font-display text-lg font-bold text-foreground mb-2">{item.title}</h4>
-                    <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </div>
-              )}
-              </div>
-              <div className="border border-primary/20 rounded-xl p-8 text-center bg-card">
-                <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
-                <p className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">
-                  Your seaside desk awaits
-                </p>
-                <p className="font-body text-muted-foreground max-w-xl mx-auto">
-                  Join a vibrant community of creators and doers. Flexible plans, ocean views, and the freedom to work your way.
-                </p>
-                <Button asChild className="mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm uppercase tracking-widest px-8 py-3">
-                  <a href="https://members.innovationcampus.biz/tours/locations" target="_blank" rel="noopener noreferrer">Start Your Journey</a>
-                </Button>
-              </div>
-            </div>
-          }
         </div>
       </section>
 
