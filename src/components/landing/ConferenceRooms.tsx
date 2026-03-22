@@ -1,5 +1,6 @@
 import { Users, Monitor, Video, PenTool, LayoutGrid } from "lucide-react";
 import conferencePicasso2 from "@/assets/conference-picasso-2.jpg";
+import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.jpg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
