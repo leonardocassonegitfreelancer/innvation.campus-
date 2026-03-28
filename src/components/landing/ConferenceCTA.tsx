@@ -30,7 +30,7 @@ const translations = {
     phonePlaceholder: "+34 600 000 000",
     locationLabel: "Which location interests you?",
     locations: [
-      { value: "historic" as const, label: "Historic Center" },
+      { value: "historic" as const, label: "Historic Centers" },
       { value: "seaside" as const, label: "Seaside" },
       { value: "both" as const, label: "Both" },
     ],
