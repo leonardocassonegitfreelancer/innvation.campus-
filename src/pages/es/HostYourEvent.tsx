@@ -1,10 +1,6 @@
-import SEOHead from "@/components/SEOHead";
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
 import serviceCommunity from "@/assets/service-community.jpg";
-import HostEventHero from "@/components/landing/HostEventHero";
-import EventBentoGrid from "@/components/landing/EventBentoGrid";
-import PremiumVenues from "@/components/landing/PremiumVenues";
-import ConferenceCTA from "@/components/landing/ConferenceCTA";
+import SEOHead from "@/components/SEOHead";
 
 export default function HostYourEventES() {
   return (
@@ -18,12 +14,7 @@ export default function HostYourEventES() {
         title="Organiza Tu Evento"
         subtitle="Desde conferencias corporativas hasta talleres creativos — da vida a tu visión en nuestros espacios únicos."
         image={serviceCommunity}
-      >
-        <HostEventHero />
-        <EventBentoGrid />
-        <PremiumVenues />
-        <ConferenceCTA />
-      </ServicePageLayout>
+      />
     </>
   );
 }

@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 import RegistrationIntro from "@/components/landing/RegistrationIntro";
 import RegistrationPricing from "@/components/landing/RegistrationPricing";
 import RegistrationIncludes from "@/components/landing/RegistrationIncludes";
-import RegistrationForm from "@/components/landing/RegistrationForm";
+import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
 export default function BusinessRegistrationES() {
   return (
@@ -22,7 +22,7 @@ export default function BusinessRegistrationES() {
         <RegistrationIntro />
         <RegistrationPricing />
         <RegistrationIncludes />
-        <RegistrationForm />
+        <ConferenceCTA />
       </ServicePageLayout>
     </>
   );
