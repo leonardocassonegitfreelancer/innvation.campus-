@@ -1,4 +1,4 @@
-import { Users, Monitor, Video, PenTool, LayoutGrid } from "lucide-react";
+import { Users } from "lucide-react";
 import conferencePicasso2 from "@/assets/conference-picasso-2.jpg";
 import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.jpg";
 import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.jpg";
@@ -8,6 +8,15 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "react-router-dom";
+import { MapPin } from "lucide-react";
+
+interface Room {
+  id: string;
+  name: string;
+  capacity: string;
+  features: string[];
+  highlight: boolean;
+}
 
 const translations = {
   en: {
@@ -15,7 +24,13 @@ const translations = {
     title: "Choose Your Space",
     flagship: "popular",
     requestQuote: "Request Quote",
-    rooms: [
+    centreLabel: "Málaga Palace — Historic Center",
+    centreSubtitle: "Our flagship location in the heart of Málaga's historic district",
+    seasideLabel: "Málaga Terrace — Seaside",
+    seasideSubtitle: "Premium meeting spaces with Mediterranean sea views",
+    comingSoon: "Coming Soon",
+    viewDetails: "View Details",
+    centreRooms: [
       {
         id: "picasso",
         name: "City Center Picasso",
@@ -44,14 +59,36 @@ const translations = {
         features: ["43\" Display", "Video Conferencing", "Focus Room", "Private Calls"],
         highlight: false,
       },
-    ],
+    ] as Room[],
+    seasideRooms: [
+      {
+        id: "seaside-main",
+        name: "Seaside Conference Room",
+        capacity: "Up to 40 people",
+        features: ["65\" 4K Display", "Video Conferencing", "Sea Views", "Flexible Layout"],
+        highlight: true,
+      },
+      {
+        id: "seaside-meeting",
+        name: "Seaside Meeting Room",
+        capacity: "Up to 12 people",
+        features: ["55\" Display", "Video Conferencing", "Whiteboard", "Terrace Access"],
+        highlight: false,
+      },
+    ] as Room[],
   },
   es: {
     tagline: "Nuestras Salas",
     title: "Elige Tu Espacio",
     flagship: "Sala Principal",
     requestQuote: "Solicitar Presupuesto",
-    rooms: [
+    centreLabel: "Málaga Palace — Centro Histórico",
+    centreSubtitle: "Nuestra sede principal en el corazón del centro histórico de Málaga",
+    seasideLabel: "Málaga Terrace — Frente al Mar",
+    seasideSubtitle: "Espacios de reuniones premium con vistas al Mediterráneo",
+    comingSoon: "Próximamente",
+    viewDetails: "Ver Detalles",
+    centreRooms: [
       {
         id: "picasso",
         name: "City Center Picasso",
@@ -80,14 +117,36 @@ const translations = {
         features: ["Pantalla 43\"", "Videoconferencia", "Sala Focus", "Llamadas Privadas"],
         highlight: false,
       },
-    ],
+    ] as Room[],
+    seasideRooms: [
+      {
+        id: "seaside-main",
+        name: "Sala de Conferencias Seaside",
+        capacity: "Hasta 40 personas",
+        features: ["Pantalla 4K 65\"", "Videoconferencia", "Vistas al Mar", "Disposición Flexible"],
+        highlight: true,
+      },
+      {
+        id: "seaside-meeting",
+        name: "Sala de Reuniones Seaside",
+        capacity: "Hasta 12 personas",
+        features: ["Pantalla 55\"", "Videoconferencia", "Pizarra", "Acceso Terraza"],
+        highlight: false,
+      },
+    ] as Room[],
   },
   it: {
     tagline: "Le Nostre Sale",
     title: "Scegli il Tuo Spazio",
     flagship: "Sala Principale",
     requestQuote: "Richiedi Preventivo",
-    rooms: [
+    centreLabel: "Málaga Palace — Centro Storico",
+    centreSubtitle: "La nostra sede principale nel cuore del centro storico di Málaga",
+    seasideLabel: "Málaga Terrace — Lungomare",
+    seasideSubtitle: "Sale riunioni premium con vista sul Mediterraneo",
+    comingSoon: "Prossimamente",
+    viewDetails: "Vedi Dettagli",
+    centreRooms: [
       {
         id: "picasso",
         name: "City Center Picasso",
@@ -116,11 +175,25 @@ const translations = {
         features: ["Display 43\"", "Videoconferenza", "Sala Focus", "Chiamate Private"],
         highlight: false,
       },
-    ],
+    ] as Room[],
+    seasideRooms: [
+      {
+        id: "seaside-main",
+        name: "Sala Conferenze Seaside",
+        capacity: "Fino a 40 persone",
+        features: ["Display 4K 65\"", "Videoconferenza", "Vista Mare", "Layout Flessibile"],
+        highlight: true,
+      },
+      {
+        id: "seaside-meeting",
+        name: "Sala Riunioni Seaside",
+        capacity: "Fino a 12 persone",
+        features: ["Display 55\"", "Videoconferenza", "Lavagna", "Accesso Terrazza"],
+        highlight: false,
+      },
+    ] as Room[],
   },
 };
-
-const roomSlugs = ["big-conference-room", "half-conference-room", "quarter-room", "meeting-room"];
 
 const roomImages: Record<string, string> = {
   "picasso": conferencePicasso2,
@@ -130,121 +203,158 @@ const roomImages: Record<string, string> = {
 
 const roomPaths: Record<string, Record<string, string>> = {
   en: {
-    "big-conference-room": "/en/meeting-rooms/big-conference-room",
-    "half-conference-room": "/en/meeting-rooms/half-conference-room",
-    "quarter-room": "/en/meeting-rooms/quarter-room",
-    "meeting-room": "/en/meeting-rooms/meeting-room",
+    "picasso": "/en/meeting-rooms/big-conference-room",
+    "half-picasso": "/en/meeting-rooms/half-conference-room",
+    "quarter-picasso": "/en/meeting-rooms/quarter-room",
+    "pablo-neruda": "/en/meeting-rooms/meeting-room",
   },
   es: {
-    "big-conference-room": "/es/salas/gran-sala-conferencias",
-    "half-conference-room": "/es/salas/media-sala-conferencias",
-    "quarter-room": "/es/salas/sala-quarter",
-    "meeting-room": "/es/salas/sala-reuniones",
+    "picasso": "/es/salas/gran-sala-conferencias",
+    "half-picasso": "/es/salas/media-sala-conferencias",
+    "quarter-picasso": "/es/salas/sala-quarter",
+    "pablo-neruda": "/es/salas/sala-reuniones",
   },
   it: {
-    "big-conference-room": "/it/sale/grande-sala-conferenze",
-    "half-conference-room": "/it/sale/mezza-sala-conferenze",
-    "quarter-room": "/it/sale/sala-quarter",
-    "meeting-room": "/it/sale/sala-riunioni",
+    "picasso": "/it/sale/grande-sala-conferenze",
+    "half-picasso": "/it/sale/mezza-sala-conferenze",
+    "quarter-picasso": "/it/sale/sala-quarter",
+    "pablo-neruda": "/it/sale/sala-riunioni",
   },
 };
 
-const featureIcons: Record<string, typeof Monitor> = {
-  display: Monitor,
-  video: Video,
-  whiteboard: PenTool,
-  layout: LayoutGrid,
-};
+function RoomCard({ room, lang, t, isComingSoon = false }: { room: Room; lang: string; t: typeof translations.en; isComingSoon?: boolean }) {
+  const roomPath = roomPaths[lang]?.[room.id];
+  const image = roomImages[room.id];
+
+  return (
+    <Card
+      className={`relative overflow-hidden transition-all duration-300 hover:shadow-lg ${
+        room.highlight
+          ? "border-2 border-primary bg-primary/5 md:col-span-2"
+          : "border-border"
+      }`}
+    >
+      {image ? (
+        <div className={`w-full ${room.highlight ? "h-48 md:h-64" : "h-40 md:h-48"} overflow-hidden`}>
+          <img
+            src={image}
+            alt={room.name}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div className={`w-full ${room.highlight ? "h-48 md:h-64" : "h-40 md:h-48"} bg-muted flex items-center justify-center`}>
+          <div className="text-center text-muted-foreground">
+            <MapPin className="w-8 h-8 mx-auto mb-2 opacity-40" />
+            <span className="font-body text-sm opacity-60">Photo coming soon</span>
+          </div>
+        </div>
+      )}
+      {room.highlight && !isComingSoon && (
+        <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
+          {t.flagship}
+        </Badge>
+      )}
+      {isComingSoon && (
+        <Badge className="absolute top-4 right-4 bg-muted-foreground text-white">
+          {t.comingSoon}
+        </Badge>
+      )}
+      <CardHeader>
+        <CardTitle className={`font-display ${room.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
+          {roomPath ? (
+            <Link to={roomPath} className="hover:text-primary transition-colors">
+              {room.name}
+            </Link>
+          ) : room.name}
+        </CardTitle>
+        <div className="flex items-center gap-2 text-muted-foreground">
+          <Users className="w-4 h-4" />
+          <span className="font-body text-sm">{room.capacity}</span>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <div className={`grid ${room.highlight ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2"} gap-3 mb-6`}>
+          {room.features.map((feature, j) => (
+            <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span className="font-body">{feature}</span>
+            </div>
+          ))}
+        </div>
+        <div className="flex gap-3">
+          {roomPath && (
+            <Button asChild variant="outline">
+              <Link to={roomPath}>
+                {t.viewDetails}
+              </Link>
+            </Button>
+          )}
+          <Button
+            asChild
+            variant={room.highlight ? "default" : "outline"}
+            className={room.highlight ? "bg-primary hover:bg-primary/90" : ""}
+          >
+            <a href="/#contact">{t.requestQuote}</a>
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function ConferenceRooms() {
   const { ref, isVisible } = useScrollAnimation();
+  const { ref: ref2, isVisible: isVisible2 } = useScrollAnimation();
   const location = useLocation();
   const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
   return (
-    <section className="py-20 md:py-28 bg-background">
-      <div className="max-w-6xl mx-auto px-6">
-        <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-14`}>
-          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
-            {t.tagline}
-          </p>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-            {t.title}
-          </h2>
-        </div>
+    <>
+      {/* Málaga Palace — Historic Centre */}
+      <section id="centre" className="py-20 md:py-28 bg-background">
+        <div className="max-w-6xl mx-auto px-6">
+          <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-14`}>
+            <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
+              {t.tagline}
+            </p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+              {t.centreLabel}
+            </h2>
+            <p className="font-body mt-4 text-muted-foreground max-w-2xl mx-auto">
+              {t.centreSubtitle}
+            </p>
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {t.rooms.map((room, i) => {
-            const roomPath = roomPaths[lang]?.[room.id];
-            return (
-              <Card
-                key={room.id}
-                className={`relative overflow-hidden transition-all duration-300 hover:shadow-lg ${
-                  room.highlight
-                    ? "border-2 border-primary bg-primary/5 md:col-span-2"
-                    : "border-border"
-                }`}
-              >
-                {roomImages[room.id] && (
-                  <div className={`w-full ${room.highlight ? "h-48 md:h-64" : "h-40 md:h-48"} overflow-hidden`}>
-                    <img
-                      src={roomImages[room.id]}
-                      alt={room.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                )}
-                {room.highlight && (
-                  <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
-                    {t.flagship}
-                  </Badge>
-                )}
-                <CardHeader>
-                  <CardTitle className={`font-display ${room.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
-                    {roomPath ? (
-                      <Link to={roomPath} className="hover:text-primary transition-colors">
-                        {room.name}
-                      </Link>
-                    ) : room.name}
-                  </CardTitle>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Users className="w-4 h-4" />
-                    <span className="font-body text-sm">{room.capacity}</span>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className={`grid ${room.highlight ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2"} gap-3 mb-6`}>
-                    {room.features.map((feature, j) => (
-                      <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        <span className="font-body">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex gap-3">
-                    {roomPath && (
-                      <Button asChild variant="outline">
-                        <Link to={roomPath}>
-                          {lang === "en" ? "View Details" : lang === "es" ? "Ver Detalles" : "Vedi Dettagli"}
-                        </Link>
-                      </Button>
-                    )}
-                    <Button
-                      asChild
-                      variant={room.highlight ? "default" : "outline"}
-                      className={room.highlight ? "bg-primary hover:bg-primary/90" : ""}
-                    >
-                      <a href="/#contact">{t.requestQuote}</a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+          <div className="grid md:grid-cols-2 gap-6">
+            {t.centreRooms.map((room) => (
+              <RoomCard key={room.id} room={room} lang={lang} t={t} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Málaga Terrace — Seaside */}
+      <section id="seaside" className="py-20 md:py-28 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-6">
+          <div ref={ref2} className={`scroll-animate ${isVisible2 ? "visible" : ""} text-center mb-14`}>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+              {t.seasideLabel}
+            </h2>
+            <p className="font-body mt-4 text-muted-foreground max-w-2xl mx-auto">
+              {t.seasideSubtitle}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {t.seasideRooms.map((room) => (
+              <RoomCard key={room.id} room={room} lang={lang} t={t} isComingSoon />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
