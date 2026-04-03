@@ -88,7 +88,7 @@ const translations = {
   },
   it: {
     sectionLabel: "Contattaci",
-    title: "Prenota la Tua Sala Riunioni",
+    title: "Contattaci",
     subtitle: "Fai una domanda, verifica la disponibilità o richiedi un preventivo personalizzato.",
     name: "Nome",
     namePlaceholder: "Il tuo nome",
