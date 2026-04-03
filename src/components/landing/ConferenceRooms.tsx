@@ -1,4 +1,5 @@
-import { Users } from "lucide-react";
+import { useState } from "react";
+import { Users, MapPin } from "lucide-react";
 import conferencePicasso2 from "@/assets/conference-picasso-2.jpg";
 import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.jpg";
 import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.jpg";
@@ -8,7 +9,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "react-router-dom";
-import { MapPin } from "lucide-react";
 
 interface Room {
   id: string;
@@ -24,12 +24,12 @@ const translations = {
     title: "Choose Your Space",
     flagship: "popular",
     requestQuote: "Request Quote",
-    centreLabel: "Málaga Palace — Historic Center",
-    centreSubtitle: "Our flagship location in the heart of Málaga's historic district",
-    seasideLabel: "Málaga Terrace — Seaside",
-    seasideSubtitle: "Premium meeting spaces with Mediterranean sea views",
-    comingSoon: "Coming Soon",
     viewDetails: "View Details",
+    comingSoon: "Coming Soon",
+    tabs: [
+      { value: "centre" as const, label: "Málaga Palace — Historic Center" },
+      { value: "seaside" as const, label: "Málaga Terrace — Seaside" },
+    ],
     centreRooms: [
       {
         id: "picasso",
@@ -82,12 +82,12 @@ const translations = {
     title: "Elige Tu Espacio",
     flagship: "Sala Principal",
     requestQuote: "Solicitar Presupuesto",
-    centreLabel: "Málaga Palace — Centro Histórico",
-    centreSubtitle: "Nuestra sede principal en el corazón del centro histórico de Málaga",
-    seasideLabel: "Málaga Terrace — Frente al Mar",
-    seasideSubtitle: "Espacios de reuniones premium con vistas al Mediterráneo",
-    comingSoon: "Próximamente",
     viewDetails: "Ver Detalles",
+    comingSoon: "Próximamente",
+    tabs: [
+      { value: "centre" as const, label: "Málaga Palace — Centro Histórico" },
+      { value: "seaside" as const, label: "Málaga Terrace — Frente al Mar" },
+    ],
     centreRooms: [
       {
         id: "picasso",
@@ -140,12 +140,12 @@ const translations = {
     title: "Scegli il Tuo Spazio",
     flagship: "Sala Principale",
     requestQuote: "Richiedi Preventivo",
-    centreLabel: "Málaga Palace — Centro Storico",
-    centreSubtitle: "La nostra sede principale nel cuore del centro storico di Málaga",
-    seasideLabel: "Málaga Terrace — Lungomare",
-    seasideSubtitle: "Sale riunioni premium con vista sul Mediterraneo",
-    comingSoon: "Prossimamente",
     viewDetails: "Vedi Dettagli",
+    comingSoon: "Prossimamente",
+    tabs: [
+      { value: "centre" as const, label: "Málaga Palace — Centro Storico" },
+      { value: "seaside" as const, label: "Málaga Terrace — Lungomare" },
+    ],
     centreRooms: [
       {
         id: "picasso",
@@ -236,12 +236,7 @@ function RoomCard({ room, lang, t, isComingSoon = false }: { room: Room; lang: s
     >
       {image ? (
         <div className={`w-full ${room.highlight ? "h-48 md:h-64" : "h-40 md:h-48"} overflow-hidden`}>
-          <img
-            src={image}
-            alt={room.name}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+          <img src={image} alt={room.name} className="w-full h-full object-cover" loading="lazy" />
         </div>
       ) : (
         <div className={`w-full ${room.highlight ? "h-48 md:h-64" : "h-40 md:h-48"} bg-muted flex items-center justify-center`}>
@@ -252,21 +247,15 @@ function RoomCard({ room, lang, t, isComingSoon = false }: { room: Room; lang: s
         </div>
       )}
       {room.highlight && !isComingSoon && (
-        <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
-          {t.flagship}
-        </Badge>
+        <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">{t.flagship}</Badge>
       )}
       {isComingSoon && (
-        <Badge className="absolute top-4 right-4 bg-muted-foreground text-white">
-          {t.comingSoon}
-        </Badge>
+        <Badge className="absolute top-4 right-4 bg-muted-foreground text-white">{t.comingSoon}</Badge>
       )}
       <CardHeader>
         <CardTitle className={`font-display ${room.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
           {roomPath ? (
-            <Link to={roomPath} className="hover:text-primary transition-colors">
-              {room.name}
-            </Link>
+            <Link to={roomPath} className="hover:text-primary transition-colors">{room.name}</Link>
           ) : room.name}
         </CardTitle>
         <div className="flex items-center gap-2 text-muted-foreground">
@@ -286,9 +275,7 @@ function RoomCard({ room, lang, t, isComingSoon = false }: { room: Room; lang: s
         <div className="flex gap-3">
           {roomPath && (
             <Button asChild variant="outline">
-              <Link to={roomPath}>
-                {t.viewDetails}
-              </Link>
+              <Link to={roomPath}>{t.viewDetails}</Link>
             </Button>
           )}
           <Button
@@ -305,56 +292,51 @@ function RoomCard({ room, lang, t, isComingSoon = false }: { room: Room; lang: s
 }
 
 export default function ConferenceRooms() {
+  const [activeTab, setActiveTab] = useState<"centre" | "seaside">("centre");
   const { ref, isVisible } = useScrollAnimation();
-  const { ref: ref2, isVisible: isVisible2 } = useScrollAnimation();
   const location = useLocation();
   const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
+  const rooms = activeTab === "centre" ? t.centreRooms : t.seasideRooms;
+  const isComingSoon = activeTab === "seaside";
+
   return (
-    <>
-      {/* Málaga Palace — Historic Centre */}
-      <section id="centre" className="py-20 md:py-28 bg-background">
-        <div className="max-w-6xl mx-auto px-6">
-          <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-14`}>
-            <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
-              {t.tagline}
-            </p>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-              {t.centreLabel}
-            </h2>
-            <p className="font-body mt-4 text-muted-foreground max-w-2xl mx-auto">
-              {t.centreSubtitle}
-            </p>
-          </div>
+    <section id={activeTab === "centre" ? "centre" : "seaside"} className="py-20 md:py-28 bg-background">
+      <div className="max-w-6xl mx-auto px-6">
+        <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-14`}>
+          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
+            {t.tagline}
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
+            {t.title}
+          </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {t.centreRooms.map((room) => (
-              <RoomCard key={room.id} room={room} lang={lang} t={t} />
+          {/* Location toggle */}
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+            {t.tabs.map((tab) => (
+              <button
+                key={tab.value}
+                type="button"
+                onClick={() => setActiveTab(tab.value)}
+                className={`font-body text-sm px-6 py-2.5 rounded-full border transition-all duration-300 ${
+                  activeTab === tab.value
+                    ? "bg-primary text-primary-foreground border-primary shadow-md"
+                    : "bg-transparent border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
+                }`}
+              >
+                {tab.label}
+              </button>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Málaga Terrace — Seaside */}
-      <section id="seaside" className="py-20 md:py-28 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-6">
-          <div ref={ref2} className={`scroll-animate ${isVisible2 ? "visible" : ""} text-center mb-14`}>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
-              {t.seasideLabel}
-            </h2>
-            <p className="font-body mt-4 text-muted-foreground max-w-2xl mx-auto">
-              {t.seasideSubtitle}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {t.seasideRooms.map((room) => (
-              <RoomCard key={room.id} room={room} lang={lang} t={t} isComingSoon />
-            ))}
-          </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {rooms.map((room) => (
+            <RoomCard key={room.id} room={room} lang={lang} t={t} isComingSoon={isComingSoon} />
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
