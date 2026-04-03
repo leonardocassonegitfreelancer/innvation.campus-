@@ -18,7 +18,7 @@ import ConferenceBookingFields, { type ConferenceBookingFieldsHandle } from "./C
 const translations = {
   en: {
     sectionLabel: "Get in Touch",
-    title: "Book Your Meeting Room",
+    title: "Get in touch",
     subtitle: "Ask a question, check availability or request a personalized quote.",
     name: "Name",
     namePlaceholder: "Your name",
@@ -53,7 +53,7 @@ const translations = {
   },
   es: {
     sectionLabel: "Contáctanos",
-    title: "Reserva Tu Sala de Reuniones",
+    title: "Contáctanos",
     subtitle: "Haz una pregunta, consulta disponibilidad o solicita un presupuesto personalizado.",
     name: "Nombre",
     namePlaceholder: "Tu nombre",
@@ -88,7 +88,7 @@ const translations = {
   },
   it: {
     sectionLabel: "Contattaci",
-    title: "Prenota la Tua Sala Riunioni",
+    title: "Contattaci",
     subtitle: "Fai una domanda, verifica la disponibilità o richiedi un preventivo personalizzato.",
     name: "Nome",
     namePlaceholder: "Il tuo nome",
