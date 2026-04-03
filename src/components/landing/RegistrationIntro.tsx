@@ -1,0 +1,69 @@
+import { MapPin, Building2, Laptop } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLocation } from "react-router-dom";
+
+const translations = {
+  en: {
+    tagline: "Professional Company Presence",
+    title: "Establish Your Business",
+    subtitle: "Do you want your company to be registered in Spain or Italy, and have a great and professional location in one of our business centers?",
+    highlights: [
+      { icon: MapPin, title: "Spain & Italy", desc: "Premium legal addresses in top locations" },
+      { icon: Building2, title: "Professional Image", desc: "Your logo at the entrance of our centers" },
+      { icon: Laptop, title: "Virtual Office", desc: "Work remotely with a physical presence" },
+    ],
+  },
+  es: {
+    tagline: "Presencia Corporativa Profesional",
+    title: "Establece tu Negocio",
+    subtitle: "¿Quieres que tu empresa esté registrada en España o Italia, y contar con una ubicación excelente y profesional en nuestros centros de negocios?",
+    highlights: [
+      { icon: MapPin, title: "España e Italia", desc: "Direcciones legales premium en las mejores ubicaciones" },
+      { icon: Building2, title: "Imagen Profesional", desc: "Tu logotipo en la entrada de nuestros centros" },
+      { icon: Laptop, title: "Oficina Virtual", desc: "Trabaja a distancia con presencia física" },
+    ],
+  },
+  it: {
+    tagline: "Presenza Aziendale Professionale",
+    title: "Stabilisci la tua Impresa",
+    subtitle: "Vuoi registrare la tua azienda in Spagna o in Italia e avere una sede eccellente e professionale in uno dei nostri centri direzionali?",
+    highlights: [
+      { icon: MapPin, title: "Spagna e Italia", desc: "Indirizzi legali premium nelle migliori posizioni" },
+      { icon: Building2, title: "Immagine Professionale", desc: "Il tuo logo all'ingresso dei nostri centri" },
+      { icon: Laptop, title: "Ufficio Virtuale", desc: "Lavora da remoto con una presenza fisica" },
+    ],
+  },
+};
+
+export default function RegistrationIntro() {
+  const { ref, isVisible } = useScrollAnimation();
+  const location = useLocation();
+  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+  const t = translations[lang];
+
+  return (
+    <section className="relative py-20 md:py-28 bg-neutral-dark overflow-hidden">
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"
+      }} />
+      <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} relative max-w-6xl mx-auto px-6`}>
+        <div className="text-center mb-16">
+          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">{t.tagline}</p>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">{t.title}</h2>
+          <p className="font-body text-lg text-primary-foreground/60 max-w-2xl mx-auto">{t.subtitle}</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {t.highlights.map((item, i) => (
+            <div key={i} className="text-center">
+              <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <item.icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-primary-foreground mb-2">{item.title}</h3>
+              <p className="font-body text-primary-foreground/60">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
