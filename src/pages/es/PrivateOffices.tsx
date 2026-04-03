@@ -1,10 +1,10 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
 import servicePrivate from "@/assets/service-private.jpg";
 import SEOHead from "@/components/SEOHead";
-import OfficesIntro from "@/components/landing/OfficesIntro";
-import OfficesIncludes from "@/components/landing/OfficesIncludes";
-import OfficesGallery from "@/components/landing/OfficesGallery";
-import ConferenceCTA from "@/components/landing/ConferenceCTA";
+import OfficesListings from "@/components/landing/OfficesListings";
+import OfficesIntroSection from "@/components/landing/OfficesIntroSection";
+import OfficesAmenities from "@/components/landing/OfficesAmenities";
+import OfficesQuoteForm from "@/components/landing/OfficesQuoteForm";
 
 export default function PrivateOfficesES() {
   return (
@@ -16,13 +16,13 @@ export default function PrivateOfficesES() {
       />
       <ServicePageLayout
         title="Oficinas Privadas"
-        subtitle="Espacios de oficina dedicados en diferentes tamaños para adaptarse a las necesidades de tu equipo."
+        subtitle="Tu oficina ideal está más cerca de lo que crees. Trabaja en entornos inspiradores rodeado de una comunidad empresarial internacional."
         image={servicePrivate}
       >
-        <OfficesIntro />
-        <OfficesIncludes />
-        <OfficesGallery />
-        <ConferenceCTA />
+        <OfficesIntroSection />
+        <OfficesListings />
+        <OfficesAmenities />
+        <OfficesQuoteForm />
       </ServicePageLayout>
     </>
   );
