@@ -18,7 +18,7 @@ import ConferenceBookingFields, { type ConferenceBookingFieldsHandle } from "./C
 const translations = {
   en: {
     sectionLabel: "Get in Touch",
-    title: "Book Your Meeting Room",
+    title: "Get in touch",
     subtitle: "Ask a question, check availability or request a personalized quote.",
     name: "Name",
     namePlaceholder: "Your name",
