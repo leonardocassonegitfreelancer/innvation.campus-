@@ -53,7 +53,7 @@ const translations = {
   },
   es: {
     sectionLabel: "Contáctanos",
-    title: "Reserva Tu Sala de Reuniones",
+    title: "Contáctanos",
     subtitle: "Haz una pregunta, consulta disponibilidad o solicita un presupuesto personalizado.",
     name: "Nombre",
     namePlaceholder: "Tu nombre",
