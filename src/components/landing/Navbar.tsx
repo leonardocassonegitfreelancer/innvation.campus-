@@ -92,14 +92,6 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-neutral-dark/98 backdrop-blur-lg border-t border-white/10">
           <div className="px-6 py-6 flex flex-col gap-2">
-            <div className="flex items-center justify-between pb-4 mb-2 border-b border-white/10">
-              <span className="text-white/60 text-sm font-body">{lang === "es" ? "Idioma" : lang === "it" ? "Lingua" : "Language"}</span>
-              <div className="flex gap-2">
-                <Link to="/" onClick={() => setMobileOpen(false)} className={`px-3 py-1.5 rounded text-sm font-body ${lang === "en" ? "bg-primary text-primary-foreground" : "text-white/60"}`}>EN</Link>
-                <Link to="/es" onClick={() => setMobileOpen(false)} className={`px-3 py-1.5 rounded text-sm font-body ${lang === "es" ? "bg-primary text-primary-foreground" : "text-white/60"}`}>ES</Link>
-                <Link to="/it" onClick={() => setMobileOpen(false)} className={`px-3 py-1.5 rounded text-sm font-body ${lang === "it" ? "bg-primary text-primary-foreground" : "text-white/60"}`}>IT</Link>
-              </div>
-            </div>
             <button onClick={() => setMobileExpanded(mobileExpanded === "locations" ? null : "locations")} className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2">{links.labels.locations}<ChevronDown size={16} className={`transition-transform ${mobileExpanded === "locations" ? "rotate-180" : ""}`} /></button>
             {mobileExpanded === "locations" && (<div className="pl-4 flex flex-col gap-1 mb-2">{links.location.map((link) => (<Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">{link.label}</Link>))}</div>)}
             <button onClick={() => setMobileExpanded(mobileExpanded === "business" ? null : "business")} className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2">{links.labels.forBusinesses}<ChevronDown size={16} className={`transition-transform ${mobileExpanded === "business" ? "rotate-180" : ""}`} /></button>
@@ -107,7 +99,14 @@ export default function Navbar() {
             <button onClick={() => setMobileExpanded(mobileExpanded === "individual" ? null : "individual")} className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2">{links.labels.forIndividuals}<ChevronDown size={16} className={`transition-transform ${mobileExpanded === "individual" ? "rotate-180" : ""}`} /></button>
             {mobileExpanded === "individual" && (<div className="pl-4 flex flex-col gap-1 mb-2">{links.individual.map((link) => (<Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">{link.label}</Link>))}</div>)}
             {links.nav.map((link) => (<Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="text-white/80 hover:text-white text-lg font-body transition-colors py-2">{link.label}</Link>))}
-            
+            <div className="flex items-center justify-between pt-4 mt-2 border-t border-white/10">
+              <span className="text-white/60 text-sm font-body">{lang === "es" ? "Idioma" : lang === "it" ? "Lingua" : "Language"}</span>
+              <div className="flex gap-2">
+                <Link to="/" onClick={() => setMobileOpen(false)} className={`px-3 py-1.5 rounded text-sm font-body ${lang === "en" ? "bg-primary text-primary-foreground" : "text-white/60"}`}>EN</Link>
+                <Link to="/es" onClick={() => setMobileOpen(false)} className={`px-3 py-1.5 rounded text-sm font-body ${lang === "es" ? "bg-primary text-primary-foreground" : "text-white/60"}`}>ES</Link>
+                <Link to="/it" onClick={() => setMobileOpen(false)} className={`px-3 py-1.5 rounded text-sm font-body ${lang === "it" ? "bg-primary text-primary-foreground" : "text-white/60"}`}>IT</Link>
+              </div>
+            </div>
           </div>
         </div>
       )}
