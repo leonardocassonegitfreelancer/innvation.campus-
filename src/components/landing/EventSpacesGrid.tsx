@@ -40,6 +40,7 @@ const spaces: Record<string, Space[]> = {
     { image: conferenceHall, label: "Conferenze", name: "Sala Conferenze Grande", capacity: "Fino a 80 persone", href: "/it/big-conference-room", size: "large" },
     { image: conferenceHalf, label: "Conferenze", name: "Sala Conferenze Media", capacity: "Fino a 40 persone", href: "/it/half-conference-room", size: "small" },
     { image: terraceEvents, label: "Esterno", name: "Terrazza Málaga", capacity: "Fino a 120 persone", href: "/it/malaga-terrace", size: "large" },
+    { image: meetingRoom, label: "Riunione", name: "Sala Riunioni", capacity: "Fino a 12 persone", href: "/it/meeting-room", size: "small" },
     { image: terraceBar, label: "Esterno", name: "Terrazza Privata", capacity: "Atmosfera intima", href: "/it/private-terrace", size: "small" },
     { image: palaceSkylight, label: "Premium", name: "Palazzo di Málaga", capacity: "Fino a 200 persone", href: "/it/malaga-palace", size: "large" },
     { image: palaceCourtyard, label: "Premium", name: "Sala Formazione", capacity: "Fino a 30 persone", href: "/it/training-room", size: "small" },
