@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import { CalendarDays, Building2, Users } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -145,12 +146,54 @@ export default function ConferenceCTA({ titleOverride, subtitleOverride }: Confe
   const isConference = service === "conference";
   const mutedColor = "text-white/60";
   const inputClass = "mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary";
+  const quickLinksData = {
+    en: [
+      { title: "Host Your Event", description: "Conference rooms, terraces & custom setups", href: "/en/host-your-event", icon: CalendarDays },
+      { title: "Book an Office", description: "Private offices for teams of any size", href: "/en/private-offices", icon: Building2 },
+      { title: "Become a Coworker", description: "Flexible plans starting from one day", href: "/en/coworking-space", icon: Users },
+    ],
+    es: [
+      { title: "Organiza Tu Evento", description: "Salas de conferencias, terrazas y montajes personalizados", href: "/es/organiza-tu-evento", icon: CalendarDays },
+      { title: "Reserva una Oficina", description: "Oficinas privadas para equipos de cualquier tamaño", href: "/es/oficinas-privadas", icon: Building2 },
+      { title: "Hazte Coworker", description: "Planes flexibles desde un día", href: "/es/coworking", icon: Users },
+    ],
+    it: [
+      { title: "Organizza un Evento", description: "Sale conferenze, terrazze e allestimenti personalizzati", href: "/it/organizza-evento", icon: CalendarDays },
+      { title: "Prenota un Ufficio", description: "Uffici privati per team di qualsiasi dimensione", href: "/it/uffici-privati", icon: Building2 },
+      { title: "Diventa Coworker", description: "Piani flessibili a partire da un giorno", href: "/it/coworking", icon: Users },
+    ],
+  };
+  const quickLinks = quickLinksData[lang];
 
   return (
     <section id="contact" className="relative py-24 md:py-36 bg-neutral-dark overflow-hidden">
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"
       }} />
+      <div className="relative max-w-5xl mx-auto px-6">
+        <p className="font-body text-xs uppercase tracking-[0.4em] text-primary text-center mb-10">
+          {lang === "es" ? "Enlaces Rápidos" : lang === "it" ? "Link Utili" : "Quick Links"}
+        </p>
+        <div className="grid sm:grid-cols-3 gap-6">
+          {quickLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              className="group flex flex-col items-center text-center p-6 rounded-2xl border border-white/10 bg-white/5 hover:border-primary/40 hover:bg-white/10 transition-all duration-300"
+            >
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <link.icon className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="font-display text-lg font-semibold text-white mb-1">
+                {link.title}
+              </h3>
+              <p className="font-body text-sm text-white/60">
+                {link.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
