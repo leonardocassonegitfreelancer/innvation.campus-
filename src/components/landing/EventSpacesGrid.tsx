@@ -24,8 +24,8 @@ type LocationKey = "city" | "seaside";
 const spaces: Record<string, Record<LocationKey, Space[]>> = {
   en: {
     city: [
-      { image: conferenceHall, label: "Conference", name: "PICASSO - CITY CENTER", capacity: "Up to 80 guests", href: "/en/big-conference-room", size: "large" },
-      { image: conferenceHalf, label: "Conference", name: "Half Conference Room", capacity: "Up to 40 guests", href: "/en/half-conference-room", size: "small" },
+      { image: conferenceHall, label: "Conference", name: "City Center Picasso", capacity: "Up to 80 guests", href: "/en/big-conference-room", size: "large" },
+      { image: conferenceHalf, label: "Conference", name: "Half Picasso", capacity: "Up to 40 guests", href: "/en/half-conference-room", size: "small" },
       { image: meetingRoom, label: "Meeting", name: "Meeting Room", capacity: "Up to 12 guests", href: "/en/meeting-room", size: "small" },
       { image: palaceSkylight, label: "Premium", name: "Málaga Palace", capacity: "Up to 200 guests", href: "/en/malaga-palace", size: "large" },
     ],
