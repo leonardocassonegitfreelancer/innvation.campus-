@@ -6,6 +6,7 @@ import QuoteSectionES from "@/components/landing/es/QuoteSectionES";
 import LocationsSectionES from "@/components/landing/es/LocationsSectionES";
 import FAQSectionES from "@/components/landing/es/FAQSectionES";
 import ConferenceCTA from "@/components/landing/ConferenceCTA";
+import QuickLinks from "@/components/landing/QuickLinks";
 import FooterES from "@/components/landing/es/FooterES";
 import SEOHead from "@/components/SEOHead";
 
