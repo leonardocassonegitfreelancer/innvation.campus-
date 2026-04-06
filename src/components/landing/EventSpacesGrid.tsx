@@ -6,6 +6,7 @@ import terraceEvents from "@/assets/terrace-events.jpg";
 import terraceBar from "@/assets/terrace-bar.jpg";
 import palaceSkylight from "@/assets/palace-skylight.jpg";
 import palaceCourtyard from "@/assets/palace-courtyard.jpg";
+import meetingRoom from "@/assets/service-meeting.jpg";
 
 interface Space {
   image: string;
