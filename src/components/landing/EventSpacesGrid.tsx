@@ -69,7 +69,7 @@ export default function EventSpacesGrid() {
   const items = spaces[lang];
 
   return (
-    <section id="event-spaces" className="py-24 md:py-32 bg-background">
+    <section id="event-spaces" className="py-24 md:py-32 bg-background" style={{ border: '3px solid red' }}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <motion.div
