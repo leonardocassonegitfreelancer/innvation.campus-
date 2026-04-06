@@ -54,11 +54,10 @@ const headings: Record<string, { eyebrow: string; title: string; cta: string }> 
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.97 },
+  hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as any },
   }),
 };
