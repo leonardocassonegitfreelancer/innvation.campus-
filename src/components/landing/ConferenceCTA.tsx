@@ -179,6 +179,7 @@ export default function ConferenceCTA({ titleOverride, subtitleOverride }: Confe
             <Link
               key={link.href}
               to={link.href}
+              onClick={() => window.scrollTo(0, 0)}
               className="group flex flex-col items-center text-center p-6 rounded-2xl border border-white/10 bg-white/5 hover:border-primary/40 hover:bg-white/10 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
