@@ -19,7 +19,7 @@ interface Space {
 
 const spaces: Record<string, Space[]> = {
   en: [
-    { image: conferenceHall, label: "Conference", name: "Big Conference Room  ", capacity: "Up to 80 guests", href: "/en/big-conference-room", size: "large" },
+    { image: conferenceHall, label: "Conference", name: "PICASSO - CITY CENTER", capacity: "Up to 80 guests", href: "/en/big-conference-room", size: "large" },
     { image: conferenceHalf, label: "Conference", name: "Half Conference Room", capacity: "Up to 40 guests", href: "/en/half-conference-room", size: "small" },
     { image: terraceEvents, label: "Outdoor", name: "Private Terrace - SEASIDE", capacity: "Up to 100 guests", href: "/en/malaga-terrace", size: "large" },
     { image: meetingRoom, label: "Meeting", name: "Meeting Room", capacity: "Up to 12 guests", href: "/en/meeting-room", size: "small" },
