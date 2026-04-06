@@ -84,7 +84,7 @@ export default function Navbar() {
             <DropdownMenu label={links.labels.forIndividuals} links={links.individual} open={openDropdown === "individual"} onToggle={() => setOpenDropdown(openDropdown === "individual" ? null : "individual")} onClose={() => setOpenDropdown(null)} />
             {links.nav.map((link) => (<Link key={link.href} to={link.href} className="text-white/70 hover:text-white text-sm font-body font-medium tracking-wide transition-colors duration-300">{link.label}</Link>))}
             <LanguageSwitcher />
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm animate-pulse-red"><a href="#contact">{links.labels.getInTouch}</a></Button>
+            
           </div>
           <button className="md:hidden text-white p-2" onClick={() => setMobileOpen(!mobileOpen)}>{mobileOpen ? <X size={24} /> : <Menu size={24} />}</button>
         </div>
@@ -107,7 +107,7 @@ export default function Navbar() {
             <button onClick={() => setMobileExpanded(mobileExpanded === "individual" ? null : "individual")} className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2">{links.labels.forIndividuals}<ChevronDown size={16} className={`transition-transform ${mobileExpanded === "individual" ? "rotate-180" : ""}`} /></button>
             {mobileExpanded === "individual" && (<div className="pl-4 flex flex-col gap-1 mb-2">{links.individual.map((link) => (<Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">{link.label}</Link>))}</div>)}
             {links.nav.map((link) => (<Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="text-white/80 hover:text-white text-lg font-body transition-colors py-2">{link.label}</Link>))}
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground mt-2 w-full"><a href="#contact" onClick={() => setMobileOpen(false)}>{links.labels.getInTouch}</a></Button>
+            
           </div>
         </div>
       )}
