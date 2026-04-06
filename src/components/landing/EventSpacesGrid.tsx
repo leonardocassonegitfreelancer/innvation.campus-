@@ -90,8 +90,10 @@ export default function EventSpacesGrid() {
           {Array.from({ length: Math.ceil(items.length / 2) }, (_, pairIdx) => {
             const pair = items.slice(pairIdx * 2, pairIdx * 2 + 2);
             const isOddPair = pairIdx % 2 !== 0;
-            // Odd pairs: swap visual order so small appears left, large appears right
-            const displayPair = isOddPair ? [...pair].reverse() : pair;
+            // Even pairs: large left, small right. Odd pairs: small left, large right.
+            const displayPair = isOddPair
+              ? [...pair].sort((a) => (a.size === "small" ? -1 : 1))
+              : [...pair].sort((a) => (a.size === "large" ? -1 : 1));
             return (
               <div key={pairIdx} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
                 {displayPair.map((space, j) => {
