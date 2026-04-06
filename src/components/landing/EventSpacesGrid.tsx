@@ -90,6 +90,7 @@ export default function EventSpacesGrid() {
           {items.map((space, i) => {
             const isEvenPair = Math.floor(i / 2) % 2 === 0;
             const isLarge = space.size === "large";
+            const row = Math.floor(i / 2) + 1;
 
             // Columns: pairs alternate [8+4] and [4+8]
             let colSpan = "";
@@ -102,7 +103,7 @@ export default function EventSpacesGrid() {
             return (
               <motion.div
                 key={space.name}
-                className={`${colSpan} group`}
+                className={`${colSpan} md:row-start-${row} group`}
                 custom={i}
                 variants={cardVariants}
                 initial="hidden"
