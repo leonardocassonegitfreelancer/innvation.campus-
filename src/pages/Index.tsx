@@ -49,6 +49,7 @@ const Index = () => {
       <LocationsSection />
       <FAQSection />
       <ConferenceCTA titleOverride={{ en: "Start your journey", es: "Comienza tu viaje", it: "Inizia il tuo viaggio" }} subtitleOverride={{ en: "Ask a question, check availability or become a member.", es: "Haz una pregunta, consulta disponibilidad o hazte miembro.", it: "Fai una domanda, verifica la disponibilità o diventa membro." }} />
+      <QuickLinks />
       <Footer />
     </main>
   );
