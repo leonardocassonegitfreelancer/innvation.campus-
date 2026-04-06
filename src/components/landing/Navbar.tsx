@@ -84,7 +84,7 @@ export default function Navbar() {
             <DropdownMenu label={links.labels.forIndividuals} links={links.individual} open={openDropdown === "individual"} onToggle={() => setOpenDropdown(openDropdown === "individual" ? null : "individual")} onClose={() => setOpenDropdown(null)} />
             {links.nav.map((link) => (<Link key={link.href} to={link.href} className="text-white/70 hover:text-white text-sm font-body font-medium tracking-wide transition-colors duration-300">{link.label}</Link>))}
             <LanguageSwitcher />
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-body text-sm animate-pulse-red"><a href="#contact">{links.labels.getInTouch}</a></Button>
+            
           </div>
           <button className="md:hidden text-white p-2" onClick={() => setMobileOpen(!mobileOpen)}>{mobileOpen ? <X size={24} /> : <Menu size={24} />}</button>
         </div>
