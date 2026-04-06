@@ -107,7 +107,7 @@ export default function Navbar() {
             <button onClick={() => setMobileExpanded(mobileExpanded === "individual" ? null : "individual")} className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2">{links.labels.forIndividuals}<ChevronDown size={16} className={`transition-transform ${mobileExpanded === "individual" ? "rotate-180" : ""}`} /></button>
             {mobileExpanded === "individual" && (<div className="pl-4 flex flex-col gap-1 mb-2">{links.individual.map((link) => (<Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">{link.label}</Link>))}</div>)}
             {links.nav.map((link) => (<Link key={link.href} to={link.href} onClick={() => setMobileOpen(false)} className="text-white/80 hover:text-white text-lg font-body transition-colors py-2">{link.label}</Link>))}
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground mt-2 w-full"><a href="#contact" onClick={() => setMobileOpen(false)}>{links.labels.getInTouch}</a></Button>
+            
           </div>
         </div>
       )}
