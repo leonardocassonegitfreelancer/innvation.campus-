@@ -85,69 +85,64 @@ export default function EventSpacesGrid() {
           </h2>
         </motion.div>
 
-        {/* Grid: alternating large/small pairs */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
-          {items.map((space, i) => {
-            const isEvenPair = Math.floor(i / 2) % 2 === 0;
-            const isLarge = space.size === "large";
-            const row = Math.floor(i / 2) + 1;
-
-            // Columns: pairs alternate [8+4] and [4+8]
-            let colSpan = "";
-            if (isEvenPair) {
-              colSpan = isLarge ? "md:col-span-8" : "md:col-span-4";
-            } else {
-              colSpan = isLarge ? "md:col-span-8 md:col-start-5" : "md:col-span-4 md:col-start-1";
-            }
-
+        {/* Grid: alternating large/small pairs, one row-container per pair */}
+        <div className="flex flex-col gap-4 md:gap-6">
+          {Array.from({ length: Math.ceil(items.length / 2) }, (_, pairIdx) => {
+            const pair = items.slice(pairIdx * 2, pairIdx * 2 + 2);
+            const isOddPair = pairIdx % 2 !== 0;
+            // Odd pairs: swap visual order so small appears left, large appears right
+            const displayPair = isOddPair ? [...pair].reverse() : pair;
             return (
-              <motion.div
-                key={space.name}
-                className={`${colSpan} md:row-start-${row} group`}
-                custom={i}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-60px" }}
-              >
-                <Link to={space.href} className="block relative overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-900">
-                  {/* Image */}
-                  <div className={`relative overflow-hidden ${isLarge ? "h-72 md:h-96" : "h-72 md:h-96"}`}>
-                    <motion.img
-                      src={space.image}
-                      alt={space.name}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.7, ease: "easeOut" }}
-                    />
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-                    {/* Label badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className="font-body text-[10px] uppercase tracking-[0.25em] text-white/80 border border-white/30 px-3 py-1 backdrop-blur-sm">
-                        {space.label}
-                      </span>
-                    </div>
-
-                    {/* Bottom info */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
-                      <div>
-                        <h3 className="font-display font-bold text-white text-xl md:text-2xl leading-tight mb-1">
-                          {space.name}
-                        </h3>
-                        <p className="font-body text-sm text-white/60">{space.capacity}</p>
-                      </div>
-                      <motion.span
-                        className="font-body text-[10px] uppercase tracking-[0.2em] text-white border-b border-white/50 pb-0.5 opacity-0 group-hover:opacity-100"
-                        transition={{ duration: 0.3 }}
-                      >
-                        {t.cta} →
-                      </motion.span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
+              <div key={pairIdx} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+                {displayPair.map((space, j) => {
+                  const isLarge = space.size === "large";
+                  const colSpan = isLarge ? "md:col-span-8" : "md:col-span-4";
+                  const globalIdx = pairIdx * 2 + (isOddPair ? (pair.length - 1 - j) : j);
+                  return (
+                    <motion.div
+                      key={space.name}
+                      className={`${colSpan} group`}
+                      custom={globalIdx}
+                      variants={cardVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, margin: "-60px" }}
+                    >
+                      <Link to={space.href} className="block relative overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-900">
+                        <div className="relative overflow-hidden h-72 md:h-96">
+                          <motion.img
+                            src={space.image}
+                            alt={space.name}
+                            className="w-full h-full object-cover"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.7, ease: "easeOut" }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                          <div className="absolute top-4 left-4">
+                            <span className="font-body text-[10px] uppercase tracking-[0.25em] text-white/80 border border-white/30 px-3 py-1 backdrop-blur-sm">
+                              {space.label}
+                            </span>
+                          </div>
+                          <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
+                            <div>
+                              <h3 className="font-display font-bold text-white text-xl md:text-2xl leading-tight mb-1">
+                                {space.name}
+                              </h3>
+                              <p className="font-body text-sm text-white/60">{space.capacity}</p>
+                            </div>
+                            <motion.span
+                              className="font-body text-[10px] uppercase tracking-[0.2em] text-white border-b border-white/50 pb-0.5 opacity-0 group-hover:opacity-100"
+                              transition={{ duration: 0.3 }}
+                            >
+                              {t.cta} →
+                            </motion.span>
+                          </div>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
             );
           })}
         </div>
