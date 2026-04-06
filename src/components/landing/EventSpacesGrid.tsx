@@ -18,9 +18,9 @@ interface Space {
 
 const spaces: Record<string, Space[]> = {
   en: [
-    { image: conferenceHall, label: "Conference", name: "Big Conference Room", capacity: "Up to 80 guests", href: "/en/big-conference-room", size: "large" },
+    { image: conferenceHall, label: "Conference", name: "Big Conference Room  ", capacity: "Up to 80 guests", href: "/en/big-conference-room", size: "large" },
     { image: conferenceHalf, label: "Conference", name: "Half Conference Room", capacity: "Up to 40 guests", href: "/en/half-conference-room", size: "small" },
-    { image: terraceEvents, label: "Outdoor", name: "Málaga Terrace", capacity: "Up to 120 guests", href: "/en/malaga-terrace", size: "large" },
+    { image: terraceEvents, label: "Outdoor", name: "Málaga Terrace - SEASIDE", capacity: "Up to 100 guests", href: "/en/malaga-terrace", size: "large" },
     { image: terraceBar, label: "Outdoor", name: "Private Terrace", capacity: "Intimate settings", href: "/en/private-terrace", size: "small" },
     { image: palaceSkylight, label: "Premium", name: "Málaga Palace", capacity: "Up to 200 guests", href: "/en/malaga-palace", size: "large" },
     { image: palaceCourtyard, label: "Premium", name: "Training Room", capacity: "Up to 30 guests", href: "/en/training-room", size: "small" },
@@ -55,7 +55,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] as any },
   }),
 };
 
