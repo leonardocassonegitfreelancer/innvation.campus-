@@ -7,7 +7,6 @@ import LocationsSection from "@/components/landing/LocationsSection";
 import FAQSection from "@/components/landing/FAQSection";
 import ConferenceCTA from "@/components/landing/ConferenceCTA";
 import Footer from "@/components/landing/Footer";
-import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 
 const localBusinessJsonLd = {
