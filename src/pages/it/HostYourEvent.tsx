@@ -1,12 +1,25 @@
-import ServicePageLayout from "@/components/landing/ServicePageLayout";
-import serviceCommunity from "@/assets/service-community.jpg";
 import SEOHead from "@/components/SEOHead";
+import Navbar from "@/components/landing/Navbar";
+import Footer from "@/components/landing/Footer";
+import EventHero from "@/components/landing/EventHero";
+import EventSpacesGrid from "@/components/landing/EventSpacesGrid";
+import EventDetails from "@/components/landing/EventDetails";
 
 export default function HostYourEventIT() {
   return (
     <>
-      <SEOHead title="Organizza il Tuo Evento" description="Organizza il tuo prossimo evento a Innovation Campus. Location uniche a Málaga per conferenze, workshop, networking e celebrazioni private." path="/it/organizza-evento" />
-      <ServicePageLayout title="Organizza il Tuo Evento" subtitle="Da conferenze aziendali a workshop creativi — dai vita alla tua visione nei nostri spazi unici." image={serviceCommunity} />
+      <SEOHead
+        title="Organizza il Tuo Evento"
+        description="Organizza il tuo prossimo evento a Innovation Campus. Location uniche a Málaga per conferenze, workshop, networking e celebrazioni private."
+        path="/it/organizza-evento"
+      />
+      <Navbar />
+      <main>
+        <EventHero />
+        <EventSpacesGrid />
+        <EventDetails />
+      </main>
+      <Footer />
     </>
   );
 }
