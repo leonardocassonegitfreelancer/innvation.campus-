@@ -146,6 +146,24 @@ export default function ConferenceCTA({ titleOverride, subtitleOverride }: Confe
   const isConference = service === "conference";
   const mutedColor = "text-white/60";
   const inputClass = "mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary";
+  const quickLinksData = {
+    en: [
+      { title: "Host Your Event", description: "Conference rooms, terraces & custom setups", href: "/en/host-your-event", icon: CalendarDays },
+      { title: "Book an Office", description: "Private offices for teams of any size", href: "/en/private-offices", icon: Building2 },
+      { title: "Become a Coworker", description: "Flexible plans starting from one day", href: "/en/coworking-space", icon: Users },
+    ],
+    es: [
+      { title: "Organiza Tu Evento", description: "Salas de conferencias, terrazas y montajes personalizados", href: "/es/organiza-tu-evento", icon: CalendarDays },
+      { title: "Reserva una Oficina", description: "Oficinas privadas para equipos de cualquier tamaño", href: "/es/oficinas-privadas", icon: Building2 },
+      { title: "Hazte Coworker", description: "Planes flexibles desde un día", href: "/es/coworking", icon: Users },
+    ],
+    it: [
+      { title: "Organizza un Evento", description: "Sale conferenze, terrazze e allestimenti personalizzati", href: "/it/organizza-evento", icon: CalendarDays },
+      { title: "Prenota un Ufficio", description: "Uffici privati per team di qualsiasi dimensione", href: "/it/uffici-privati", icon: Building2 },
+      { title: "Diventa Coworker", description: "Piani flessibili a partire da un giorno", href: "/it/coworking", icon: Users },
+    ],
+  };
+  const quickLinks = quickLinksData[lang];
 
   return (
     <section id="contact" className="relative py-24 md:py-36 bg-neutral-dark overflow-hidden">
