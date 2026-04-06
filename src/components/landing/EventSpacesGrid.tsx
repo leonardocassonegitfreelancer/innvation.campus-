@@ -24,44 +24,44 @@ type LocationKey = "city" | "seaside";
 const spaces: Record<string, Record<LocationKey, Space[]>> = {
   en: {
     city: [
-      { image: conferenceHall, label: "Conference", name: "City Center Picasso", capacity: "Up to 80 guests", href: "/en/big-conference-room", size: "large" },
-      { image: conferenceHalf, label: "Conference", name: "Half Picasso", capacity: "Up to 40 guests", href: "/en/half-conference-room", size: "small" },
-      { image: meetingRoom, label: "Meeting", name: "Meeting Room", capacity: "Up to 12 guests", href: "/en/meeting-room", size: "small" },
+      { image: conferenceHall, label: "Conference", name: "City Center Picasso", capacity: "Up to 80 guests", href: "/en/meeting-rooms/big-conference-room", size: "large" },
+      { image: conferenceHalf, label: "Conference", name: "Half Picasso", capacity: "Up to 40 guests", href: "/en/meeting-rooms/half-conference-room", size: "small" },
+      { image: meetingRoom, label: "Meeting", name: "Meeting Room", capacity: "Up to 12 guests", href: "/en/meeting-rooms/meeting-room", size: "small" },
       { image: palaceSkylight, label: "Premium", name: "Málaga Palace", capacity: "Up to 200 guests", href: "/en/malaga-palace", size: "large" },
     ],
     seaside: [
       { image: seasideExterior, label: "Outdoor", name: "Seaside Terrace", capacity: "Up to 120 guests", href: "/en/malaga-terrace", size: "large" },
       { image: terraceBar, label: "Outdoor", name: "Terrace Bar", capacity: "Intimate settings", href: "/en/private-terrace", size: "small" },
-      { image: seasideInterior, label: "Indoor", name: "Sea View Lounge", capacity: "Up to 40 guests", href: "/en/sea-view-lounge", size: "small" },
-      { image: terraceEvents, label: "Events", name: "Beachfront Events Space", capacity: "Up to 200 guests", href: "/en/beachfront-events", size: "large" },
+      { image: seasideInterior, label: "Indoor", name: "Sea View Lounge", capacity: "Up to 40 guests", href: "/en/malaga-terrace", size: "small" },
+      { image: terraceEvents, label: "Events", name: "Beachfront Events Space", capacity: "Up to 200 guests", href: "/en/host-your-event", size: "large" },
     ],
   },
   es: {
     city: [
-      { image: conferenceHall, label: "Conferencia", name: "Sala de Conferencias Grande", capacity: "Hasta 80 personas", href: "/es/big-conference-room", size: "large" },
-      { image: conferenceHalf, label: "Conferencia", name: "Sala de Conferencias Mediana", capacity: "Hasta 40 personas", href: "/es/half-conference-room", size: "small" },
-      { image: meetingRoom, label: "Reunión", name: "Sala de Reuniones", capacity: "Hasta 12 personas", href: "/es/meeting-room", size: "small" },
+      { image: conferenceHall, label: "Conferencia", name: "Sala de Conferencias Grande", capacity: "Hasta 80 personas", href: "/es/salas/gran-sala-conferencias", size: "large" },
+      { image: conferenceHalf, label: "Conferencia", name: "Sala de Conferencias Mediana", capacity: "Hasta 40 personas", href: "/es/salas/media-sala-conferencias", size: "small" },
+      { image: meetingRoom, label: "Reunión", name: "Sala de Reuniones", capacity: "Hasta 12 personas", href: "/es/salas/sala-reuniones", size: "small" },
       { image: palaceSkylight, label: "Premium", name: "Palacio de Málaga", capacity: "Hasta 200 personas", href: "/es/malaga-palace", size: "large" },
     ],
     seaside: [
       { image: seasideExterior, label: "Exterior", name: "Terraza Marítima", capacity: "Hasta 120 personas", href: "/es/malaga-terrace", size: "large" },
-      { image: terraceBar, label: "Exterior", name: "Bar de la Terraza", capacity: "Ambientes íntimos", href: "/es/private-terrace", size: "small" },
-      { image: seasideInterior, label: "Interior", name: "Salón con Vistas al Mar", capacity: "Hasta 40 personas", href: "/es/sea-view-lounge", size: "small" },
-      { image: terraceEvents, label: "Eventos", name: "Espacio de Eventos en la Playa", capacity: "Hasta 200 personas", href: "/es/beachfront-events", size: "large" },
+      { image: terraceBar, label: "Exterior", name: "Bar de la Terraza", capacity: "Ambientes íntimos", href: "/es/terraza-privada", size: "small" },
+      { image: seasideInterior, label: "Interior", name: "Salón con Vistas al Mar", capacity: "Hasta 40 personas", href: "/es/malaga-terrace", size: "small" },
+      { image: terraceEvents, label: "Eventos", name: "Espacio de Eventos en la Playa", capacity: "Hasta 200 personas", href: "/es/organiza-tu-evento", size: "large" },
     ],
   },
   it: {
     city: [
-      { image: conferenceHall, label: "Conferenze", name: "Sala Conferenze Grande", capacity: "Fino a 80 persone", href: "/it/big-conference-room", size: "large" },
-      { image: conferenceHalf, label: "Conferenze", name: "Sala Conferenze Media", capacity: "Fino a 40 persone", href: "/it/half-conference-room", size: "small" },
-      { image: meetingRoom, label: "Riunione", name: "Sala Riunioni", capacity: "Fino a 12 persone", href: "/it/meeting-room", size: "small" },
+      { image: conferenceHall, label: "Conferenze", name: "Sala Conferenze Grande", capacity: "Fino a 80 persone", href: "/it/sale/grande-sala-conferenze", size: "large" },
+      { image: conferenceHalf, label: "Conferenze", name: "Sala Conferenze Media", capacity: "Fino a 40 persone", href: "/it/sale/mezza-sala-conferenze", size: "small" },
+      { image: meetingRoom, label: "Riunione", name: "Sala Riunioni", capacity: "Fino a 12 persone", href: "/it/sale/sala-riunioni", size: "small" },
       { image: palaceSkylight, label: "Premium", name: "Palazzo di Málaga", capacity: "Fino a 200 persone", href: "/it/malaga-palace", size: "large" },
     ],
     seaside: [
       { image: seasideExterior, label: "Esterno", name: "Terrazza sul Mare", capacity: "Fino a 120 persone", href: "/it/malaga-terrace", size: "large" },
-      { image: terraceBar, label: "Esterno", name: "Bar della Terrazza", capacity: "Atmosfera intima", href: "/it/private-terrace", size: "small" },
-      { image: seasideInterior, label: "Interno", name: "Lounge Vista Mare", capacity: "Fino a 40 persone", href: "/it/sea-view-lounge", size: "small" },
-      { image: terraceEvents, label: "Eventi", name: "Spazio Eventi sul Lungomare", capacity: "Fino a 200 persone", href: "/it/beachfront-events", size: "large" },
+      { image: terraceBar, label: "Esterno", name: "Bar della Terrazza", capacity: "Atmosfera intima", href: "/it/terrazza-privata", size: "small" },
+      { image: seasideInterior, label: "Interno", name: "Lounge Vista Mare", capacity: "Fino a 40 persone", href: "/it/malaga-terrace", size: "small" },
+      { image: terraceEvents, label: "Eventi", name: "Spazio Eventi sul Lungomare", capacity: "Fino a 200 persone", href: "/it/organizza-evento", size: "large" },
     ],
   },
 };
