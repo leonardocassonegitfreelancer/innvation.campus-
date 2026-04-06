@@ -565,18 +565,32 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
       <div className="overflow-x-hidden">
         <Navbar />
 
+        {/* ── Mobile title (above photos) ────────────────── */}
+        <div className="md:hidden px-4 pt-20 pb-4 bg-background">
+          <h1 className="font-display text-2xl font-bold text-foreground leading-tight">{room.name}</h1>
+          <p className="font-body text-sm text-muted-foreground mt-1 flex items-center gap-2">
+            <Users className="w-4 h-4" />
+            {room.capacity[lang]}
+          </p>
+        </div>
+
         {/* ── Photo Grid ─────────────────────────────────── */}
         <section className="relative bg-neutral-900">
-          {/* Mobile: single image */}
-          <div className="md:hidden relative h-64">
-            <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover" />
-            <button
-              onClick={() => setShowGallery(true)}
-              className="absolute bottom-4 right-4 flex items-center gap-2 bg-white/90 backdrop-blur-sm text-neutral-900 text-xs font-body font-semibold px-3 py-2 rounded-lg"
-            >
-              <Maximize2 className="w-3.5 h-3.5" />
-              {t.showPhotos}
-            </button>
+          {/* Mobile: 1 large + 2×2 grid (Booking.com style) */}
+          <div className="md:hidden grid grid-cols-2 gap-0.5">
+            <div className="col-span-2 h-52 overflow-hidden cursor-pointer" onClick={() => setShowGallery(true)}>
+              <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover" />
+            </div>
+            {room.photos.slice(1, 5).map((photo, i) => (
+              <div key={i} className="h-28 overflow-hidden cursor-pointer relative" onClick={() => setShowGallery(true)}>
+                <img src={photo} alt="" className="w-full h-full object-cover" />
+                {i === 3 && (
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                    <span className="text-white font-display font-bold text-lg">+{room.photos.length - 4}</span>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
 
           {/* Desktop: 1 large + 2×2 grid */}
@@ -621,7 +635,7 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
               {/* Title + highlights */}
               <div>
                 <div className="flex items-start justify-between gap-4 mb-4">
-                  <div>
+                  <div className="hidden md:block">
                     <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground">{room.name}</h1>
                     <p className="font-body text-muted-foreground mt-1 flex items-center gap-2">
                       <Users className="w-4 h-4" />
