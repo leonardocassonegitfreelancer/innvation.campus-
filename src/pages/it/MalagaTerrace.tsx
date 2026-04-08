@@ -14,7 +14,7 @@ import serviceCommunity from "@/assets/service-community.jpg";
 
 const services = [
   { img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", label: "Spazi Coworking", icon: Users, href: "/it/coworking" },
-  { img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", label: "Sale Riunioni", icon: Building2, href: "/it/sale-conferenze" },
+  { img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", label: "Sale Riunioni", icon: Building2, href: "/it/sale-riunioni" },
   { img: serviceTerrace, label: "Terrazza Privata", icon: Sun, href: "/it/terrazza-privata" },
   { img: serviceCommunity, label: "Eventi della Comunità", icon: Wifi, href: "/it/eventi" },
 ];

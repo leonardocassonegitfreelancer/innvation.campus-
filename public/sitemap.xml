@@ -54,9 +54,9 @@
   <url><loc>https://malaga-duality-landing.lovable.app/es/coworking</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://malaga-duality-landing.lovable.app/it/coworking</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/conference-rooms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/salas-de-conferencias</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/sale-conferenze</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/en/meeting-rooms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/es/salas-de-reuniones</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://malaga-duality-landing.lovable.app/it/sale-riunioni</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <url><loc>https://malaga-duality-landing.lovable.app/en/private-offices</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://malaga-duality-landing.lovable.app/es/oficinas-privadas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

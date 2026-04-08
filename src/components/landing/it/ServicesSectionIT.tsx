@@ -12,7 +12,7 @@ import serviceAcademy from "@/assets/service-academy.jpg";
 import servicePerks from "@/assets/service-perks.jpg";
 
 const businessServices = [
-  { img: serviceMeeting, label: "Sale Conferenze Private", subtitle: "Con opzione catering", href: "/it/sale-conferenze" },
+  { img: serviceMeeting, label: "Sale Conferenze Private", subtitle: "Con opzione catering", href: "/it/sale-riunioni" },
   { img: serviceTerrace, label: "Terrazza Privata", subtitle: "Con opzione catering", href: "/it/terrazza-privata" },
   { img: servicePrivate, label: "Uffici Privati", subtitle: "Diverse dimensioni disponibili", href: "/it/uffici-privati" },
   { img: serviceRegistration, label: "Registrazione Aziendale", subtitle: "Trasferisciti in Spagna o Italia", href: "/it/registrazione-aziendale" },

@@ -7,17 +7,17 @@ import ConferenceIncludes from "@/components/landing/ConferenceIncludes";
 import ConferenceGallery from "@/components/landing/ConferenceGallery";
 import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
-export default function ConferenceRoomES() {
+export default function MeetingRoomsIT() {
   return (
     <>
       <SEOHead
-        title="Salas de Conferencias Privadas"
-        description="Espacios de reuniones profesionales con opciones de catering para equipos de todos los tamaños en Málaga."
-        path="/es/salas-de-conferencias"
+        title="Sale Conferenze Private"
+        description="Spazi per riunioni professionali con opzioni di catering per team di tutte le dimensioni a Málaga."
+        path="/it/sale-riunioni"
       />
       <ServicePageLayout
-        title="Salas de Conferencias Privadas"
-        subtitle="Espacios de reuniones profesionales con opciones de catering para equipos de todos los tamaños."
+        title="Sale Conferenze Private"
+        subtitle="Spazi per riunioni professionali con opzioni di catering per team di tutte le dimensioni."
         image={serviceMeeting}
       >
         <ConferenceIntro />

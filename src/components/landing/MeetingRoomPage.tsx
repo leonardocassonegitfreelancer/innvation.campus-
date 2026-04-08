@@ -52,10 +52,10 @@ export interface RoomData {
 const rooms: RoomData[] = [
   {
     slug: "big-conference-room",
-    name: "City Center Picasso",
+    name: "Big Conference Room",
     highlight: true,
     seo: {
-      en: { title: "Big Conference Room – City Center Picasso", description: "Our flagship conference room for up to 80 people with 85\" 4K display, premium video conferencing and flexible layout in Málaga." },
+      en: { title: "Big Conference Room", description: "Our flagship conference room for up to 80 people with 85\" 4K display, premium video conferencing and flexible layout in Málaga." },
       es: { title: "Gran Sala de Conferencias – City Center Picasso", description: "Nuestra sala principal para hasta 80 personas con pantalla 4K de 85\", videoconferencia premium y disposición flexible en Málaga." },
       it: { title: "Grande Sala Conferenze – City Center Picasso", description: "La nostra sala principale per fino a 80 persone con display 4K da 85\", videoconferenza premium e layout flessibile a Málaga." },
     },
@@ -124,12 +124,12 @@ const rooms: RoomData[] = [
     },
   },
   {
-    slug: "half-conference-room",
-    name: "Half Picasso",
+    slug: "large-conference-room",
+    name: "Large Conference Room",
     seo: {
-      en: { title: "Half Conference Room – Half Picasso", description: "A versatile conference room for up to 50 people with 55\" 4K display and professional video conferencing in Málaga." },
-      es: { title: "Media Sala de Conferencias – Half Picasso", description: "Una sala versátil para hasta 50 personas con pantalla 4K de 55\" y videoconferencia profesional en Málaga." },
-      it: { title: "Mezza Sala Conferenze – Half Picasso", description: "Una sala versatile per fino a 50 persone con display 4K da 55\" e videoconferenza professionale a Málaga." },
+      en: { title: "Large Conference Room", description: "A versatile conference room for up to 50 people with 55\" 4K display and professional video conferencing in Málaga." },
+      es: { title: "Large Conference Room", description: "Una sala versátil para hasta 50 personas con pantalla 4K de 55\" y videoconferencia profesional en Málaga." },
+      it: { title: "Large Conference Room", description: "Una sala versatile per fino a 50 persone con display 4K da 55\" e videoconferenza professionale a Málaga." },
     },
     capacity: { en: "Up to 50 people", es: "Hasta 50 personas", it: "Fino a 50 persone" },
     heroImage: conferenceHalfPicasso,
@@ -196,12 +196,12 @@ const rooms: RoomData[] = [
     },
   },
   {
-    slug: "quarter-room",
-    name: "Quarter Picasso",
+    slug: "quarter-conference-room",
+    name: "Quarter Conference Room",
     seo: {
-      en: { title: "Quarter Room – Quarter Picasso", description: "An intimate conference room for up to 30 people with 43\" display and video conferencing in Málaga." },
-      es: { title: "Sala Quarter – Quarter Picasso", description: "Una sala íntima para hasta 30 personas con pantalla de 43\" y videoconferencia en Málaga." },
-      it: { title: "Sala Quarter – Quarter Picasso", description: "Una sala intima per fino a 30 persone con display da 43\" e videoconferenza a Málaga." },
+      en: { title: "Quarter Conference Room", description: "An intimate conference room for up to 30 people with 43\" display and video conferencing in Málaga." },
+      es: { title: "Quarter Conference Room", description: "Una sala íntima para hasta 30 personas con pantalla de 43\" y videoconferencia en Málaga." },
+      it: { title: "Quarter Conference Room", description: "Una sala intima per fino a 30 persone con display da 43\" e videoconferenza a Málaga." },
     },
     capacity: { en: "Up to 30 people", es: "Hasta 30 personas", it: "Fino a 30 persone" },
     heroImage: conferenceQuarterPicasso,
@@ -336,88 +336,28 @@ const rooms: RoomData[] = [
       ],
     },
   },
-  {
-    slug: "meeting-room",
-    name: "Pablo Neruda",
-    seo: {
-      en: { title: "Meeting Room – Pablo Neruda", description: "Private meeting room for up to 6 people, perfect for focused calls, interviews and small team huddles in Málaga." },
-      es: { title: "Sala de Reuniones – Pablo Neruda", description: "Sala de reuniones privada para hasta 6 personas, perfecta para llamadas, entrevistas y reuniones pequeñas en Málaga." },
-      it: { title: "Sala Riunioni – Pablo Neruda", description: "Sala riunioni privata per fino a 6 persone, perfetta per chiamate, colloqui e riunioni di piccoli team a Málaga." },
-    },
-    capacity: { en: "Up to 6 people", es: "Hasta 6 personas", it: "Fino a 6 persone" },
-    heroImage: serviceMeeting,
-    photos: [serviceMeeting, conferenceQuarterPicasso, conferenceHalfPicasso, conferencePicasso, conferenceHalfPicasso2],
-    features: {
-      en: ["43\" Display", "Video Conferencing", "Focus Room", "Private Calls"],
-      es: ["Pantalla 43\"", "Videoconferencia", "Sala Focus", "Llamadas Privadas"],
-      it: ["Display 43\"", "Videoconferenza", "Sala Focus", "Chiamate Private"],
-    },
-    description: {
-      en: "The Pablo Neruda room is your go-to space for private conversations, video calls, interviews, and small team huddles. Designed for focus and confidentiality in a professional setting.",
-      es: "La sala Pablo Neruda es tu espacio ideal para conversaciones privadas, videollamadas, entrevistas y reuniones de pequeños equipos. Diseñada para concentración y confidencialidad en un entorno profesional.",
-      it: "La sala Pablo Neruda è il tuo spazio ideale per conversazioni private, videochiamate, colloqui e riunioni di piccoli team. Progettata per concentrazione e riservatezza in un ambiente professionale.",
-    },
-    useCases: {
-      en: ["Video calls", "1-on-1 interviews", "Small team huddles", "Confidential meetings", "Client calls"],
-      es: ["Videollamadas", "Entrevistas 1 a 1", "Reuniones de equipo pequeño", "Reuniones confidenciales", "Llamadas con clientes"],
-      it: ["Videochiamate", "Colloqui 1 a 1", "Riunioni di piccoli team", "Riunioni riservate", "Chiamate con clienti"],
-    },
-    amenities: {
-      en: ["High-Speed WiFi", "43\" Display", "Video Conferencing", "Soundproofing", "Climate Control", "Coffee & Tea", "Secure Access", "Power Outlets"],
-      es: ["WiFi Alta Velocidad", "Pantalla 43\"", "Videoconferencia", "Insonorización", "Climatización", "Café y Té", "Acceso Seguro", "Enchufes"],
-      it: ["WiFi Alta Velocità", "Display 43\"", "Videoconferenza", "Insonorizzazione", "Climatizzazione", "Caffè e Tè", "Accesso Sicuro", "Prese Elettriche"],
-    },
-    facilitiesCategories: {
-      en: [
-        { category: "AV & Technology", items: ["43\" Display", "Video Conferencing", "Soundproofing"] },
-        { category: "Connectivity", items: ["High-Speed WiFi", "Power Outlets"] },
-        { category: "Comfort", items: ["Climate Control"] },
-        { category: "Services", items: ["Coffee & Tea", "Secure Access"] },
-      ],
-      es: [
-        { category: "AV y Tecnología", items: ["Pantalla 43\"", "Videoconferencia", "Insonorización"] },
-        { category: "Conectividad", items: ["WiFi Alta Velocidad", "Enchufes"] },
-        { category: "Confort", items: ["Climatización"] },
-        { category: "Servicios", items: ["Café y Té", "Acceso Seguro"] },
-      ],
-      it: [
-        { category: "AV e Tecnologia", items: ["Display 43\"", "Videoconferenza", "Insonorizzazione"] },
-        { category: "Connettività", items: ["WiFi Alta Velocità", "Prese Elettriche"] },
-        { category: "Comfort", items: ["Climatizzazione"] },
-        { category: "Servizi", items: ["Caffè e Tè", "Accesso Sicuro"] },
-      ],
-    },
-    layouts: {
-      en: [{ name: "Boardroom", capacity: 6, icon: "boardroom" }],
-      es: [{ name: "Mesa de Juntas", capacity: 6, icon: "boardroom" }],
-      it: [{ name: "Boardroom", capacity: 6, icon: "boardroom" }],
-    },
-  },
-];
+  ];
 
 /* ─── Route map ──────────────────────────────────────────── */
 const roomPaths: Record<string, Record<string, string>> = {
   en: {
     "big-conference-room": "/en/meeting-rooms/big-conference-room",
-    "half-conference-room": "/en/meeting-rooms/half-conference-room",
-    "quarter-room": "/en/meeting-rooms/quarter-room",
+    "large-conference-room": "/en/meeting-rooms/large-conference-room",
+    "quarter-conference-room": "/en/meeting-rooms/quarter-conference-room",
     "training-room": "/en/meeting-rooms/training-room",
-    "meeting-room": "/en/meeting-rooms/meeting-room",
-  },
+      },
   es: {
     "big-conference-room": "/es/salas/gran-sala-conferencias",
-    "half-conference-room": "/es/salas/media-sala-conferencias",
-    "quarter-room": "/es/salas/sala-quarter",
+    "large-conference-room": "/es/salas/gran-sala-conferencias-2",
+    "quarter-conference-room": "/es/salas/sala-quarter",
     "training-room": "/es/salas/sala-formacion",
-    "meeting-room": "/es/salas/sala-reuniones",
-  },
+      },
   it: {
     "big-conference-room": "/it/sale/grande-sala-conferenze",
-    "half-conference-room": "/it/sale/mezza-sala-conferenze",
-    "quarter-room": "/it/sale/sala-quarter",
+    "large-conference-room": "/it/sale/grande-sala-conferenze-2",
+    "quarter-conference-room": "/it/sale/sala-quarter",
     "training-room": "/it/sale/sala-formazione",
-    "meeting-room": "/it/sale/sala-riunioni",
-  },
+      },
 };
 
 export { rooms, roomPaths };
@@ -477,9 +417,9 @@ const labels = {
 };
 
 const conferencePaths: Record<string, string> = {
-  en: "/en/conference-rooms",
-  es: "/es/salas-de-conferencias",
-  it: "/it/sale-conferenze",
+  en: "/en/meeting-rooms",
+  es: "/es/salas-de-reuniones",
+  it: "/it/sale-riunioni",
 };
 
 /* ─── Facility icon helper ───────────────────────────────── */

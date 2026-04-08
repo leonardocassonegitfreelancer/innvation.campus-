@@ -7,16 +7,16 @@ import ConferenceIncludes from "@/components/landing/ConferenceIncludes";
 import ConferenceGallery from "@/components/landing/ConferenceGallery";
 import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
-export default function ConferenceRoom() {
+export default function MeetingRooms() {
   return (
     <>
       <SEOHead
-        title="Private Conference Rooms"
+        title="Meeting Rooms"
         description="Professional meeting spaces with catering options for teams of all sizes in Málaga."
-        path="/en/conference-rooms"
+        path="/en/meeting-rooms"
       />
       <ServicePageLayout
-        title="Private Conference Rooms"
+        title="Meeting Rooms"
         subtitle="Professional meeting spaces with catering options for teams of all sizes."
         image={serviceMeeting}
       >

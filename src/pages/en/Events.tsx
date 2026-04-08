@@ -2,6 +2,7 @@ import ServicePageLayout from "@/components/landing/ServicePageLayout";
 import serviceCommunity from "@/assets/service-community.jpg";
 import SEOHead from "@/components/SEOHead";
 
+
 export default function Events() {
   return (
     <>

@@ -45,7 +45,7 @@ const highlights = [
 
 const services = [
   { img: serviceCoworking, label: "Coworking Spaces", icon: Users, href: "/en/coworking-space" },
-  { img: serviceMeeting, label: "Meeting Rooms", icon: Building2, href: "/en/conference-rooms" },
+  { img: serviceMeeting, label: "Meeting Rooms", icon: Building2, href: "/en/meeting-rooms" },
   { img: servicePrivate, label: "Private Offices", icon: BookOpen, href: "/en/private-offices" },
   { img: serviceCommunity, label: "Community Events", icon: Calendar, href: "/en/events" },
 ];

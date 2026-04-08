@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageDetector } from "./hooks/useLanguageDetection";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import ConferenceRoom from "./pages/en/ConferenceRoom";
+import MeetingRooms from "./pages/en/MeetingRooms";
 import PrivateTerrace from "./pages/en/PrivateTerrace";
 import PrivateOffices from "./pages/en/PrivateOffices";
 import BusinessRegistration from "./pages/en/BusinessRegistration";
@@ -28,10 +28,10 @@ import Admin from "./pages/Admin";
 
 // Meeting room sub-pages (EN)
 import BigConferenceRoom from "./pages/en/BigConferenceRoom";
-import HalfConferenceRoom from "./pages/en/HalfConferenceRoom";
-import QuarterRoom from "./pages/en/QuarterRoom";
+import LargeConferenceRoom from "./pages/en/LargeConferenceRoom";
+import QuarterConferenceRoom from "./pages/en/QuarterConferenceRoom";
 import TrainingRoom from "./pages/en/TrainingRoom";
-import MeetingRoom from "./pages/en/MeetingRoom";
+
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import LegalNotice from "./pages/LegalNotice";
@@ -43,7 +43,7 @@ import MalagaTerraceES from "./pages/es/MalagaTerrace";
 import AnconaES from "./pages/es/Ancona";
 import OlbiaES from "./pages/es/Olbia";
 import FindUsES from "./pages/es/FindUs";
-import ConferenceRoomES from "./pages/es/ConferenceRoom";
+import MeetingRoomsES from "./pages/es/MeetingRooms";
 import PrivateTerraceES from "./pages/es/PrivateTerrace";
 import PrivateOfficesES from "./pages/es/PrivateOffices";
 import BusinessRegistrationES from "./pages/es/BusinessRegistration";
@@ -56,10 +56,10 @@ import BlogES from "./pages/es/Blog";
 
 // Meeting room sub-pages (ES)
 import BigConferenceRoomES from "./pages/es/BigConferenceRoom";
-import HalfConferenceRoomES from "./pages/es/HalfConferenceRoom";
-import QuarterRoomES from "./pages/es/QuarterRoom";
+import LargeConferenceRoomES from "./pages/es/LargeConferenceRoom";
+import QuarterConferenceRoomES from "./pages/es/QuarterConferenceRoom";
 import TrainingRoomES from "./pages/es/TrainingRoom";
-import MeetingRoomES from "./pages/es/MeetingRoom";
+
 
 // Italian pages
 import IndexIT from "./pages/it/Index";
@@ -68,7 +68,7 @@ import MalagaTerraceIT from "./pages/it/MalagaTerrace";
 import AnconaIT from "./pages/it/Ancona";
 import OlbiaIT from "./pages/it/Olbia";
 import FindUsIT from "./pages/it/FindUs";
-import ConferenceRoomIT from "./pages/it/ConferenceRoom";
+import MeetingRoomsIT from "./pages/it/MeetingRooms";
 import PrivateTerraceIT from "./pages/it/PrivateTerrace";
 import PrivateOfficesIT from "./pages/it/PrivateOffices";
 import BusinessRegistrationIT from "./pages/it/BusinessRegistration";
@@ -81,10 +81,10 @@ import BlogIT from "./pages/it/Blog";
 
 // Meeting room sub-pages (IT)
 import BigConferenceRoomIT from "./pages/it/BigConferenceRoom";
-import HalfConferenceRoomIT from "./pages/it/HalfConferenceRoom";
-import QuarterRoomIT from "./pages/it/QuarterRoom";
+import LargeConferenceRoomIT from "./pages/it/LargeConferenceRoom";
+import QuarterConferenceRoomIT from "./pages/it/QuarterConferenceRoom";
 import TrainingRoomIT from "./pages/it/TrainingRoom";
-import MeetingRoomIT from "./pages/it/MeetingRoom";
+
 
 const queryClient = new QueryClient();
 
@@ -98,7 +98,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/en/conference-rooms" element={<ConferenceRoom />} />
+          <Route path="/en/meeting-rooms" element={<MeetingRooms />} />
           <Route path="/en/private-terrace" element={<PrivateTerrace />} />
           <Route path="/en/private-offices" element={<PrivateOffices />} />
           <Route path="/en/business-registration" element={<BusinessRegistration />} />
@@ -113,10 +113,10 @@ const App = () => (
           <Route path="/en/malaga-terrace" element={<MalagaTerrace />} />
           <Route path="/en/find-us" element={<FindUs />} />
           <Route path="/en/meeting-rooms/big-conference-room" element={<BigConferenceRoom />} />
-          <Route path="/en/meeting-rooms/half-conference-room" element={<HalfConferenceRoom />} />
-          <Route path="/en/meeting-rooms/quarter-room" element={<QuarterRoom />} />
+          <Route path="/en/meeting-rooms/large-conference-room" element={<LargeConferenceRoom />} />
+          <Route path="/en/meeting-rooms/quarter-conference-room" element={<QuarterConferenceRoom />} />
           <Route path="/en/meeting-rooms/training-room" element={<TrainingRoom />} />
-          <Route path="/en/meeting-rooms/meeting-room" element={<MeetingRoom />} />
+          
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/admin" element={<Admin />} />
@@ -131,7 +131,7 @@ const App = () => (
           <Route path="/es/ancona" element={<AnconaES />} />
           <Route path="/es/olbia" element={<OlbiaES />} />
           <Route path="/es/encuentranos" element={<FindUsES />} />
-          <Route path="/es/salas-de-conferencias" element={<ConferenceRoomES />} />
+          <Route path="/es/salas-de-reuniones" element={<MeetingRoomsES />} />
           <Route path="/es/terraza-privada" element={<PrivateTerraceES />} />
           <Route path="/es/oficinas-privadas" element={<PrivateOfficesES />} />
           <Route path="/es/registro-de-empresas" element={<BusinessRegistrationES />} />
@@ -142,10 +142,10 @@ const App = () => (
           <Route path="/es/beneficios" element={<BenefitsES />} />
           <Route path="/es/blog" element={<BlogES />} />
           <Route path="/es/salas/gran-sala-conferencias" element={<BigConferenceRoomES />} />
-          <Route path="/es/salas/media-sala-conferencias" element={<HalfConferenceRoomES />} />
-          <Route path="/es/salas/sala-quarter" element={<QuarterRoomES />} />
+          <Route path="/es/salas/gran-sala-conferencias-2" element={<LargeConferenceRoomES />} />
+          <Route path="/es/salas/sala-quarter" element={<QuarterConferenceRoomES />} />
           <Route path="/es/salas/sala-formacion" element={<TrainingRoomES />} />
-          <Route path="/es/salas/sala-reuniones" element={<MeetingRoomES />} />
+          
 
           {/* Italian routes */}
           <Route path="/it" element={<IndexIT />} />
@@ -154,7 +154,7 @@ const App = () => (
           <Route path="/it/ancona" element={<AnconaIT />} />
           <Route path="/it/olbia" element={<OlbiaIT />} />
           <Route path="/it/trovaci" element={<FindUsIT />} />
-          <Route path="/it/sale-conferenze" element={<ConferenceRoomIT />} />
+          <Route path="/it/sale-riunioni" element={<MeetingRoomsIT />} />
           <Route path="/it/terrazza-privata" element={<PrivateTerraceIT />} />
           <Route path="/it/uffici-privati" element={<PrivateOfficesIT />} />
           <Route path="/it/registrazione-aziendale" element={<BusinessRegistrationIT />} />
@@ -165,10 +165,10 @@ const App = () => (
           <Route path="/it/vantaggi" element={<BenefitsIT />} />
           <Route path="/it/blog" element={<BlogIT />} />
           <Route path="/it/sale/grande-sala-conferenze" element={<BigConferenceRoomIT />} />
-          <Route path="/it/sale/mezza-sala-conferenze" element={<HalfConferenceRoomIT />} />
-          <Route path="/it/sale/sala-quarter" element={<QuarterRoomIT />} />
+          <Route path="/it/sale/grande-sala-conferenze-2" element={<LargeConferenceRoomIT />} />
+          <Route path="/it/sale/sala-quarter" element={<QuarterConferenceRoomIT />} />
           <Route path="/it/sale/sala-formazione" element={<TrainingRoomIT />} />
-          <Route path="/it/sale/sala-riunioni" element={<MeetingRoomIT />} />
+          
 
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -34,7 +34,7 @@ const galleryBottom = [
 
 const services = [
   { img: serviceCoworking, label: "Spazi Coworking", icon: Users, href: "/it/coworking" },
-  { img: serviceMeeting, label: "Sale Riunioni", icon: Building2, href: "/it/sale-conferenze" },
+  { img: serviceMeeting, label: "Sale Riunioni", icon: Building2, href: "/it/sale-riunioni" },
   { img: servicePrivate, label: "Uffici Privati", icon: BookOpen, href: "/it/uffici-privati" },
   { img: serviceCommunity, label: "Eventi della Comunità", icon: Calendar, href: "/it/eventi" },
 ];

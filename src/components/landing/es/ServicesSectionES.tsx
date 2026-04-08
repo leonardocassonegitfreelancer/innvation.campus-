@@ -12,7 +12,7 @@ import serviceAcademy from "@/assets/service-academy.jpg";
 import servicePerks from "@/assets/service-perks.jpg";
 
 const businessServices = [
-  { img: serviceMeeting, label: "Salas de Conferencias Privadas", subtitle: "Con opción de catering", href: "/es/salas-de-conferencias" },
+  { img: serviceMeeting, label: "Salas de Conferencias Privadas", subtitle: "Con opción de catering", href: "/es/salas-de-reuniones" },
   { img: serviceTerrace, label: "Terraza Privada", subtitle: "Con opción de catering", href: "/es/terraza-privada" },
   { img: servicePrivate, label: "Oficinas Privadas", subtitle: "Diferentes tamaños disponibles", href: "/es/oficinas-privadas" },
   { img: serviceRegistration, label: "Registro de Empresas", subtitle: "Reubícate a España o Italia", href: "/es/registro-de-empresas" },
