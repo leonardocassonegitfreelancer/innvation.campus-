@@ -494,6 +494,10 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
   const description = room.description[lang];
   const shortDesc = description.length > 180 ? description.slice(0, 180) + "…" : description;
 
+  const leadUrl = lang === "en" ? `/en/host-your-event/lead?space=${room.slug}` :
+                  lang === "es" ? `/es/organiza-tu-evento/lead?space=${room.slug}` :
+                  `/it/organizza-evento/lead?space=${room.slug}`;
+
   return (
     <>
       <SEOHead title={seo.title} description={seo.description} path={roomPaths[lang][roomSlug]} />
@@ -732,7 +736,7 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
                 </div>
 
                 <Button asChild className="w-full">
-                  <Link to={lang === "en" ? "/#contact" : lang === "es" ? "/es#contact" : "/it#contact"}>
+                  <Link to={leadUrl}>
                     {t.getInTouch}
                   </Link>
                 </Button>
@@ -749,7 +753,7 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
       {/* ── Mobile sticky CTA ──────────────────────────────── */}
       <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-background/95 backdrop-blur-sm border-t border-border px-4 py-3">
         <Button asChild className="w-full">
-          <Link to={lang === "en" ? "/#contact" : lang === "es" ? "/es#contact" : "/it#contact"}>
+          <Link to={leadUrl}>
             {t.getInTouch}
           </Link>
         </Button>

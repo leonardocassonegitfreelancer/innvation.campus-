@@ -14,6 +14,7 @@ import BusinessRegistration from "./pages/en/BusinessRegistration";
 import CoworkingSpace from "./pages/en/CoworkingSpace";
 import Events from "./pages/en/Events";
 import HostYourEvent from "./pages/en/HostYourEvent";
+import EventLeadCapture from "./pages/en/EventLeadCapture";
 import Academy from "./pages/en/Academy";
 import Benefits from "./pages/en/Benefits";
 import Ancona from "./pages/en/Ancona";
@@ -50,6 +51,7 @@ import BusinessRegistrationES from "./pages/es/BusinessRegistration";
 import CoworkingSpaceES from "./pages/es/CoworkingSpace";
 import EventsES from "./pages/es/Events";
 import HostYourEventES from "./pages/es/HostYourEvent";
+import EventLeadCaptureES from "./pages/es/EventLeadCapture";
 import AcademyES from "./pages/es/Academy";
 import BenefitsES from "./pages/es/Benefits";
 import BlogES from "./pages/es/Blog";
@@ -75,6 +77,7 @@ import BusinessRegistrationIT from "./pages/it/BusinessRegistration";
 import CoworkingSpaceIT from "./pages/it/CoworkingSpace";
 import EventsIT from "./pages/it/Events";
 import HostYourEventIT from "./pages/it/HostYourEvent";
+import EventLeadCaptureIT from "./pages/it/EventLeadCapture";
 import AcademyIT from "./pages/it/Academy";
 import BenefitsIT from "./pages/it/Benefits";
 import BlogIT from "./pages/it/Blog";
@@ -105,6 +108,7 @@ const App = () => (
           <Route path="/en/coworking-space" element={<CoworkingSpace />} />
           <Route path="/en/events" element={<Events />} />
           <Route path="/en/host-your-event" element={<HostYourEvent />} />
+          <Route path="/en/host-your-event/lead" element={<EventLeadCapture />} />
           <Route path="/en/academy" element={<Academy />} />
           <Route path="/en/benefits" element={<Benefits />} />
           <Route path="/en/ancona" element={<Ancona />} />
@@ -138,6 +142,7 @@ const App = () => (
           <Route path="/es/coworking" element={<CoworkingSpaceES />} />
           <Route path="/es/eventos" element={<EventsES />} />
           <Route path="/es/organiza-tu-evento" element={<HostYourEventES />} />
+          <Route path="/es/organiza-tu-evento/lead" element={<EventLeadCaptureES />} />
           <Route path="/es/academia" element={<AcademyES />} />
           <Route path="/es/beneficios" element={<BenefitsES />} />
           <Route path="/es/blog" element={<BlogES />} />
@@ -161,6 +166,7 @@ const App = () => (
           <Route path="/it/coworking" element={<CoworkingSpaceIT />} />
           <Route path="/it/eventi" element={<EventsIT />} />
           <Route path="/it/organizza-evento" element={<HostYourEventIT />} />
+          <Route path="/it/organizza-evento/lead" element={<EventLeadCaptureIT />} />
           <Route path="/it/academy" element={<AcademyIT />} />
           <Route path="/it/vantaggi" element={<BenefitsIT />} />
           <Route path="/it/blog" element={<BlogIT />} />

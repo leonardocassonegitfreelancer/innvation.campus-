@@ -2,61 +2,7 @@ import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, Link } from "react-router-dom";
 import { MapPin, Users, Calendar, FilterX, Search } from "lucide-react";
-import conferenceHall from "@/assets/conference-picasso.jpg";
-import conferenceHalf from "@/assets/conference-half-picasso.jpg";
-import trainingRoom from "@/assets/service-meeting.jpg";
-import palaceSkylight from "@/assets/palace-skylight.jpg";
-import seasideExterior from "@/assets/seaside-exterior.jpg";
-import terraceBar from "@/assets/terrace-bar.jpg";
-import seasideInterior from "@/assets/seaside-interior.jpg";
-import terraceEvents from "@/assets/terrace-events.jpg";
-
-interface Space {
-  id: string;
-  image: string;
-  label: string;
-  name: string;
-  capacityText: string;
-  maxGuests: number;
-  location: "city" | "seaside";
-  eventTypes: string[];
-  href: string;
-  size: "large" | "small";
-}
-
-// Event Types: "conference", "workshop", "networking", "party"
-const spaces: Record<string, Space[]> = {
-  en: [
-    { id: "city-1", image: conferenceHall, label: "Conference", name: "Big Conference Room", capacityText: "Up to 80 guests", maxGuests: 80, location: "city", eventTypes: ["conference", "workshop", "networking"], href: "/en/meeting-rooms/big-conference-room", size: "large" },
-    { id: "city-2", image: conferenceHalf, label: "Conference", name: "Large Conference Room", capacityText: "Up to 40 guests", maxGuests: 40, location: "city", eventTypes: ["conference", "workshop"], href: "/en/meeting-rooms/large-conference-room", size: "small" },
-    { id: "city-3", image: trainingRoom, label: "Meeting", name: "Training Room", capacityText: "Up to 40 guests", maxGuests: 40, location: "city", eventTypes: ["workshop", "networking"], href: "/en/meeting-rooms/training-room", size: "small" },
-    { id: "city-4", image: palaceSkylight, label: "Premium", name: "Málaga Palace Courtyard", capacityText: "Up to 150 guests", maxGuests: 150, location: "city", eventTypes: ["networking", "party"], href: "/en/malaga-palace", size: "large" },
-    { id: "sea-1", image: seasideExterior, label: "Outdoor", name: "Seaside Terrace", capacityText: "Up to 120 guests", maxGuests: 120, location: "seaside", eventTypes: ["networking", "party"], href: "/en/malaga-terrace", size: "large" },
-    { id: "sea-2", image: terraceBar, label: "Outdoor", name: "Terrace Bar", capacityText: "Up to 30 guests", maxGuests: 30, location: "seaside", eventTypes: ["networking", "party"], href: "/en/private-terrace", size: "small" },
-    { id: "sea-3", image: seasideInterior, label: "Indoor", name: "Sea View Lounge", capacityText: "Up to 40 guests", maxGuests: 40, location: "seaside", eventTypes: ["conference", "workshop", "networking"], href: "/en/malaga-terrace", size: "small" },
-    { id: "sea-4", image: terraceEvents, label: "Events", name: "Beachfront Events Space", capacityText: "Up to 200 guests", maxGuests: 200, location: "seaside", eventTypes: ["conference", "networking", "party"], href: "/en/host-your-event", size: "large" },
-  ],
-  es: [
-    { id: "city-1", image: conferenceHall, label: "Conferencia", name: "Gran Sala de Conferencias", capacityText: "Hasta 80 personas", maxGuests: 80, location: "city", eventTypes: ["conference", "workshop", "networking"], href: "/es/salas/gran-sala-conferencias", size: "large" },
-    { id: "city-2", image: conferenceHalf, label: "Conferencia", name: "Sala de Conferencias Grande", capacityText: "Hasta 40 personas", maxGuests: 40, location: "city", eventTypes: ["conference", "workshop"], href: "/es/salas/gran-sala-conferencias-2", size: "small" },
-    { id: "city-3", image: trainingRoom, label: "Reunión", name: "Sala de Formación", capacityText: "Hasta 40 personas", maxGuests: 40, location: "city", eventTypes: ["workshop", "networking"], href: "/es/salas/sala-formacion", size: "small" },
-    { id: "city-4", image: palaceSkylight, label: "Premium", name: "Patio Palacio Málaga", capacityText: "Hasta 150 personas", maxGuests: 150, location: "city", eventTypes: ["networking", "party"], href: "/es/malaga-palace", size: "large" },
-    { id: "sea-1", image: seasideExterior, label: "Exterior", name: "Terraza Marítima", capacityText: "Hasta 120 personas", maxGuests: 120, location: "seaside", eventTypes: ["networking", "party"], href: "/es/malaga-terrace", size: "large" },
-    { id: "sea-2", image: terraceBar, label: "Exterior", name: "Bar de la Terraza", capacityText: "Hasta 30 personas", maxGuests: 30, location: "seaside", eventTypes: ["networking", "party"], href: "/es/terraza-privada", size: "small" },
-    { id: "sea-3", image: seasideInterior, label: "Interior", name: "Salón con Vistas al Mar", capacityText: "Hasta 40 personas", maxGuests: 40, location: "seaside", eventTypes: ["conference", "workshop", "networking"], href: "/es/malaga-terrace", size: "small" },
-    { id: "sea-4", image: terraceEvents, label: "Eventos", name: "Espacio de Eventos en la Playa", capacityText: "Hasta 200 personas", maxGuests: 200, location: "seaside", eventTypes: ["conference", "networking", "party"], href: "/es/organiza-tu-evento", size: "large" },
-  ],
-  it: [
-    { id: "city-1", image: conferenceHall, label: "Conferenze", name: "Grande Sala Conferenze", capacityText: "Fino a 80 persone", maxGuests: 80, location: "city", eventTypes: ["conference", "workshop", "networking"], href: "/it/sale/grande-sala-conferenze", size: "large" },
-    { id: "city-2", image: conferenceHalf, label: "Conferenze", name: "Sala Conferenze Grande", capacityText: "Fino a 40 persone", maxGuests: 40, location: "city", eventTypes: ["conference", "workshop"], href: "/it/sale/grande-sala-conferenze-2", size: "small" },
-    { id: "city-3", image: trainingRoom, label: "Riunione", name: "Sala Formazione", capacityText: "Fino a 40 persone", maxGuests: 40, location: "city", eventTypes: ["workshop", "networking"], href: "/it/sale/sala-formazione", size: "small" },
-    { id: "city-4", image: palaceSkylight, label: "Premium", name: "Cortile Palazzo Málaga", capacityText: "Fino a 150 persone", maxGuests: 150, location: "city", eventTypes: ["networking", "party"], href: "/it/malaga-palace", size: "large" },
-    { id: "sea-1", image: seasideExterior, label: "Esterno", name: "Terrazza sul Mare", capacityText: "Fino a 120 persone", maxGuests: 120, location: "seaside", eventTypes: ["networking", "party"], href: "/it/malaga-terrace", size: "large" },
-    { id: "sea-2", image: terraceBar, label: "Esterno", name: "Bar della Terrazza", capacityText: "Fino a 30 persone", maxGuests: 30, location: "seaside", eventTypes: ["networking", "party"], href: "/it/terrazza-privata", size: "small" },
-    { id: "sea-3", image: seasideInterior, label: "Interno", name: "Lounge Vista Mare", capacityText: "Fino a 40 persone", maxGuests: 40, location: "seaside", eventTypes: ["conference", "workshop", "networking"], href: "/it/malaga-terrace", size: "small" },
-    { id: "sea-4", image: terraceEvents, label: "Eventi", name: "Spazio Eventi sul Lungomare", capacityText: "Fino a 200 persone", maxGuests: 200, location: "seaside", eventTypes: ["conference", "networking", "party"], href: "/it/organizza-evento", size: "large" },
-  ],
-};
+import { spacesDataset, getSpaceHref } from "@/data/spaces";
 
 const uiText = {
   en: { 
@@ -125,28 +71,21 @@ export default function EventSpacesGrid() {
   const [filterLocation, setFilterLocation] = useState<string>("all");
 
   const filteredSpaces = useMemo(() => {
-    return spaces[lang].filter(space => {
+    return spacesDataset.filter(space => {
       // Filter by Type
-      if (filterType !== "all" && !space.eventTypes.includes(filterType)) return false;
+      if (filterType !== "all" && !space.eventTypes.includes(filterType as any)) return false;
       // Filter by Location
       if (filterLocation !== "all" && space.location !== filterLocation) return false;
       // Filter by Guests
       if (filterGuests !== "all") {
         const guestNum = parseInt(filterGuests, 10);
-        // Basic grouping logic for capacity matching
-        // e.g., if user wants "up to 40", space maxGuests should be >= 40 ideally, or we match spaces that can hold up to that.
-        // Actually simpler: if user selects "up to 80", we only show spaces where maxGuests >= 40 and <= 150?
-        // Simpler UX: the space must have `maxGuests >= userSelectedGuests` if user expects everyone to fit.
-        // But if user picks "40", spaces with 200 might be too big. 
-        // Let's do simple threshold: space.maxGuests >= userSelectedGuests.
         if (space.maxGuests < guestNum) return false;
-        
-        // Optionally omit too large spaces (optional UX choice)
+        // Optionally omit too large spaces
         if (guestNum === 40 && space.maxGuests > 150) return false; 
       }
       return true;
     });
-  }, [lang, filterType, filterGuests, filterLocation]);
+  }, [filterType, filterGuests, filterLocation]);
 
   return (
     <section id="event-spaces" className="py-24 md:py-32 bg-background relative overflow-hidden">
@@ -245,24 +184,24 @@ export default function EventSpacesGrid() {
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
               {filteredSpaces.map((space, i) => {
-                // Determine span styles dynamically for visual interest
-                // First item if there's >1 can be wider
+                const tr = space.translations[lang];
+                const href = getSpaceHref(lang, space);
                 const isLarge = filteredSpaces.length > 2 && i % 4 === 0;
                 
                 return (
                   <motion.div
-                    key={space.id}
-                    layoutId={`space-${space.id}`}
+                    key={space.slug}
+                    layoutId={`space-${space.slug}`}
                     variants={cardVariants}
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                     className={`group ${isLarge ? "md:col-span-2" : "md:col-span-1"}`}
                   >
-                    <Link to={space.href} className="block relative overflow-hidden rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-500 h-80 md:h-[400px]">
+                    <Link to={href} className="block relative overflow-hidden rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-500 h-80 md:h-[400px]">
                       <motion.img
                         src={space.image}
-                        alt={space.name}
+                        alt={tr.name}
                         className="w-full h-full object-cover"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -272,7 +211,7 @@ export default function EventSpacesGrid() {
                       {/* Top Badges */}
                       <div className="absolute top-5 left-5 flex gap-2">
                         <span className="font-body text-[10px] uppercase font-bold tracking-widest text-primary bg-background px-3 py-1.5 rounded-full shadow-md">
-                          {space.label}
+                          {tr.label}
                         </span>
                         <span className="font-body text-[10px] uppercase tracking-wider text-white bg-black/40 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-full flex items-center gap-1">
                           <Users className="w-3 h-3" /> {space.maxGuests}
@@ -284,7 +223,7 @@ export default function EventSpacesGrid() {
                         <div className="flex items-end justify-between">
                           <div>
                             <h3 className="font-display font-medium text-white text-2xl md:text-3xl leading-tight mb-2 drop-shadow-md">
-                              {space.name}
+                              {tr.name}
                             </h3>
                             <p className="font-body text-sm font-medium text-white/80 drop-shadow-md flex items-center gap-2">
                               <MapPin className="w-3.5 h-3.5" /> 
