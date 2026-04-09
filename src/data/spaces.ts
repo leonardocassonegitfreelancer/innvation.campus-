@@ -1,5 +1,6 @@
 import conferenceHall from "@/assets/conference-picasso.jpg";
 import conferenceHalf from "@/assets/conference-half-picasso.jpg";
+import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.jpg";
 import trainingRoom from "@/assets/service-meeting.jpg";
 import palaceSkylight from "@/assets/palace-skylight.jpg";
 import seasideExterior from "@/assets/seaside-exterior.jpg";
@@ -113,6 +114,26 @@ export const spacesDataset: SpaceData[] = [
       en: ["Natural Skylight", "Catering Space", "Lounge Furniture", "Ambient Lighting", "Bar Setup"],
       es: ["Claraboya Natural", "Espacio para Catering", "Mobiliario Lounge", "Iluminación Ambiental", "Zona de Bar"],
       it: ["Lucernario Naturale", "Spazio Catering", "Arredo Lounge", "Illuminazione Ambientale", "Area Bar"],
+    }
+  },
+
+  {
+    slug: "phone-booth",
+    image: conferenceQuarterPicasso,
+    maxGuests: 2,
+    location: "city",
+    eventTypes: ["workshop", "networking"],
+    size: "small",
+    baseRoute: "meeting-rooms",
+    translations: {
+      en: { label: "Private", name: "Phone Booth", capacityText: "1–2 people" },
+      es: { label: "Privado", name: "Cabina Telefónica", capacityText: "1–2 personas" },
+      it: { label: "Privato", name: "Cabina Telefonica", capacityText: "1–2 persone" },
+    },
+    amenities: {
+      en: ["Soundproofed", "27\" Display", "Video Conferencing", "Noise-Cancelling Mic", "USB-C Charging"],
+      es: ["Insonorizada", "Pantalla 27\"", "Videoconferencia", "Micro Cancelación Ruido", "Carga USB-C"],
+      it: ["Insonorizzata", "Display 27\"", "Videoconferenza", "Microfono Antirumore", "Ricarica USB-C"],
     }
   },
 

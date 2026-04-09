@@ -336,6 +336,63 @@ const rooms: RoomData[] = [
       ],
     },
   },
+  {
+    slug: "phone-booth",
+    name: "Phone Booth",
+    seo: {
+      en: { title: "Phone Booth – Innovation Campus Málaga", description: "Private soundproofed phone booth for 1–2 people. Perfect for confidential calls, quick video meetings, and focused work in Málaga." },
+      es: { title: "Cabina Telefónica – Innovation Campus Málaga", description: "Cabina telefónica privada e insonorizada para 1–2 personas. Perfecta para llamadas confidenciales y videorreuniones rápidas en Málaga." },
+      it: { title: "Cabina Telefonica – Innovation Campus Málaga", description: "Cabina telefonica privata e insonorizzata per 1–2 persone. Ideale per chiamate riservate, videoriunioni rapide e lavoro concentrato a Málaga." },
+    },
+    capacity: { en: "1–2 people", es: "1–2 personas", it: "1–2 persone" },
+    heroImage: conferenceQuarterPicasso,
+    photos: [conferenceQuarterPicasso, conferencePicasso2, conferenceHalfPicasso2, conferencePicasso, conferenceHalfPicasso],
+    features: {
+      en: ["Soundproofed", "27\" Display", "Video Call Ready", "Noise-Cancelling Mic"],
+      es: ["Insonorizada", "Pantalla 27\"", "Lista para Video", "Micro Cancelación Ruido"],
+      it: ["Insonorizzata", "Display 27\"", "Video Call Ready", "Microfono Antirumore"],
+    },
+    description: {
+      en: "Our Phone Booth is a compact, fully soundproofed private pod designed for confidential phone calls, quick video meetings, and focused individual work. Step inside and enjoy complete acoustic privacy without leaving the campus.",
+      es: "Nuestra Cabina Telefónica es un espacio privado compacto e insonorizado, diseñado para llamadas confidenciales, videorreuniones rápidas y trabajo individual concentrado. Entra y disfruta de total privacidad acústica sin salir del campus.",
+      it: "La nostra Cabina Telefonica è un pod privato compatto e completamente insonorizzato, progettato per chiamate riservate, videoriunioni rapide e lavoro individuale concentrato. Entra e goditi completa privacy acustica senza lasciare il campus.",
+    },
+    useCases: {
+      en: ["Confidential calls", "Quick video meetings", "Focused deep work", "Recruiting interviews", "Private conversations"],
+      es: ["Llamadas confidenciales", "Videorreuniones rápidas", "Trabajo concentrado", "Entrevistas de selección", "Conversaciones privadas"],
+      it: ["Chiamate riservate", "Videoriunioni rapide", "Lavoro in deep focus", "Colloqui di selezione", "Conversazioni private"],
+    },
+    amenities: {
+      en: ["High-Speed WiFi", "27\" Display", "Video Conferencing", "Noise-Cancelling Mic", "Climate Control", "USB-C Charging", "Secure Access"],
+      es: ["WiFi Alta Velocidad", "Pantalla 27\"", "Videoconferencia", "Micro Cancelación Ruido", "Climatización", "Carga USB-C", "Acceso Seguro"],
+      it: ["WiFi Alta Velocità", "Display 27\"", "Videoconferenza", "Microfono Antirumore", "Climatizzazione", "Ricarica USB-C", "Accesso Sicuro"],
+    },
+    facilitiesCategories: {
+      en: [
+        { category: "AV & Technology", items: ["27\" Display", "Video Conferencing", "Noise-Cancelling Mic"] },
+        { category: "Connectivity", items: ["High-Speed WiFi", "USB-C Charging"] },
+        { category: "Comfort", items: ["Climate Control", "Soundproofing"] },
+        { category: "Services", items: ["Secure Access"] },
+      ],
+      es: [
+        { category: "AV y Tecnología", items: ["Pantalla 27\"", "Videoconferencia", "Micro Cancelación Ruido"] },
+        { category: "Conectividad", items: ["WiFi Alta Velocidad", "Carga USB-C"] },
+        { category: "Confort", items: ["Climatización", "Insonorización"] },
+        { category: "Servicios", items: ["Acceso Seguro"] },
+      ],
+      it: [
+        { category: "AV e Tecnologia", items: ["Display 27\"", "Videoconferenza", "Microfono Antirumore"] },
+        { category: "Connettività", items: ["WiFi Alta Velocità", "Ricarica USB-C"] },
+        { category: "Comfort", items: ["Climatizzazione", "Insonorizzazione"] },
+        { category: "Servizi", items: ["Accesso Sicuro"] },
+      ],
+    },
+    layouts: {
+      en: [{ name: "Individual", capacity: 1, icon: "boardroom" }, { name: "Duo", capacity: 2, icon: "boardroom" }],
+      es: [{ name: "Individual", capacity: 1, icon: "boardroom" }, { name: "Dúo", capacity: 2, icon: "boardroom" }],
+      it: [{ name: "Individuale", capacity: 1, icon: "boardroom" }, { name: "Duo", capacity: 2, icon: "boardroom" }],
+    },
+  },
   ];
 
 /* ─── Route map ──────────────────────────────────────────── */
@@ -345,19 +402,22 @@ const roomPaths: Record<string, Record<string, string>> = {
     "large-conference-room": "/en/meeting-rooms/large-conference-room",
     "quarter-conference-room": "/en/meeting-rooms/quarter-conference-room",
     "training-room": "/en/meeting-rooms/training-room",
-      },
+    "phone-booth": "/en/meeting-rooms/phone-booth",
+  },
   es: {
     "big-conference-room": "/es/salas/gran-sala-conferencias",
     "large-conference-room": "/es/salas/gran-sala-conferencias-2",
     "quarter-conference-room": "/es/salas/sala-quarter",
     "training-room": "/es/salas/sala-formacion",
-      },
+    "phone-booth": "/es/salas/cabina-telefonica",
+  },
   it: {
     "big-conference-room": "/it/sale/grande-sala-conferenze",
     "large-conference-room": "/it/sale/grande-sala-conferenze-2",
     "quarter-conference-room": "/it/sale/sala-quarter",
     "training-room": "/it/sale/sala-formazione",
-      },
+    "phone-booth": "/it/sale/cabina-telefonica",
+  },
 };
 
 export { rooms, roomPaths };

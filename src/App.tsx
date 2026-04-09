@@ -32,6 +32,7 @@ import BigConferenceRoom from "./pages/en/BigConferenceRoom";
 import LargeConferenceRoom from "./pages/en/LargeConferenceRoom";
 import QuarterConferenceRoom from "./pages/en/QuarterConferenceRoom";
 import TrainingRoom from "./pages/en/TrainingRoom";
+import PhoneBooth from "./pages/en/PhoneBooth";
 
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
@@ -61,6 +62,7 @@ import BigConferenceRoomES from "./pages/es/BigConferenceRoom";
 import LargeConferenceRoomES from "./pages/es/LargeConferenceRoom";
 import QuarterConferenceRoomES from "./pages/es/QuarterConferenceRoom";
 import TrainingRoomES from "./pages/es/TrainingRoom";
+import PhoneBoothES from "./pages/es/PhoneBooth";
 
 
 // Italian pages
@@ -87,6 +89,7 @@ import BigConferenceRoomIT from "./pages/it/BigConferenceRoom";
 import LargeConferenceRoomIT from "./pages/it/LargeConferenceRoom";
 import QuarterConferenceRoomIT from "./pages/it/QuarterConferenceRoom";
 import TrainingRoomIT from "./pages/it/TrainingRoom";
+import PhoneBoothIT from "./pages/it/PhoneBooth";
 
 
 const queryClient = new QueryClient();
@@ -120,6 +123,7 @@ const App = () => (
           <Route path="/en/meeting-rooms/large-conference-room" element={<LargeConferenceRoom />} />
           <Route path="/en/meeting-rooms/quarter-conference-room" element={<QuarterConferenceRoom />} />
           <Route path="/en/meeting-rooms/training-room" element={<TrainingRoom />} />
+          <Route path="/en/meeting-rooms/phone-booth" element={<PhoneBooth />} />
           
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
@@ -150,6 +154,7 @@ const App = () => (
           <Route path="/es/salas/gran-sala-conferencias-2" element={<LargeConferenceRoomES />} />
           <Route path="/es/salas/sala-quarter" element={<QuarterConferenceRoomES />} />
           <Route path="/es/salas/sala-formacion" element={<TrainingRoomES />} />
+          <Route path="/es/salas/cabina-telefonica" element={<PhoneBoothES />} />
           
 
           {/* Italian routes */}
@@ -174,6 +179,7 @@ const App = () => (
           <Route path="/it/sale/grande-sala-conferenze-2" element={<LargeConferenceRoomIT />} />
           <Route path="/it/sale/sala-quarter" element={<QuarterConferenceRoomIT />} />
           <Route path="/it/sale/sala-formazione" element={<TrainingRoomIT />} />
+          <Route path="/it/sale/cabina-telefonica" element={<PhoneBoothIT />} />
           
 
           <Route path="*" element={<NotFound />} />

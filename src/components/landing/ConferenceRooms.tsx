@@ -59,6 +59,13 @@ const translations = {
         features: ["4K Projector", "Classroom Layout", "Whiteboard Wall", "Breakout Areas"],
         highlight: false,
       },
+      {
+        id: "phone-booth",
+        name: "Phone Booth",
+        capacity: "1–2 people",
+        features: ["Soundproofed", "27\" Display", "Video Call Ready", "Noise-Cancelling Mic"],
+        highlight: false,
+      },
     ] as Room[],
     seasideRooms: [
       {
@@ -115,6 +122,13 @@ const translations = {
         name: "Training Room",
         capacity: "Hasta 40 personas",
         features: ["Proyector 4K", "Disposición Aula", "Pared Pizarra", "Zonas de Descanso"],
+        highlight: false,
+      },
+      {
+        id: "phone-booth",
+        name: "Phone Booth",
+        capacity: "1–2 personas",
+        features: ["Insonorizada", "Pantalla 27\"", "Lista para Video", "Micro Cancelación Ruido"],
         highlight: false,
       },
     ] as Room[],
@@ -175,6 +189,13 @@ const translations = {
         features: ["Proiettore 4K", "Layout Aula", "Parete Lavagna", "Aree Breakout"],
         highlight: false,
       },
+      {
+        id: "phone-booth",
+        name: "Phone Booth",
+        capacity: "1–2 persone",
+        features: ["Insonorizzata", "Display 27\"", "Video Call Ready", "Microfono Antirumore"],
+        highlight: false,
+      },
     ] as Room[],
     seasideRooms: [
       {
@@ -208,18 +229,21 @@ const roomPaths: Record<string, Record<string, string>> = {
     "large-conference": "/en/meeting-rooms/large-conference-room",
     "quarter-conference": "/en/meeting-rooms/quarter-conference-room",
     "training-room": "/en/meeting-rooms/training-room",
+    "phone-booth": "/en/meeting-rooms/phone-booth",
   },
   es: {
     "big-conference": "/es/salas/gran-sala-conferencias",
     "large-conference": "/es/salas/gran-sala-conferencias-2",
     "quarter-conference": "/es/salas/sala-quarter",
     "training-room": "/es/salas/sala-formacion",
+    "phone-booth": "/es/salas/cabina-telefonica",
   },
   it: {
     "big-conference": "/it/sale/grande-sala-conferenze",
     "large-conference": "/it/sale/grande-sala-conferenze-2",
     "quarter-conference": "/it/sale/sala-quarter",
     "training-room": "/it/sale/sala-formazione",
+    "phone-booth": "/it/sale/cabina-telefonica",
   },
 };
 
