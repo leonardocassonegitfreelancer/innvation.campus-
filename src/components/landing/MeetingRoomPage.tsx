@@ -527,7 +527,8 @@ function PhotoGallery({ photos, onClose }: { photos: string[]; onClose: () => vo
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 bg-black flex flex-col"
+      className="fixed inset-0 bg-black flex flex-col"
+      style={{ zIndex: 9999 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -538,14 +539,14 @@ function PhotoGallery({ photos, onClose }: { photos: string[]; onClose: () => vo
       }}
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-6 py-4 shrink-0">
+      <div className="flex items-center justify-between px-4 py-3 shrink-0 border-b border-white/10">
         <span className="text-white/60 font-body text-sm">{current + 1} / {photos.length}</span>
         <button
           onClick={onClose}
-          className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white transition-colors rounded-full px-4 py-2"
+          className="flex items-center gap-2 bg-white text-black font-body font-semibold text-sm rounded-full px-5 py-2 hover:bg-white/90 transition-colors"
         >
           <X className="w-4 h-4" />
-          <span className="font-body text-sm">Close</span>
+          Close
         </button>
       </div>
 
