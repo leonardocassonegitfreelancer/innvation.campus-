@@ -221,6 +221,7 @@ const roomImages: Record<string, string> = {
   "training-room": conferenceQuarterPicasso,
   "large-conference": conferenceHalfPicasso2,
   "quarter-conference": conferenceQuarterPicasso,
+  "phone-booth": conferenceQuarterPicasso,
 };
 
 const roomPaths: Record<string, Record<string, string>> = {
