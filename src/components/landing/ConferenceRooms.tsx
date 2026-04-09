@@ -279,13 +279,6 @@ function RoomCard({ room, lang, t, isComingSoon = false }: { room: Room; lang: s
               <Link to={roomPath}>{t.viewDetails}</Link>
             </Button>
           )}
-          <Button
-            asChild
-            variant={room.highlight ? "default" : "outline"}
-            className={room.highlight ? "bg-primary hover:bg-primary/90" : ""}
-          >
-            <a href="/#contact">{t.requestQuote}</a>
-          </Button>
         </div>
       </CardContent>
     </Card>
