@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Users, Monitor, Video, PenTool, Coffee, Wifi, Headphones, Wind,
   UtensilsCrossed, KeyRound, Projector, LayoutGrid, X, ChevronDown,
-  ChevronUp, ArrowLeft, Grid2X2, AlignJustify, Table2, Maximize2,
+  ChevronUp, ChevronLeft, ChevronRight, ArrowLeft, Grid2X2, AlignJustify, Table2, Maximize2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation, Link } from "react-router-dom";
@@ -508,25 +508,78 @@ function getFacilityIcon(label: string): React.ElementType {
 /* ─── Photo Gallery Overlay ──────────────────────────────── */
 function PhotoGallery({ photos, onClose }: { photos: string[]; onClose: () => void }) {
   const [current, setCurrent] = useState(0);
+  const touchStartX = useRef<number>(0);
+
+  const prev = () => setCurrent((c) => (c - 1 + photos.length) % photos.length);
+  const next = () => setCurrent((c) => (c + 1) % photos.length);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+      else if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
     <motion.div
       className="fixed inset-0 z-50 bg-black flex flex-col"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+      onTouchEnd={(e) => {
+        const diff = touchStartX.current - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+      }}
     >
-      <div className="flex items-center justify-between px-6 py-4">
+      {/* Header */}
+      <div className="flex items-center justify-between px-6 py-4 shrink-0">
         <span className="text-white/60 font-body text-sm">{current + 1} / {photos.length}</span>
-        <button onClick={onClose} className="text-white hover:text-white/70 transition-colors">
+        <button onClick={onClose} className="text-white hover:text-white/70 transition-colors p-1">
           <X className="w-6 h-6" />
         </button>
       </div>
-      <div className="flex-1 flex items-center justify-center px-4">
-        <img src={photos[current]} alt="" className="max-h-full max-w-full object-contain rounded-lg" />
+
+      {/* Main image + prev/next arrows */}
+      <div className="flex-1 flex items-center justify-center px-4 relative min-h-0">
+        <button
+          onClick={prev}
+          className="absolute left-2 md:left-6 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors"
+          aria-label="Previous photo"
+        >
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </button>
+
+        <motion.img
+          key={current}
+          src={photos[current]}
+          alt=""
+          className="max-h-full max-w-full object-contain rounded-lg select-none"
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.2 }}
+        />
+
+        <button
+          onClick={next}
+          className="absolute right-2 md:right-6 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors"
+          aria-label="Next photo"
+        >
+          <ChevronRight className="w-6 h-6 text-white" />
+        </button>
       </div>
-      <div className="flex gap-2 justify-center px-6 py-4 overflow-x-auto">
+
+      {/* Thumbnails */}
+      <div className="flex gap-2 justify-center px-6 py-4 overflow-x-auto shrink-0">
         {photos.map((p, i) => (
-          <button key={i} onClick={() => setCurrent(i)} className={`shrink-0 w-16 h-12 rounded overflow-hidden border-2 transition-colors ${i === current ? "border-white" : "border-transparent opacity-50 hover:opacity-80"}`}>
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`shrink-0 w-16 h-12 rounded overflow-hidden border-2 transition-all ${i === current ? "border-white opacity-100" : "border-transparent opacity-50 hover:opacity-80"}`}
+          >
             <img src={p} alt="" className="w-full h-full object-cover" />
           </button>
         ))}
