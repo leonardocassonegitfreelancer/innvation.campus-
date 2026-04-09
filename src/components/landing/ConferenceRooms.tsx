@@ -275,9 +275,9 @@ function RoomCard({ room, lang, t, isComingSoon = false }: { room: Room; lang: s
         </div>
         <div className="flex gap-3">
           {roomPath && (
-            <Button asChild variant="outline">
-              <Link to={roomPath}>{t.viewDetails}</Link>
-            </Button>
+              <Button asChild variant="default" className="bg-primary hover:bg-primary/90">
+                <Link to={roomPath}>{t.viewDetails}</Link>
+              </Button>
           )}
         </div>
       </CardContent>
