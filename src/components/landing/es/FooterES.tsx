@@ -18,36 +18,6 @@ export default function FooterES() {
               </span>
             </div>
 
-            {/* EU Badge */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-8 border border-white/30 rounded-sm flex items-center justify-center text-xs shrink-0">
-                <svg viewBox="0 0 48 32" className="w-full h-full" fill="none">
-                  <rect width="48" height="32" rx="2" fill="#003399" />
-                  {[...Array(12)].map((_, i) => {
-                    const angle = (i * 30 - 90) * (Math.PI / 180);
-                    const cx = 24 + 10 * Math.cos(angle);
-                    const cy = 16 + 10 * Math.sin(angle);
-                    return <polygon key={i} points={`${cx},${cy - 2} ${cx + 1.2},${cy + 1} ${cx - 1.2},${cy + 1}`} fill="#FFCC00" />;
-                  })}
-                </svg>
-              </div>
-              <div className="text-xs text-white/60 leading-tight">
-                <p className="font-semibold text-white/80">Financiado por</p>
-                <p>la Unión Europea</p>
-                <p>NextGenerationEU</p>
-              </div>
-            </div>
-
-            {/* Recovery Plan Badge */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 flex items-center justify-center shrink-0">
-                <span className="text-white/80 font-bold text-lg leading-none">R</span>
-              </div>
-              <div className="text-xs text-white/60 leading-tight">
-                <p>Plan de Recuperación,</p>
-                <p>Transformación y Resiliencia</p>
-              </div>
-            </div>
           </div>
 
           {/* Column 2 — Contact */}
