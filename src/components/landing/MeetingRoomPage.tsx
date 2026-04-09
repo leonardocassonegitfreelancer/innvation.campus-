@@ -657,25 +657,39 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
             ))}
           </div>
 
-          {/* Desktop: 1 large + 2×2 grid */}
-          <div className="hidden md:grid grid-cols-4 grid-rows-2 gap-1 h-[480px]">
-            <div className="col-span-2 row-span-2 overflow-hidden cursor-pointer" onClick={() => setShowGallery(true)}>
-              <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-            </div>
-            {room.photos.slice(1, 5).map((photo, i) => (
-              <div
-                key={i}
-                className={`overflow-hidden cursor-pointer relative ${i === 3 ? "group" : ""}`}
-                onClick={() => setShowGallery(true)}
-              >
-                <img src={photo} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                {i === 3 && room.photos.length > 5 && (
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/60 transition-colors">
-                    <span className="text-white font-display font-bold text-xl">+{room.photos.length - 4}</span>
-                  </div>
-                )}
+          {/* Desktop: Airbnb style — large left + 2 stacked right + thumbnail strip */}
+          <div className="hidden md:block">
+            {/* Top: large left (2/3) + 2 stacked right (1/3) */}
+            <div className="grid gap-1 h-[420px]" style={{ gridTemplateColumns: "2fr 1fr" }}>
+              <div className="overflow-hidden cursor-pointer" onClick={() => setShowGallery(true)}>
+                <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
-            ))}
+              <div className="grid grid-rows-2 gap-1">
+                {room.photos.slice(1, 3).map((photo, i) => (
+                  <div key={i} className="overflow-hidden cursor-pointer" onClick={() => setShowGallery(true)}>
+                    <img src={photo} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Bottom: thumbnail strip */}
+            {room.photos.length > 3 && (
+              <div className={`grid gap-1 mt-1 h-[130px]`} style={{ gridTemplateColumns: `repeat(${Math.min(room.photos.length - 3, 5)}, 1fr)` }}>
+                {room.photos.slice(3, 8).map((photo, i, arr) => {
+                  const isLast = i === arr.length - 1 && room.photos.length > 8;
+                  return (
+                    <div key={i} className="overflow-hidden cursor-pointer relative group" onClick={() => setShowGallery(true)}>
+                      <img src={photo} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                      {isLast && (
+                        <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/60 transition-colors">
+                          <span className="text-white font-display font-bold text-lg">+{room.photos.length - 8}</span>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </section>
 
