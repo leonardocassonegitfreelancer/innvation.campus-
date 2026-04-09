@@ -538,7 +538,8 @@ function PhotoGallery({ photos, onClose }: { photos: string[]; onClose: () => vo
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 shrink-0">
         <span className="text-white/60 font-body text-sm">{current + 1} / {photos.length}</span>
-        <button onClick={onClose} className="text-white hover:text-white/70 transition-colors p-1">
+        <button onClick={onClose} className="flex items-center gap-2 text-white hover:text-white/70 transition-colors p-1">
+          <span className="font-body text-sm hidden md:inline opacity-60">ESC</span>
           <X className="w-6 h-6" />
         </button>
       </div>
