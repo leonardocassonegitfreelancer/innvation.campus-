@@ -509,19 +509,21 @@ function getFacilityIcon(label: string): React.ElementType {
 function PhotoGallery({ photos, onClose }: { photos: string[]; onClose: () => void }) {
   const [current, setCurrent] = useState(0);
   const touchStartX = useRef<number>(0);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
   const prev = () => setCurrent((c) => (c - 1 + photos.length) % photos.length);
   const next = () => setCurrent((c) => (c + 1) % photos.length);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") prev();
-      else if (e.key === "ArrowRight") next();
-      else if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") setCurrent((c) => (c - 1 + photos.length) % photos.length);
+      else if (e.key === "ArrowRight") setCurrent((c) => (c + 1) % photos.length);
+      else if (e.key === "Escape") onCloseRef.current();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [photos.length]);
 
   return (
     <motion.div
@@ -538,9 +540,12 @@ function PhotoGallery({ photos, onClose }: { photos: string[]; onClose: () => vo
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 shrink-0">
         <span className="text-white/60 font-body text-sm">{current + 1} / {photos.length}</span>
-        <button onClick={onClose} className="flex items-center gap-2 text-white hover:text-white/70 transition-colors p-1">
-          <span className="font-body text-sm hidden md:inline opacity-60">ESC</span>
-          <X className="w-6 h-6" />
+        <button
+          onClick={onClose}
+          className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white transition-colors rounded-full px-4 py-2"
+        >
+          <X className="w-4 h-4" />
+          <span className="font-body text-sm">Close</span>
         </button>
       </div>
 
