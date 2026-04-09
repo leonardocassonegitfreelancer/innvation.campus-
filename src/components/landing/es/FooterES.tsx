@@ -18,6 +18,19 @@ export default function FooterES() {
               </span>
             </div>
 
+            <div className="space-y-3 text-sm text-white/70">
+              <h4 className="text-white/40 text-sm font-light italic mb-2">Horario de Apertura</h4>
+              <div>
+                <p className="font-semibold text-white/80">Málaga Palace</p>
+                <p>Lun–Jue 9:30 – 18:30</p>
+                <p>Vie 9:30 – 17:00</p>
+              </div>
+              <div>
+                <p className="font-semibold text-white/80">Málaga Terrace</p>
+                <p>Lun–Jue 9:30 – 18:30</p>
+                <p>Vie 9:30 – 17:00</p>
+              </div>
+            </div>
           </div>
 
           {/* Column 2 — Contact */}
