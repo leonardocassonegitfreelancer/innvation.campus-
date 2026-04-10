@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { Calendar, Users, Briefcase, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -150,6 +150,20 @@ const translations = {
   },
 };
 
+// Maps space slug → room option index (0-based) per lang
+const slugToRoomIndex: Record<string, number> = {
+  "big-conference-room": 0,
+  "large-conference-room": 1,
+  "quarter-conference-room": 2,
+  "training-room": 6,
+  "phone-booth": 3,
+  "malaga-palace": 4,
+  "seaside-terrace": 4,
+  "private-terrace": 5,
+  "sea-view-lounge": 6,
+  "beachfront-events": 4,
+};
+
 const inputCls = "w-full bg-muted border border-border rounded-xl px-4 py-3 font-body text-sm text-foreground focus:outline-none focus:border-primary transition-colors";
 const labelCls = "font-body text-sm font-semibold text-foreground";
 
@@ -159,9 +173,15 @@ export default function EventConversionForm() {
   const t = translations[lang];
   const rooms = roomOptions[lang];
 
+  const spaceSlug = new URLSearchParams(location.search).get("space") ?? "";
+  const preselectedRoom = useMemo(() => {
+    const idx = slugToRoomIndex[spaceSlug];
+    return idx !== undefined ? rooms[idx] : null;
+  }, [spaceSlug, rooms]);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedRooms, setSelectedRooms] = useState<string[]>([]);
+  const [selectedRooms, setSelectedRooms] = useState<string[]>(preselectedRoom ? [preselectedRoom] : []);
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
   const [projector, setProjector] = useState<"yes" | "no" | "">("");
   const [microphone, setMicrophone] = useState<"yes" | "no" | "">("");
