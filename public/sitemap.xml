@@ -4,95 +4,116 @@
 
   <!-- HOME -->
   <url>
-    <loc>https://malaga-duality-landing.lovable.app/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://malaga-duality-landing.lovable.app/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://malaga-duality-landing.lovable.app/es"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://malaga-duality-landing.lovable.app/it"/>
+    <loc>https://innovationcampus.biz/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovationcampus.biz/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovationcampus.biz/es"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://innovationcampus.biz/it"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://malaga-duality-landing.lovable.app/es</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://malaga-duality-landing.lovable.app/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://malaga-duality-landing.lovable.app/es"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://malaga-duality-landing.lovable.app/it"/>
+    <loc>https://innovationcampus.biz/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovationcampus.biz/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovationcampus.biz/es"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://innovationcampus.biz/it"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://malaga-duality-landing.lovable.app/it</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://malaga-duality-landing.lovable.app/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://malaga-duality-landing.lovable.app/es"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://malaga-duality-landing.lovable.app/it"/>
+    <loc>https://innovationcampus.biz/it</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://innovationcampus.biz/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://innovationcampus.biz/es"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://innovationcampus.biz/it"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- LOCATIONS -->
-  <url><loc>https://malaga-duality-landing.lovable.app/en/malaga-palace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/malaga-palace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/malaga-palace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/en/malaga-palace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/es/malaga-palace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/it/malaga-palace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/malaga-terrace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/malaga-terrace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/malaga-terrace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/en/malaga-terrace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/es/malaga-terrace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/it/malaga-terrace</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/ancona</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/ancona</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/ancona</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/en/ancona</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/es/ancona</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/it/ancona</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/en/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/es/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/it/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/find-us</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/encuentranos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/trovaci</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/en/find-us</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/encuentranos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/trovaci</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- SERVICES -->
-  <url><loc>https://malaga-duality-landing.lovable.app/en/coworking-space</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/coworking</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/coworking</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/en/coworking-space</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/es/coworking</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/it/coworking</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/meeting-rooms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/salas-de-reuniones</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/sale-riunioni</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/en/meeting-rooms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/es/salas-de-reuniones</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/it/sale-riunioni</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/private-offices</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/oficinas-privadas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/uffici-privati</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- MEETING ROOM DETAIL PAGES -->
+  <url><loc>https://innovationcampus.biz/en/meeting-rooms/big-conference-room</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/salas/gran-sala-conferencias</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/sale/grande-sala-conferenze</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/private-terrace</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/terraza-privada</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/terrazza-privata</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/en/meeting-rooms/large-conference-room</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/salas/gran-sala-conferencias-2</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/sale/grande-sala-conferenze-2</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/business-registration</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/registro-de-empresas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/registrazione-aziendale</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/en/meeting-rooms/quarter-conference-room</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/salas/sala-quarter</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/sale/sala-quarter</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/events</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/eventos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/eventi</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/en/meeting-rooms/training-room</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/salas/sala-formacion</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/sale/sala-formazione</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/host-your-event</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/organiza-tu-evento</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/organizza-evento</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/en/meeting-rooms/phone-booth</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/salas/cabina-telefonica</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/sale/cabina-telefonica</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/academy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/academia</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/academy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/en/private-offices</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/es/oficinas-privadas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/it/uffici-privati</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://malaga-duality-landing.lovable.app/en/benefits</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/beneficios</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/vantaggi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/en/private-terrace</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/terraza-privada</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/terrazza-privata</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://innovationcampus.biz/en/business-registration</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/registro-de-empresas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/registrazione-aziendale</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://innovationcampus.biz/en/events</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/eventos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/eventi</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://innovationcampus.biz/en/host-your-event</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/organiza-tu-evento</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/organizza-evento</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://innovationcampus.biz/en/academy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/es/academia</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/it/academy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <url><loc>https://innovationcampus.biz/en/benefits</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/es/beneficios</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/it/vantaggi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- BLOG -->
-  <url><loc>https://malaga-duality-landing.lovable.app/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/es/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/it/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
   <!-- LEGAL -->
-  <url><loc>https://malaga-duality-landing.lovable.app/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/cookie-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://malaga-duality-landing.lovable.app/legal-notice</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://innovationcampus.biz/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://innovationcampus.biz/cookie-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://innovationcampus.biz/legal-notice</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

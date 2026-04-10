@@ -9,7 +9,7 @@ interface SEOHeadProps {
   ogImage?: string;
 }
 
-const BASE_URL = "https://malaga-duality-landing.lovable.app";
+const BASE_URL = "https://innovationcampus.biz";
 const DEFAULT_OG_IMAGE = "/og-image.jpg";
 
 export default function SEOHead({ title, description, path = "/", jsonLd, ogImage }: SEOHeadProps) {

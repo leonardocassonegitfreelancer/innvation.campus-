@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://malaga-duality-landing.lovable.app/sitemap.xml
+Sitemap: https://innovationcampus.biz/sitemap.xml
