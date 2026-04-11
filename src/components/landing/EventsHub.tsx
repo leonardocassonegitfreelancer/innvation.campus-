@@ -6,6 +6,7 @@ import { eventsDataset, EventData } from "@/data/events";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SEOHead from "@/components/SEOHead";
+import serviceCommunity from "@/assets/service-community.jpg";
 
 const uiText = {
   en: {
@@ -97,16 +98,24 @@ export default function EventsHub() {
         <Navbar />
 
         {/* Hero */}
-        <section className="pt-32 pb-16 bg-neutral-dark text-center px-6">
-          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
-            {t.eyebrow}
-          </p>
-          <h1
-            className="font-display font-bold text-primary-foreground"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
-          >
-            {t.title}
-          </h1>
+        <section className="relative h-[60vh] min-h-[400px] flex items-end">
+          <img
+            src={serviceCommunity}
+            alt={t.title}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
+          <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
+            <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
+              {t.eyebrow}
+            </p>
+            <h1
+              className="font-display font-bold text-primary-foreground"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
+            >
+              {t.title}
+            </h1>
+          </div>
         </section>
 
         {/* Tab bar */}
