@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { MapPin, Users, Calendar, FilterX, Search } from "lucide-react";
 import { spacesDataset, getSpaceHref } from "@/data/spaces";
 
@@ -198,7 +198,7 @@ export default function EventSpacesGrid() {
                     exit="exit"
                     className={`group ${isLarge ? "md:col-span-2" : "md:col-span-1"}`}
                   >
-                    <Link to={href} className="block relative overflow-hidden rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-500 h-80 md:h-[400px]">
+                    <a href={href} className="block relative overflow-hidden rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-500 h-80 md:h-[400px]">
                       <motion.img
                         src={space.image}
                         alt={tr.name}
@@ -236,7 +236,7 @@ export default function EventSpacesGrid() {
                           </div>
                         </div>
                       </div>
-                    </Link>
+                    </a>
                   </motion.div>
                 );
               })}
@@ -258,9 +258,9 @@ export default function EventSpacesGrid() {
                 <p className="font-body text-foreground text-lg mb-4 text-center max-w-md px-4">
                   {t.noResults}
                 </p>
-                <Link to={lang === "en" ? "/#contact" : `/${lang}#contact`} className="font-body font-bold text-sm uppercase tracking-widest text-primary border-b border-primary pb-1">
+                <a href={lang === "en" ? "/#contact" : `/${lang}#contact`} className="font-body font-bold text-sm uppercase tracking-widest text-primary border-b border-primary pb-1">
                   {t.contactUs}
-                </Link>
+                </a>
               </motion.div>
             )}
           </AnimatePresence>

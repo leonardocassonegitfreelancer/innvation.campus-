@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Check, ArrowRight } from "lucide-react";
 
 const translations = {
@@ -154,12 +154,12 @@ export default function EventDetails() {
             <p className="font-body text-lg text-background/60 mb-10 max-w-xl mx-auto">
               {t.ctaSubtitle}
             </p>
-            <Link
-              to={t.ctaHref}
+            <a
+              href={t.ctaHref}
               className="inline-flex items-center gap-3 font-body text-sm uppercase tracking-[0.25em] text-foreground bg-background px-10 py-4 hover:bg-background/90 transition-colors duration-300"
             >
               {t.ctaButton} <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>

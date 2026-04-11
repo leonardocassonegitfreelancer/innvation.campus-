@@ -1,4 +1,4 @@
-import { useLocation, Link, Navigate } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import { ArrowLeft, Users, CheckCircle2 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import Navbar from "@/components/landing/Navbar";
@@ -32,9 +32,9 @@ export default function EventLeadCaptureES() {
       <main className="pt-24 bg-muted/30">
         
         <section className="max-w-4xl mx-auto px-6 pt-12 pb-8">
-          <Link to="/es/organiza-tu-evento" className="inline-flex items-center gap-2 font-body text-sm text-primary mb-8 hover:underline">
+          <a href="/es/organiza-tu-evento" className="inline-flex items-center gap-2 font-body text-sm text-primary mb-8 hover:underline">
             <ArrowLeft className="w-4 h-4" /> Volver a todos los espacios
-          </Link>
+          </a>
           
           <div className="bg-card border border-border shadow-md rounded-3xl overflow-hidden flex flex-col md:flex-row">
             <div className="md:w-1/3 aspect-video md:aspect-auto relative">
@@ -71,7 +71,7 @@ export default function EventLeadCaptureES() {
               <h3 className="font-display font-bold text-2xl text-foreground mb-8">¿Dudas? Otros espacios similares</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {otherSpaces.map(altSpace => (
-                  <Link key={altSpace.slug} to={`/es/organiza-tu-evento/lead?space=${altSpace.slug}`} className="group block bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-all">
+                  <a key={altSpace.slug} href={`/es/organiza-tu-evento/lead?space=${altSpace.slug}`} className="group block bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-all">
                      <div className="h-40 overflow-hidden relative">
                        <img src={altSpace.image} alt={altSpace.translations.es.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                      </div>
@@ -79,7 +79,7 @@ export default function EventLeadCaptureES() {
                        <h4 className="font-display font-bold text-lg text-foreground mb-1">{altSpace.translations.es.name}</h4>
                        <p className="font-body text-sm text-muted-foreground">{altSpace.translations.es.capacityText}</p>
                      </div>
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>

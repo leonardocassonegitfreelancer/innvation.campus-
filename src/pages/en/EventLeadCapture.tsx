@@ -1,4 +1,4 @@
-import { useLocation, Link, Navigate } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import { ArrowLeft, Users, CheckCircle2 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import Navbar from "@/components/landing/Navbar";
@@ -37,9 +37,9 @@ export default function EventLeadCapture() {
         
         {/* Booking Summary Section */}
         <section className="max-w-4xl mx-auto px-6 pt-12 pb-8">
-          <Link to="/en/host-your-event" className="inline-flex items-center gap-2 font-body text-sm text-primary mb-8 hover:underline">
+          <a href="/en/host-your-event" className="inline-flex items-center gap-2 font-body text-sm text-primary mb-8 hover:underline">
             <ArrowLeft className="w-4 h-4" /> Back to all spaces
-          </Link>
+          </a>
           
           <div className="bg-card border border-border shadow-md rounded-3xl overflow-hidden flex flex-col md:flex-row">
             {/* Space Image */}
@@ -80,7 +80,7 @@ export default function EventLeadCapture() {
               <h3 className="font-display font-bold text-2xl text-foreground mb-8">Not sure? Other spaces nearby</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {otherSpaces.map(altSpace => (
-                  <Link key={altSpace.slug} to={`/en/host-your-event/lead?space=${altSpace.slug}`} className="group block bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-all">
+                  <a key={altSpace.slug} href={`/en/host-your-event/lead?space=${altSpace.slug}`} className="group block bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-all">
                      <div className="h-40 overflow-hidden relative">
                        <img src={altSpace.image} alt={altSpace.translations.en.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                      </div>
@@ -88,7 +88,7 @@ export default function EventLeadCapture() {
                        <h4 className="font-display font-bold text-lg text-foreground mb-1">{altSpace.translations.en.name}</h4>
                        <p className="font-body text-sm text-muted-foreground">{altSpace.translations.en.capacityText}</p>
                      </div>
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>
