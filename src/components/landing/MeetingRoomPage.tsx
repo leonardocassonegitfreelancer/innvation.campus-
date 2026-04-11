@@ -672,6 +672,15 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
                 ))}
               </div>
             </div>
+            {room.photos.length > 3 && (
+              <div className="grid grid-cols-2 gap-1 mt-1 h-[200px]">
+                {room.photos.slice(3, 5).map((photo, i) => (
+                  <div key={i} className="overflow-hidden cursor-pointer" onClick={() => setShowGallery(true)}>
+                    <img src={photo} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 
