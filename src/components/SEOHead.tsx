@@ -7,12 +7,13 @@ interface SEOHeadProps {
   path?: string;
   jsonLd?: object;
   ogImage?: string;
+  noIndex?: boolean;
 }
 
 const BASE_URL = "https://innovationcampus.biz";
 const DEFAULT_OG_IMAGE = "/og-image.jpg";
 
-export default function SEOHead({ title, description, path = "/", jsonLd, ogImage }: SEOHeadProps) {
+export default function SEOHead({ title, description, path = "/", jsonLd, ogImage, noIndex }: SEOHeadProps) {
   const fullTitle = `Innovation Campus | ${title}`;
   const url = `${BASE_URL}${path}`;
   const alternates = getAlternateLinks(path);
@@ -25,6 +26,7 @@ export default function SEOHead({ title, description, path = "/", jsonLd, ogImag
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {noIndex && <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={url} />
       
       {/* hreflang tags for SEO */}
