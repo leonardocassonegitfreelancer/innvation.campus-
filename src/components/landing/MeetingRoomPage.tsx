@@ -661,12 +661,12 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
           <div className="hidden md:block">
             {/* Top: large left (2/3) + 2 stacked right (1/3) */}
             <div className="grid gap-1 h-[420px]" style={{ gridTemplateColumns: "2fr 1fr" }}>
-              <div className="overflow-hidden cursor-pointer" onClick={() => setShowGallery(true)}>
+              <div className="overflow-hidden cursor-pointer min-h-0" onClick={() => setShowGallery(true)}>
                 <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
-              <div className="grid grid-rows-2 gap-1">
+              <div className="grid grid-rows-2 gap-1 min-h-0">
                 {room.photos.slice(1, 3).map((photo, i) => (
-                  <div key={i} className="overflow-hidden cursor-pointer" onClick={() => setShowGallery(true)}>
+                  <div key={i} className="overflow-hidden cursor-pointer min-h-0" onClick={() => setShowGallery(true)}>
                     <img src={photo} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                   </div>
                 ))}
