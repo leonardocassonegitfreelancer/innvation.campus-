@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MapPin, Clock, Star } from "lucide-react";
 import historicExt from "@/assets/historic-exterior.jpg";
@@ -82,9 +83,9 @@ function LocationCard({ name, tagline, img, alt, address, hours, highlights, des
           ))}
         </div>
         <div className="mt-auto pt-8">
-          <a href={isHistoric ? "/it/malaga-palace" : "/it/malaga-terrace"} className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
+          <Link to={isHistoric ? "/it/malaga-palace" : "/it/malaga-terrace"} className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
             Scopri di più
-          </a>
+          </Link>
         </div>
       </div>
     </div>

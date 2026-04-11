@@ -59,9 +59,9 @@ export default function FooterES() {
           <div>
             <h4 className="text-white/40 text-sm font-light italic mb-6">Políticas</h4>
             <div className="space-y-3 text-sm text-white/70">
-              <a href="/cookie-policy" className="block hover:text-primary transition-colors">Uso de Cookies</a>
-              <a href="/legal-notice" className="block hover:text-primary transition-colors">Aviso Legal</a>
-              <a href="/privacy" className="block hover:text-primary transition-colors">Política de Privacidad</a>
+              <Link to="/cookie-policy" className="block hover:text-primary transition-colors">Uso de Cookies</Link>
+              <Link to="/legal-notice" className="block hover:text-primary transition-colors">Aviso Legal</Link>
+              <Link to="/privacy" className="block hover:text-primary transition-colors">Política de Privacidad</Link>
             </div>
           </div>
         </div>

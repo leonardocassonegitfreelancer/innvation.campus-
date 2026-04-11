@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check, Send } from "lucide-react";
 
@@ -229,9 +229,9 @@ export default function OfficesQuoteForm() {
                 />
                 <span className="font-body text-sm text-muted-foreground">
                   {t.fields.privacy}{" "}
-                  <a href="/en/privacy" className="text-primary underline underline-offset-2 hover:no-underline">
+                  <Link to="/en/privacy" className="text-primary underline underline-offset-2 hover:no-underline">
                     {t.fields.privacyLink}
-                  </a>
+                  </Link>
                 </span>
               </label>
               <Button
