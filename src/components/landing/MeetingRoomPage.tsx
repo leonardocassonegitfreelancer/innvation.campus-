@@ -639,7 +639,7 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
         </div>
 
         {/* ── Photo Grid ─────────────────────────────────── */}
-        <section className="relative bg-neutral-900">
+        <section className="relative bg-neutral-900 md:pt-20">
           {/* Mobile: 1 large + 2×2 grid (Booking.com style) */}
           <div className="md:hidden grid grid-cols-2 gap-0.5">
             <div className="col-span-2 h-52 overflow-hidden cursor-pointer" onClick={() => setShowGallery(true)}>
