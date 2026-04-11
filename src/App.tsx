@@ -91,6 +91,42 @@ import QuarterConferenceRoomIT from "./pages/it/QuarterConferenceRoom";
 import TrainingRoomIT from "./pages/it/TrainingRoom";
 import PhoneBoothIT from "./pages/it/PhoneBooth";
 
+// Event detail pages (EN)
+import LadiesThatUXApr2026EN from "./pages/en/events/LadiesThatUXApr2026";
+import LadiesThatUXApr2026ThankYouEN from "./pages/en/events/LadiesThatUXApr2026ThankYou";
+import PowerTalksApr2026EN from "./pages/en/events/PowerTalksApr2026";
+import PowerTalksApr2026ThankYouEN from "./pages/en/events/PowerTalksApr2026ThankYou";
+import SheWinsApr2026EN from "./pages/en/events/SheWinsApr2026";
+import SheWinsApr2026ThankYouEN from "./pages/en/events/SheWinsApr2026ThankYou";
+import MalagaAIApr2026EN from "./pages/en/events/MalagaAIApr2026";
+import MalagaAIApr2026ThankYouEN from "./pages/en/events/MalagaAIApr2026ThankYou";
+import PowerTalksBApr2026EN from "./pages/en/events/PowerTalksBApr2026";
+import PowerTalksBApr2026ThankYouEN from "./pages/en/events/PowerTalksBApr2026ThankYou";
+
+// Event detail pages (IT)
+import LadiesThatUXApr2026IT from "./pages/it/events/LadiesThatUXApr2026";
+import LadiesThatUXApr2026ThankYouIT from "./pages/it/events/LadiesThatUXApr2026ThankYou";
+import PowerTalksApr2026IT from "./pages/it/events/PowerTalksApr2026";
+import PowerTalksApr2026ThankYouIT from "./pages/it/events/PowerTalksApr2026ThankYou";
+import SheWinsApr2026IT from "./pages/it/events/SheWinsApr2026";
+import SheWinsApr2026ThankYouIT from "./pages/it/events/SheWinsApr2026ThankYou";
+import MalagaAIApr2026IT from "./pages/it/events/MalagaAIApr2026";
+import MalagaAIApr2026ThankYouIT from "./pages/it/events/MalagaAIApr2026ThankYou";
+import PowerTalksBApr2026IT from "./pages/it/events/PowerTalksBApr2026";
+import PowerTalksBApr2026ThankYouIT from "./pages/it/events/PowerTalksBApr2026ThankYou";
+
+// Event detail pages (ES)
+import LadiesThatUXApr2026ES from "./pages/es/events/LadiesThatUXApr2026";
+import LadiesThatUXApr2026ThankYouES from "./pages/es/events/LadiesThatUXApr2026ThankYou";
+import PowerTalksApr2026ES from "./pages/es/events/PowerTalksApr2026";
+import PowerTalksApr2026ThankYouES from "./pages/es/events/PowerTalksApr2026ThankYou";
+import SheWinsApr2026ES from "./pages/es/events/SheWinsApr2026";
+import SheWinsApr2026ThankYouES from "./pages/es/events/SheWinsApr2026ThankYou";
+import MalagaAIApr2026ES from "./pages/es/events/MalagaAIApr2026";
+import MalagaAIApr2026ThankYouES from "./pages/es/events/MalagaAIApr2026ThankYou";
+import PowerTalksBApr2026ES from "./pages/es/events/PowerTalksBApr2026";
+import PowerTalksBApr2026ThankYouES from "./pages/es/events/PowerTalksBApr2026ThankYou";
+
 
 const queryClient = new QueryClient();
 
@@ -125,6 +161,18 @@ const App = () => (
           <Route path="/en/meeting-rooms/training-room" element={<TrainingRoom />} />
           <Route path="/en/meeting-rooms/phone-booth" element={<PhoneBooth />} />
           
+          {/* Event detail pages (EN) */}
+          <Route path="/en/events/ladies-that-ux-malaga-apr-2026" element={<LadiesThatUXApr2026EN />} />
+          <Route path="/en/events/ladies-that-ux-malaga-apr-2026/thank-you" element={<LadiesThatUXApr2026ThankYouEN />} />
+          <Route path="/en/events/powertalks-malaga-apr-2026" element={<PowerTalksApr2026EN />} />
+          <Route path="/en/events/powertalks-malaga-apr-2026/thank-you" element={<PowerTalksApr2026ThankYouEN />} />
+          <Route path="/en/events/shewins-malaga-apr-2026" element={<SheWinsApr2026EN />} />
+          <Route path="/en/events/shewins-malaga-apr-2026/thank-you" element={<SheWinsApr2026ThankYouEN />} />
+          <Route path="/en/events/malaga-ai-networking-apr-2026" element={<MalagaAIApr2026EN />} />
+          <Route path="/en/events/malaga-ai-networking-apr-2026/thank-you" element={<MalagaAIApr2026ThankYouEN />} />
+          <Route path="/en/events/powertalks-malaga-apr-2026-b" element={<PowerTalksBApr2026EN />} />
+          <Route path="/en/events/powertalks-malaga-apr-2026-b/thank-you" element={<PowerTalksBApr2026ThankYouEN />} />
+
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/admin" element={<Admin />} />
@@ -155,7 +203,18 @@ const App = () => (
           <Route path="/es/salas/sala-quarter" element={<QuarterConferenceRoomES />} />
           <Route path="/es/salas/sala-formacion" element={<TrainingRoomES />} />
           <Route path="/es/salas/cabina-telefonica" element={<PhoneBoothES />} />
-          
+
+          {/* Event detail pages (ES) */}
+          <Route path="/es/eventos/ladies-that-ux-malaga-apr-2026" element={<LadiesThatUXApr2026ES />} />
+          <Route path="/es/eventos/ladies-that-ux-malaga-apr-2026/gracias" element={<LadiesThatUXApr2026ThankYouES />} />
+          <Route path="/es/eventos/powertalks-malaga-apr-2026" element={<PowerTalksApr2026ES />} />
+          <Route path="/es/eventos/powertalks-malaga-apr-2026/gracias" element={<PowerTalksApr2026ThankYouES />} />
+          <Route path="/es/eventos/shewins-malaga-apr-2026" element={<SheWinsApr2026ES />} />
+          <Route path="/es/eventos/shewins-malaga-apr-2026/gracias" element={<SheWinsApr2026ThankYouES />} />
+          <Route path="/es/eventos/malaga-ai-networking-apr-2026" element={<MalagaAIApr2026ES />} />
+          <Route path="/es/eventos/malaga-ai-networking-apr-2026/gracias" element={<MalagaAIApr2026ThankYouES />} />
+          <Route path="/es/eventos/powertalks-malaga-apr-2026-b" element={<PowerTalksBApr2026ES />} />
+          <Route path="/es/eventos/powertalks-malaga-apr-2026-b/gracias" element={<PowerTalksBApr2026ThankYouES />} />
 
           {/* Italian routes */}
           <Route path="/it" element={<IndexIT />} />
@@ -180,7 +239,18 @@ const App = () => (
           <Route path="/it/sale/sala-quarter" element={<QuarterConferenceRoomIT />} />
           <Route path="/it/sale/sala-formazione" element={<TrainingRoomIT />} />
           <Route path="/it/sale/cabina-telefonica" element={<PhoneBoothIT />} />
-          
+
+          {/* Event detail pages (IT) */}
+          <Route path="/it/eventi/ladies-that-ux-malaga-apr-2026" element={<LadiesThatUXApr2026IT />} />
+          <Route path="/it/eventi/ladies-that-ux-malaga-apr-2026/grazie" element={<LadiesThatUXApr2026ThankYouIT />} />
+          <Route path="/it/eventi/powertalks-malaga-apr-2026" element={<PowerTalksApr2026IT />} />
+          <Route path="/it/eventi/powertalks-malaga-apr-2026/grazie" element={<PowerTalksApr2026ThankYouIT />} />
+          <Route path="/it/eventi/shewins-malaga-apr-2026" element={<SheWinsApr2026IT />} />
+          <Route path="/it/eventi/shewins-malaga-apr-2026/grazie" element={<SheWinsApr2026ThankYouIT />} />
+          <Route path="/it/eventi/malaga-ai-networking-apr-2026" element={<MalagaAIApr2026IT />} />
+          <Route path="/it/eventi/malaga-ai-networking-apr-2026/grazie" element={<MalagaAIApr2026ThankYouIT />} />
+          <Route path="/it/eventi/powertalks-malaga-apr-2026-b" element={<PowerTalksBApr2026IT />} />
+          <Route path="/it/eventi/powertalks-malaga-apr-2026-b/grazie" element={<PowerTalksBApr2026ThankYouIT />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
