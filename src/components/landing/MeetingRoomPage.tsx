@@ -672,24 +672,6 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
                 ))}
               </div>
             </div>
-            {/* Bottom: thumbnail strip — flex so items always fill full width */}
-            {room.photos.length > 3 && (
-              <div className="flex gap-1 mt-1 h-[120px]">
-                {room.photos.slice(3, 8).map((photo, i, arr) => {
-                  const isLast = i === arr.length - 1 && room.photos.length > 8;
-                  return (
-                    <div key={i} className="flex-1 min-w-0 overflow-hidden cursor-pointer relative group" onClick={() => setShowGallery(true)}>
-                      <img src={photo} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                      {isLast && (
-                        <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/60 transition-colors">
-                          <span className="text-white font-display font-bold text-lg">+{room.photos.length - 8}</span>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            )}
           </div>
         </section>
 
