@@ -672,9 +672,12 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
                 ))}
               </div>
             </div>
-            {/* Bottom: thumbnail strip — always 5 columns */}
+            {/* Bottom: thumbnail strip — columns match photo count to fill full width */}
             {room.photos.length > 3 && (
-              <div className="grid grid-cols-5 gap-1 mt-1 h-[120px]">
+              <div
+                className="grid gap-1 mt-1 h-[120px]"
+                style={{ gridTemplateColumns: `repeat(${Math.min(room.photos.slice(3, 8).length, 5)}, 1fr)` }}
+              >
                 {room.photos.slice(3, 8).map((photo, i, arr) => {
                   const isLast = i === arr.length - 1 && room.photos.length > 8;
                   return (
