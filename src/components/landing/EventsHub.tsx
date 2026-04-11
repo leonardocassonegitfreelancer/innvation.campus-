@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, MapPin } from "lucide-react";
 import { eventsDataset, EventData } from "@/data/events";
@@ -15,6 +16,7 @@ const uiText = {
     eyebrow: "What's On",
     title: "Community Events",
     subtitle: "Connect, learn and grow with our vibrant community events.",
+    backLabel: "Back to Home",
     upcoming: "Upcoming Events",
     past: "Past Events",
     noUpcoming: "No upcoming events right now. Check back soon.",
@@ -29,6 +31,7 @@ const uiText = {
     eyebrow: "In Programma",
     title: "Eventi della Comunità",
     subtitle: "Connettiti, impara e cresci con i nostri vivaci eventi comunitari.",
+    backLabel: "Torna alla Home",
     upcoming: "Prossimi Eventi",
     past: "Eventi Passati",
     noUpcoming: "Nessun evento in programma. Torna presto.",
@@ -43,6 +46,7 @@ const uiText = {
     eyebrow: "En Cartelera",
     title: "Eventos de la Comunidad",
     subtitle: "Conéctate, aprende y crece con nuestros vibrantes eventos comunitarios.",
+    backLabel: "Volver al Inicio",
     upcoming: "Próximos Eventos",
     past: "Eventos Pasados",
     noUpcoming: "No hay eventos próximos. Vuelve pronto.",
@@ -109,6 +113,13 @@ export default function EventsHub() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
           <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              {t.backLabel}
+            </Link>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground">
               {t.title}
             </h1>
