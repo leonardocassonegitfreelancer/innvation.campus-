@@ -14,6 +14,7 @@ const uiText = {
     seoDescription: "Connect, learn and grow with our vibrant community events at Innovation Campus Málaga.",
     eyebrow: "What's On",
     title: "Community Events",
+    subtitle: "Connect, learn and grow with our vibrant community events.",
     upcoming: "Upcoming Events",
     past: "Past Events",
     noUpcoming: "No upcoming events right now. Check back soon.",
@@ -27,6 +28,7 @@ const uiText = {
     seoDescription: "Connettiti, impara e cresci con i nostri vivaci eventi comunitari a Innovation Campus Málaga.",
     eyebrow: "In Programma",
     title: "Eventi della Comunità",
+    subtitle: "Connettiti, impara e cresci con i nostri vivaci eventi comunitari.",
     upcoming: "Prossimi Eventi",
     past: "Eventi Passati",
     noUpcoming: "Nessun evento in programma. Torna presto.",
@@ -40,6 +42,7 @@ const uiText = {
     seoDescription: "Conéctate, aprende y crece con nuestros vibrantes eventos comunitarios en Innovation Campus Málaga.",
     eyebrow: "En Cartelera",
     title: "Eventos de la Comunidad",
+    subtitle: "Conéctate, aprende y crece con nuestros vibrantes eventos comunitarios.",
     upcoming: "Próximos Eventos",
     past: "Eventos Pasados",
     noUpcoming: "No hay eventos próximos. Vuelve pronto.",
@@ -106,15 +109,12 @@ export default function EventsHub() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
           <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
-            <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
-              {t.eyebrow}
-            </p>
-            <h1
-              className="font-display font-bold text-primary-foreground"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
-            >
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground">
               {t.title}
             </h1>
+            <p className="font-body text-lg md:text-xl text-primary-foreground/70 mt-3 max-w-2xl">
+              {t.subtitle}
+            </p>
           </div>
         </section>
 
