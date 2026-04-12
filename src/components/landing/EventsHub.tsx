@@ -9,6 +9,8 @@ import Footer from "./Footer";
 import SEOHead from "@/components/SEOHead";
 import serviceCommunity from "@/assets/service-community.jpg";
 
+const INITIAL_COUNT = 4;
+
 const uiText = {
   en: {
     seoTitle: "Community Events",
@@ -22,6 +24,8 @@ const uiText = {
     noUpcoming: "No upcoming events right now. Check back soon.",
     noPast: "No past events yet.",
     discoverMore: "Discover More →",
+    showMore: "Show more",
+    showLess: "Show less",
     badge: "Past",
     tagLabels: { networking: "Networking", workshop: "Workshop", talk: "Talk", other: "Event" },
   },
@@ -37,6 +41,8 @@ const uiText = {
     noUpcoming: "Nessun evento in programma. Torna presto.",
     noPast: "Nessun evento passato.",
     discoverMore: "Scopri di più →",
+    showMore: "Mostra altri",
+    showLess: "Mostra meno",
     badge: "Passato",
     tagLabels: { networking: "Networking", workshop: "Workshop", talk: "Talk", other: "Evento" },
   },
@@ -52,6 +58,8 @@ const uiText = {
     noUpcoming: "No hay eventos próximos. Vuelve pronto.",
     noPast: "No hay eventos pasados aún.",
     discoverMore: "Descubrir más →",
+    showMore: "Ver más",
+    showLess: "Ver menos",
     badge: "Pasado",
     tagLabels: { networking: "Networking", workshop: "Taller", talk: "Charla", other: "Evento" },
   },
@@ -78,6 +86,7 @@ function getSeoPath(lang: "en" | "it" | "es"): string {
 
 export default function EventsHub() {
   const [tab, setTab] = useState<"upcoming" | "past">("upcoming");
+  const [showAll, setShowAll] = useState(false);
   const { pathname } = useLocation();
   const lang: "en" | "it" | "es" = pathname.startsWith("/it")
     ? "it"
@@ -92,7 +101,14 @@ export default function EventsHub() {
   const upcoming = eventsDataset.filter((e) => new Date(e.date) >= today);
   const past = eventsDataset.filter((e) => new Date(e.date) < today);
   const displayed = tab === "upcoming" ? upcoming : past;
+  const visible = showAll ? displayed : displayed.slice(0, INITIAL_COUNT);
+  const hasMore = displayed.length > INITIAL_COUNT;
   const emptyMessage = tab === "upcoming" ? t.noUpcoming : t.noPast;
+
+  const handleTabChange = (newTab: "upcoming" | "past") => {
+    setTab(newTab);
+    setShowAll(false);
+  };
 
   return (
     <>
@@ -133,7 +149,7 @@ export default function EventsHub() {
         <section className="bg-background border-b border-border sticky top-16 z-30">
           <div className="max-w-6xl mx-auto px-6 flex gap-2 py-4">
             <button
-              onClick={() => setTab("upcoming")}
+              onClick={() => handleTabChange("upcoming")}
               className={`font-body font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-full transition-colors ${
                 tab === "upcoming"
                   ? "bg-primary text-primary-foreground"
@@ -143,7 +159,7 @@ export default function EventsHub() {
               {t.upcoming}
             </button>
             <button
-              onClick={() => setTab("past")}
+              onClick={() => handleTabChange("past")}
               className={`font-body font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-full transition-colors ${
                 tab === "past"
                   ? "bg-primary text-primary-foreground"
@@ -176,58 +192,70 @@ export default function EventsHub() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.3 }}
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
-                  {displayed.map((event: EventData) => {
-                    const tr = event.translations[lang];
-                    const isPast = tab === "past";
-                    return (
-                      <div
-                        key={event.slug}
-                        className="group bg-card border border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
-                      >
-                        {/* Card image */}
-                        <div className="relative h-52 overflow-hidden">
-                          <img
-                            src={event.image}
-                            alt={tr.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                          />
-                          {isPast && (
-                            <span className="absolute top-3 left-3 bg-gray-700/90 text-white font-body text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                              {t.badge}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {visible.map((event: EventData) => {
+                      const tr = event.translations[lang];
+                      const isPast = tab === "past";
+                      return (
+                        <div
+                          key={event.slug}
+                          className="group bg-card border border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
+                        >
+                          {/* Card image */}
+                          <div className="relative h-52 overflow-hidden">
+                            <img
+                              src={event.image}
+                              alt={tr.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
+                            {isPast && (
+                              <span className="absolute top-3 left-3 bg-gray-700/90 text-white font-body text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                                {t.badge}
+                              </span>
+                            )}
+                            <span
+                              className={`absolute top-3 right-3 text-white font-body text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${tagColors[event.tag]}`}
+                            >
+                              {t.tagLabels[event.tag]}
                             </span>
-                          )}
-                          <span
-                            className={`absolute top-3 right-3 text-white font-body text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${tagColors[event.tag]}`}
-                          >
-                            {t.tagLabels[event.tag]}
-                          </span>
-                        </div>
+                          </div>
 
-                        {/* Card body */}
-                        <div className="p-6">
-                          <div className="flex items-center gap-2 mb-2 font-body text-xs text-muted-foreground">
-                            <Calendar className="w-3.5 h-3.5 shrink-0" />
-                            {event.date} · {event.time}
+                          {/* Card body */}
+                          <div className="p-6">
+                            <div className="flex items-center gap-2 mb-2 font-body text-xs text-muted-foreground">
+                              <Calendar className="w-3.5 h-3.5 shrink-0" />
+                              {event.date} · {event.time}
+                            </div>
+                            <div className="flex items-center gap-2 mb-4 font-body text-xs text-muted-foreground">
+                              <MapPin className="w-3.5 h-3.5 shrink-0" />
+                              {event.location}
+                            </div>
+                            <h3 className="font-display font-bold text-lg text-foreground mb-5 leading-tight line-clamp-2">
+                              {tr.title}
+                            </h3>
+                            <a
+                              href={getEventHref(lang, event.slug)}
+                              className="inline-flex items-center font-body font-bold text-sm uppercase tracking-widest text-primary border-b border-primary pb-0.5 hover:opacity-75 transition-opacity"
+                            >
+                              {t.discoverMore}
+                            </a>
                           </div>
-                          <div className="flex items-center gap-2 mb-4 font-body text-xs text-muted-foreground">
-                            <MapPin className="w-3.5 h-3.5 shrink-0" />
-                            {event.location}
-                          </div>
-                          <h3 className="font-display font-bold text-lg text-foreground mb-5 leading-tight line-clamp-2">
-                            {tr.title}
-                          </h3>
-                          <a
-                            href={getEventHref(lang, event.slug)}
-                            className="inline-flex items-center font-body font-bold text-sm uppercase tracking-widest text-primary border-b border-primary pb-0.5 hover:opacity-75 transition-opacity"
-                          >
-                            {t.discoverMore}
-                          </a>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
+
+                  {hasMore && (
+                    <div className="mt-12 text-center">
+                      <button
+                        onClick={() => setShowAll(!showAll)}
+                        className="font-body font-bold text-sm uppercase tracking-widest px-10 py-4 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
+                      >
+                        {showAll ? t.showLess : t.showMore}
+                      </button>
+                    </div>
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>
