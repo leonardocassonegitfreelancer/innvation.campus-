@@ -91,6 +91,22 @@ import QuarterConferenceRoomIT from "./pages/it/QuarterConferenceRoom";
 import TrainingRoomIT from "./pages/it/TrainingRoom";
 import PhoneBoothIT from "./pages/it/PhoneBooth";
 
+// About Us (EN/IT/ES)
+import AboutUsEN from "./pages/en/AboutUs";
+import AboutUsIT from "./pages/it/AboutUs";
+import AboutUsES from "./pages/es/AboutUs";
+
+// Gallery (EN/IT/ES)
+import GalleryEN from "./pages/en/Gallery";
+import GalleryIT from "./pages/it/Gallery";
+import GalleryES from "./pages/es/Gallery";
+import GallerySpacesEN from "./pages/en/GallerySpaces";
+import GallerySpacesIT from "./pages/it/GallerySpaces";
+import GallerySpacesES from "./pages/es/GallerySpaces";
+import GalleryEventsEN from "./pages/en/GalleryEvents";
+import GalleryEventsIT from "./pages/it/GalleryEvents";
+import GalleryEventsES from "./pages/es/GalleryEvents";
+
 // Event detail pages (EN)
 import LadiesThatUXApr2026EN from "./pages/en/events/LadiesThatUXApr2026";
 import LadiesThatUXApr2026ThankYouEN from "./pages/en/events/LadiesThatUXApr2026ThankYou";
@@ -161,6 +177,22 @@ const App = () => (
           <Route path="/en/meeting-rooms/training-room" element={<TrainingRoom />} />
           <Route path="/en/meeting-rooms/phone-booth" element={<PhoneBooth />} />
           
+          {/* About Us */}
+          <Route path="/en/about-us" element={<AboutUsEN />} />
+          <Route path="/it/chi-siamo" element={<AboutUsIT />} />
+          <Route path="/es/quienes-somos" element={<AboutUsES />} />
+
+          {/* Gallery */}
+          <Route path="/en/gallery" element={<GalleryEN />} />
+          <Route path="/en/gallery/spaces" element={<GallerySpacesEN />} />
+          <Route path="/en/gallery/events" element={<GalleryEventsEN />} />
+          <Route path="/it/galleria" element={<GalleryIT />} />
+          <Route path="/it/galleria/spazi" element={<GallerySpacesIT />} />
+          <Route path="/it/galleria/eventi" element={<GalleryEventsIT />} />
+          <Route path="/es/galeria" element={<GalleryES />} />
+          <Route path="/es/galeria/espacios" element={<GallerySpacesES />} />
+          <Route path="/es/galeria/eventos" element={<GalleryEventsES />} />
+
           {/* Event detail pages (EN) */}
           <Route path="/en/events/ladies-that-ux-malaga-apr-2026" element={<LadiesThatUXApr2026EN />} />
           <Route path="/en/events/ladies-that-ux-malaga-apr-2026/thank-you" element={<LadiesThatUXApr2026ThankYouEN />} />
