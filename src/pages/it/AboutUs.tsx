@@ -1,6 +1,8 @@
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import aboutCampus from "@/assets/about-campus.jpg";
 import palaceCatering from "@/assets/palace-catering.jpg";
 import serviceCoworking from "@/assets/service-coworking.jpg";
@@ -21,6 +23,9 @@ export default function AboutUsIT() {
           <img src={aboutCampus} alt="Innovation Campus" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
           <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
+            <Link to="/it" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
+              <ArrowLeft className="w-4 h-4" /> Torna alla Home
+            </Link>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground">Chi Siamo</h1>
             <p className="font-body text-lg md:text-xl text-primary-foreground/70 mt-3 max-w-2xl">
               Spazi ispiranti. Comunità internazionale. Impatto reale.
