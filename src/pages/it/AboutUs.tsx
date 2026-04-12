@@ -114,15 +114,17 @@ export default function AboutUsIT() {
           </div>
           <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { city: "Málaga", venues: ["Málaga Palace", "Málaga Terrace"], country: "Spagna" },
-              { city: "Ancona", venues: ["Innovation Campus Ancona"], country: "Italia" },
-              { city: "Olbia", venues: ["Innovation Campus Olbia"], country: "Italia" },
+              { city: "Málaga", country: "Spagna", venues: [{ label: "Málaga Palace", href: "/it/malaga-palace" }, { label: "Málaga Terrace", href: "/it/malaga-terrace" }] },
+              { city: "Ancona", country: "Italia", venues: [{ label: "Innovation Campus Ancona", href: "/it/ancona" }] },
+              { city: "Olbia", country: "Italia", venues: [{ label: "Innovation Campus Olbia", href: "/it/olbia" }] },
             ].map((loc) => (
               <div key={loc.city} className="bg-background border border-border rounded-2xl p-6">
                 <p className="font-body text-xs uppercase tracking-widest text-muted-foreground mb-1">{loc.country}</p>
                 <h3 className="font-display text-xl font-bold text-foreground mb-3">{loc.city}</h3>
                 {loc.venues.map((v) => (
-                  <p key={v} className="font-body text-sm text-foreground/70">{v}</p>
+                  <Link key={v.href} to={v.href} className="block font-body text-sm text-primary hover:underline">
+                    {v.label} →
+                  </Link>
                 ))}
               </div>
             ))}
