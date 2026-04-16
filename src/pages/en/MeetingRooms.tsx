@@ -1,5 +1,5 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
-import serviceMeeting from "@/assets/service-meeting.jpg";
+import serviceMeeting from "@/assets/service-meeting.webp";
 import SEOHead from "@/components/SEOHead";
 import ConferenceIntro from "@/components/landing/ConferenceIntro";
 import ConferenceRooms from "@/components/landing/ConferenceRooms";

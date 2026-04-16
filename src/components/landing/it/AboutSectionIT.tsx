@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import aboutImage from "@/assets/about-campus.jpg";
+import aboutImage from "@/assets/about-campus.webp";
 
 export default function AboutSectionIT() {
   const { ref: r1, isVisible: v1 } = useScrollAnimation();

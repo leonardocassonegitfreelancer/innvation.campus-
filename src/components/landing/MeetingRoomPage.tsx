@@ -11,12 +11,12 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ConferenceCTA from "./ConferenceCTA";
 import SEOHead from "@/components/SEOHead";
-import serviceMeeting from "@/assets/service-meeting.jpg";
-import conferencePicasso from "@/assets/conference-picasso.jpg";
-import conferencePicasso2 from "@/assets/conference-picasso-2.jpg";
-import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.jpg";
-import conferenceHalfPicasso from "@/assets/conference-half-picasso.jpg";
-import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.jpg";
+import serviceMeeting from "@/assets/service-meeting.webp";
+import conferencePicasso from "@/assets/conference-picasso.webp";
+import conferencePicasso2 from "@/assets/conference-picasso-2.webp";
+import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.webp";
+import conferenceHalfPicasso from "@/assets/conference-half-picasso.webp";
+import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.webp";
 
 /* ─── Types ─────────────────────────────────────────────── */
 interface LangMap<T> { en: T; es: T; it: T }

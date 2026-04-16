@@ -1,5 +1,5 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
-import serviceRegistration from "@/assets/service-registration.jpg";
+import serviceRegistration from "@/assets/service-registration.webp";
 import SEOHead from "@/components/SEOHead";
 import RegistrationIntro from "@/components/landing/RegistrationIntro";
 import RegistrationPricing from "@/components/landing/RegistrationPricing";

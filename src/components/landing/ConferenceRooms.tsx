@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Users, MapPin } from "lucide-react";
-import conferencePicasso2 from "@/assets/conference-picasso-2.jpg";
-import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.jpg";
-import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.jpg";
+import conferencePicasso2 from "@/assets/conference-picasso-2.webp";
+import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.webp";
+import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.webp";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";

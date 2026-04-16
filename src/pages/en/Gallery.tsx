@@ -3,8 +3,8 @@ import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import palaceCourtyard from "@/assets/palace-courtyard.jpg";
-import serviceCommunity from "@/assets/service-community.jpg";
+import palaceCourtyard from "@/assets/palace-courtyard.webp";
+import serviceCommunity from "@/assets/service-community.webp";
 
 export default function GalleryEN() {
   return (

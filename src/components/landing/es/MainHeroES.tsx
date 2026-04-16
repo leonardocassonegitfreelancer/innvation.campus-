@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
-import claimWhite from "@/assets/claim-white.png";
-import palaceEntrance from "@/assets/palace-entrance.jpg";
-import palaceCoworking from "@/assets/palace-coworking.jpg";
-import terraceCommunity from "@/assets/terrace-community.jpg";
-import palaceSkylight from "@/assets/palace-skylight.jpg";
-import palaceCourtyard from "@/assets/palace-courtyard.jpg";
+import claimWhite from "@/assets/claim-white.webp";
+import palaceEntrance from "@/assets/palace-entrance.webp";
+import palaceCoworking from "@/assets/palace-coworking.webp";
+import terraceCommunity from "@/assets/terrace-community.webp";
+import palaceSkylight from "@/assets/palace-skylight.webp";
+import palaceCourtyard from "@/assets/palace-courtyard.webp";
 
 const slides = [palaceEntrance, palaceCoworking, terraceCommunity, palaceSkylight, palaceCourtyard];
 

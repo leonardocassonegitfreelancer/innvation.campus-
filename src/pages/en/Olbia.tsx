@@ -5,14 +5,14 @@ import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Users, Building2, GraduationCap, Briefcase, Monitor, FileText } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import anconaHero from "@/assets/ancona-hero.jpg";
-import anconaCoworking from "@/assets/ancona-coworking.jpg";
-import serviceCoworking from "@/assets/service-coworking.jpg";
-import servicePrivate from "@/assets/service-private.jpg";
-import serviceAcademy from "@/assets/service-academy.jpg";
-import serviceRegistration from "@/assets/service-registration.jpg";
-import serviceMeeting from "@/assets/service-meeting.jpg";
-import serviceVirtual from "@/assets/service-virtual.jpg";
+import anconaHero from "@/assets/ancona-hero.webp";
+import anconaCoworking from "@/assets/ancona-coworking.webp";
+import serviceCoworking from "@/assets/service-coworking.webp";
+import servicePrivate from "@/assets/service-private.webp";
+import serviceAcademy from "@/assets/service-academy.webp";
+import serviceRegistration from "@/assets/service-registration.webp";
+import serviceMeeting from "@/assets/service-meeting.webp";
+import serviceVirtual from "@/assets/service-virtual.webp";
 
 const services = [
   { img: serviceCoworking, label: "Coworking Spaces", icon: Users },

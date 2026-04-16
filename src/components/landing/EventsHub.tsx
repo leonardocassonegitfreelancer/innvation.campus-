@@ -7,7 +7,7 @@ import { eventsDataset, EventData } from "@/data/events";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SEOHead from "@/components/SEOHead";
-import serviceCommunity from "@/assets/service-community.jpg";
+import serviceCommunity from "@/assets/service-community.webp";
 
 const INITIAL_COUNT = 4;
 

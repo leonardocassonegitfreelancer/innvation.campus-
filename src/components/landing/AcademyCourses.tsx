@@ -1,5 +1,5 @@
 import { ExternalLink, Calendar, Users, MapPin } from "lucide-react";
-import serviceAcademy from "@/assets/service-academy.jpg"; // Re-using general academy image for now
+import serviceAcademy from "@/assets/service-academy.webp"; // Re-using general academy image for now
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";

@@ -1,5 +1,5 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
-import servicePrivate from "@/assets/service-private.jpg";
+import servicePrivate from "@/assets/service-private.webp";
 import SEOHead from "@/components/SEOHead";
 import OfficesListings from "@/components/landing/OfficesListings";
 import OfficesIntroSection from "@/components/landing/OfficesIntroSection";

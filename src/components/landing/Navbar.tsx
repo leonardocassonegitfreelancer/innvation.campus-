@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import logoWhite from "@/assets/logo-white.png";
+import logoWhite from "@/assets/logo-white.webp";
 import { routeMap } from "@/lib/i18n";
 
 const linksEN = { location: [{ label: "Málaga Palace", href: "/en/malaga-palace" }, { label: "Málaga Terrace", href: "/en/malaga-terrace" }, { label: "Ancona", href: "/en/ancona" }, { label: "Olbia", href: "/en/olbia" }], business: [{ label: "Meeting Rooms", href: "/en/meeting-rooms" }, { label: "Private Terrace", href: "/en/private-terrace" }, { label: "Private Offices", href: "/en/private-offices" }, { label: "Business Registration", href: "/en/business-registration" }], individual: [{ label: "Coworking & Pricing", href: "/en/coworking-space" }, { label: "Community Events", href: "/en/events" }, { label: "Academy", href: "/en/academy" }, { label: "Member Perks", href: "/en/benefits" }], explore: [{ label: "Gallery", href: "/en/gallery" }, { label: "Blog", href: "/blog" }, { label: "About Us", href: "/en/about-us" }], nav: [{ label: "Host Your Event", href: "/en/host-your-event" }, { label: "Find Us", href: "/en/find-us" }], labels: { locations: "Locations", forBusinesses: "For Businesses", forIndividuals: "For Individuals", explore: "Explore", getInTouch: "Get in Touch" }, home: "/" };

@@ -8,19 +8,19 @@ import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Calendar } 
 import { useState, useRef } from "react";
 import { Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import palaceEntrance from "@/assets/palace-entrance.jpg";
-import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
-import serviceMeeting from "@/assets/service-meeting.jpg";
-import servicePrivate from "@/assets/service-private.jpg";
-import serviceCoworking from "@/assets/service-coworking.jpg";
-import serviceCommunity from "@/assets/service-community.jpg";
-import palaceOutsideFront from "@/assets/palace-outside-front.jpg";
-import palaceOutside from "@/assets/palace-outside.jpg";
-import palaceCourtyard from "@/assets/palace-courtyard.jpg";
-import palaceSkylight from "@/assets/palace-skylight.jpg";
-import palaceCoffeeBar from "@/assets/palace-coffee-bar.jpg";
-import palaceCatering from "@/assets/palace-catering.jpg";
-import palaceCoworking from "@/assets/palace-coworking.jpg";
+import palaceEntrance from "@/assets/palace-entrance.webp";
+import palaceSecondFloor from "@/assets/palace-second-floor.webp";
+import serviceMeeting from "@/assets/service-meeting.webp";
+import servicePrivate from "@/assets/service-private.webp";
+import serviceCoworking from "@/assets/service-coworking.webp";
+import serviceCommunity from "@/assets/service-community.webp";
+import palaceOutsideFront from "@/assets/palace-outside-front.webp";
+import palaceOutside from "@/assets/palace-outside.webp";
+import palaceCourtyard from "@/assets/palace-courtyard.webp";
+import palaceSkylight from "@/assets/palace-skylight.webp";
+import palaceCoffeeBar from "@/assets/palace-coffee-bar.webp";
+import palaceCatering from "@/assets/palace-catering.webp";
+import palaceCoworking from "@/assets/palace-coworking.webp";
 
 const galleryTop = [
   { src: palaceCourtyard, alt: "Málaga Palace courtyard with ornate tiles and balcony" },

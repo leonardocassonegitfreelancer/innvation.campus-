@@ -3,9 +3,9 @@ import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import aboutCampus from "@/assets/about-campus.jpg";
-import palaceCatering from "@/assets/palace-catering.jpg";
-import serviceCoworking from "@/assets/service-coworking.jpg";
+import aboutCampus from "@/assets/about-campus.webp";
+import palaceCatering from "@/assets/palace-catering.webp";
+import serviceCoworking from "@/assets/service-coworking.webp";
 
 export default function AboutUsEN() {
   return (

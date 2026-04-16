@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
-import serviceMeeting from "@/assets/service-meeting.jpg";
-import serviceTerrace from "@/assets/service-terrace.jpg";
-import servicePrivate from "@/assets/service-private.jpg";
-import serviceRegistration from "@/assets/service-registration.jpg";
-import serviceCoworking from "@/assets/service-coworking.jpg";
-import serviceCommunity from "@/assets/service-community.jpg";
-import serviceAcademy from "@/assets/service-academy.jpg";
-import servicePerks from "@/assets/service-perks.jpg";
+import serviceMeeting from "@/assets/service-meeting.webp";
+import serviceTerrace from "@/assets/service-terrace.webp";
+import servicePrivate from "@/assets/service-private.webp";
+import serviceRegistration from "@/assets/service-registration.webp";
+import serviceCoworking from "@/assets/service-coworking.webp";
+import serviceCommunity from "@/assets/service-community.webp";
+import serviceAcademy from "@/assets/service-academy.webp";
+import servicePerks from "@/assets/service-perks.webp";
 
 const businessServices = [
   { img: serviceMeeting, label: "Meeting Rooms", subtitle: "With catering option", href: "/en/meeting-rooms" },

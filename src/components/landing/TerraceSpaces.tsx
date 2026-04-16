@@ -1,8 +1,8 @@
 import { Users, Wine, Sun, Music, GlassWater } from "lucide-react";
-import terraceHero from "@/assets/terrace-hero.jpg";
-import terraceBar from "@/assets/terrace-bar.jpg";
-import terraceEvents from "@/assets/terrace-events.jpg";
-import terraceCommunity from "@/assets/terrace-community.jpg";
+import terraceHero from "@/assets/terrace-hero.webp";
+import terraceBar from "@/assets/terrace-bar.webp";
+import terraceEvents from "@/assets/terrace-events.webp";
+import terraceCommunity from "@/assets/terrace-community.webp";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";

@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Users, Building2, Sun, Wifi, Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useRef, useState } from "react";
-import terraceHero from "@/assets/terrace-hero.jpg";
-import terraceCommunity from "@/assets/terrace-community.jpg";
-import terraceEvents from "@/assets/terrace-events.jpg";
-import serviceTerrace from "@/assets/service-terrace.jpg";
-import serviceCommunity from "@/assets/service-community.jpg";
+import terraceHero from "@/assets/terrace-hero.webp";
+import terraceCommunity from "@/assets/terrace-community.webp";
+import terraceEvents from "@/assets/terrace-events.webp";
+import serviceTerrace from "@/assets/service-terrace.webp";
+import serviceCommunity from "@/assets/service-community.webp";
 
 const services = [
   { img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", label: "Espacios de Coworking", icon: Users, href: "/es/coworking" },

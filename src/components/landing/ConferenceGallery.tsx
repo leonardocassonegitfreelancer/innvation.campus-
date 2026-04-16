@@ -1,8 +1,8 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "react-router-dom";
-import serviceMeeting from "@/assets/service-meeting.jpg";
-import palaceCoworking from "@/assets/palace-coworking.jpg";
-import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
+import serviceMeeting from "@/assets/service-meeting.webp";
+import palaceCoworking from "@/assets/palace-coworking.webp";
+import palaceSecondFloor from "@/assets/palace-second-floor.webp";
 
 const translations = {
   en: {

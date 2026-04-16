@@ -6,16 +6,16 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Star, Users, Building2, Sun, Wifi, Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useRef, useState } from "react";
-import terraceBar from "@/assets/terrace-bar.jpg";
-import terraceEvents from "@/assets/terrace-events.jpg";
-import terraceHero from "@/assets/terrace-hero.jpg";
-import terraceEntrance from "@/assets/terrace-entrance.jpg";
-import terraceCommunity from "@/assets/terrace-community.jpg";
-import seasideInt from "@/assets/seaside-interior.jpg";
-import serviceCoworking from "@/assets/service-coworking.jpg";
-import serviceMeeting from "@/assets/service-meeting.jpg";
-import serviceTerrace from "@/assets/service-terrace.jpg";
-import serviceCommunity from "@/assets/service-community.jpg";
+import terraceBar from "@/assets/terrace-bar.webp";
+import terraceEvents from "@/assets/terrace-events.webp";
+import terraceHero from "@/assets/terrace-hero.webp";
+import terraceEntrance from "@/assets/terrace-entrance.webp";
+import terraceCommunity from "@/assets/terrace-community.webp";
+import seasideInt from "@/assets/seaside-interior.webp";
+import serviceCoworking from "@/assets/service-coworking.webp";
+import serviceMeeting from "@/assets/service-meeting.webp";
+import serviceTerrace from "@/assets/service-terrace.webp";
+import serviceCommunity from "@/assets/service-community.webp";
 
 const highlights = [
 "Panoramic rooftop terrace",

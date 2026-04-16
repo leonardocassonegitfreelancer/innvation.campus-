@@ -1,5 +1,5 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
-import serviceAcademy from "@/assets/service-academy.jpg";
+import serviceAcademy from "@/assets/service-academy.webp";
 import SEOHead from "@/components/SEOHead";
 import AcademyIntro from "@/components/landing/AcademyIntro";
 import AcademyCourses from "@/components/landing/AcademyCourses";

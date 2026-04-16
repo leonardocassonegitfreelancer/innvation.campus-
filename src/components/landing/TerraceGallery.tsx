@@ -1,8 +1,8 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "react-router-dom";
-import serviceTerrace from "@/assets/service-terrace.jpg";
-import terraceBar from "@/assets/terrace-bar.jpg";
-import terraceCommunity from "@/assets/terrace-community.jpg";
+import serviceTerrace from "@/assets/service-terrace.webp";
+import terraceBar from "@/assets/terrace-bar.webp";
+import terraceCommunity from "@/assets/terrace-community.webp";
 
 const translations = {
   en: { tagline: "Gallery", title: "See Our Terrace" },

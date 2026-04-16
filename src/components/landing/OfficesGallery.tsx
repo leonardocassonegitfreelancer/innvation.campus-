@@ -1,8 +1,8 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "react-router-dom";
-import servicePrivate from "@/assets/service-private.jpg";
-import palaceCoworking from "@/assets/palace-coworking.jpg";
-import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
+import servicePrivate from "@/assets/service-private.webp";
+import palaceCoworking from "@/assets/palace-coworking.webp";
+import palaceSecondFloor from "@/assets/palace-second-floor.webp";
 
 const translations = {
   en: { tagline: "Gallery", title: "See Our Offices" },

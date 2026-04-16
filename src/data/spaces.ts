@@ -1,12 +1,12 @@
-import conferenceHall from "@/assets/conference-picasso.jpg";
-import conferenceHalf from "@/assets/conference-half-picasso.jpg";
-import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.jpg";
-import trainingRoom from "@/assets/service-meeting.jpg";
-import palaceSkylight from "@/assets/palace-skylight.jpg";
-import seasideExterior from "@/assets/seaside-exterior.jpg";
-import terraceBar from "@/assets/terrace-bar.jpg";
-import seasideInterior from "@/assets/seaside-interior.jpg";
-import terraceEvents from "@/assets/terrace-events.jpg";
+import conferenceHall from "@/assets/conference-picasso.webp";
+import conferenceHalf from "@/assets/conference-half-picasso.webp";
+import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.webp";
+import trainingRoom from "@/assets/service-meeting.webp";
+import palaceSkylight from "@/assets/palace-skylight.webp";
+import seasideExterior from "@/assets/seaside-exterior.webp";
+import terraceBar from "@/assets/terrace-bar.webp";
+import seasideInterior from "@/assets/seaside-interior.webp";
+import terraceEvents from "@/assets/terrace-events.webp";
 
 export type EventType = "conference" | "workshop" | "networking" | "party";
 export type LocationType = "city" | "seaside";

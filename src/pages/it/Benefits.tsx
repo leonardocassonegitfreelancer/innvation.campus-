@@ -1,5 +1,5 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
-import servicePerks from "@/assets/service-perks.jpg";
+import servicePerks from "@/assets/service-perks.webp";
 import SEOHead from "@/components/SEOHead";
 import PartnersGrid from "@/components/landing/PartnersGrid";
 

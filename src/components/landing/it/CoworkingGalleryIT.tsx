@@ -2,17 +2,17 @@ import { useState, useRef } from "react";
 import { Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-import palaceCourtyard from "@/assets/palace-courtyard.jpg";
-import palaceOutside from "@/assets/palace-outside.jpg";
-import palaceEntrance from "@/assets/palace-entrance.jpg";
-import palaceSecondFloor from "@/assets/palace-second-floor.jpg";
-import palaceSkylight from "@/assets/palace-skylight.jpg";
-import palaceCoffeeBar from "@/assets/palace-coffee-bar.jpg";
-import palaceCatering from "@/assets/palace-catering.jpg";
-import palaceCoworking from "@/assets/palace-coworking.jpg";
-import terraceCommunity from "@/assets/terrace-community.jpg";
-import terraceEvents from "@/assets/terrace-events.jpg";
-import serviceTerrace from "@/assets/service-terrace.jpg";
+import palaceCourtyard from "@/assets/palace-courtyard.webp";
+import palaceOutside from "@/assets/palace-outside.webp";
+import palaceEntrance from "@/assets/palace-entrance.webp";
+import palaceSecondFloor from "@/assets/palace-second-floor.webp";
+import palaceSkylight from "@/assets/palace-skylight.webp";
+import palaceCoffeeBar from "@/assets/palace-coffee-bar.webp";
+import palaceCatering from "@/assets/palace-catering.webp";
+import palaceCoworking from "@/assets/palace-coworking.webp";
+import terraceCommunity from "@/assets/terrace-community.webp";
+import terraceEvents from "@/assets/terrace-events.webp";
+import serviceTerrace from "@/assets/service-terrace.webp";
 
 const palaceTop = [
   { src: palaceCourtyard, alt: "Cortile del Málaga Palace" },

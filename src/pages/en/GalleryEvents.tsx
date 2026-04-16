@@ -3,12 +3,12 @@ import Footer from "@/components/landing/Footer";
 import SEOHead from "@/components/SEOHead";
 import { useState } from "react";
 
-import serviceCommunity from "@/assets/service-community.jpg";
-import terraceEvents from "@/assets/terrace-events.jpg";
-import terraceCommunity from "@/assets/terrace-community.jpg";
-import palaceCatering from "@/assets/palace-catering.jpg";
-import palaceCourtyard from "@/assets/palace-courtyard.jpg";
-import terraceBar from "@/assets/terrace-bar.jpg";
+import serviceCommunity from "@/assets/service-community.webp";
+import terraceEvents from "@/assets/terrace-events.webp";
+import terraceCommunity from "@/assets/terrace-community.webp";
+import palaceCatering from "@/assets/palace-catering.webp";
+import palaceCourtyard from "@/assets/palace-courtyard.webp";
+import terraceBar from "@/assets/terrace-bar.webp";
 
 type Filter = "all" | "networking" | "workshop" | "talk";
 

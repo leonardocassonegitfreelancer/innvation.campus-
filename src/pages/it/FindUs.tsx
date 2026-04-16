@@ -4,8 +4,8 @@ import SEOHead from "@/components/SEOHead";
 import { MapPin, Clock, Phone, Mail, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import palaceOutside from "@/assets/palace-outside-front.jpg";
-import terraceEntrance from "@/assets/terrace-entrance.jpg";
+import palaceOutside from "@/assets/palace-outside-front.webp";
+import terraceEntrance from "@/assets/terrace-entrance.webp";
 
 const locations = [
   { id: "malaga-palace", name: "Málaga Palace", subtitle: "Centro Storico", address: "Calle Álamos 7, 29012 Málaga", hours: "Lun–Ven 09:30–18:30", phone: "+34 671 44 12 88", email: "info@innovationcampus.biz", mapUrl: "https://maps.google.com/?q=Calle+Álamos+7+29012+Málaga", mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4215!3d36.7213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+%C3%81lamos+7%2C+29012+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1", image: palaceOutside, imagePosition: "bottom", link: "/it/malaga-palace" },

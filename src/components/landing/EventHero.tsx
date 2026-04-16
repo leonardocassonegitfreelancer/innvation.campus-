@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import serviceCommunity from "@/assets/service-community.jpg";
-import terraceHero from "@/assets/terrace-hero.jpg";
+import serviceCommunity from "@/assets/service-community.webp";
+import terraceHero from "@/assets/terrace-hero.webp";
 
 const translations = {
   en: {

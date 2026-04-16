@@ -1,5 +1,5 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
-import serviceTerrace from "@/assets/service-terrace.jpg";
+import serviceTerrace from "@/assets/service-terrace.webp";
 import SEOHead from "@/components/SEOHead";
 import TerraceIntro from "@/components/landing/TerraceIntro";
 import TerraceSpaces from "@/components/landing/TerraceSpaces";

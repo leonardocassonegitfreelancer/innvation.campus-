@@ -1,5 +1,5 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
-import serviceCoworking from "@/assets/service-coworking.jpg";
+import serviceCoworking from "@/assets/service-coworking.webp";
 import SEOHead from "@/components/SEOHead";
 import CoworkingIntro from "@/components/landing/CoworkingIntro";
 import CoworkingPricing from "@/components/landing/CoworkingPricing";
