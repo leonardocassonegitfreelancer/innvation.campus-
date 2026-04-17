@@ -243,7 +243,10 @@ export default function OfficesListings() {
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">
             {t.title}
           </h2>
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
+          <p className="font-body text-muted-foreground mt-3 flex items-center justify-center gap-1.5">
+            <Users className="w-4 h-4" /> 2–50 people
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 mt-6">
             {t.tabs.map((tab) => (
               <button
                 key={tab.value}
