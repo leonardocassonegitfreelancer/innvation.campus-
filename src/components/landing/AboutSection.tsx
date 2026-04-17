@@ -72,7 +72,7 @@ We offer spaces in Málaga, Olbia and Ancona and our eyes always on the people b
               </p>
 
               <p className="font-display text-xl text-primary font-semibold pt-2">
-                Two spaces, one community.
+                One community, many spaces.
               </p>
             </div>
           </div>

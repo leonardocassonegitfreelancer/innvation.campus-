@@ -34,7 +34,7 @@ export default function AboutSectionIT() {
               <p className="text-secondary">
                 E <strong className="text-primary">Málaga Terrace</strong>, affacciato sul Mediterraneo: dove l'azzurro del mare fa da sfondo alle tue giornate e la terrazza ti aspetta quando ne hai bisogno.
               </p>
-              <p className="font-display text-xl text-primary font-semibold pt-2">Due spazi, una comunità.</p>
+              <p className="font-display text-xl text-primary font-semibold pt-2">Una community, tanti spazi.</p>
             </div>
           </div>
         </div>
