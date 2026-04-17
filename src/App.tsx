@@ -19,6 +19,7 @@ const CoworkingSpace = lazy(() => import("./pages/en/CoworkingSpace"));
 const Events = lazy(() => import("./pages/en/Events"));
 const HostYourEvent = lazy(() => import("./pages/en/HostYourEvent"));
 const EventLeadCapture = lazy(() => import("./pages/en/EventLeadCapture"));
+const OfficesLeadCapture = lazy(() => import("./pages/en/OfficesLeadCapture"));
 const Academy = lazy(() => import("./pages/en/Academy"));
 const Benefits = lazy(() => import("./pages/en/Benefits"));
 const Ancona = lazy(() => import("./pages/en/Ancona"));
@@ -73,6 +74,7 @@ const CoworkingSpaceES = lazy(() => import("./pages/es/CoworkingSpace"));
 const EventsES = lazy(() => import("./pages/es/Events"));
 const HostYourEventES = lazy(() => import("./pages/es/HostYourEvent"));
 const EventLeadCaptureES = lazy(() => import("./pages/es/EventLeadCapture"));
+const OfficesLeadCaptureES = lazy(() => import("./pages/es/OfficesLeadCapture"));
 const AcademyES = lazy(() => import("./pages/es/Academy"));
 const BenefitsES = lazy(() => import("./pages/es/Benefits"));
 const BlogES = lazy(() => import("./pages/es/Blog"));
@@ -109,6 +111,7 @@ const CoworkingSpaceIT = lazy(() => import("./pages/it/CoworkingSpace"));
 const EventsIT = lazy(() => import("./pages/it/Events"));
 const HostYourEventIT = lazy(() => import("./pages/it/HostYourEvent"));
 const EventLeadCaptureIT = lazy(() => import("./pages/it/EventLeadCapture"));
+const OfficesLeadCaptureIT = lazy(() => import("./pages/it/OfficesLeadCapture"));
 const AcademyIT = lazy(() => import("./pages/it/Academy"));
 const BenefitsIT = lazy(() => import("./pages/it/Benefits"));
 const BlogIT = lazy(() => import("./pages/it/Blog"));
@@ -163,6 +166,7 @@ const App = () => (
             <Route path="/en/events" element={<Events />} />
             <Route path="/en/host-your-event" element={<HostYourEvent />} />
             <Route path="/en/host-your-event/lead" element={<EventLeadCapture />} />
+            <Route path="/en/private-offices/lead" element={<OfficesLeadCapture />} />
             <Route path="/en/academy" element={<Academy />} />
             <Route path="/en/benefits" element={<Benefits />} />
             <Route path="/en/ancona" element={<Ancona />} />
@@ -226,6 +230,7 @@ const App = () => (
             <Route path="/es/eventos" element={<EventsES />} />
             <Route path="/es/organiza-tu-evento" element={<HostYourEventES />} />
             <Route path="/es/organiza-tu-evento/lead" element={<EventLeadCaptureES />} />
+            <Route path="/es/oficinas-privadas/lead" element={<OfficesLeadCaptureES />} />
             <Route path="/es/academia" element={<AcademyES />} />
             <Route path="/es/beneficios" element={<BenefitsES />} />
             <Route path="/es/blog" element={<BlogES />} />
@@ -262,6 +267,7 @@ const App = () => (
             <Route path="/it/eventi" element={<EventsIT />} />
             <Route path="/it/organizza-evento" element={<HostYourEventIT />} />
             <Route path="/it/organizza-evento/lead" element={<EventLeadCaptureIT />} />
+            <Route path="/it/uffici-privati/lead" element={<OfficesLeadCaptureIT />} />
             <Route path="/it/academy" element={<AcademyIT />} />
             <Route path="/it/vantaggi" element={<BenefitsIT />} />
             <Route path="/it/blog" element={<BlogIT />} />

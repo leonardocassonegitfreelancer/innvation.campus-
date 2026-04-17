@@ -187,7 +187,13 @@ const translations = {
   },
 };
 
-function OfficeCard({ office, requestInfo }: { office: Office; requestInfo: string }) {
+const leadBasePath: Record<string, string> = {
+  en: "/en/private-offices/lead",
+  es: "/es/oficinas-privadas/lead",
+  it: "/it/uffici-privati/lead",
+};
+
+function OfficeCard({ office, requestInfo, lang, location }: { office: Office; requestInfo: string; lang: string; location: string }) {
   return (
     <Card className="relative overflow-hidden transition-all duration-300 hover:shadow-lg border-border">
       <div className="w-full h-48 md:h-56 overflow-hidden">
@@ -212,7 +218,7 @@ function OfficeCard({ office, requestInfo }: { office: Office; requestInfo: stri
           ))}
         </div>
         <Button asChild variant="default" className="bg-primary hover:bg-primary/90 w-full">
-          <a href="#contact">{requestInfo}</a>
+          <a href={`${leadBasePath[lang]}?size=${office.id.split("-")[1]}&location=${location}`}>{requestInfo}</a>
         </Button>
       </CardContent>
     </Card>
@@ -256,7 +262,7 @@ export default function OfficesListings() {
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {offices.map((office) => (
-            <OfficeCard key={office.id} office={office} requestInfo={t.requestInfo} />
+            <OfficeCard key={office.id} office={office} requestInfo={t.requestInfo} lang={lang} location={activeTab} />
           ))}
         </div>
       </div>
