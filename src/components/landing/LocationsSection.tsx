@@ -82,7 +82,7 @@ function LocationCard({
             {tagline}
           </p>
           <h3
-            className={`${isHistoric ? "font-display italic text-neutral-dark" : "font-body font-light text-seaside-text"} text-3xl md:text-4xl font-bold`}>
+            className={`font-bebas ${isHistoric ? "text-neutral-dark" : "text-seaside-text"} text-3xl md:text-4xl`}>
             
             {name}
           </h3>

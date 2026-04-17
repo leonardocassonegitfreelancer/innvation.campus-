@@ -61,7 +61,7 @@ function LocationCard({ name, tagline, img, alt, address, hours, highlights, des
       <div className="p-6 md:p-8 relative z-10 flex flex-col flex-1">
         <div className="mb-4">
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1 font-semibold">{tagline}</p>
-          <h3 className={`${isHistoric ? "font-display italic text-neutral-dark" : "font-body font-light text-seaside-text"} text-3xl md:text-4xl font-bold`}>{name}</h3>
+          <h3 className={`font-bebas ${isHistoric ? "text-neutral-dark" : "text-seaside-text"} text-3xl md:text-4xl`}>{name}</h3>
         </div>
         <p className={`font-body text-sm leading-relaxed mb-6 ${isHistoric ? "text-neutral-dark/80" : "text-seaside-text"}`}>{desc}</p>
         <div className="space-y-3 mb-6">
