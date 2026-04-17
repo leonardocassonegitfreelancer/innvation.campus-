@@ -1,3 +1,23 @@
+# Offices Redesign Implementation Plan
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Replace availability-based office listings with S/M/L size cards — no pricing, no availability — with a contact CTA.
+
+**Architecture:** Single file rewrite of `OfficesListings.tsx`. Keep tab toggle (Palace | Terrace), replace office data with 3 size-based entries per tab. Remove `highlight`, `size` (m²), `comingSoon` logic. CTA links to `#contact`.
+
+**Tech Stack:** React, TypeScript, Tailwind, existing shadcn Card/Button/Badge components.
+
+---
+
+### Task 1: Rewrite OfficesListings.tsx
+
+**Files:**
+- Modify: `src/components/landing/OfficesListings.tsx`
+
+- [ ] **Step 1: Replace the file with the new implementation**
+
+```tsx
 import { useState } from "react";
 import { Users } from "lucide-react";
 import palaceEntrance from "@/assets/palace-entrance.webp";
@@ -263,3 +283,11 @@ export default function OfficesListings() {
     </section>
   );
 }
+```
+
+- [ ] **Step 2: Commit**
+
+```bash
+git add src/components/landing/OfficesListings.tsx
+git commit -m "feat: redesign offices section with S/M/L cards (EN/ES/IT)"
+```
