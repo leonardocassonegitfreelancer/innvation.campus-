@@ -11,7 +11,7 @@ const locations = [
     img: historicExt,
     alt: "Calle del casco antiguo de Málaga con luz dorada",
     address: "Calle Álamos 7 29012, Málaga",
-    hours: "Lun – Vie 09:30–18:30 · 24/7",
+    hours: "Lun–Jue 9:30–18:30 · Vie hasta 17:00",
     highlights: ["4 Plantas", "2 Terrazas", "Bar", "24/7", "Internet rápido"],
     desc: "Ubicado en un edificio restaurado del siglo XVIII cerca del Museo Picasso, este espacio te envuelve en siglos de historia. Perfecto para trabajo profundo, pensamiento estratégico y conversaciones que importan.",
     theme: "historic" as const
@@ -22,7 +22,7 @@ const locations = [
     img: seasideExt,
     alt: "Evento comunitario en la terraza de Innovation Campus Málaga",
     address: "Calle Puerto 14 29016, Málaga",
-    hours: "Lun–Vie 9.30–18.30 · 24/7",
+    hours: "Lun–Jue 9:30–18:30 · Vie hasta 17:00",
     highlights: ["Terraza panorámica", "Escritorios con vista al mar", "Zona creativa abierta", "Cerca del mar"],
     desc: "Cristal, luz y mar. Un espacio moderno diseñado para la energía creativa, la colaboración y ese tipo de libertad que solo viene de trabajar con el horizonte a la vista.",
     theme: "seaside" as const

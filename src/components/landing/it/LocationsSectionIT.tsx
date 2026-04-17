@@ -11,7 +11,7 @@ const locations = [
     img: historicExt,
     alt: "Via del centro storico di Málaga con luce dorata",
     address: "Calle Álamos 7 29012, Málaga",
-    hours: "Lun – Ven 09:30–18:30 · 24/7",
+    hours: "Lun–Gio 9:30–18:30 · Ven fino alle 17:00",
     highlights: ["4 Piani", "2 Terrazze", "Bar", "24/7", "Internet veloce"],
     desc: "Situato in un edificio restaurato del XVIII secolo vicino al Museo Picasso, questo spazio ti avvolge in secoli di storia. Perfetto per il lavoro profondo, il pensiero strategico e le conversazioni che contano.",
     theme: "historic" as const
@@ -22,7 +22,7 @@ const locations = [
     img: seasideExt,
     alt: "Evento comunitario sulla terrazza di Innovation Campus Málaga",
     address: "Calle Puerto 14 29016, Málaga",
-    hours: "Lun–Ven 9.30–18.30 · 24/7",
+    hours: "Lun–Gio 9:30–18:30 · Ven fino alle 17:00",
     highlights: ["Terrazza panoramica", "Scrivanie vista mare", "Zona creativa open space", "Vicino al mare"],
     desc: "Vetro, luce e mare. Uno spazio moderno progettato per l'energia creativa, la collaborazione e quel tipo di libertà che viene solo dal lavorare con l'orizzonte in vista.",
     theme: "seaside" as const
