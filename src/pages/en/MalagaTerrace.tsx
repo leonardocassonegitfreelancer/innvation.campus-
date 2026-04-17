@@ -27,22 +27,22 @@ const highlights = [
 
 
 const services = [
-{ img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", label: "Coworking Spaces", icon: Users, href: "/en/coworking-space" },
-{ img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", label: "Meeting Rooms", icon: Building2, href: "/en/meeting-rooms" },
+{ img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.webp", label: "Coworking Spaces", icon: Users, href: "/en/coworking-space" },
+{ img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.webp", label: "Meeting Rooms", icon: Building2, href: "/en/meeting-rooms" },
 { img: serviceTerrace, label: "Private Terrace", icon: Sun, href: "/en/private-terrace" },
 { img: serviceCommunity, label: "Community Events", icon: Wifi, href: "/en/events" }];
 
 
 const galleryTop = [
-{ src: "/lovable-uploads/d002f55d-0b40-4966-a3c1-172cb490f76f.png", alt: "Málaga Terrace entrance and reception" },
-{ src: "/lovable-uploads/237d9ba8-6193-4e35-a922-d914b6bd9079.jpg", alt: "Málaga Terrace bar area" },
-{ src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.jpg", alt: "Málaga Terrace interior workspace" },
+{ src: "/lovable-uploads/d002f55d-0b40-4966-a3c1-172cb490f76f.webp", alt: "Málaga Terrace entrance and reception" },
+{ src: "/lovable-uploads/237d9ba8-6193-4e35-a922-d914b6bd9079.webp", alt: "Málaga Terrace bar area" },
+{ src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.webp", alt: "Málaga Terrace interior workspace" },
 { src: terraceCommunity, alt: "Málaga Terrace community event" }];
 
 const galleryBottom = [
 { src: terraceEvents, alt: "Málaga Terrace rooftop event" },
-{ src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", alt: "Coworking space at Málaga Terrace" },
-{ src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", alt: "Meeting room at Málaga Terrace" },
+{ src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.webp", alt: "Coworking space at Málaga Terrace" },
+{ src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.webp", alt: "Meeting room at Málaga Terrace" },
 { src: serviceTerrace, alt: "Private terrace at Málaga Terrace" }];
 
 
@@ -135,7 +135,7 @@ export default function MalagaTerrace() {
                 alt="Innovation Campus Terrace bar"
                 className="w-full h-80 md:h-[24rem] object-cover"
                 loading="lazy"
-                src="/lovable-uploads/d9d2b368-e5c7-40e9-af7b-7e21ef4e7e61.png" />
+                src="/lovable-uploads/d9d2b368-e5c7-40e9-af7b-7e21ef4e7e61.webp" />
               
             </div>
           </div>

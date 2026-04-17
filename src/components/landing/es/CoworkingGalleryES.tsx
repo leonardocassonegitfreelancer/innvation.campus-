@@ -27,15 +27,15 @@ const palaceBottom = [
   { src: palaceCoworking, alt: "Coworking del Málaga Palace" },
 ];
 const terraceTop = [
-  { src: "/lovable-uploads/d002f55d-0b40-4966-a3c1-172cb490f76f.png", alt: "Entrada Málaga Terrace" },
-  { src: "/lovable-uploads/237d9ba8-6193-4e35-a922-d914b6bd9079.jpg", alt: "Bar Málaga Terrace" },
-  { src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.jpg", alt: "Interior Málaga Terrace" },
+  { src: "/lovable-uploads/d002f55d-0b40-4966-a3c1-172cb490f76f.webp", alt: "Entrada Málaga Terrace" },
+  { src: "/lovable-uploads/237d9ba8-6193-4e35-a922-d914b6bd9079.webp", alt: "Bar Málaga Terrace" },
+  { src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.webp", alt: "Interior Málaga Terrace" },
   { src: terraceCommunity, alt: "Comunidad Málaga Terrace" },
 ];
 const terraceBottom = [
   { src: terraceEvents, alt: "Evento en la azotea" },
-  { src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", alt: "Coworking en Málaga Terrace" },
-  { src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", alt: "Sala de reuniones Málaga Terrace" },
+  { src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.webp", alt: "Coworking en Málaga Terrace" },
+  { src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.webp", alt: "Sala de reuniones Málaga Terrace" },
   { src: serviceTerrace, alt: "Terraza privada" },
 ];
 

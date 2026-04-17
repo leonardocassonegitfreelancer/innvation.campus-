@@ -31,15 +31,15 @@ const palaceGalleryBottom = [
 ];
 
 const terraceGalleryTop = [
-  { src: "/lovable-uploads/d002f55d-0b40-4966-a3c1-172cb490f76f.png", alt: "Málaga Terrace entrance" },
-  { src: "/lovable-uploads/237d9ba8-6193-4e35-a922-d914b6bd9079.jpg", alt: "Málaga Terrace bar area" },
-  { src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.jpg", alt: "Málaga Terrace interior" },
+  { src: "/lovable-uploads/d002f55d-0b40-4966-a3c1-172cb490f76f.webp", alt: "Málaga Terrace entrance" },
+  { src: "/lovable-uploads/237d9ba8-6193-4e35-a922-d914b6bd9079.webp", alt: "Málaga Terrace bar area" },
+  { src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.webp", alt: "Málaga Terrace interior" },
   { src: terraceCommunity, alt: "Málaga Terrace community" },
 ];
 const terraceGalleryBottom = [
   { src: terraceEvents, alt: "Málaga Terrace rooftop event" },
-  { src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.jpg", alt: "Coworking at Málaga Terrace" },
-  { src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.jpg", alt: "Meeting room at Málaga Terrace" },
+  { src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.webp", alt: "Coworking at Málaga Terrace" },
+  { src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.webp", alt: "Meeting room at Málaga Terrace" },
   { src: serviceTerrace, alt: "Private terrace" },
 ];
 
