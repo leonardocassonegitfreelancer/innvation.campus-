@@ -9,7 +9,7 @@ const translations = {
     subtitle: "Dedicated offices in the heart of Málaga — fully equipped, flexible terms, and surrounded by an international entrepreneurial community.",
     highlights: [
       { icon: Building2, title: "1,500+ m² of Space", desc: "Offices from 5 m² to large open floors across 4 levels" },
-      { icon: Users, title: "Up to 20 People", desc: "Teams of any size, from solo founders to growing teams" },
+      { icon: Users, title: "2–50 People", desc: "Teams of any size, from solo founders to growing teams" },
       { icon: CalendarCheck, title: "Flexible Terms", desc: "Monthly rolling contracts — no long commitments required" },
     ],
   },
@@ -19,7 +19,7 @@ const translations = {
     subtitle: "Oficinas dedicadas en el corazón de Málaga — totalmente equipadas, condiciones flexibles y rodeadas de una comunidad empresarial internacional.",
     highlights: [
       { icon: Building2, title: "Más de 1.500 m²", desc: "Oficinas desde 5 m² hasta grandes plantas abiertas en 4 niveles" },
-      { icon: Users, title: "Hasta 20 Personas", desc: "Equipos de cualquier tamaño, desde fundadores hasta empresas en crecimiento" },
+      { icon: Users, title: "2–50 Personas", desc: "Equipos de cualquier tamaño, desde fundadores hasta empresas en crecimiento" },
       { icon: CalendarCheck, title: "Condiciones Flexibles", desc: "Contratos mensuales renovables — sin compromisos a largo plazo" },
     ],
   },
@@ -29,7 +29,7 @@ const translations = {
     subtitle: "Uffici dedicati nel cuore di Málaga — completamente attrezzati, termini flessibili e circondati da una comunità imprenditoriale internazionale.",
     highlights: [
       { icon: Building2, title: "Oltre 1.500 m²", desc: "Uffici da 5 m² a grandi open space su 4 livelli" },
-      { icon: Users, title: "Fino a 20 Persone", desc: "Team di qualsiasi dimensione, dai fondatori ai team in crescita" },
+      { icon: Users, title: "2–50 Persone", desc: "Team di qualsiasi dimensione, dai fondatori ai team in crescita" },
       { icon: CalendarCheck, title: "Termini Flessibili", desc: "Contratti mensili rinnovabili — nessun impegno a lungo termine" },
     ],
   },
