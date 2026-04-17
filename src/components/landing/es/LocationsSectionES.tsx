@@ -23,7 +23,7 @@ const locations = [
     alt: "Evento comunitario en la terraza de Innovation Campus Málaga",
     address: "Calle Puerto 14 29016, Málaga",
     hours: "Lun–Vie 9.30–18.30 · 24/7",
-    highlights: ["Terraza panorámica", "Escritorios con vista al mar", "Zona creativa abierta", "Ubicación frente al mar"],
+    highlights: ["Terraza panorámica", "Escritorios con vista al mar", "Zona creativa abierta", "Cerca del mar"],
     desc: "Cristal, luz y mar. Un espacio moderno diseñado para la energía creativa, la colaboración y ese tipo de libertad que solo viene de trabajar con el horizonte a la vista.",
     theme: "seaside" as const
   }

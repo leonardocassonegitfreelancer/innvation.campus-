@@ -22,7 +22,7 @@ const locations = [
   alt: "Rooftop terrace community event at Innovation Campus Málaga",
   address: "Calle Puerto 14 29016, Málaga",
   hours: "Mon–Fri 9.30–18.30 · 24/7",
-  highlights: ["Panoramic rooftop terrace", "Ocean-view desks", "Open-plan creative zone", "Beachfront location"],
+  highlights: ["Panoramic rooftop terrace", "Ocean-view desks", "Open-plan creative zone", "Nearby the sea"],
   desc: "Glass, light, and sea. A modern space designed for creative energy, collaboration, and the kind of freedom that only comes from working with the horizon in view.",
   theme: "seaside" as const
 }];
