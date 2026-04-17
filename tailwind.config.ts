@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Playfair Display", "serif"],
-        bebas: ["Bebas Neue", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        display: ["Poppins", "sans-serif"],
+        bebas: ["Poppins", "sans-serif"],
+        body: ["Poppins", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
