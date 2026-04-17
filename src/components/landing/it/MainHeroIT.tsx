@@ -59,7 +59,7 @@ export default function MainHeroIT() {
 
         <div className={`w-12 h-px bg-primary mx-auto mb-6 md:mb-8 transition-all duration-1000 delay-500 ${loaded ? "opacity-100 w-12" : "opacity-0 w-0"}`} />
 
-        <p className={`font-display italic text-lg md:text-xl lg:text-2xl font-light text-white mb-4 leading-snug drop-shadow-[0_1px_4px_rgba(0,0,0,0.4)] transition-all duration-1000 delay-600 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+        <p className={`italic text-lg md:text-xl lg:text-2xl font-light text-white mb-4 leading-snug drop-shadow-[0_1px_4px_rgba(0,0,0,0.4)] transition-all duration-1000 delay-600 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`} style={{ fontFamily: "'Poppins', sans-serif" }}>
           Trasformiamo gli spazi di lavoro in esperienze
         </p>
 
