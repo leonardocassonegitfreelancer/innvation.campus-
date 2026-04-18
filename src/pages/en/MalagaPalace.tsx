@@ -124,7 +124,7 @@ export default function MalagaPalace() {
               <div className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                 <span className="font-body text-sm text-neutral-dark/70">
-                  Mon–Fri 8:00–22:00 · Sat 9:00–18:00
+                  Mon–Thu 9:30 AM – 6:30 PM · Fri 9:30 AM – 5:00 PM
                 </span>
               </div>
               <Button asChild variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 w-fit">

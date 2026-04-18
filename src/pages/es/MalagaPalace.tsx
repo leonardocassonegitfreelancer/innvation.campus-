@@ -105,7 +105,7 @@ export default function MalagaPalaceES() {
               </div>
               <div className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                <span className="font-body text-sm text-neutral-dark/70">Lun–Vie 8:00–22:00 · Sáb 9:00–18:00</span>
+                <span className="font-body text-sm text-neutral-dark/70">Lun–Jue 9:30–18:30 · Vie 9:30–17:00</span>
               </div>
               <Button asChild variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 w-fit">
                 <Link to="/es/encuentranos#malaga-palace">Encuéntranos</Link>

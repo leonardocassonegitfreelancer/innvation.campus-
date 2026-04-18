@@ -76,7 +76,7 @@ export default function MalagaPalaceIT() {
               <h2 className="font-display italic text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Un palazzo rinato per la mente moderna</h2>
               <p className="font-body text-neutral-dark/80 leading-relaxed mb-6">Situato in un edificio restaurato del XVIII secolo vicino al Museo Picasso, questo spazio ti avvolge in secoli di storia.<br />Perfetto per lavoro profondo, pensiero strategico e conversazioni che contano.</p>
               <div className="flex items-start gap-3 mb-3"><MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" /><span className="font-body text-sm text-neutral-dark/70">Calle Álamos 7, 29012 Málaga</span></div>
-              <div className="flex items-start gap-3"><Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" /><span className="font-body text-sm text-neutral-dark/70">Lun–Ven 8:00–22:00 · Sab 9:00–18:00</span></div>
+              <div className="flex items-start gap-3"><Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" /><span className="font-body text-sm text-neutral-dark/70">Lun–Gio 9:30–18:30 · Ven 9:30–17:00</span></div>
               <Button asChild variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 w-fit"><Link to="/it/trovaci#malaga-palace">Trovaci</Link></Button>
             </div>
             <div className="rounded-xl md:rounded-2xl overflow-hidden"><img src={palaceSecondFloor} alt="Secondo piano del Málaga Palace" className="w-full h-[60vh] md:h-[24rem] object-cover" loading="lazy" /></div>
