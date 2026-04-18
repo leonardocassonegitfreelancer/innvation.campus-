@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Do you offer day passes or trial days?",
-    a: "Absolutely. We offer single-day passes and a free trial day so you can experience the space before committing. Just book through our contact form.",
+    a: "These are two different things. Day passes are for anyone who wants to work here occasionally — no membership needed, just show up. Trial days, on the other hand, are reserved for people who are seriously considering a monthly membership and want to experience the space before committing. If you're not sure whether you'll be coming regularly, a day pass is what you're looking for.",
   },
   {
     q: "What membership plans are available?",

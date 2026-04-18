@@ -34,7 +34,7 @@ const monthlyPlans: PlanCard[] = [
     url: "https://members.innovationcampus.biz/signup?plan=FL12",
     features: [
       "Accesso 12 giorni/mese",
-      "Lunedì a Venerdì, 7–23",
+      "Accesso 24/7",
       "Scrivania Flessibile",
       "Sale Riunioni 2h/mese",
       "150 stampe",
@@ -50,7 +50,7 @@ const monthlyPlans: PlanCard[] = [
     url: "https://members.innovationcampus.biz/signup?plan=FL7",
     features: [
       "Accesso 7 giorni/mese",
-      "Lunedì a Venerdì, 7–23",
+      "Accesso 24/7",
       "Scrivania Flessibile",
       "Sale Riunioni 1h/mese",
       "50 stampe",
@@ -68,7 +68,7 @@ const shortStayPlans: PlanCard[] = [
     url: "https://members.innovationcampus.biz/signup?plan=2We",
     features: [
       "Due settimane consecutive",
-      "7–23",
+      "Accesso 24/7",
       "Scrivania Flessibile",
       "Sale Riunioni 2h",
       "100 stampe",
@@ -83,7 +83,7 @@ const shortStayPlans: PlanCard[] = [
     url: "https://members.innovationcampus.biz/signup?plan=1WE",
     features: [
       "Una settimana consecutiva",
-      "7–23",
+      "Accesso 24/7",
       "Scrivania Flessibile",
       "Sale Riunioni 1h",
       "50 stampe",

@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: "Offrite pass giornalieri o giorni di prova?",
-    a: "Assolutamente. Offriamo pass giornalieri e un giorno di prova gratuito per permetterti di sperimentare lo spazio prima di impegnarti. Basta prenotare tramite il nostro modulo di contatto.",
+    a: "Sono due cose diverse. I pass giornalieri sono per chiunque voglia lavorare qui occasionalmente — nessuna membership richiesta, vieni e basta. I giorni di prova, invece, sono riservati a chi sta valutando seriamente una membership mensile e vuole vivere lo spazio prima di impegnarsi. Se non sai ancora se verrai con regolarità, il pass giornaliero è quello che fa per te.",
   },
   {
     q: "Quali piani di abbonamento sono disponibili?",

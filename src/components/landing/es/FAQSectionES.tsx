@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: "¿Ofrecen pases de día o días de prueba?",
-    a: "Absolutamente. Ofrecemos pases de un día y un día de prueba gratuito para que puedas experimentar el espacio antes de comprometerte. Solo reserva a través de nuestro formulario de contacto.",
+    a: "Son dos cosas distintas. Los pases de día son para cualquiera que quiera trabajar aquí de forma ocasional — sin membresía, solo ven. Los días de prueba, en cambio, están reservados para personas que están considerando seriamente una membresía mensual y quieren experimentar el espacio antes de comprometerse. Si no tienes claro si vendrás con regularidad, el pase de día es lo que buscas.",
   },
   {
     q: "¿Qué planes de membresía están disponibles?",
