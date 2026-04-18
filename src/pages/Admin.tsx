@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -153,6 +154,8 @@ export default function Admin() {
 
   if (!authenticated) {
     return (
+      <>
+        <SEOHead title="Admin" description="Team access" path="/admin" noIndex={true} />
       <div className="min-h-screen bg-background flex items-center justify-center px-4">
         <Card className="w-full max-w-sm">
           <CardHeader className="text-center">
@@ -183,10 +186,13 @@ export default function Admin() {
           </CardContent>
         </Card>
       </div>
+      </>
     );
   }
 
   return (
+    <>
+      <SEOHead title="Admin" description="Team access" path="/admin" noIndex={true} />
     <div className="min-h-screen bg-background">
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="flex items-center gap-3 mb-8">
@@ -259,5 +265,6 @@ export default function Admin() {
         </div>
       </div>
     </div>
+    </>
   );
 }
