@@ -19,7 +19,6 @@ const translations = {
     bookNow: "Request Now!",
     extrasTitle: "Optional Add-ons",
     extras: [
-      "Phone answering: from €49/month",
       "Complete mail scanning: from €9/month",
       "Complete mail forwarding: from €19/month"
     ],
@@ -59,7 +58,6 @@ const translations = {
     bookNow: "¡Solicitar Ahora!",
     extrasTitle: "Extras Opcionales",
     extras: [
-      "Atención telefónica: desde 49€/mes",
       "Escaneo de todo el correo: desde 9€/mes",
       "Reenvío de todo el correo: desde 19€/mes"
     ],
@@ -99,7 +97,6 @@ const translations = {
     bookNow: "Richiedi Ora!",
     extrasTitle: "Extra Opzionali",
     extras: [
-      "Risposta telefonica: da 49€/mese",
       "Scansione posta: da 9€/mese",
       "Inoltro posta: da 19€/mese"
     ],
