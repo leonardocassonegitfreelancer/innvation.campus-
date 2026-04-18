@@ -2,7 +2,7 @@ import { Wifi, Users, MapPin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const highlights = [
-  { icon: Wifi, label: "WiFi 200Mbps", desc: "Fibra ottica, connessione affidabile" },
+  { icon: Wifi, label: "WiFi Veloce", desc: "Fibra ottica, connessione affidabile" },
   { icon: MapPin, label: "2 Sedi", desc: "Centro Storico e Lungomare" },
   { icon: Users, label: "Comunità Attiva", desc: "Eventi, networking e vantaggi" },
 ];
