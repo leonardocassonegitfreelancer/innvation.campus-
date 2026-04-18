@@ -14,7 +14,7 @@ const localBusinessJsonLd = {
   "@type": "CoworkingSpace",
   "name": "Innovation Campus",
   "description": "Two coworking spaces in Málaga, Spain. One in the historic heart, one by the sea.",
-  "url": "https://malaga-duality-landing.lovable.app",
+  "url": "https://innovationcampus.biz",
   "address": [
     {
       "@type": "PostalAddress",
@@ -27,7 +27,7 @@ const localBusinessJsonLd = {
       "addressCountry": "IT"
     }
   ],
-  "openingHours": "Mo-Fr 09:00-19:00",
+  "openingHours": ["Mo-Th 09:30-18:30", "Fr 09:30-17:00"],
   "sameAs": []
 };
 
