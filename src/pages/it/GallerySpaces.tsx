@@ -73,7 +73,7 @@ export default function GallerySpacesIT() {
   return (
     <>
       <SEOHead
-        title="Galleria Spazi — Innovation Campus"
+        title="Galleria Spazi"
         description="Esplora i nostri spazi di coworking, sale riunioni e venue a Málaga, Ancona e Olbia."
         path="/it/galleria/spazi"
       />

@@ -66,7 +66,7 @@ export default function FindUs() {
   return (
     <main className="overflow-x-hidden">
       <SEOHead
-        title="Find Us – Innovation Campus Locations"
+        title="Find Us – All Locations"
         description="Find directions and contact details for all Innovation Campus coworking locations in Málaga, Ancona, and Olbia."
         path="/en/find-us"
       />

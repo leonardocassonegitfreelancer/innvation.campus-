@@ -10,7 +10,7 @@ export default function GalleryEN() {
   return (
     <>
       <SEOHead
-        title="Gallery — Innovation Campus"
+        title="Gallery"
         description="Browse photos of our spaces and community events across Málaga, Ancona and Olbia."
         path="/en/gallery"
       />

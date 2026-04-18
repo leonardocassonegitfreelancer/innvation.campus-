@@ -11,7 +11,7 @@ export default function AboutUsES() {
   return (
     <>
       <SEOHead
-        title="Quiénes Somos — Innovation Campus"
+        title="Quiénes Somos"
         description="Innovation Campus crea espacios de trabajo inspiradores y cultiva comunidades emprendedoras internacionales en España e Italia."
         path="/es/quienes-somos"
       />

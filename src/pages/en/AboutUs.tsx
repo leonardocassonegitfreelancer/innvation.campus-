@@ -11,7 +11,7 @@ export default function AboutUsEN() {
   return (
     <>
       <SEOHead
-        title="About Us — Innovation Campus"
+        title="About Us"
         description="Innovation Campus creates inspiring workspaces and cultivates international business-minded communities across Spain and Italy."
         path="/en/about-us"
       />

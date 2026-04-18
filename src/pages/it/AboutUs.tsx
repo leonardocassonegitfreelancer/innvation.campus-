@@ -11,7 +11,7 @@ export default function AboutUsIT() {
   return (
     <>
       <SEOHead
-        title="Chi Siamo — Innovation Campus"
+        title="Chi Siamo"
         description="Innovation Campus crea spazi di lavoro ispiranti e coltiva comunità imprenditoriali internazionali in Spagna e Italia."
         path="/it/chi-siamo"
       />

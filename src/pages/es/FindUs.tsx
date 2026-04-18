@@ -66,7 +66,7 @@ export default function FindUsES() {
   return (
     <main className="overflow-x-hidden">
       <SEOHead
-        title="Encuéntranos – Ubicaciones de Innovation Campus"
+        title="Encuéntranos – Todas las Ubicaciones"
         description="Encuentra direcciones y datos de contacto de todas las ubicaciones de Innovation Campus en Málaga, Ancona y Olbia."
         path="/es/encuentranos"
       />

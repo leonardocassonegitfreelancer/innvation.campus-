@@ -36,7 +36,7 @@ export default function GalleryEventsIT() {
   return (
     <>
       <SEOHead
-        title="Galleria Eventi — Innovation Campus"
+        title="Galleria Eventi"
         description="Foto degli eventi comunitari, serate di networking, workshop e talk a Innovation Campus Málaga."
         path="/it/galleria/eventi"
       />

@@ -73,7 +73,7 @@ export default function GallerySpacesEN() {
   return (
     <>
       <SEOHead
-        title="Spaces Gallery — Innovation Campus"
+        title="Spaces Gallery"
         description="Explore our coworking spaces, meeting rooms, and venues across Málaga, Ancona and Olbia."
         path="/en/gallery/spaces"
       />
