@@ -1,7 +1,6 @@
 import ServicePageLayout from "@/components/landing/ServicePageLayout";
 import serviceMeeting from "@/assets/service-meeting.webp";
 import SEOHead from "@/components/SEOHead";
-import ConferenceIntro from "@/components/landing/ConferenceIntro";
 import ConferenceRooms from "@/components/landing/ConferenceRooms";
 import ConferenceIncludes from "@/components/landing/ConferenceIncludes";
 import ConferenceGallery from "@/components/landing/ConferenceGallery";
@@ -20,7 +19,6 @@ export default function MeetingRoomsIT() {
         subtitle="Spazi per riunioni professionali con opzioni di catering per team di tutte le dimensioni."
         image={serviceMeeting}
       >
-        <ConferenceIntro />
         <ConferenceRooms />
         <ConferenceIncludes />
         <ConferenceGallery />
