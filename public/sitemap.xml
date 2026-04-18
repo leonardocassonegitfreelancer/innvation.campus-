@@ -107,6 +107,22 @@
   <url><loc>https://innovationcampus.biz/es/beneficios</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://innovationcampus.biz/it/vantaggi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
+  <!-- ABOUT US -->
+  <url><loc>https://innovationcampus.biz/en/about-us</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/es/quienes-somos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/it/chi-siamo</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- GALLERY -->
+  <url><loc>https://innovationcampus.biz/en/gallery</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/en/gallery/spaces</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/en/gallery/events</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/es/galeria</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/es/galeria/espacios</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/es/galeria/eventos</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/it/galleria</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/it/galleria/spazi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://innovationcampus.biz/it/galleria/eventi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
   <!-- EVENT DETAIL PAGES -->
   <!-- Ladies That UX -->
   <url><loc>https://innovationcampus.biz/en/events/ladies-that-ux-malaga-apr-2026</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
