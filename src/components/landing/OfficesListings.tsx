@@ -53,7 +53,7 @@ const translations = {
       },
       {
         id: "palace-large",
-        sizeLabel: "Large Office",
+        sizeLabel: "Big Office",
         capacity: "9–15 people",
         features: ["Fully accessible", "Catering option", "Air conditioning", "Event-ready"],
         image: palaceEntrance,
@@ -79,7 +79,7 @@ const translations = {
       },
       {
         id: "terrace-large",
-        sizeLabel: "Large Office",
+        sizeLabel: "Big Office",
         capacity: "9–20 people",
         features: ["5th floor", "Panoramic views", "Air conditioning", "Fully isolated"],
         image: terraceCommunity,
@@ -116,7 +116,7 @@ const translations = {
       },
       {
         id: "palace-large",
-        sizeLabel: "Large Office",
+        sizeLabel: "Big Office",
         capacity: "9–15 personas",
         features: ["Totalmente accesible", "Servicio de catering", "Aire acondicionado", "Lista para eventos"],
         image: palaceEntrance,
@@ -142,7 +142,7 @@ const translations = {
       },
       {
         id: "terrace-large",
-        sizeLabel: "Large Office",
+        sizeLabel: "Big Office",
         capacity: "9–20 personas",
         features: ["5ª planta", "Vistas panorámicas", "Aire acondicionado", "Totalmente aislada"],
         image: terraceCommunity,
@@ -179,7 +179,7 @@ const translations = {
       },
       {
         id: "palace-large",
-        sizeLabel: "Large Office",
+        sizeLabel: "Big Office",
         capacity: "9–15 persone",
         features: ["Completamente accessibile", "Servizio catering", "Aria condizionata", "Pronto per eventi"],
         image: palaceEntrance,
@@ -205,7 +205,7 @@ const translations = {
       },
       {
         id: "terrace-large",
-        sizeLabel: "Large Office",
+        sizeLabel: "Big Office",
         capacity: "9–20 persone",
         features: ["5° piano", "Vista panoramica", "Aria condizionata", "Completamente isolato"],
         image: terraceCommunity,
