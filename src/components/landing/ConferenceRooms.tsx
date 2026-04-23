@@ -16,14 +16,19 @@ interface Room {
   capacity: string;
   features: string[];
   highlight: boolean;
-  size: "small" | "medium" | "big";
+  roomType: "conference" | "training" | "focus";
+  size?: "small" | "medium" | "large";
 }
 
 const translations = {
   en: {
     tagline: "Our Rooms",
     title: "Choose Your Space",
-    sizeLabels: { small: "Small", medium: "Medium", big: "Big" },
+    sizeLabels: { small: "Small", medium: "Medium", large: "Large" },
+    conferenceRoomsLabel: "Conference Rooms",
+    otherSpacesLabel: "Other Spaces",
+    trainingBadge: "Training",
+    focusBadge: "Focus Pod",
     requestQuote: "Request Quote",
     viewDetails: "View Details",
     tabs: [
@@ -37,7 +42,8 @@ const translations = {
         capacity: "Up to 80 people",
         features: ["85\" 4K Display", "Premium Video Conferencing", "Large Whiteboard", "Flexible Layout"],
         highlight: true,
-        size: "big",
+        roomType: "conference",
+        size: "large",
       },
       {
         id: "large-conference",
@@ -45,6 +51,7 @@ const translations = {
         capacity: "Up to 50 people",
         features: ["55\" 4K Display", "Video Conferencing", "Whiteboard", "Boardroom Setup"],
         highlight: false,
+        roomType: "conference",
         size: "medium",
       },
       {
@@ -53,7 +60,24 @@ const translations = {
         capacity: "Up to 30 people",
         features: ["43\" Display", "Video Conferencing", "Whiteboard", "Intimate Setting"],
         highlight: false,
+        roomType: "conference",
         size: "small",
+      },
+      {
+        id: "training-room",
+        name: "Training Room",
+        capacity: "Up to 40 people",
+        features: ["4K Projector", "Classroom Layout", "Whiteboard Wall", "Breakout Areas"],
+        highlight: false,
+        roomType: "training",
+      },
+      {
+        id: "phone-booth",
+        name: "Phone Booth",
+        capacity: "1–2 people",
+        features: ["Soundproofed", "27\" Display", "Video Call Ready", "Noise-Cancelling Mic"],
+        highlight: false,
+        roomType: "focus",
       },
     ] as Room[],
     seasideRooms: [
@@ -63,7 +87,8 @@ const translations = {
         capacity: "Up to 40 people",
         features: ["65\" 4K Display", "Video Conferencing", "Sea Views", "Flexible Layout"],
         highlight: true,
-        size: "big",
+        roomType: "conference",
+        size: "large",
       },
       {
         id: "seaside-meeting",
@@ -71,6 +96,7 @@ const translations = {
         capacity: "Up to 12 people",
         features: ["55\" Display", "Video Conferencing", "Whiteboard", "Terrace Access"],
         highlight: false,
+        roomType: "conference",
         size: "small",
       },
     ] as Room[],
@@ -78,7 +104,11 @@ const translations = {
   es: {
     tagline: "Nuestras Salas",
     title: "Elige Tu Espacio",
-    sizeLabels: { small: "Pequeña", medium: "Mediana", big: "Grande" },
+    sizeLabels: { small: "Pequeña", medium: "Mediana", large: "Grande" },
+    conferenceRoomsLabel: "Salas de Conferencias",
+    otherSpacesLabel: "Otros Espacios",
+    trainingBadge: "Formación",
+    focusBadge: "Focus Pod",
     requestQuote: "Solicitar Presupuesto",
     viewDetails: "Ver Detalles",
     tabs: [
@@ -92,7 +122,8 @@ const translations = {
         capacity: "Hasta 80 personas",
         features: ["Pantalla 4K 85\"", "Videoconferencia Premium", "Pizarra Grande", "Disposición Flexible"],
         highlight: true,
-        size: "big",
+        roomType: "conference",
+        size: "large",
       },
       {
         id: "large-conference",
@@ -100,6 +131,7 @@ const translations = {
         capacity: "Hasta 50 personas",
         features: ["Pantalla 4K 55\"", "Videoconferencia", "Pizarra", "Mesa de Juntas"],
         highlight: false,
+        roomType: "conference",
         size: "medium",
       },
       {
@@ -108,7 +140,24 @@ const translations = {
         capacity: "Hasta 30 personas",
         features: ["Pantalla 43\"", "Videoconferencia", "Pizarra", "Ambiente Íntimo"],
         highlight: false,
+        roomType: "conference",
         size: "small",
+      },
+      {
+        id: "training-room",
+        name: "Training Room",
+        capacity: "Hasta 40 personas",
+        features: ["Proyector 4K", "Disposición Aula", "Pared Pizarra", "Zonas de Descanso"],
+        highlight: false,
+        roomType: "training",
+      },
+      {
+        id: "phone-booth",
+        name: "Phone Booth",
+        capacity: "1–2 personas",
+        features: ["Insonorizada", "Pantalla 27\"", "Lista para Video", "Micro Cancelación Ruido"],
+        highlight: false,
+        roomType: "focus",
       },
     ] as Room[],
     seasideRooms: [
@@ -118,7 +167,8 @@ const translations = {
         capacity: "Hasta 40 personas",
         features: ["Pantalla 4K 65\"", "Videoconferencia", "Vistas al Mar", "Disposición Flexible"],
         highlight: true,
-        size: "big",
+        roomType: "conference",
+        size: "large",
       },
       {
         id: "seaside-meeting",
@@ -126,6 +176,7 @@ const translations = {
         capacity: "Hasta 12 personas",
         features: ["Pantalla 55\"", "Videoconferencia", "Pizarra", "Acceso Terraza"],
         highlight: false,
+        roomType: "conference",
         size: "small",
       },
     ] as Room[],
@@ -133,7 +184,11 @@ const translations = {
   it: {
     tagline: "Le Nostre Sale",
     title: "Scegli il Tuo Spazio",
-    sizeLabels: { small: "Piccola", medium: "Media", big: "Grande" },
+    sizeLabels: { small: "Piccola", medium: "Media", large: "Grande" },
+    conferenceRoomsLabel: "Sale Conferenze",
+    otherSpacesLabel: "Altri Spazi",
+    trainingBadge: "Formazione",
+    focusBadge: "Focus Pod",
     requestQuote: "Richiedi Preventivo",
     viewDetails: "Vedi Dettagli",
     tabs: [
@@ -147,7 +202,8 @@ const translations = {
         capacity: "Fino a 80 persone",
         features: ["Display 4K 85\"", "Videoconferenza Premium", "Grande Lavagna", "Layout Flessibile"],
         highlight: true,
-        size: "big",
+        roomType: "conference",
+        size: "large",
       },
       {
         id: "large-conference",
@@ -155,6 +211,7 @@ const translations = {
         capacity: "Fino a 50 persone",
         features: ["Display 4K 55\"", "Videoconferenza", "Lavagna", "Configurazione Boardroom"],
         highlight: false,
+        roomType: "conference",
         size: "medium",
       },
       {
@@ -163,7 +220,24 @@ const translations = {
         capacity: "Fino a 30 persone",
         features: ["Display 43\"", "Videoconferenza", "Lavagna", "Ambiente Intimo"],
         highlight: false,
+        roomType: "conference",
         size: "small",
+      },
+      {
+        id: "training-room",
+        name: "Training Room",
+        capacity: "Fino a 40 persone",
+        features: ["Proiettore 4K", "Layout Aula", "Parete Lavagna", "Aree Breakout"],
+        highlight: false,
+        roomType: "training",
+      },
+      {
+        id: "phone-booth",
+        name: "Phone Booth",
+        capacity: "1–2 persone",
+        features: ["Insonorizzata", "Display 27\"", "Video Call Ready", "Microfono Antirumore"],
+        highlight: false,
+        roomType: "focus",
       },
     ] as Room[],
     seasideRooms: [
@@ -173,7 +247,8 @@ const translations = {
         capacity: "Fino a 40 persone",
         features: ["Display 4K 65\"", "Videoconferenza", "Vista Mare", "Layout Flessibile"],
         highlight: true,
-        size: "big",
+        roomType: "conference",
+        size: "large",
       },
       {
         id: "seaside-meeting",
@@ -181,6 +256,7 @@ const translations = {
         capacity: "Fino a 12 persone",
         features: ["Display 55\"", "Videoconferenza", "Lavagna", "Accesso Terrazza"],
         highlight: false,
+        roomType: "conference",
         size: "small",
       },
     ] as Room[],
@@ -191,6 +267,8 @@ const roomImages: Record<string, string> = {
   "big-conference": conferencePicasso2,
   "large-conference": conferenceHalfPicasso2,
   "quarter-conference": conferenceQuarterPicasso,
+  "training-room": conferenceQuarterPicasso,
+  "phone-booth": conferenceQuarterPicasso,
 };
 
 const roomPaths: Record<string, Record<string, string>> = {
@@ -198,22 +276,35 @@ const roomPaths: Record<string, Record<string, string>> = {
     "big-conference": "/en/meeting-rooms/big-conference-room",
     "large-conference": "/en/meeting-rooms/large-conference-room",
     "quarter-conference": "/en/meeting-rooms/quarter-conference-room",
+    "training-room": "/en/meeting-rooms/training-room",
+    "phone-booth": "/en/meeting-rooms/phone-booth",
   },
   es: {
     "big-conference": "/es/salas/gran-sala-conferencias",
     "large-conference": "/es/salas/gran-sala-conferencias-2",
     "quarter-conference": "/es/salas/sala-quarter",
+    "training-room": "/es/salas/sala-formacion",
+    "phone-booth": "/es/salas/cabina-telefonica",
   },
   it: {
     "big-conference": "/it/sale/grande-sala-conferenze",
     "large-conference": "/it/sale/grande-sala-conferenze-2",
     "quarter-conference": "/it/sale/sala-quarter",
+    "training-room": "/it/sale/sala-formazione",
+    "phone-booth": "/it/sale/cabina-telefonica",
   },
 };
 
 function RoomCard({ room, lang, t }: { room: Room; lang: string; t: typeof translations.en }) {
   const roomPath = roomPaths[lang]?.[room.id];
   const image = roomImages[room.id];
+
+  const badge =
+    room.roomType === "conference" && room.size
+      ? t.sizeLabels[room.size]
+      : room.roomType === "training"
+        ? t.trainingBadge
+        : t.focusBadge;
 
   return (
     <Card
@@ -236,7 +327,7 @@ function RoomCard({ room, lang, t }: { room: Room; lang: string; t: typeof trans
         </div>
       )}
       <Badge className="absolute top-4 right-4 bg-background/90 text-foreground border border-border backdrop-blur-sm">
-        {t.sizeLabels[room.size]}
+        {badge}
       </Badge>
       <CardHeader>
         <CardTitle className={`font-display ${room.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
@@ -260,9 +351,9 @@ function RoomCard({ room, lang, t }: { room: Room; lang: string; t: typeof trans
         </div>
         <div className="flex gap-3">
           {roomPath && (
-              <Button asChild variant="default" className="bg-primary hover:bg-primary/90">
-                <Link to={roomPath}>{t.viewDetails}</Link>
-              </Button>
+            <Button asChild variant="default" className="bg-primary hover:bg-primary/90">
+              <Link to={roomPath}>{t.viewDetails}</Link>
+            </Button>
           )}
         </div>
       </CardContent>
@@ -278,6 +369,9 @@ export default function ConferenceRooms() {
   const t = translations[lang];
 
   const rooms = activeTab === "centre" ? t.centreRooms : t.seasideRooms;
+  const conferenceRooms = rooms.filter(r => r.roomType === "conference");
+  const otherRooms = rooms.filter(r => r.roomType !== "conference");
+  const hasSections = otherRooms.length > 0;
 
   return (
     <section id={activeTab === "centre" ? "centre" : "seaside"} className="py-20 md:py-28 bg-background">
@@ -309,11 +403,37 @@ export default function ConferenceRooms() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {rooms.map((room) => (
-            <RoomCard key={room.id} room={room} lang={lang} t={t} />
-          ))}
-        </div>
+        {hasSections ? (
+          <>
+            <div className="mb-10">
+              <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6 font-semibold">
+                {t.conferenceRoomsLabel}
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                {conferenceRooms.map((room) => (
+                  <RoomCard key={room.id} room={room} lang={lang} t={t} />
+                ))}
+              </div>
+            </div>
+            <div className="border-t border-border/50 my-10" />
+            <div>
+              <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6 font-semibold">
+                {t.otherSpacesLabel}
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                {otherRooms.map((room) => (
+                  <RoomCard key={room.id} room={room} lang={lang} t={t} />
+                ))}
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="grid md:grid-cols-2 gap-6">
+            {rooms.map((room) => (
+              <RoomCard key={room.id} room={room} lang={lang} t={t} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
