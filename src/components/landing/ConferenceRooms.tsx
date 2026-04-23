@@ -189,10 +189,8 @@ const translations = {
 
 const roomImages: Record<string, string> = {
   "big-conference": conferencePicasso2,
-  "training-room": conferenceQuarterPicasso,
   "large-conference": conferenceHalfPicasso2,
   "quarter-conference": conferenceQuarterPicasso,
-  "phone-booth": conferenceQuarterPicasso,
 };
 
 const roomPaths: Record<string, Record<string, string>> = {
@@ -200,22 +198,16 @@ const roomPaths: Record<string, Record<string, string>> = {
     "big-conference": "/en/meeting-rooms/big-conference-room",
     "large-conference": "/en/meeting-rooms/large-conference-room",
     "quarter-conference": "/en/meeting-rooms/quarter-conference-room",
-    "training-room": "/en/meeting-rooms/training-room",
-    "phone-booth": "/en/meeting-rooms/phone-booth",
   },
   es: {
     "big-conference": "/es/salas/gran-sala-conferencias",
     "large-conference": "/es/salas/gran-sala-conferencias-2",
     "quarter-conference": "/es/salas/sala-quarter",
-    "training-room": "/es/salas/sala-formacion",
-    "phone-booth": "/es/salas/cabina-telefonica",
   },
   it: {
     "big-conference": "/it/sale/grande-sala-conferenze",
     "large-conference": "/it/sale/grande-sala-conferenze-2",
     "quarter-conference": "/it/sale/sala-quarter",
-    "training-room": "/it/sale/sala-formazione",
-    "phone-booth": "/it/sale/cabina-telefonica",
   },
 };
 
