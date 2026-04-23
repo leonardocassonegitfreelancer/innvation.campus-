@@ -16,16 +16,16 @@ interface Room {
   capacity: string;
   features: string[];
   highlight: boolean;
+  size: "small" | "medium" | "big";
 }
 
 const translations = {
   en: {
     tagline: "Our Rooms",
     title: "Choose Your Space",
-    flagship: "popular",
+    sizeLabels: { small: "Small", medium: "Medium", big: "Big" },
     requestQuote: "Request Quote",
     viewDetails: "View Details",
-    comingSoon: "Coming Soon",
     tabs: [
       { value: "centre" as const, label: "Málaga Palace — Historic Center" },
       { value: "seaside" as const, label: "Málaga Terrace — Seaside" },
@@ -37,6 +37,7 @@ const translations = {
         capacity: "Up to 80 people",
         features: ["85\" 4K Display", "Premium Video Conferencing", "Large Whiteboard", "Flexible Layout"],
         highlight: true,
+        size: "big",
       },
       {
         id: "large-conference",
@@ -44,6 +45,7 @@ const translations = {
         capacity: "Up to 50 people",
         features: ["55\" 4K Display", "Video Conferencing", "Whiteboard", "Boardroom Setup"],
         highlight: false,
+        size: "medium",
       },
       {
         id: "quarter-conference",
@@ -51,20 +53,7 @@ const translations = {
         capacity: "Up to 30 people",
         features: ["43\" Display", "Video Conferencing", "Whiteboard", "Intimate Setting"],
         highlight: false,
-      },
-      {
-        id: "training-room",
-        name: "Training Room",
-        capacity: "Up to 40 people",
-        features: ["4K Projector", "Classroom Layout", "Whiteboard Wall", "Breakout Areas"],
-        highlight: false,
-      },
-      {
-        id: "phone-booth",
-        name: "Phone Booth",
-        capacity: "1–2 people",
-        features: ["Soundproofed", "27\" Display", "Video Call Ready", "Noise-Cancelling Mic"],
-        highlight: false,
+        size: "small",
       },
     ] as Room[],
     seasideRooms: [
@@ -74,6 +63,7 @@ const translations = {
         capacity: "Up to 40 people",
         features: ["65\" 4K Display", "Video Conferencing", "Sea Views", "Flexible Layout"],
         highlight: true,
+        size: "big",
       },
       {
         id: "seaside-meeting",
@@ -81,16 +71,16 @@ const translations = {
         capacity: "Up to 12 people",
         features: ["55\" Display", "Video Conferencing", "Whiteboard", "Terrace Access"],
         highlight: false,
+        size: "small",
       },
     ] as Room[],
   },
   es: {
     tagline: "Nuestras Salas",
     title: "Elige Tu Espacio",
-    flagship: "Sala Principal",
+    sizeLabels: { small: "Pequeña", medium: "Mediana", big: "Grande" },
     requestQuote: "Solicitar Presupuesto",
     viewDetails: "Ver Detalles",
-    comingSoon: "Próximamente",
     tabs: [
       { value: "centre" as const, label: "Málaga Palace — Centro Histórico" },
       { value: "seaside" as const, label: "Málaga Terrace — Frente al Mar" },
@@ -102,6 +92,7 @@ const translations = {
         capacity: "Hasta 80 personas",
         features: ["Pantalla 4K 85\"", "Videoconferencia Premium", "Pizarra Grande", "Disposición Flexible"],
         highlight: true,
+        size: "big",
       },
       {
         id: "large-conference",
@@ -109,6 +100,7 @@ const translations = {
         capacity: "Hasta 50 personas",
         features: ["Pantalla 4K 55\"", "Videoconferencia", "Pizarra", "Mesa de Juntas"],
         highlight: false,
+        size: "medium",
       },
       {
         id: "quarter-conference",
@@ -116,20 +108,7 @@ const translations = {
         capacity: "Hasta 30 personas",
         features: ["Pantalla 43\"", "Videoconferencia", "Pizarra", "Ambiente Íntimo"],
         highlight: false,
-      },
-      {
-        id: "training-room",
-        name: "Training Room",
-        capacity: "Hasta 40 personas",
-        features: ["Proyector 4K", "Disposición Aula", "Pared Pizarra", "Zonas de Descanso"],
-        highlight: false,
-      },
-      {
-        id: "phone-booth",
-        name: "Phone Booth",
-        capacity: "1–2 personas",
-        features: ["Insonorizada", "Pantalla 27\"", "Lista para Video", "Micro Cancelación Ruido"],
-        highlight: false,
+        size: "small",
       },
     ] as Room[],
     seasideRooms: [
@@ -139,6 +118,7 @@ const translations = {
         capacity: "Hasta 40 personas",
         features: ["Pantalla 4K 65\"", "Videoconferencia", "Vistas al Mar", "Disposición Flexible"],
         highlight: true,
+        size: "big",
       },
       {
         id: "seaside-meeting",
@@ -146,16 +126,16 @@ const translations = {
         capacity: "Hasta 12 personas",
         features: ["Pantalla 55\"", "Videoconferencia", "Pizarra", "Acceso Terraza"],
         highlight: false,
+        size: "small",
       },
     ] as Room[],
   },
   it: {
     tagline: "Le Nostre Sale",
     title: "Scegli il Tuo Spazio",
-    flagship: "Sala Principale",
+    sizeLabels: { small: "Piccola", medium: "Media", big: "Grande" },
     requestQuote: "Richiedi Preventivo",
     viewDetails: "Vedi Dettagli",
-    comingSoon: "Prossimamente",
     tabs: [
       { value: "centre" as const, label: "Málaga Palace — Centro Storico" },
       { value: "seaside" as const, label: "Málaga Terrace — Lungomare" },
@@ -167,6 +147,7 @@ const translations = {
         capacity: "Fino a 80 persone",
         features: ["Display 4K 85\"", "Videoconferenza Premium", "Grande Lavagna", "Layout Flessibile"],
         highlight: true,
+        size: "big",
       },
       {
         id: "large-conference",
@@ -174,6 +155,7 @@ const translations = {
         capacity: "Fino a 50 persone",
         features: ["Display 4K 55\"", "Videoconferenza", "Lavagna", "Configurazione Boardroom"],
         highlight: false,
+        size: "medium",
       },
       {
         id: "quarter-conference",
@@ -181,20 +163,7 @@ const translations = {
         capacity: "Fino a 30 persone",
         features: ["Display 43\"", "Videoconferenza", "Lavagna", "Ambiente Intimo"],
         highlight: false,
-      },
-      {
-        id: "training-room",
-        name: "Training Room",
-        capacity: "Fino a 40 persone",
-        features: ["Proiettore 4K", "Layout Aula", "Parete Lavagna", "Aree Breakout"],
-        highlight: false,
-      },
-      {
-        id: "phone-booth",
-        name: "Phone Booth",
-        capacity: "1–2 persone",
-        features: ["Insonorizzata", "Display 27\"", "Video Call Ready", "Microfono Antirumore"],
-        highlight: false,
+        size: "small",
       },
     ] as Room[],
     seasideRooms: [
@@ -204,6 +173,7 @@ const translations = {
         capacity: "Fino a 40 persone",
         features: ["Display 4K 65\"", "Videoconferenza", "Vista Mare", "Layout Flessibile"],
         highlight: true,
+        size: "big",
       },
       {
         id: "seaside-meeting",
@@ -211,6 +181,7 @@ const translations = {
         capacity: "Fino a 12 persone",
         features: ["Display 55\"", "Videoconferenza", "Lavagna", "Accesso Terrazza"],
         highlight: false,
+        size: "small",
       },
     ] as Room[],
   },
@@ -248,7 +219,7 @@ const roomPaths: Record<string, Record<string, string>> = {
   },
 };
 
-function RoomCard({ room, lang, t, isComingSoon = false }: { room: Room; lang: string; t: typeof translations.en; isComingSoon?: boolean }) {
+function RoomCard({ room, lang, t }: { room: Room; lang: string; t: typeof translations.en }) {
   const roomPath = roomPaths[lang]?.[room.id];
   const image = roomImages[room.id];
 
@@ -272,12 +243,9 @@ function RoomCard({ room, lang, t, isComingSoon = false }: { room: Room; lang: s
           </div>
         </div>
       )}
-      {room.highlight && !isComingSoon && (
-        <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">{t.flagship}</Badge>
-      )}
-      {isComingSoon && (
-        <Badge className="absolute top-4 right-4 bg-muted-foreground text-white">{t.comingSoon}</Badge>
-      )}
+      <Badge className="absolute top-4 right-4 bg-background/90 text-foreground border border-border backdrop-blur-sm">
+        {t.sizeLabels[room.size]}
+      </Badge>
       <CardHeader>
         <CardTitle className={`font-display ${room.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
           {roomPath ? (
@@ -318,7 +286,6 @@ export default function ConferenceRooms() {
   const t = translations[lang];
 
   const rooms = activeTab === "centre" ? t.centreRooms : t.seasideRooms;
-  const isComingSoon = activeTab === "seaside";
 
   return (
     <section id={activeTab === "centre" ? "centre" : "seaside"} className="py-20 md:py-28 bg-background">
@@ -352,7 +319,7 @@ export default function ConferenceRooms() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {rooms.map((room) => (
-            <RoomCard key={room.id} room={room} lang={lang} t={t} isComingSoon={isComingSoon} />
+            <RoomCard key={room.id} room={room} lang={lang} t={t} />
           ))}
         </div>
       </div>
