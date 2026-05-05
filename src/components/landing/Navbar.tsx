@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import logoWhite from "@/assets/logo-white.webp";
 import { routeMap } from "@/lib/i18n";
-import { useLang } from "@/lib/lang-context";
+import { useLang, PageWrapper } from "@/lib/lang-context";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
@@ -61,48 +61,34 @@ export default function Navbar({ lang: langProp }: { lang?: "en" | "es" | "it" }
   const lang = langProp ?? contextLang;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const links = lang === "es" ? linksES : lang === "it" ? linksIT : linksEN;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-neutral-dark/95 backdrop-blur-md shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <a href={links.home} className="flex items-center"><img src={typeof logoWhite === 'string' ? logoWhite : logoWhite.src} alt="Innovation/Campus" className="h-7 md:h-12 w-auto" /></a>
-          <div className="hidden md:flex items-center gap-6">
-            <DropdownMenu label={links.labels.locations} links={links.location} open={openDropdown === "locations"} onToggle={() => setOpenDropdown(openDropdown === "locations" ? null : "locations")} onClose={() => setOpenDropdown(null)} />
-            <DropdownMenu label={links.labels.forBusinesses} links={links.business} open={openDropdown === "business"} onToggle={() => setOpenDropdown(openDropdown === "business" ? null : "business")} onClose={() => setOpenDropdown(null)} />
-            <DropdownMenu label={links.labels.forIndividuals} links={links.individual} open={openDropdown === "individual"} onToggle={() => setOpenDropdown(openDropdown === "individual" ? null : "individual")} onClose={() => setOpenDropdown(null)} />
-            <DropdownMenu label={links.labels.explore} links={links.explore} open={openDropdown === "explore"} onToggle={() => setOpenDropdown(openDropdown === "explore" ? null : "explore")} onClose={() => setOpenDropdown(null)} />
-            {links.nav.map((link) => (<a key={link.href} href={link.href} className="text-white/70 hover:text-white text-sm font-body font-medium tracking-wide transition-colors duration-300">{link.label}</a>))}
-            <LanguageSwitcher />
-          </div>
-          <button className="md:hidden text-white p-2" onClick={() => setMobileOpen(!mobileOpen)}>{mobileOpen ? <X size={24} /> : <Menu size={24} />}</button>
-        </div>
-      </div>
-      {mobileOpen && (
-        <div className="md:hidden bg-neutral-dark/98 backdrop-blur-lg border-t border-white/10">
-          <div className="px-6 py-6 flex flex-col gap-2">
-            <button onClick={() => setMobileExpanded(mobileExpanded === "locations" ? null : "locations")} className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2">{links.labels.locations}<ChevronDown size={16} className={`transition-transform ${mobileExpanded === "locations" ? "rotate-180" : ""}`} /></button>
-            {mobileExpanded === "locations" && (<div className="pl-4 flex flex-col gap-1 mb-2">{links.location.map((link) => (<a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">{link.label}</a>))}</div>)}
-            <button onClick={() => setMobileExpanded(mobileExpanded === "business" ? null : "business")} className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2">{links.labels.forBusinesses}<ChevronDown size={16} className={`transition-transform ${mobileExpanded === "business" ? "rotate-180" : ""}`} /></button>
-            {mobileExpanded === "business" && (<div className="pl-4 flex flex-col gap-1 mb-2">{links.business.map((link) => (<a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">{link.label}</a>))}</div>)}
-            <button onClick={() => setMobileExpanded(mobileExpanded === "individual" ? null : "individual")} className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2">{links.labels.forIndividuals}<ChevronDown size={16} className={`transition-transform ${mobileExpanded === "individual" ? "rotate-180" : ""}`} /></button>
-            {mobileExpanded === "individual" && (<div className="pl-4 flex flex-col gap-1 mb-2">{links.individual.map((link) => (<a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">{link.label}</a>))}</div>)}
-            <button onClick={() => setMobileExpanded(mobileExpanded === "explore" ? null : "explore")} className="flex items-center justify-between text-white/80 hover:text-white text-lg font-body transition-colors py-2">{links.labels.explore}<ChevronDown size={16} className={`transition-transform ${mobileExpanded === "explore" ? "rotate-180" : ""}`} /></button>
-            {mobileExpanded === "explore" && (<div className="pl-4 flex flex-col gap-1 mb-2">{links.explore.map((link) => (<a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="text-white/60 hover:text-white text-base font-body py-1.5 transition-colors">{link.label}</a>))}</div>)}
-            {links.nav.map((link) => (<a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="text-white/80 hover:text-white text-lg font-body transition-colors py-2">{link.label}</a>))}
-            <div className="flex items-center justify-between pt-4 mt-2 border-t border-white/10">
-              <span className="text-white/60 text-sm font-body">{lang === "es" ? "Idioma" : lang === "it" ? "Lingua" : "Language"}</span>
-              <div className="flex gap-2">
-                <a href="/" className={`px-3 py-1.5 rounded text-sm font-body ${lang === "en" ? "bg-primary text-primary-foreground" : "text-white/60"}`}>EN</a>
-                <a href="/es" className={`px-3 py-1.5 rounded text-sm font-body ${lang === "es" ? "bg-primary text-primary-foreground" : "text-white/60"}`}>ES</a>
-                <a href="/it" className={`px-3 py-1.5 rounded text-sm font-body ${lang === "it" ? "bg-primary text-primary-foreground" : "text-white/60"}`}>IT</a>
+    <PageWrapper lang={lang}>
+      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-neutral-dark/95 backdrop-blur-md shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            <a href={links.home} className="flex items-center">
+              <img src={_s(logoWhite)} alt="Innovation/Campus" className="h-7 md:h-12 w-auto" />
+            </a>
+            <div className="hidden md:flex items-center gap-6">
+              <DropdownMenu label={links.labels.locations} links={links.location} open={openDropdown === "locations"} onToggle={() => setOpenDropdown(openDropdown === "locations" ? null : "locations")} onClose={() => setOpenDropdown(null)} />
+              <DropdownMenu label={links.labels.forBusinesses} links={links.business} open={openDropdown === "business"} onToggle={() => setOpenDropdown(openDropdown === "business" ? null : "business")} onClose={() => setOpenDropdown(null)} />
+              <DropdownMenu label={links.labels.forIndividuals} links={links.individual} open={openDropdown === "individual"} onToggle={() => setOpenDropdown(openDropdown === "individual" ? null : "individual")} onClose={() => setOpenDropdown(null)} />
+              <DropdownMenu label={links.labels.explore} links={links.explore} open={openDropdown === "explore"} onToggle={() => setOpenDropdown(openDropdown === "explore" ? null : "explore")} onClose={() => setOpenDropdown(null)} />
+              {links.nav.map((link) => (<a key={link.href} href={link.href} className="text-white/70 hover:text-white text-sm font-body font-medium tracking-wide transition-colors duration-300">{link.label}</a>))}
+              <div className="flex items-center gap-4 ml-2 border-l border-white/10 pl-6">
+                <LanguageSwitcher />
               </div>
+            </div>
+            <div className="md:hidden flex items-center gap-4">
+              <LanguageSwitcher />
+              <button onClick={() => setMobileOpen(!mobileOpen)} className="text-white hover:text-primary transition-colors p-1">{mobileOpen ? <X size={24} /> : <Menu size={24} />}</button>
             </div>
           </div>
         </div>
-      )}
-    </nav>
+        {mobileOpen && (<div className="md:hidden bg-neutral-dark border-t border-white/10 max-h-[calc(100vh-64px)] overflow-y-auto pb-8"><div className="px-6 py-8 space-y-8"><div className="space-y-4"><p className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">{links.labels.locations}</p><div className="grid grid-cols-1 gap-4">{links.location.map((link) => (<a key={link.href} href={link.href} className="text-xl font-body text-white/80 hover:text-white">{link.label}</a>))}</div></div><div className="space-y-4"><p className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">{links.labels.forBusinesses}</p><div className="grid grid-cols-1 gap-4">{links.business.map((link) => (<a key={link.href} href={link.href} className="text-xl font-body text-white/80 hover:text-white">{link.label}</a>))}</div></div><div className="space-y-4"><p className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">{links.labels.forIndividuals}</p><div className="grid grid-cols-1 gap-4">{links.individual.map((link) => (<a key={link.href} href={link.href} className="text-xl font-body text-white/80 hover:text-white">{link.label}</a>))}</div></div><div className="space-y-4"><p className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">{links.labels.explore}</p><div className="grid grid-cols-1 gap-4">{links.explore.map((link) => (<a key={link.href} href={link.href} className="text-xl font-body text-white/80 hover:text-white">{link.label}</a>))}</div></div><div className="pt-4 border-t border-white/5 space-y-6">{links.nav.map((link) => (<a key={link.href} href={link.href} className="block text-2xl font-display font-bold text-white hover:text-primary transition-colors">{link.label}</a>))}</div></div></div>)}
+      </nav>
+    </PageWrapper>
   );
 }

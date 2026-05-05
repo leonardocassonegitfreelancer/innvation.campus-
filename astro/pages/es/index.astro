@@ -1,14 +1,63 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { PageWrapper } from '@/lib/lang-context';
-import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
-import Page from '@/pages/es/Index';
+import { getAlternateLinks } from '@/lib/i18n';
+import ScrollAnimate from '../../components/ScrollAnimate.astro';
+
+// Astro static components (zero JS)
+import AboutSection from '../../components/AboutSection.astro';
+import QuoteSection from '../../components/QuoteSection.astro';
+import LocationsSection from '../../components/LocationsSection.astro';
+import FooterSection from '../../components/Footer.astro';
+
+// React islands (hydrated selectively)
+import Navbar from '@/components/landing/Navbar';
+import MainHero from '@/components/landing/es/MainHeroES';
+import ServicesSection from '@/components/landing/es/ServicesSectionES';
+import FAQSection from '@/components/landing/es/FAQSectionES';
+import ConferenceCTA from '@/components/landing/ConferenceCTA';
+
 const path = '/es';
 const title = 'Oficinas - Coworking - Eventos';
 const description = 'Dos espacios de coworking en Málaga, España. Uno en el centro histórico, otro junto al mar. Encuentra tu ritmo en Innovation/Campus.';
 const alternates = getAlternateLinks(path);
-const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CoworkingSpace",
+  "name": "Innovation Campus",
+  "description": "Dos espacios de coworking en Málaga, España. Uno en el centro histórico, otro junto al mar.",
+  "url": "https://innovationcampus.biz/es",
+  "address": [
+    { "@type": "PostalAddress", "addressLocality": "Málaga", "addressCountry": "ES" },
+    { "@type": "PostalAddress", "addressLocality": "Ancona", "addressCountry": "IT" }
+  ],
+  "openingHours": ["Mo-Th 09:30-18:30", "Fr 09:30-17:00"]
+};
 ---
-<Layout {title} {description} {path} {alternates} {breadcrumb}>
-  <PageWrapper lang="es" path={path} client:load><Page /></PageWrapper>
+<Layout {title} {description} {path} {alternates} {jsonLd}>
+  <main class="overflow-x-hidden">
+    <Navbar lang="es" client:load />
+
+    <MainHero client:load />
+
+    <AboutSection lang="es" />
+
+    <ServicesSection client:visible />
+
+    <QuoteSection lang="es" />
+
+    <LocationsSection lang="es" />
+
+    <FAQSection client:load />
+
+    <ConferenceCTA
+      lang="es"
+      titleOverride={{ en: "Start your journey", es: "Comienza tu viaje", it: "Inizia il tuo viaggio" }}
+      subtitleOverride={{ en: "Ask a question, check availability or become a member.", es: "Haz una pregunta, consulta disponibilidad o hazte miembro.", it: "Fai una domanda, verifica la disponibilità o diventa membro." }}
+      client:visible
+    />
+
+    <FooterSection lang="es" />
+  </main>
+
+  <ScrollAnimate />
 </Layout>

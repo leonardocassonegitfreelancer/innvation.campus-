@@ -78,7 +78,7 @@ export default function CoworkingGalleryIT() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
             {galleryTop.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group aspect-[4/3]">
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <img src={_s(img.src)} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
             ))}
           </div>
@@ -97,7 +97,7 @@ export default function CoworkingGalleryIT() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {galleryBottom.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group aspect-[4/3]">
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <img src={_s(img.src)} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
             ))}
           </div>

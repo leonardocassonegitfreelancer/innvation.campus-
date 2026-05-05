@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MapPin, Clock, Star } from "lucide-react";
 import historicExt from "@/assets/historic-exterior.webp";
@@ -58,7 +57,7 @@ function LocationCard({ name, tagline, img, alt, address, hours, highlights, des
   return (
     <div ref={ref} className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group flex flex-col ${isHistoric ? "stone-texture-bg" : "sea-wave-bg"}`}>
       <div className="relative h-80 md:h-[28rem] overflow-hidden z-10">
-        <img src={img} alt={alt} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110" loading="lazy" />
+        <img src={_s(img)} alt={alt} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110" loading="lazy" />
       </div>
       <div className="p-6 md:p-8 relative z-10 flex flex-col flex-1">
         <div className="mb-4">
@@ -85,9 +84,9 @@ function LocationCard({ name, tagline, img, alt, address, hours, highlights, des
           ))}
         </div>
         <div className="mt-auto pt-8">
-          <Link to={isHistoric ? "/es/malaga-palace" : "/es/malaga-terrace"} className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
+          <a href={isHistoric ? "/es/malaga-palace" : "/es/malaga-terrace"} className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
             Ver más
-          </Link>
+          </a>
         </div>
       </div>
     </div>

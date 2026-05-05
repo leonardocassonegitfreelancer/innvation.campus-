@@ -145,7 +145,7 @@ export default function CoworkingGallery({ lang = "en" }: { lang?: "en" | "es" |
             {galleryTop.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group aspect-[4/3]">
                 <img
-                  src={img.src}
+                  src={_s(img.src)}
                   alt={img.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
@@ -185,7 +185,7 @@ export default function CoworkingGallery({ lang = "en" }: { lang?: "en" | "es" |
             {galleryBottom.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group aspect-[4/3]">
                 <img
-                  src={img.src}
+                  src={_s(img.src)}
                   alt={img.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"

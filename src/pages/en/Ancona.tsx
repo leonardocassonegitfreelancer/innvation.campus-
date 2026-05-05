@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Navbar from "@/components/landing/Navbar";
 import SEOHead from "@/components/SEOHead";
 import Footer from "@/components/landing/Footer";
@@ -266,7 +265,7 @@ export default function Ancona({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
               {services.map((s, idx) => (
                 <div key={idx} className="group relative aspect-[4/5] rounded-xl overflow-hidden">
                   <img
-                    src={s.img}
+                    src={_s(s.img)}
                     alt={t.services.items[idx]}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"

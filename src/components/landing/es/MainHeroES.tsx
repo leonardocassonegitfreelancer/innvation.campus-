@@ -8,7 +8,8 @@ import palaceCourtyard from "@/assets/palace-courtyard.webp";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
-const slides = [palaceEntrance, palaceCoworking, terraceCommunity, palaceSkylight, palaceCourtyard];
+const slides = [palaceEntrance, palaceCoworking, terraceCommunity, palaceSkylight, palaceCourtyard].map(_s);
+
 
 export default function MainHeroES() {
   const [loaded, setLoaded] = useState(false);

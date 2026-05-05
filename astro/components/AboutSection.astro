@@ -5,6 +5,53 @@
  */
 import aboutImage from '../../src/assets/about-campus.webp';
 const imgSrc = typeof aboutImage === 'string' ? aboutImage : aboutImage.src;
+
+interface Props {
+  lang?: 'en' | 'es' | 'it';
+}
+
+const { lang = 'en' } = Astro.props;
+
+const content = {
+  en: {
+    eyebrow: "The Campus",
+    title: "BETWEEN SPAIN AND ITALY, A PROJECT THAT NEVER STANDS STILL",
+    p1: "Innovation Campus is an independent coworking present across two countries, two cultures and two ways of working: We offer spaces in Málaga, Olbia and Ancona and our eyes always on the people building something real.",
+    p2: "In Málaga we are in two places that couldn't be more different.",
+    palaceLabel: "Málaga Palace",
+    palaceDesc: ", in the heart of the old town, within the walls of a frescoed and restored historic palace: where silence and history walk alongside you while you work.",
+    terraceLabel: "Málaga Terrace",
+    terraceDesc: ", overlooking the Mediterranean: where the blue of the sea is the backdrop to your days and the terrace is waiting whenever you need it.",
+    footer: "One community, many spaces.",
+    alt: "Innovation Campus — coworking space in Málaga"
+  },
+  es: {
+    eyebrow: "El Campus",
+    title: "ENTRE ESPAÑA E ITALIA, UN PROYECTO QUE NUNCA SE DETIENE",
+    p1: "Innovation Campus es un coworking independiente presente en dos países, dos culturas y dos formas de trabajar: Ofrecemos espacios en Málaga, Olbia y Ancona con nuestros ojos siempre puestos en las personas que construyen algo real.",
+    p2: "En Málaga estamos en dos lugares que no podrían ser más diferentes.",
+    palaceLabel: "Málaga Palace",
+    palaceDesc: ", en el corazón del casco antiguo, dentro de las paredes de un palacio histórico con frescos y restaurado: donde el silencio y la historia caminan junto a ti mientras trabajas.",
+    terraceLabel: "Málaga Terrace",
+    terraceDesc: ", con vistas al Mediterráneo: donde el azul del mar es el telón de fondo de tus días y la terraza te espera cuando la necesites.",
+    footer: "Una comunidad, muchos espacios.",
+    alt: "Innovation Campus — espacio de coworking en Málaga"
+  },
+  it: {
+    eyebrow: "Il Campus",
+    title: "TRA SPAGNA E ITALIA, UN PROGETTO CHE NON SI FERMA MAI",
+    p1: "Innovation Campus è un coworking indipendente presente in due paesi, due culture e due modi di lavorare: Offriamo spazi a Málaga, Olbia e Ancona con gli occhi sempre puntati sulle persone che costruiscono qualcosa di reale.",
+    p2: "A Málaga siamo in due posti che non potrebbero essere più diversi.",
+    palaceLabel: "Málaga Palace",
+    palaceDesc: ", nel cuore del centro storico, tra le mura di un palazzo storico affrescato e restaurato: dove il silenzio e la storia camminano accanto a te mentre lavori.",
+    terraceLabel: "Málaga Terrace",
+    terraceDesc: ", affacciato sul Mediterraneo: dove l'azzurro del mare fa da sfondo alle tue giornate e la terrazza ti aspetta quando ne hai bisogno.",
+    footer: "Una community, tanti spazi.",
+    alt: "Innovation Campus — spazio di coworking a Málaga"
+  }
+};
+
+const t = content[lang];
 ---
 <section id="about" class="relative py-20 md:py-28 bg-neutral-dark overflow-hidden">
   <!-- Subtle texture -->
@@ -16,7 +63,7 @@ const imgSrc = typeof aboutImage === 'string' ? aboutImage : aboutImage.src;
       <div class="scroll-animate w-full md:w-1/2" data-animate>
         <img
           src={imgSrc}
-          alt="Innovation Campus — coworking space in Málaga"
+          alt={t.alt}
           class="w-full h-auto rounded-lg"
         />
       </div>
@@ -24,42 +71,35 @@ const imgSrc = typeof aboutImage === 'string' ? aboutImage : aboutImage.src;
       <!-- Text — right side -->
       <div class="scroll-animate w-full md:w-1/2" data-animate style="transition-delay: 0.15s">
         <p class="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">
-          The Campus
+          {t.eyebrow}
         </p>
 
         <h2
           class="text-4xl md:text-5xl lg:text-6xl leading-none mb-6 uppercase text-secondary bg-inherit font-medium"
           style="font-family: 'Bebas Neue', sans-serif"
         >
-          BETWEEN SPAIN AND ITALY, A PROJECT THAT NEVER STANDS STILL
+          {t.title}
         </h2>
 
         <div class="w-12 h-[3px] bg-primary mb-6"></div>
 
         <div class="space-y-4 font-body text-base leading-relaxed text-historic-muted">
           <p class="text-secondary">
-            Innovation Campus is an independent coworking present across two countries, two cultures and two ways of working:
-            We offer spaces in Málaga, Olbia and Ancona and our eyes always on the people building something real.
+            {t.p1}
           </p>
 
-          <p class="text-secondary">In Málaga we are in two places that couldn't be more different.</p>
+          <p class="text-secondary">{t.p2}</p>
 
           <p class="text-secondary">
-            <strong class="bg-inherit text-primary">Málaga Palace</strong>, in
-            the heart of the old town, within the walls of a frescoed and
-            restored historic palace: where silence and history walk
-            alongside you while you work.
+            <strong class="bg-inherit text-primary">{t.palaceLabel}</strong>{t.palaceDesc}
           </p>
 
           <p class="text-secondary">
-            And <strong class="text-primary">Málaga Terrace</strong>,
-            overlooking the Mediterranean: where the blue of the sea is the
-            backdrop to your days and the terrace is waiting whenever you
-            need it.
+            <strong class="text-primary">{t.terraceLabel}</strong>{t.terraceDesc}
           </p>
 
           <p class="font-display text-xl text-primary font-semibold pt-2">
-            One community, many spaces.
+            {t.footer}
           </p>
         </div>
       </div>

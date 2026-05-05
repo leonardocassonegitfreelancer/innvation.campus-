@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
 import serviceMeeting from "@/assets/service-meeting.webp";
@@ -31,8 +30,8 @@ const getSrc = (img: any): string => typeof img === 'string' ? img : img.src;
 
 function ServiceCard({ img, label, subtitle, href }: { img: any; label: string; subtitle: string; href: string }) {
   return (
-    <Link
-      to={href}
+    <a
+      href={href}
       className="group relative aspect-[4/5] rounded-xl overflow-hidden block"
     >
       <img
@@ -50,7 +49,7 @@ function ServiceCard({ img, label, subtitle, href }: { img: any; label: string; 
           {subtitle}
         </p>
       </div>
-    </Link>
+    </a>
   );
 }
 

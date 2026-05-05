@@ -70,7 +70,7 @@ function LocationCard({
       {/* Image */}
       <div className="relative h-80 md:h-[28rem] overflow-hidden z-10">
         <img
-          src={img}
+          src={_s(img)}
           alt={alt}
           className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
           loading="lazy" />

@@ -1,6 +1,4 @@
-import Navbar from "@/components/landing/Navbar";
 import SEOHead from "@/components/SEOHead";
-import FooterES from "@/components/landing/es/FooterES";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Users, Building2, GraduationCap, Briefcase, Monitor, FileText } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -43,7 +41,6 @@ export default function OlbiaES() {
         description="Un espacio de coworking moderno en Olbia, Cerdeña. Escritorios flexibles, salas de reuniones y comunidad."
         path="/es/olbia"
       />
-      <Navbar />
 
       {/* Hero */}
       <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
@@ -113,7 +110,7 @@ export default function OlbiaES() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
               {services.map((s) => (
                 <div key={s.label} className="group relative aspect-[4/5] rounded-xl overflow-hidden">
-                  <img src={s.img} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                  <img src={_s(s.img)} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <h3 className="font-body font-bold text-xs md:text-sm uppercase tracking-wider text-primary-foreground">{s.label}</h3>
@@ -148,8 +145,6 @@ export default function OlbiaES() {
           </div>
         </div>
       </section>
-
-      <FooterES />
     </main>
   );
 }

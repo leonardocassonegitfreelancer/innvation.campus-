@@ -138,21 +138,19 @@ export default function EventsHub({ lang = "en" }: { lang?: "en" | "es" | "it" }
         <div className="max-w-6xl mx-auto px-6 flex gap-2 py-4">
           <button
             onClick={() => handleTabChange("upcoming")}
-            className={`font-body font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-full transition-colors ${
-              tab === "upcoming"
+            className={`font-body font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-full transition-colors ${tab === "upcoming"
                 ? "bg-primary text-primary-foreground"
                 : "bg-muted text-muted-foreground hover:bg-muted/80"
-            }`}
+              }`}
           >
             {t.upcoming}
           </button>
           <button
             onClick={() => handleTabChange("past")}
-            className={`font-body font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-full transition-colors ${
-              tab === "past"
+            className={`font-body font-bold text-sm uppercase tracking-widest px-6 py-3 rounded-full transition-colors ${tab === "past"
                 ? "bg-primary text-primary-foreground"
                 : "bg-muted text-muted-foreground hover:bg-muted/80"
-            }`}
+              }`}
           >
             {t.past}
           </button>

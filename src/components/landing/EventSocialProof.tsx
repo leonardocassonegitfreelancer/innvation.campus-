@@ -44,8 +44,8 @@ export default function EventSocialProof({ lang = "en" }: { lang?: "en" | "es" |
               ease: "linear",
             },
           }}
-          // A safer, bulletproof way to do marquee in pure CSS is often preferred, but framer motion works well if the duplicated content is long enough.
-          // Alternatively, flex with duplicated arrays:
+        // A safer, bulletproof way to do marquee in pure CSS is often preferred, but framer motion works well if the duplicated content is long enough.
+        // Alternatively, flex with duplicated arrays:
         >
           {/* We duplicate the array 3 times to ensure infinite seamless scrolling */}
           {[...CompanyLogos, ...CompanyLogos, ...CompanyLogos, ...CompanyLogos].map((logo, i) => (

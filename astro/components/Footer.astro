@@ -3,6 +3,79 @@
  * Footer — pure HTML/CSS Astro component.
  * Zero JavaScript. Static links and text only.
  */
+interface Props {
+  lang?: 'en' | 'es' | 'it';
+}
+
+const { lang = 'en' } = Astro.props;
+
+const content = {
+  en: {
+    hoursTitle: "Opening Hours",
+    monThu: "Mon–Thu 9:30 AM – 6:30 PM",
+    fri: "Fri 9:30 AM – 5:00 PM",
+    contactTitle: "Contact",
+    historicLabel: "Málaga Palace (Historic Center): ",
+    terraceLabel: "Málaga Terrace (Sea Side): ",
+    managementLabel: "Málaga Management: ",
+    locationsTitle: "Locations",
+    policiesTitle: "Policies",
+    cookiePolicy: "Use of Cookies",
+    legalNotice: "Legal Notice",
+    privacyPolicy: "Privacy Policy",
+    rights: "All Rights Reserved",
+    links: {
+      palace: "/en/malaga-palace",
+      terrace: "/en/malaga-terrace",
+      ancona: "/en/ancona",
+      olbia: "/en/olbia"
+    }
+  },
+  es: {
+    hoursTitle: "Horario de Apertura",
+    monThu: "Lun–Jue 9:30 – 18:30",
+    fri: "Vie 9:30 – 17:00",
+    contactTitle: "Contacto",
+    historicLabel: "Málaga Palace (Centro Histórico): ",
+    terraceLabel: "Málaga Terrace (Junto al Mar): ",
+    managementLabel: "Dirección Málaga: ",
+    locationsTitle: "Ubicaciones",
+    policiesTitle: "Políticas",
+    cookiePolicy: "Uso de Cookies",
+    legalNotice: "Aviso Legal",
+    privacyPolicy: "Política de Privacidad",
+    rights: "Todos los Derechos Reservados",
+    links: {
+      palace: "/es/malaga-palace",
+      terrace: "/es/malaga-terrace",
+      ancona: "/es/ancona",
+      olbia: "/es/olbia"
+    }
+  },
+  it: {
+    hoursTitle: "Orari di Apertura",
+    monThu: "Lun–Gio 9:30 – 18:30",
+    fri: "Ven 9:30 – 17:00",
+    contactTitle: "Contatti",
+    historicLabel: "Málaga Palace (Centro Storico): ",
+    terraceLabel: "Málaga Terrace (Sul Mare): ",
+    managementLabel: "Direzione Málaga: ",
+    locationsTitle: "Sedi",
+    policiesTitle: "Politiche",
+    cookiePolicy: "Uso dei Cookie",
+    legalNotice: "Note Legali",
+    privacyPolicy: "Informativa sulla Privacy",
+    rights: "Tutti i diritti riservati",
+    links: {
+      palace: "/it/malaga-palace",
+      terrace: "/it/malaga-terrace",
+      ancona: "/it/ancona",
+      olbia: "/it/olbia"
+    }
+  }
+};
+
+const t = content[lang];
 ---
 <footer class="text-white font-body" style="background-color: #1A1A1A">
   <div class="max-w-7xl mx-auto px-6 py-16">
@@ -19,49 +92,49 @@
           </span>
         </div>
         <div class="space-y-3 text-sm text-white/70">
-          <h4 class="text-white/40 text-sm font-light italic mb-2">Opening Hours</h4>
+          <h4 class="text-white/40 text-sm font-light italic mb-2">{t.hoursTitle}</h4>
           <div>
             <p class="font-semibold text-white/80">Málaga Palace</p>
-            <p>Mon–Thu 9:30 AM – 6:30 PM</p>
-            <p>Fri 9:30 AM – 5:00 PM</p>
+            <p>{t.monThu}</p>
+            <p>{t.fri}</p>
           </div>
           <div>
             <p class="font-semibold text-white/80">Málaga Terrace</p>
-            <p>Mon–Thu 9:30 AM – 6:30 PM</p>
-            <p>Fri 9:30 AM – 5:00 PM</p>
+            <p>{t.monThu}</p>
+            <p>{t.fri}</p>
           </div>
         </div>
       </div>
 
       {/* Column 2 — Contact */}
       <div>
-        <h4 class="text-white/40 text-sm font-light italic mb-6">Contact</h4>
+        <h4 class="text-white/40 text-sm font-light italic mb-6">{t.contactTitle}</h4>
         <div class="space-y-3 text-sm text-white/70">
-          <p>Málaga Palace (Historic Center): <a href="tel:+34671441288" class="hover:text-primary transition-colors">+34 671 44 12 88</a></p>
-          <p>Málaga Terrace (Sea Side): <a href="tel:+34676943978" class="hover:text-primary transition-colors">+34 676 94 39 78</a></p>
+          <p>{t.historicLabel}<a href="tel:+34671441288" class="hover:text-primary transition-colors">+34 671 44 12 88</a></p>
+          <p>{t.terraceLabel}<a href="tel:+34676943978" class="hover:text-primary transition-colors">+34 676 94 39 78</a></p>
           <p>Ancona/Olbia: <a href="tel:+393383355908" class="hover:text-primary transition-colors">+39 338 335 5908</a></p>
-          <p>Málaga Management: <a href="tel:+34673737235" class="hover:text-primary transition-colors">+34 673 737235</a></p>
+          <p>{t.managementLabel}<a href="tel:+34673737235" class="hover:text-primary transition-colors">+34 673 737235</a></p>
         </div>
       </div>
 
       {/* Column 3 — Locations */}
       <div>
-        <h4 class="text-white/40 text-sm font-light italic mb-6">​Locations</h4>
+        <h4 class="text-white/40 text-sm font-light italic mb-6">{t.locationsTitle}</h4>
         <div class="space-y-3 text-sm text-white/70">
-          <a href="/en/malaga-palace" class="block hover:text-primary transition-colors">Malaga Palace</a>
-          <a href="/en/malaga-terrace" class="block hover:text-primary transition-colors">Malaga Terrace</a>
-          <a href="/en/ancona" class="block hover:text-primary transition-colors">Ancona</a>
-          <a href="/en/olbia" class="block hover:text-primary transition-colors">Olbia</a>
+          <a href={t.links.palace} class="block hover:text-primary transition-colors">Malaga Palace</a>
+          <a href={t.links.terrace} class="block hover:text-primary transition-colors">Malaga Terrace</a>
+          <a href={t.links.ancona} class="block hover:text-primary transition-colors">Ancona</a>
+          <a href={t.links.olbia} class="block hover:text-primary transition-colors">Olbia</a>
         </div>
       </div>
 
       {/* Column 4 — Policies */}
       <div>
-        <h4 class="text-white/40 text-sm font-light italic mb-6">Policies</h4>
+        <h4 class="text-white/40 text-sm font-light italic mb-6">{t.policiesTitle}</h4>
         <div class="space-y-3 text-sm text-white/70">
-          <a href="/cookie-policy" class="block hover:text-primary transition-colors">Use of Cookies</a>
-          <a href="/legal-notice" class="block hover:text-primary transition-colors">Legal Notice</a>
-          <a href="/privacy" class="block hover:text-primary transition-colors">Privacy Policy</a>
+          <a href="/cookie-policy" class="block hover:text-primary transition-colors">{t.cookiePolicy}</a>
+          <a href="/legal-notice" class="block hover:text-primary transition-colors">{t.legalNotice}</a>
+          <a href="/privacy" class="block hover:text-primary transition-colors">{t.privacyPolicy}</a>
         </div>
       </div>
     </div>
@@ -80,7 +153,7 @@
         </a>
       </div>
       <p class="text-xs text-white/40">
-        ©2026 - Innovation Campus. All Rights Reserved
+        ©{new Date().getFullYear()} - Innovation Campus. {t.rights}
       </p>
     </div>
   </div>

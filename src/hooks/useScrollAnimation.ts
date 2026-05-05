@@ -1,9 +1,31 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
-// Scroll animations disabled during Astro migration.
-// All components render as visible by default.
-// Animations will be re-added via CSS/data-animate attributes.
-export function useScrollAnimation(_threshold = 0.15) {
+/**
+ * useScrollAnimation — A safe IntersectionObserver hook for React islands.
+ * Allows components to reveal when scrolled into view.
+ */
+export function useScrollAnimation(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
-  return { ref, isVisible: true };
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    // Check if already visible (e.g. if we are already scrolled down)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(element);
+        }
+      },
+      { threshold }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, isVisible };
 }

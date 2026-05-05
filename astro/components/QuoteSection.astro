@@ -3,6 +3,37 @@
  * QuoteSection — pure HTML/CSS Astro component.
  * Zero JavaScript. Scroll animation via CSS [data-animate].
  */
+interface Props {
+  lang?: 'en' | 'es' | 'it';
+}
+
+const { lang = 'en' } = Astro.props;
+
+const content = {
+  en: {
+    line1: "The place where you sit",
+    line2: "changes ",
+    line2Bold: "what",
+    line2Suffix: " you think.",
+    line3: "Choose your world."
+  },
+  es: {
+    line1: "El lugar donde te sientas",
+    line2: "cambia ",
+    line2Bold: "lo que",
+    line2Suffix: " piensas.",
+    line3: "Elige tu mundo."
+  },
+  it: {
+    line1: "Il posto in cui ti siedi",
+    line2: "cambia ",
+    line2Bold: "quello che",
+    line2Suffix: " pensi.",
+    line3: "Scegli il tuo mondo."
+  }
+};
+
+const t = content[lang];
 ---
 <section class="relative py-14 md:py-28 bg-neutral-dark overflow-hidden">
   <!-- Subtle texture -->
@@ -11,11 +42,11 @@
   <div class="max-w-5xl mx-auto px-6 text-center">
     <div class="scroll-animate" data-animate>
       <blockquote class="font-display text-2xl md:text-4xl lg:text-5xl text-white/90 leading-snug italic">
-        The place where you sit
+        {t.line1}
         <br />
-        changes <span class="text-primary not-italic font-bold">what</span> you think.
+        {t.line2}<span class="text-primary not-italic font-bold">{t.line2Bold}</span>{t.line2Suffix}
         <br />
-        Choose your world.
+        {t.line3}
       </blockquote>
     </div>
   </div>
