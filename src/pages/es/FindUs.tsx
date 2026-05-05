@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import palaceOutside from "@/assets/palace-outside-front.webp";
 import terraceEntrance from "@/assets/terrace-entrance.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const locations = [
   {
     id: "malaga-palace",

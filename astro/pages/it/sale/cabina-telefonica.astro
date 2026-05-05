@@ -1,0 +1,13 @@
+---
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
+import MeetingRoomPage from '@/components/landing/MeetingRoomPage';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/it/sale/cabina-telefonica';
+const title = 'Cabina Telefonica';
+const description = 'Cabina telefonica privata e insonorizzata per 1–2 persone. Ideale per chiamate riservate, videoriunioni rapide e lavoro concentrato a Málaga.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="it">
+  <MeetingRoomPage roomSlug="phone-booth" lang="it" client:load />
+</RoomPageLayout>

@@ -6,6 +6,8 @@ import ConferenceIncludes from "@/components/landing/ConferenceIncludes";
 import ConferenceGallery from "@/components/landing/ConferenceGallery";
 import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function MeetingRoomsES() {
   return (
     <>

@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '@/components/landing/Navbar';
+import Footer from '../../components/Footer.astro';
+import Ancona from '@/pages/en/Ancona';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/es/ancona';
+const title = 'Espacio de Coworking en Ancona';
+const description = 'Un espacio de coworking moderno en el centro histórico de Ancona.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout {title} {description} {path} {alternates} {breadcrumb}>
+  <div class="overflow-x-hidden">
+    <Navbar lang="es" client:load />
+    <Ancona lang="es" client:load />
+    <Footer />
+  </div>
+</Layout>

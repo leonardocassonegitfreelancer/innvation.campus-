@@ -1,5 +1,4 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
 import { Phone, Sparkles, DoorOpen, Smartphone, Headphones, MapPin } from "lucide-react";
 
 const translations = {
@@ -41,10 +40,8 @@ const translations = {
   },
 };
 
-export default function OfficesAmenities() {
-  const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+export default function OfficesAmenities({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
+  const { ref, isVisible = true } = useScrollAnimation();
   const t = translations[lang];
 
   return (

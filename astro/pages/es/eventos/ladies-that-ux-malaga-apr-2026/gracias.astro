@@ -1,0 +1,11 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import Page from '@/pages/es/events/LadiesThatUXApr2026ThankYou';
+const path = '/es/eventos/ladies-that-ux-malaga-apr-2026/gracias';
+const title = 'Gracias — Ladies That UX Málaga';
+const description = 'Gracias por tu interés en Ladies That UX Málaga abril 2026.';
+---
+<Layout {title} {description} {path} noIndex>
+  <PageWrapper lang="es" path={path} client:load><Page /></PageWrapper>
+</Layout>

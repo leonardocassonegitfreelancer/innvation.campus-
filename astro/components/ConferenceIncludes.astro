@@ -1,0 +1,90 @@
+---
+/**
+ * ConferenceIncludes — pure HTML/CSS Astro component.
+ * Zero JavaScript. Scroll animations via data-animate.
+ */
+interface Props {
+  lang?: "en" | "es" | "it";
+}
+
+const { lang = "en" } = Astro.props;
+
+const translations = {
+  en: {
+    tagline: "Amenities",
+    title: "Everything Included",
+    items: [
+      { icon: "wifi", label: "High-Speed WiFi" },
+      { icon: "projector", label: "4K Projector" },
+      { icon: "coffee", label: "Coffee & Tea" },
+      { icon: "key", label: "Secure Access" },
+      { icon: "headphones", label: "AV Equipment" },
+      { icon: "wind", label: "Climate Control" },
+      { icon: "users", label: "Reception Support" },
+      { icon: "utensils", label: "Catering Options" },
+    ],
+  },
+  es: {
+    tagline: "Servicios",
+    title: "Todo Incluido",
+    items: [
+      { icon: "wifi", label: "WiFi Alta Velocidad" },
+      { icon: "projector", label: "Proyector 4K" },
+      { icon: "coffee", label: "Café y Té" },
+      { icon: "key", label: "Acceso Seguro" },
+      { icon: "headphones", label: "Equipo AV" },
+      { icon: "wind", label: "Climatización" },
+      { icon: "users", label: "Soporte Recepción" },
+      { icon: "utensils", label: "Opciones de Catering" },
+    ],
+  },
+  it: {
+    tagline: "Servizi",
+    title: "Tutto Incluso",
+    items: [
+      { icon: "wifi", label: "WiFi Alta Velocità" },
+      { icon: "projector", label: "Proiettore 4K" },
+      { icon: "coffee", label: "Caffè e Tè" },
+      { icon: "key", label: "Accesso Sicuro" },
+      { icon: "headphones", label: "Attrezzatura AV" },
+      { icon: "wind", label: "Climatizzazione" },
+      { icon: "users", label: "Supporto Reception" },
+      { icon: "utensils", label: "Opzioni Catering" },
+    ],
+  },
+};
+
+const t = translations[lang];
+
+const icons: Record<string, string> = {
+  wifi: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>`,
+  projector: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="5" rx="2"/><circle cx="7" cy="11" r="2"/><rect width="2" height="4" x="15" y="17"/><rect width="2" height="4" x="7" y="17"/></svg>`,
+  coffee: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>`,
+  key: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>`,
+  headphones: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>`,
+  wind: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>`,
+  users: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  utensils: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 2-2m4-4 8-8a2 2 0 0 0-4-4l-8 8m0 0 2 2"/><path d="M13 3l3 3m-8 8l2 2m4-4 2 2"/></svg>`
+};
+---
+<section class="py-20 md:py-28 bg-muted/50">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="scroll-animate text-center mb-14" data-animate>
+      <p class="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
+        {t.tagline}
+      </p>
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-foreground">
+        {t.title}
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8">
+      {t.items.map((item) => (
+        <div class="scroll-animate flex flex-col items-center gap-3 text-center" data-animate>
+          <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary" set:html={icons[item.icon]}></div>
+          <p class="font-body text-sm font-semibold text-foreground">{item.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

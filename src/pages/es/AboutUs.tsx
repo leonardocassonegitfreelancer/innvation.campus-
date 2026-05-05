@@ -7,6 +7,8 @@ import aboutCampus from "@/assets/about-campus.webp";
 import palaceCatering from "@/assets/palace-catering.webp";
 import serviceCoworking from "@/assets/service-coworking.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function AboutUsES() {
   return (
     <>
@@ -20,7 +22,7 @@ export default function AboutUsES() {
 
         {/* Hero */}
         <section className="relative h-[60vh] min-h-[400px] flex items-end">
-          <img src={aboutCampus} alt="Innovation Campus" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={_s(aboutCampus)} alt="Innovation Campus" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
           <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
             <Link to="/es" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
@@ -49,7 +51,7 @@ export default function AboutUsES() {
               </p>
             </div>
             <img
-              src={serviceCoworking}
+              src={_s(serviceCoworking)}
               alt="Coworking en Innovation Campus"
               className="w-full h-80 object-cover rounded-2xl"
             />
@@ -79,7 +81,7 @@ export default function AboutUsES() {
         <section className="py-20 bg-background">
           <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <img
-              src={palaceCatering}
+              src={_s(palaceCatering)}
               alt="Eventos Innovation Campus"
               className="w-full h-80 object-cover rounded-2xl order-last lg:order-first"
             />

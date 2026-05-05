@@ -8,6 +8,8 @@ import CoworkingGalleryES from "@/components/landing/es/CoworkingGalleryES";
 import CoworkingFAQES from "@/components/landing/es/CoworkingFAQES";
 import CoworkingCTAES from "@/components/landing/es/CoworkingCTAES";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function CoworkingSpaceES() {
   return (
     <>

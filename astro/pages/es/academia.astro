@@ -1,0 +1,25 @@
+---
+import ServicePageLayout from '../../components/ServicePageLayout.astro';
+import AcademyPage from '@/pages/en/Academy';
+import serviceAcademy from '@/assets/service-academy.webp';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/es/academia';
+const title = 'Academia';
+const description = 'Talleres, cursos y formación para ayudarte a crecer en Innovation Campus.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<ServicePageLayout
+  {title}
+  {description}
+  {path}
+  {alternates}
+  {breadcrumb}
+  subtitle="Talleres, cursos y formación para ayudarte a mejorar día a día."
+  image={serviceAcademy}
+  lang="es"
+>
+  <AcademyPage lang="es" client:load />
+</ServicePageLayout>

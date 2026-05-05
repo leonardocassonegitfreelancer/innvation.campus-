@@ -1,0 +1,15 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import HostYourEventPage from '@/pages/en/HostYourEvent';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/es/organiza-tu-evento';
+const title = 'Organiza Tu Evento';
+const description = 'Organiza tu próximo evento en Innovation Campus. Espacios únicos en Málaga para conferencias, talleres, networking y celebraciones privadas.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<Layout {title} {description} {path} {alternates} {breadcrumb}>
+  <HostYourEventPage lang="es" client:load />
+</Layout>

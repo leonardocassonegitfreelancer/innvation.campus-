@@ -28,6 +28,8 @@ import anconaMeeting from "@/assets/ancona-meeting.webp";
 import seasideExterior from "@/assets/seaside-exterior.webp";
 import seasideInterior from "@/assets/seaside-interior.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 type Filter = "all" | "malaga-palace" | "malaga-terrace" | "meeting-rooms" | "ancona-olbia";
 
 const photos: { src: string; alt: string; filter: Filter }[] = [
@@ -80,7 +82,7 @@ export default function GallerySpacesIT() {
       <main className="overflow-x-hidden">
         <Navbar />
         <section className="relative h-[50vh] min-h-[360px] flex items-end">
-          <img src={palaceCourtyard} alt="Spazi Innovation Campus" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={_s(palaceCourtyard)} alt="Spazi Innovation Campus" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
           <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
             <a href="/it/galleria" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">← Galleria</a>

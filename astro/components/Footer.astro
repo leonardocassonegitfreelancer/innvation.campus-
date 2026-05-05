@@ -1,0 +1,87 @@
+---
+/**
+ * Footer — pure HTML/CSS Astro component.
+ * Zero JavaScript. Static links and text only.
+ */
+---
+<footer class="text-white font-body" style="background-color: #1A1A1A">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_0.8fr_0.8fr] gap-12">
+      {/* Column 1 — Logo + Hours */}
+      <div>
+        <div class="mb-6">
+          <span class="font-display text-2xl font-bold tracking-wide uppercase">
+            Innovation<span class="text-primary">/</span>
+          </span>
+          <br />
+          <span class="font-display text-2xl font-bold tracking-wide uppercase">
+            Campus
+          </span>
+        </div>
+        <div class="space-y-3 text-sm text-white/70">
+          <h4 class="text-white/40 text-sm font-light italic mb-2">Opening Hours</h4>
+          <div>
+            <p class="font-semibold text-white/80">Málaga Palace</p>
+            <p>Mon–Thu 9:30 AM – 6:30 PM</p>
+            <p>Fri 9:30 AM – 5:00 PM</p>
+          </div>
+          <div>
+            <p class="font-semibold text-white/80">Málaga Terrace</p>
+            <p>Mon–Thu 9:30 AM – 6:30 PM</p>
+            <p>Fri 9:30 AM – 5:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Column 2 — Contact */}
+      <div>
+        <h4 class="text-white/40 text-sm font-light italic mb-6">Contact</h4>
+        <div class="space-y-3 text-sm text-white/70">
+          <p>Málaga Palace (Historic Center): <a href="tel:+34671441288" class="hover:text-primary transition-colors">+34 671 44 12 88</a></p>
+          <p>Málaga Terrace (Sea Side): <a href="tel:+34676943978" class="hover:text-primary transition-colors">+34 676 94 39 78</a></p>
+          <p>Ancona/Olbia: <a href="tel:+393383355908" class="hover:text-primary transition-colors">+39 338 335 5908</a></p>
+          <p>Málaga Management: <a href="tel:+34673737235" class="hover:text-primary transition-colors">+34 673 737235</a></p>
+        </div>
+      </div>
+
+      {/* Column 3 — Locations */}
+      <div>
+        <h4 class="text-white/40 text-sm font-light italic mb-6">​Locations</h4>
+        <div class="space-y-3 text-sm text-white/70">
+          <a href="/en/malaga-palace" class="block hover:text-primary transition-colors">Malaga Palace</a>
+          <a href="/en/malaga-terrace" class="block hover:text-primary transition-colors">Malaga Terrace</a>
+          <a href="/en/ancona" class="block hover:text-primary transition-colors">Ancona</a>
+          <a href="/en/olbia" class="block hover:text-primary transition-colors">Olbia</a>
+        </div>
+      </div>
+
+      {/* Column 4 — Policies */}
+      <div>
+        <h4 class="text-white/40 text-sm font-light italic mb-6">Policies</h4>
+        <div class="space-y-3 text-sm text-white/70">
+          <a href="/cookie-policy" class="block hover:text-primary transition-colors">Use of Cookies</a>
+          <a href="/legal-notice" class="block hover:text-primary transition-colors">Legal Notice</a>
+          <a href="/privacy" class="block hover:text-primary transition-colors">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+    {/* Divider + Social */}
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex gap-5">
+        <a href="https://www.facebook.com/icampuscoworking" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-white/60 hover:text-primary transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/innovationcampus-coworking/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-white/60 hover:text-primary transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://www.instagram.com/innovation_campus/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white/60 hover:text-primary transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+      </div>
+      <p class="text-xs text-white/40">
+        ©2026 - Innovation Campus. All Rights Reserved
+      </p>
+    </div>
+  </div>
+</footer>

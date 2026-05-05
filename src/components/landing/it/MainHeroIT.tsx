@@ -6,6 +6,8 @@ import terraceCommunity from "@/assets/terrace-community.webp";
 import palaceSkylight from "@/assets/palace-skylight.webp";
 import palaceCourtyard from "@/assets/palace-courtyard.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const slides = [palaceEntrance, palaceCoworking, terraceCommunity, palaceSkylight, palaceCourtyard];
 
 export default function MainHeroIT() {
@@ -54,7 +56,7 @@ export default function MainHeroIT() {
         </p>
 
         <h1 className={`mb-6 md:mb-8 transition-all duration-1000 delay-400 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <img src={claimWhite} alt="Innovation Campus - Spazi di Coworking" className="h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28" />
+          <img src={_s(claimWhite)} alt="Innovation Campus - Spazi di Coworking" className="h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28" />
         </h1>
 
         <div className={`w-12 h-px bg-primary mx-auto mb-6 md:mb-8 transition-all duration-1000 delay-500 ${loaded ? "opacity-100 w-12" : "opacity-0 w-0"}`} />

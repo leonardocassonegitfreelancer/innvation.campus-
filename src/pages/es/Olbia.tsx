@@ -13,6 +13,8 @@ import serviceRegistration from "@/assets/service-registration.webp";
 import serviceMeeting from "@/assets/service-meeting.webp";
 import serviceVirtual from "@/assets/service-virtual.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const services = [
   { img: serviceCoworking, label: "Espacios de Coworking", icon: Users },
   { img: serviceMeeting, label: "Salas de Reuniones y Eventos", icon: Building2 },
@@ -45,7 +47,7 @@ export default function OlbiaES() {
 
       {/* Hero */}
       <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
-        <img src={anconaHero} alt="Vista panorámica de Olbia, Cerdeña" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={_s(anconaHero)} alt="Vista panorámica de Olbia, Cerdeña" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center">
           <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground tracking-tight">Olbia</h1>
@@ -70,7 +72,7 @@ export default function OlbiaES() {
                 </Button>
               </div>
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <img src={anconaCoworking} alt="Espacio de coworking Innovation Campus Olbia" className="w-full h-72 object-cover" />
+                <img src={_s(anconaCoworking)} alt="Espacio de coworking Innovation Campus Olbia" className="w-full h-72 object-cover" />
               </div>
             </div>
           </div>

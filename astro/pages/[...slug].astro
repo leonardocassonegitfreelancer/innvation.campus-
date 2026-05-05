@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const path = Astro.url.pathname;
+---
+<Layout title="Page Not Found" description="The page you're looking for doesn't exist." path={path} noIndex>
+  <div class="flex min-h-screen items-center justify-center bg-muted">
+    <div class="text-center px-6">
+      <h1 class="mb-4 font-display text-7xl font-bold text-foreground">404</h1>
+      <p class="mb-6 font-body text-xl text-muted-foreground">Page not found</p>
+      <a href="/" class="font-body text-primary underline hover:text-primary/80 transition-colors">
+        Return to Home
+      </a>
+    </div>
+  </div>
+</Layout>

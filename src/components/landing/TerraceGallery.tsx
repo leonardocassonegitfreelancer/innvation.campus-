@@ -4,6 +4,8 @@ import serviceTerrace from "@/assets/service-terrace.webp";
 import terraceBar from "@/assets/terrace-bar.webp";
 import terraceCommunity from "@/assets/terrace-community.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const translations = {
   en: { tagline: "Gallery", title: "See Our Terrace" },
   es: { tagline: "Galería", title: "Conoce Nuestra Terraza" },

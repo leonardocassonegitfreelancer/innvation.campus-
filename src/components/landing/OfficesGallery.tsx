@@ -4,6 +4,8 @@ import servicePrivate from "@/assets/service-private.webp";
 import palaceCoworking from "@/assets/palace-coworking.webp";
 import palaceSecondFloor from "@/assets/palace-second-floor.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const translations = {
   en: { tagline: "Gallery", title: "See Our Offices" },
   es: { tagline: "Galería", title: "Conoce Nuestras Oficinas" },

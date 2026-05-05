@@ -9,7 +9,8 @@ import terraceCommunity from "@/assets/terrace-community.webp";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 interface Office {
   id: string;
@@ -353,11 +354,9 @@ function OfficeCardWithModal({ office, t, activeTab, locationLabel, lang }: any)
   );
 }
 
-export default function OfficesListings() {
+export default function OfficesListings({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const [activeTab, setActiveTab] = useState<"palace" | "terrace">("palace");
   const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang as keyof typeof translations];
   const offices = activeTab === "palace" ? t.palaceOffices : t.terraceOffices;
 

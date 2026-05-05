@@ -1,0 +1,48 @@
+---
+/**
+ * Meeting Rooms Index — Islands Architecture.
+ * Selective hydration for interactive components.
+ */
+import ServicePageLayout from '../../../components/ServicePageLayout.astro';
+import ConferenceIntro from '@/components/landing/ConferenceIntro';
+import ConferenceRooms from '@/components/landing/ConferenceRooms';
+import ConferenceIncludes from '../../../components/ConferenceIncludes.astro';
+import ConferenceGallery from '@/components/landing/ConferenceGallery';
+import ConferenceCTA from '@/components/landing/ConferenceCTA';
+import ScrollAnimate from '../../../components/ScrollAnimate.astro';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+import serviceMeeting from '@/assets/service-meeting.webp';
+
+const path = '/en/meeting-rooms';
+const title = 'Meeting Rooms';
+const subtitle = 'Professional meeting spaces with catering options for teams of all sizes.';
+const description = 'Professional meeting spaces with catering options for teams of all sizes in Málaga.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<ServicePageLayout
+  {title}
+  {description}
+  {path}
+  {alternates}
+  {breadcrumb}
+  {subtitle}
+  image={serviceMeeting}
+  lang="en"
+>
+  <ConferenceIntro lang="en" client:load />
+
+  <!-- Room list: interactive tabs/cards — hydrate when visible -->
+  <ConferenceRooms client:visible />
+
+  <!-- Features: static — zero JS -->
+  <ConferenceIncludes lang="en" />
+
+  <!-- Gallery: interactive carousel — hydrate when visible -->
+  <ConferenceGallery client:visible />
+
+  <!-- Contact: complex form — hydrate when visible -->
+  <ConferenceCTA lang="en" client:visible />
+
+  <ScrollAnimate />
+</ServicePageLayout>

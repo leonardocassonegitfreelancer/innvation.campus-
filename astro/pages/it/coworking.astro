@@ -1,0 +1,25 @@
+---
+import ServicePageLayout from '../../components/ServicePageLayout.astro';
+import CoworkingSpacePage from '@/pages/en/CoworkingSpace';
+import serviceCoworking from '@/assets/service-coworking.webp';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/it/coworking';
+const title = 'Coworking e Prezzi';
+const description = 'Piani di coworking flessibili e prezzi per individui e piccoli team a Málaga.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<ServicePageLayout
+  {title}
+  {description}
+  {path}
+  {alternates}
+  {breadcrumb}
+  subtitle="Piani flessibili e prezzi per individui"
+  image={serviceCoworking}
+  lang="it"
+>
+  <CoworkingSpacePage lang="it" client:load />
+</ServicePageLayout>

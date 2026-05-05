@@ -1,0 +1,14 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import GalleryPage from '@/pages/en/Gallery';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/es/galeria';
+const title = 'Galería';
+const description = 'Explora fotos de nuestros espacios y eventos comunitarios en Málaga, Ancona y Olbia.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<Layout {title} {description} {path} {breadcrumb}>
+  <GalleryPage lang="es" client:load />
+</Layout>

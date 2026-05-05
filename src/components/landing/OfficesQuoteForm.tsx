@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check, Send } from "lucide-react";
 
@@ -102,10 +101,8 @@ const inputClass =
 const selectClass =
   "w-full bg-transparent border-0 border-b border-border/60 focus:border-primary outline-none py-3 font-body text-sm text-foreground transition-colors duration-200 cursor-pointer appearance-none";
 
-export default function OfficesQuoteForm() {
+export default function OfficesQuoteForm({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
   const [submitted, setSubmitted] = useState(false);
@@ -229,9 +226,9 @@ export default function OfficesQuoteForm() {
                 />
                 <span className="font-body text-sm text-muted-foreground">
                   {t.fields.privacy}{" "}
-                  <Link to="/en/privacy" className="text-primary underline underline-offset-2 hover:no-underline">
+                  <a href={lang === "en" ? "/en/privacy" : `/${lang}/privacidad`} className="text-primary underline underline-offset-2 hover:no-underline">
                     {t.fields.privacyLink}
-                  </Link>
+                  </a>
                 </span>
               </label>
               <Button

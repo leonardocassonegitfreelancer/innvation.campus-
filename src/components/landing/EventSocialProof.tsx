@@ -17,9 +17,7 @@ const CompanyLogos = [
   <span key="6" className="text-xl md:text-2xl font-display font-medium tracking-wide">OASIS</span>,
 ];
 
-export default function EventSocialProof() {
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+export default function EventSocialProof({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const t = translations[lang];
 
   return (

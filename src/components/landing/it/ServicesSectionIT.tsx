@@ -11,6 +11,8 @@ import serviceCommunity from "@/assets/service-community.webp";
 import serviceAcademy from "@/assets/service-academy.webp";
 import servicePerks from "@/assets/service-perks.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const businessServices = [
   { img: serviceMeeting, label: "Sale Conferenze Private", subtitle: "Con opzione catering", href: "/it/sale-riunioni" },
   { img: serviceTerrace, label: "Terrazza Privata", subtitle: "Con opzione catering", href: "/it/terrazza-privata" },

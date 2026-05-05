@@ -11,6 +11,8 @@ import serviceCommunity from "@/assets/service-community.webp";
 import serviceAcademy from "@/assets/service-academy.webp";
 import servicePerks from "@/assets/service-perks.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const businessServices = [
   { img: serviceMeeting, label: "Meeting Rooms", subtitle: "With catering option", href: "/en/meeting-rooms" },
   { img: serviceTerrace, label: "Private Terrace", subtitle: "With catering option", href: "/en/private-terrace" },
@@ -25,14 +27,16 @@ const individualServices = [
   { img: servicePerks, label: "Member Perks", subtitle: "Discounts & offers for our members", href: "/en/benefits" },
 ];
 
-function ServiceCard({ img, label, subtitle, href }: { img: string; label: string; subtitle: string; href: string }) {
+const getSrc = (img: any): string => typeof img === 'string' ? img : img.src;
+
+function ServiceCard({ img, label, subtitle, href }: { img: any; label: string; subtitle: string; href: string }) {
   return (
     <Link
       to={href}
       className="group relative aspect-[4/5] rounded-xl overflow-hidden block"
     >
       <img
-        src={img}
+        src={getSrc(img)}
         alt={label}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         loading="lazy"

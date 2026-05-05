@@ -167,13 +167,13 @@ const slugToRoomIndex: Record<string, number> = {
 const inputCls = "w-full bg-muted border border-border rounded-xl px-4 py-3 font-body text-sm text-foreground focus:outline-none focus:border-primary transition-colors";
 const labelCls = "font-body text-sm font-semibold text-foreground";
 
-export default function EventConversionForm() {
-  const location = useLocation();
-  const lang = (location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en") as "en" | "es" | "it";
+export default function EventConversionForm({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const t = translations[lang];
   const rooms = roomOptions[lang];
 
-  const spaceSlug = new URLSearchParams(location.search).get("space") ?? "";
+  // For preselected room, we might still need search params if accessed via link
+  // but we can pass it as a prop too. Let's keep it checking URL for now as it doesn't break SSR as much as useLocation
+  const spaceSlug = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("space") ?? "" : "";
   const preselectedRoom = useMemo(() => {
     const idx = slugToRoomIndex[spaceSlug];
     return idx !== undefined ? rooms[idx] : null;

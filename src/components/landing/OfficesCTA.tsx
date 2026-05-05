@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -76,12 +75,10 @@ const translations = {
 
 const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"] as const;
 
-export default function OfficesCTA() {
+export default function OfficesCTA({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const [hearAbout, setHearAbout] = useState("");
   const [teamSize, setTeamSize] = useState("");
   const { ref, isVisible } = useScrollAnimation();
-  const routeLocation = useLocation();
-  const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
   const mutedColor = "text-white/60";

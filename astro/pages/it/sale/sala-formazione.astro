@@ -1,0 +1,13 @@
+---
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
+import MeetingRoomPage from '@/components/landing/MeetingRoomPage';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/it/sale/sala-formazione';
+const title = 'Sala Formazione';
+const description = 'Sala formazione dedicata con configurazione aula, proiettore e tutti i servizi per workshop e corsi a Málaga.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="it">
+  <MeetingRoomPage roomSlug="training-room" lang="it" client:load />
+</RoomPageLayout>

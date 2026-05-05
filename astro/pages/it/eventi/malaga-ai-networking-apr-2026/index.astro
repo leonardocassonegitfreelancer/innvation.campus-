@@ -1,0 +1,13 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+import Page from '@/pages/it/events/MalagaAIApr2026';
+const path = '/it/eventi/malaga-ai-networking-apr-2026';
+const title = 'Malaga AI Networking Night — Aprile 2026';
+const description = 'Una serata di conversazioni, demo e networking dedicata all\'intelligenza artificiale a Innovation Campus Málaga Palace. 23 Aprile 2026.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout {title} {description} {path} {breadcrumb}>
+  <PageWrapper lang="it" path={path} client:load><Page /></PageWrapper>
+</Layout>

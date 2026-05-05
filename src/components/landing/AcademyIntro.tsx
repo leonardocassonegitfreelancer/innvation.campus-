@@ -35,10 +35,8 @@ const translations = {
   },
 };
 
-export default function AcademyIntro() {
+export default function AcademyIntro({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
   return (

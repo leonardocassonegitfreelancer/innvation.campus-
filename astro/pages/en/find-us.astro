@@ -1,0 +1,14 @@
+---
+import RoomPageLayout from '../../components/RoomPageLayout.astro';
+import FindUsPage from '@/pages/en/FindUs';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/en/find-us';
+const title = 'Find Us — All Locations';
+const description = 'Find directions and contact details for all Innovation Campus coworking locations in Málaga, Ancona, and Olbia.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {alternates} {breadcrumb} lang="en">
+  <FindUsPage lang="en" client:load />
+</RoomPageLayout>

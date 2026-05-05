@@ -6,6 +6,8 @@ import OfficesIntroSection from "@/components/landing/OfficesIntroSection";
 import OfficesAmenities from "@/components/landing/OfficesAmenities";
 import OfficesQuoteForm from "@/components/landing/OfficesQuoteForm";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function PrivateOfficesIT() {
   return (
     <>

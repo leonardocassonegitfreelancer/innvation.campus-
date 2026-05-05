@@ -6,6 +6,8 @@ import RegistrationPricing from "@/components/landing/RegistrationPricing";
 import RegistrationIncludes from "@/components/landing/RegistrationIncludes";
 import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function BusinessRegistrationIT() {
   return (
     <>

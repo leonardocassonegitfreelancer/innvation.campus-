@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import Admin from '@/pages/Admin';
+const path = '/admin';
+const title = 'Admin';
+const description = 'Team access';
+---
+<Layout {title} {description} {path} noIndex>
+  <PageWrapper lang="en" path={path} client:load><Admin /></PageWrapper>
+</Layout>

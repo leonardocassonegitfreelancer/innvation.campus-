@@ -1,0 +1,35 @@
+---
+import ServicePageLayout from '../../components/ServicePageLayout.astro';
+import ConferenceIntro from '@/components/landing/ConferenceIntro';
+import ConferenceRooms from '@/components/landing/ConferenceRooms';
+import ConferenceIncludes from '../../components/ConferenceIncludes.astro';
+import ConferenceGallery from '@/components/landing/ConferenceGallery';
+import ConferenceCTA from '@/components/landing/ConferenceCTA';
+import ScrollAnimate from '../../components/ScrollAnimate.astro';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+import serviceMeeting from '@/assets/service-meeting.webp';
+
+const path = '/es/salas-de-reuniones';
+const title = 'Salas de Reuniones';
+const subtitle = 'Espacios de reunión profesionales con opciones de catering para equipos de todos los tamaños.';
+const description = 'Espacios de reunión profesionales con opciones de catering para equipos de todos los tamaños en Málaga.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<ServicePageLayout
+  {title}
+  {description}
+  {path}
+  {alternates}
+  {breadcrumb}
+  {subtitle}
+  image={serviceMeeting}
+  lang="es"
+>
+  <ConferenceIntro lang="es" client:load />
+  <ConferenceRooms lang="es" client:visible />
+  <ConferenceIncludes lang="es" />
+  <ConferenceGallery lang="es" client:visible />
+  <ConferenceCTA lang="es" client:visible />
+  <ScrollAnimate />
+</ServicePageLayout>

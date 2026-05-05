@@ -1,0 +1,13 @@
+---
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
+import MeetingRoomPage from '@/components/landing/MeetingRoomPage';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/it/sale/sala-quarter';
+const title = 'Quarter Conference Room';
+const description = 'Una sala intima per fino a 30 persone con display da 43" e videoconferenza a Málaga.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="it">
+  <MeetingRoomPage roomSlug="quarter-conference-room" lang="it" client:load />
+</RoomPageLayout>

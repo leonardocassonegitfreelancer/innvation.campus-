@@ -6,24 +6,14 @@ import RegistrationPricing from "@/components/landing/RegistrationPricing";
 import RegistrationIncludes from "@/components/landing/RegistrationIncludes";
 import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
-export default function BusinessRegistration() {
-  return (
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
+export default function BusinessRegistration({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
     <>
-      <SEOHead
-        title="Business Registration"
-        description="Relocate your business to Spain or Italy with our registration services at Innovation Campus."
-        path="/en/business-registration"
-      />
-      <ServicePageLayout
-        title="Business Registration & Virtual Office"
-        subtitle="Relocate your business to Spain or Italy with our registration services."
-        image={serviceRegistration}
-      >
-        <RegistrationIntro />
-        <RegistrationPricing />
-        <RegistrationIncludes />
-        <ConferenceCTA />
-      </ServicePageLayout>
+      <RegistrationIntro lang={lang} />
+      <RegistrationPricing lang={lang} />
+      <RegistrationIncludes lang={lang} />
+      <ConferenceCTA lang={lang} />
     </>
   );
 }

@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '@/components/landing/Navbar';
+import Footer from '../../components/Footer.astro';
+import Olbia from '@/pages/en/Olbia';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/es/olbia';
+const title = 'Espacio de Coworking en Olbia';
+const description = 'Un espacio de coworking moderno en Olbia, Cerdeña.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout {title} {description} {path} {alternates} {breadcrumb}>
+  <div class="overflow-x-hidden">
+    <Navbar lang="es" client:load />
+    <Olbia lang="es" client:load />
+    <Footer />
+  </div>
+</Layout>

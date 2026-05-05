@@ -3,21 +3,10 @@ import servicePerks from "@/assets/service-perks.webp";
 import SEOHead from "@/components/SEOHead";
 import PartnersGrid from "@/components/landing/PartnersGrid";
 
-export default function Benefits() {
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
+export default function Benefits({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   return (
-    <>
-      <SEOHead
-        title="Member Perks"
-        description="Exclusive discounts and offers from our partners for Innovation Campus members."
-        path="/en/benefits"
-      />
-      <ServicePageLayout
-        title="Member Perks"
-        subtitle="Exclusive discounts and offers for our members."
-        image={servicePerks}
-      >
-        <PartnersGrid />
-      </ServicePageLayout>
-    </>
+    <PartnersGrid lang={lang} />
   );
 }

@@ -5,6 +5,8 @@ import AcademyIntro from "@/components/landing/AcademyIntro";
 import AcademyCourses from "@/components/landing/AcademyCourses";
 import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function AcademyIT() {
   return (
     <>

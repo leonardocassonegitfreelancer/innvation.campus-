@@ -1,0 +1,13 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+import Page from '@/pages/es/events/SheWinsApr2026';
+const path = '/es/eventos/shewins-malaga-apr-2026';
+const title = 'SheWins Málaga: Las Reglas Simples del Dinero';
+const description = 'Taller de finanzas personales con Alice Dickinson, Contable Colegiada. Aprende las reglas simples del dinero en Innovation Campus Málaga Palace. 16 de Abril de 2026.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout {title} {description} {path} {breadcrumb}>
+  <PageWrapper lang="es" path={path} client:load><Page /></PageWrapper>
+</Layout>

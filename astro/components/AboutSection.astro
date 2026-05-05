@@ -1,0 +1,68 @@
+---
+/**
+ * AboutSection — pure HTML/CSS Astro component.
+ * Zero JavaScript. Image imported as Astro asset.
+ */
+import aboutImage from '../../src/assets/about-campus.webp';
+const imgSrc = typeof aboutImage === 'string' ? aboutImage : aboutImage.src;
+---
+<section id="about" class="relative py-20 md:py-28 bg-neutral-dark overflow-hidden">
+  <!-- Subtle texture -->
+  <div class="absolute inset-0 opacity-5" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;)"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 md:px-12">
+    <div class="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+      <!-- Image — left side -->
+      <div class="scroll-animate w-full md:w-1/2" data-animate>
+        <img
+          src={imgSrc}
+          alt="Innovation Campus — coworking space in Málaga"
+          class="w-full h-auto rounded-lg"
+        />
+      </div>
+
+      <!-- Text — right side -->
+      <div class="scroll-animate w-full md:w-1/2" data-animate style="transition-delay: 0.15s">
+        <p class="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">
+          The Campus
+        </p>
+
+        <h2
+          class="text-4xl md:text-5xl lg:text-6xl leading-none mb-6 uppercase text-secondary bg-inherit font-medium"
+          style="font-family: 'Bebas Neue', sans-serif"
+        >
+          BETWEEN SPAIN AND ITALY, A PROJECT THAT NEVER STANDS STILL
+        </h2>
+
+        <div class="w-12 h-[3px] bg-primary mb-6"></div>
+
+        <div class="space-y-4 font-body text-base leading-relaxed text-historic-muted">
+          <p class="text-secondary">
+            Innovation Campus is an independent coworking present across two countries, two cultures and two ways of working:
+            We offer spaces in Málaga, Olbia and Ancona and our eyes always on the people building something real.
+          </p>
+
+          <p class="text-secondary">In Málaga we are in two places that couldn't be more different.</p>
+
+          <p class="text-secondary">
+            <strong class="bg-inherit text-primary">Málaga Palace</strong>, in
+            the heart of the old town, within the walls of a frescoed and
+            restored historic palace: where silence and history walk
+            alongside you while you work.
+          </p>
+
+          <p class="text-secondary">
+            And <strong class="text-primary">Málaga Terrace</strong>,
+            overlooking the Mediterranean: where the blue of the sea is the
+            backdrop to your days and the terrace is waiting whenever you
+            need it.
+          </p>
+
+          <p class="font-display text-xl text-primary font-semibold pt-2">
+            One community, many spaces.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

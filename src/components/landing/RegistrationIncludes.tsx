@@ -41,11 +41,9 @@ const translations = {
   }
 };
 
-export default function RegistrationIncludes() {
+export default function RegistrationIncludes({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation(0.1);
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
   return (

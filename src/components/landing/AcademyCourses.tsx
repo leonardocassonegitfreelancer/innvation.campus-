@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "react-router-dom";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const translations = {
   en: {
     tagline: "Our Offerings",
@@ -60,10 +62,8 @@ const translations = {
   }
 };
 
-export default function AcademyCourses() {
+export default function AcademyCourses({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
   return (
@@ -90,7 +90,7 @@ export default function AcademyCourses() {
             >
               <div className="w-full h-48 overflow-hidden">
                 <img
-                  src={serviceAcademy}
+                  src={_s(serviceAcademy)}
                   alt={course.name}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   loading="lazy"

@@ -12,6 +12,8 @@ import terraceEvents from "@/assets/terrace-events.webp";
 import serviceTerrace from "@/assets/service-terrace.webp";
 import serviceCommunity from "@/assets/service-community.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const services = [
   { img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.webp", label: "Spazi Coworking", icon: Users, href: "/it/coworking" },
   { img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.webp", label: "Sale Riunioni", icon: Building2, href: "/it/sale-riunioni" },
@@ -48,7 +50,7 @@ export default function MalagaTerraceIT() {
       <Navbar />
 
       <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
-        <div className="absolute inset-[-15%] w-[130%] h-[130%]"><img src={terraceHero} alt="Evento in terrazza Málaga Terrace" className="w-full h-full object-cover" /></div>
+        <div className="absolute inset-[-15%] w-[130%] h-[130%]"><img src={_s(terraceHero)} alt="Evento in terrazza Málaga Terrace" className="w-full h-full object-cover" /></div>
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/70 to-neutral-dark/30" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
           <Link to="/it" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-body mb-4 transition-colors drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]"><ArrowLeft className="w-4 h-4" />Torna alla Home</Link>

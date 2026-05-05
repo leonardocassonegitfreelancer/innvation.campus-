@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AboutUsPage from '@/pages/en/AboutUs';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/es/quienes-somos';
+const title = 'Quiénes Somos';
+const description = 'Innovation Campus crea espacios de trabajo inspiradores y cultiva comunidades emprendedoras internacionales en España e Italia.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<Layout {title} {description} {path} {breadcrumb}>
+  <AboutUsPage lang="es" client:load />
+</Layout>

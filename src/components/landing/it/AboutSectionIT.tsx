@@ -1,6 +1,8 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import aboutImage from "@/assets/about-campus.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function AboutSectionIT() {
   const { ref: r1, isVisible: v1 } = useScrollAnimation();
   const { ref: r2, isVisible: v2 } = useScrollAnimation();
@@ -13,7 +15,7 @@ export default function AboutSectionIT() {
       <div className="relative max-w-6xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
           <div ref={r2} className={`scroll-animate ${v2 ? "visible" : ""} w-full md:w-1/2`}>
-            <img src={aboutImage} alt="Innovation Campus — spazio di coworking a Málaga" className="w-full h-auto rounded-lg" />
+            <img src={_s(aboutImage)} alt="Innovation Campus — spazio di coworking a Málaga" className="w-full h-auto rounded-lg" />
           </div>
 
           <div ref={r1} className={`scroll-animate ${v1 ? "visible" : ""} w-full md:w-1/2`} style={{ transitionDelay: "0.15s" }}>

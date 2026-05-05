@@ -3,6 +3,8 @@ import servicePerks from "@/assets/service-perks.webp";
 import SEOHead from "@/components/SEOHead";
 import PartnersGrid from "@/components/landing/PartnersGrid";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function BenefitsIT() {
   return (
     <>

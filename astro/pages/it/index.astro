@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+import Page from '@/pages/it/Index';
+const path = '/it';
+const title = 'Uffici - Coworking - Eventi';
+const description = 'Due spazi di coworking a Málaga, Spagna. Uno nel centro storico, uno sul mare. Trova il tuo ritmo a Innovation/Campus.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout {title} {description} {path} {alternates} {breadcrumb}>
+  <PageWrapper lang="it" path={path} client:load><Page /></PageWrapper>
+</Layout>

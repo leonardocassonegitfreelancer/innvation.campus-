@@ -1,0 +1,13 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+import Page from '@/pages/es/events/LadiesThatUXApr2026';
+const path = '/es/eventos/ladies-that-ux-malaga-apr-2026';
+const title = 'Ladies That UX Málaga: Diseño Digital Inclusivo & Accesibilidad';
+const description = 'Únete a Ladies That UX Málaga para una velada dedicada al diseño digital inclusivo y la accesibilidad con la ponente Irene Puertas. 7 de Abril de 2026.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout {title} {description} {path} {breadcrumb}>
+  <PageWrapper lang="es" path={path} client:load><Page /></PageWrapper>
+</Layout>

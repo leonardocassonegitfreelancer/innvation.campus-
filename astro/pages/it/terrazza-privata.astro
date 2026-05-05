@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+import Page from '@/pages/it/PrivateTerrace';
+const path = '/it/terrazza-privata';
+const title = 'Terrazza Privata';
+const description = 'Uno spazio esterno esclusivo con opzioni di catering per i tuoi eventi e riunioni a Málaga.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout {title} {description} {path} {alternates} {breadcrumb}>
+  <PageWrapper lang="it" path={path} client:load><Page /></PageWrapper>
+</Layout>

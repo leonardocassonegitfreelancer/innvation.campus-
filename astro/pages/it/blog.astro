@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+import Page from '@/pages/it/Blog';
+const path = '/it/blog';
+const title = 'Blog';
+const description = 'Idee su coworking, lavoro remoto e costruzione del tuo business da Innovation Campus.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout {title} {description} {path} {alternates} {breadcrumb}>
+  <PageWrapper lang="it" path={path} client:load><Page /></PageWrapper>
+</Layout>

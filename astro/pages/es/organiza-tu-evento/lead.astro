@@ -1,0 +1,11 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import Page from '@/pages/es/EventLeadCapture';
+const path = '/es/organiza-tu-evento/lead';
+const title = 'Cuéntanos sobre tu Evento';
+const description = 'Comparte los detalles de tu próximo evento en Innovation Campus Málaga.';
+---
+<Layout {title} {description} {path} noIndex>
+  <PageWrapper lang="es" path={path} client:load><Page /></PageWrapper>
+</Layout>

@@ -18,6 +18,10 @@ import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.webp";
 import conferenceHalfPicasso from "@/assets/conference-half-picasso.webp";
 import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
+const getSrc = (img: any): string => typeof img === 'string' ? img : img.src;
+
 /* ─── Types ─────────────────────────────────────────────── */
 interface LangMap<T> { en: T; es: T; it: T }
 
@@ -60,8 +64,8 @@ const rooms: RoomData[] = [
       it: { title: "Grande Sala Conferenze – City Center Picasso", description: "La nostra sala principale per fino a 80 persone con display 4K da 85\", videoconferenza premium e layout flessibile a Málaga." },
     },
     capacity: { en: "Up to 80 people", es: "Hasta 80 personas", it: "Fino a 80 persone" },
-    heroImage: conferencePicasso,
-    photos: [conferencePicasso, conferencePicasso2, conferenceHalfPicasso, conferenceHalfPicasso2, conferenceQuarterPicasso],
+    heroImage: getSrc(conferencePicasso),
+    photos: [conferencePicasso, conferencePicasso2, conferenceHalfPicasso, conferenceHalfPicasso2, conferenceQuarterPicasso].map(getSrc),
     features: {
       en: ["85\" 4K Display", "Premium Video Conferencing", "Large Whiteboard", "Flexible Layout"],
       es: ["Pantalla 4K 85\"", "Videoconferencia Premium", "Pizarra Grande", "Disposición Flexible"],
@@ -132,8 +136,8 @@ const rooms: RoomData[] = [
       it: { title: "Large Conference Room", description: "Una sala versatile per fino a 50 persone con display 4K da 55\" e videoconferenza professionale a Málaga." },
     },
     capacity: { en: "Up to 50 people", es: "Hasta 50 personas", it: "Fino a 50 persone" },
-    heroImage: conferenceHalfPicasso,
-    photos: [conferenceHalfPicasso, conferenceHalfPicasso2, conferencePicasso, conferencePicasso2, conferenceQuarterPicasso],
+    heroImage: getSrc(conferenceHalfPicasso),
+    photos: [conferenceHalfPicasso, conferenceHalfPicasso2, conferencePicasso, conferencePicasso2, conferenceQuarterPicasso].map(getSrc),
     features: {
       en: ["55\" 4K Display", "Video Conferencing", "Whiteboard", "Boardroom Setup"],
       es: ["Pantalla 4K 55\"", "Videoconferencia", "Pizarra", "Mesa de Juntas"],
@@ -204,8 +208,8 @@ const rooms: RoomData[] = [
       it: { title: "Quarter Conference Room", description: "Una sala intima per fino a 30 persone con display da 43\" e videoconferenza a Málaga." },
     },
     capacity: { en: "Up to 30 people", es: "Hasta 30 personas", it: "Fino a 30 persone" },
-    heroImage: conferenceQuarterPicasso,
-    photos: [conferenceQuarterPicasso, conferencePicasso, conferenceHalfPicasso, conferenceHalfPicasso2, conferencePicasso2],
+    heroImage: getSrc(conferenceQuarterPicasso),
+    photos: [conferenceQuarterPicasso, conferencePicasso, conferenceHalfPicasso, conferenceHalfPicasso2, conferencePicasso2].map(getSrc),
     features: {
       en: ["43\" Display", "Video Conferencing", "Whiteboard", "Intimate Setting"],
       es: ["Pantalla 43\"", "Videoconferencia", "Pizarra", "Ambiente Íntimo"],
@@ -276,8 +280,8 @@ const rooms: RoomData[] = [
       it: { title: "Sala Formazione – Innovation Campus Málaga", description: "Sala formazione dedicata con configurazione aula, proiettore e tutti i servizi per workshop e corsi a Málaga." },
     },
     capacity: { en: "Up to 40 people", es: "Hasta 40 personas", it: "Fino a 40 persone" },
-    heroImage: serviceMeeting,
-    photos: [serviceMeeting, conferenceQuarterPicasso, conferenceHalfPicasso, conferencePicasso, conferencePicasso2],
+    heroImage: getSrc(serviceMeeting),
+    photos: [serviceMeeting, conferenceQuarterPicasso, conferenceHalfPicasso, conferencePicasso, conferencePicasso2].map(getSrc),
     features: {
       en: ["4K Projector", "Classroom Layout", "Whiteboard Wall", "Breakout Areas"],
       es: ["Proyector 4K", "Disposición Aula", "Pared Pizarra", "Zonas de Descanso"],
@@ -345,8 +349,8 @@ const rooms: RoomData[] = [
       it: { title: "Cabina Telefonica – Innovation Campus Málaga", description: "Cabina telefonica privata e insonorizzata per 1–2 persone. Ideale per chiamate riservate, videoriunioni rapide e lavoro concentrato a Málaga." },
     },
     capacity: { en: "1–2 people", es: "1–2 personas", it: "1–2 persone" },
-    heroImage: conferenceQuarterPicasso,
-    photos: [conferenceQuarterPicasso, conferencePicasso2, conferenceHalfPicasso2, conferencePicasso, conferenceHalfPicasso],
+    heroImage: getSrc(conferenceQuarterPicasso),
+    photos: [conferenceQuarterPicasso, conferencePicasso2, conferenceHalfPicasso2, conferencePicasso, conferenceHalfPicasso].map(getSrc),
     features: {
       en: ["Soundproofed", "27\" Display", "Video Call Ready", "Noise-Cancelling Mic"],
       es: ["Insonorizada", "Pantalla 27\"", "Lista para Video", "Micro Cancelación Ruido"],
@@ -596,11 +600,11 @@ function PhotoGallery({ photos, onClose }: { photos: string[]; onClose: () => vo
 }
 
 /* ─── Main component ─────────────────────────────────────── */
-interface MeetingRoomPageProps { roomSlug: string }
+interface MeetingRoomPageProps { roomSlug: string; lang?: "en" | "es" | "it" }
 
-export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
+export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoomPageProps) {
   const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+  const lang = langProp ?? (location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en");
   const room = rooms.find((r) => r.slug === roomSlug);
   const [showGallery, setShowGallery] = useState(false);
   const [descExpanded, setDescExpanded] = useState(false);
@@ -620,15 +624,11 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
 
   return (
     <>
-      <SEOHead title={seo.title} description={seo.description} path={roomPaths[lang][roomSlug]} />
-
       <AnimatePresence>
         {showGallery && <PhotoGallery photos={room.photos} onClose={() => setShowGallery(false)} />}
       </AnimatePresence>
 
-      <div className="overflow-x-hidden">
-        <Navbar />
-
+      <div>
         {/* ── Photo Grid ─────────────────────────────────── */}
         <section className="relative bg-neutral-900 pt-20">
           {/* Mobile: 1 large + 2×2 grid (Booking.com style) */}
@@ -862,8 +862,7 @@ export default function MeetingRoomPage({ roomSlug }: MeetingRoomPageProps) {
           </div>
         </div>
 
-        <ConferenceCTA />
-        <Footer />
+        <ConferenceCTA lang={lang} />
       </div>
 
       {/* ── Mobile sticky CTA ──────────────────────────────── */}

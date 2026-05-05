@@ -1,0 +1,15 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import EventsPage from '@/pages/en/Events';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/en/events';
+const title = 'Community Events';
+const description = 'Join workshops, talks, networking and community events at Innovation Campus Málaga.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<Layout {title} {description} {path} {alternates} {breadcrumb}>
+  <EventsPage lang="en" client:load />
+</Layout>

@@ -3,6 +3,8 @@ import { MapPin, Clock, Star } from "lucide-react";
 import historicExt from "@/assets/historic-exterior.webp";
 import seasideExt from "@/assets/terrace-community.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const locations = [
 {
   name: "Historic Center",

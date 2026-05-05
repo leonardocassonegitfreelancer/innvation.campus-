@@ -14,6 +14,8 @@ import terraceCommunity from "@/assets/terrace-community.webp";
 import terraceEvents from "@/assets/terrace-events.webp";
 import serviceTerrace from "@/assets/service-terrace.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const palaceTop = [
   { src: palaceCourtyard, alt: "Patio del Málaga Palace" },
   { src: palaceOutside, alt: "Exterior del Málaga Palace" },

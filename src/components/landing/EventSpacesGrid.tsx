@@ -61,9 +61,7 @@ const cardVariants = {
   exit: { opacity: 0, scale: 0.95, y: -20, transition: { duration: 0.2 } },
 };
 
-export default function EventSpacesGrid() {
-  const location = useLocation();
-  const lang = (location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en") as "en"|"es"|"it";
+export default function EventSpacesGrid({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const t = uiText[lang];
   
   const [filterType, setFilterType] = useState<string>("all");

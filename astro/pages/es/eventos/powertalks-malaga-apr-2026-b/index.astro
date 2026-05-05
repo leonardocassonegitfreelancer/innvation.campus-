@@ -1,0 +1,13 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+import Page from '@/pages/es/events/PowerTalksBApr2026';
+const path = '/es/eventos/powertalks-malaga-apr-2026-b';
+const title = 'PowerTalks Málaga — Segundo Meetup Abril 2026';
+const description = 'Charlas breves y de alto impacto de fundadores y profesionales en Innovation Campus Málaga Palace. 29 de Abril de 2026.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout {title} {description} {path} {breadcrumb}>
+  <PageWrapper lang="es" path={path} client:load><Page /></PageWrapper>
+</Layout>

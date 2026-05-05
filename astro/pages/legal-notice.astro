@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import LegalNotice from '@/pages/LegalNotice';
+const path = '/legal-notice';
+const title = 'Legal Notice';
+const description = 'Legal Notice of Innovation Campus.';
+---
+<Layout {title} {description} {path}>
+  <PageWrapper lang="en" path={path} client:load><LegalNotice /></PageWrapper>
+</Layout>

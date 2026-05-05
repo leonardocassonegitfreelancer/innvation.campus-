@@ -6,6 +6,8 @@ import { ArrowLeft } from "lucide-react";
 import palaceCourtyard from "@/assets/palace-courtyard.webp";
 import serviceCommunity from "@/assets/service-community.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function GalleryIT() {
   return (
     <>
@@ -17,7 +19,7 @@ export default function GalleryIT() {
       <main className="overflow-x-hidden">
         <Navbar />
         <section className="relative h-[50vh] min-h-[360px] flex items-end">
-          <img src={palaceCourtyard} alt="Innovation Campus" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={_s(palaceCourtyard)} alt="Innovation Campus" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
           <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
             <Link to="/it" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
@@ -31,7 +33,7 @@ export default function GalleryIT() {
           <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
             <a href="/it/galleria/spazi" className="group block overflow-hidden rounded-3xl border border-border shadow-sm hover:shadow-xl transition-all duration-500">
               <div className="relative h-64 overflow-hidden">
-                <img src={palaceCourtyard} alt="Spazi" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={_s(palaceCourtyard)} alt="Spazi" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-6">
                   <h2 className="font-display text-2xl font-bold text-primary-foreground mb-1">Spazi</h2>
@@ -44,7 +46,7 @@ export default function GalleryIT() {
             </a>
             <a href="/it/galleria/eventi" className="group block overflow-hidden rounded-3xl border border-border shadow-sm hover:shadow-xl transition-all duration-500">
               <div className="relative h-64 overflow-hidden">
-                <img src={serviceCommunity} alt="Eventi" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={_s(serviceCommunity)} alt="Eventi" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-6">
                   <h2 className="font-display text-2xl font-bold text-primary-foreground mb-1">Eventi</h2>

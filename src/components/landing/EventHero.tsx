@@ -4,6 +4,8 @@ import { useLocation } from "react-router-dom";
 import serviceCommunity from "@/assets/service-community.webp";
 import terraceHero from "@/assets/terrace-hero.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const translations = {
   en: {
     eyebrow: "Innovation Campus",
@@ -25,10 +27,8 @@ const translations = {
   },
 };
 
-export default function EventHero() {
+export default function EventHero({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
   const { scrollYProgress } = useScroll({
@@ -51,7 +51,7 @@ export default function EventHero() {
       {/* Background image with parallax */}
       <motion.div className="absolute inset-0" style={{ scale: imageScale }}>
         <img
-          src={terraceHero}
+          src={_s(terraceHero)}
           alt="Innovation Campus event spaces"
           className="w-full h-full object-cover"
         />

@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getAlternateLinks } from '@/lib/i18n';
+import ScrollAnimate from '../components/ScrollAnimate.astro';
+
+// Astro static components (zero JS)
+import AboutSection from '../components/AboutSection.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import LocationsSection from '../components/LocationsSection.astro';
+import FooterSection from '../components/Footer.astro';
+
+// React islands (hydrated selectively)
+import Navbar from '@/components/landing/Navbar';
+import MainHero from '@/components/landing/MainHero';
+import ServicesSection from '@/components/landing/ServicesSection';
+import FAQSection from '@/components/landing/FAQSection';
+import ConferenceCTA from '@/components/landing/ConferenceCTA';
+
+const path = '/';
+const title = 'Uffici - Coworking - Eventi';
+const description = 'Two coworking spaces in Málaga, Spain. One in the historic heart, one by the sea. Find your rhythm at Innovation/Campus.';
+const alternates = getAlternateLinks(path);
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CoworkingSpace",
+  "name": "Innovation Campus",
+  "description": "Two coworking spaces in Málaga, Spain. One in the historic heart, one by the sea.",
+  "url": "https://innovationcampus.biz",
+  "address": [
+    { "@type": "PostalAddress", "addressLocality": "Málaga", "addressCountry": "ES" },
+    { "@type": "PostalAddress", "addressLocality": "Ancona", "addressCountry": "IT" }
+  ],
+  "openingHours": ["Mo-Th 09:30-18:30", "Fr 09:30-17:00"]
+};
+---
+<Layout {title} {description} {path} {alternates} {jsonLd}>
+  <main class="overflow-x-hidden">
+    <!-- Navbar: interactive (mobile menu, dropdowns, lang switcher) — hydrate immediately -->
+    <Navbar lang="en" client:load />
+
+    <!-- Hero: interactive (slideshow, auto-advance, clickable indicators) — hydrate immediately -->
+    <MainHero client:load />
+
+    <!-- About: pure HTML/CSS — zero JavaScript -->
+    <AboutSection />
+
+    <!-- Services: tab toggle on mobile — hydrate when scrolled into view -->
+    <ServicesSection client:visible />
+
+    <!-- Quote: pure HTML/CSS — zero JavaScript -->
+    <QuoteSection />
+
+    <!-- Locations: pure HTML/CSS — zero JavaScript -->
+    <LocationsSection />
+
+    <!-- FAQ: accordion interaction — hydrate immediately so it's always interactive -->
+    <FAQSection client:load />
+
+    <!-- Contact form: complex form — hydrate when scrolled into view -->
+    <ConferenceCTA
+      lang="en"
+      titleOverride={{ en: "Start your journey", es: "Comienza tu viaje", it: "Inizia il tuo viaggio" }}
+      subtitleOverride={{ en: "Ask a question, check availability or become a member.", es: "Haz una pregunta, consulta disponibilidad o hazte miembro.", it: "Fai una domanda, verifica la disponibilità o diventa membro." }}
+      client:visible
+    />
+
+    <!-- Footer: pure HTML/CSS — zero JavaScript -->
+    <FooterSection />
+  </main>
+
+  <!-- Lightweight scroll animation observer (~300 bytes) -->
+  <ScrollAnimate />
+</Layout>

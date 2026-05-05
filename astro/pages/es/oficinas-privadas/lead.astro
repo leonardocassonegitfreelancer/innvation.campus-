@@ -1,0 +1,11 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import Page from '@/pages/es/OfficesLeadCapture';
+const path = '/es/oficinas-privadas/lead';
+const title = 'Solicita tu Oficina Privada';
+const description = 'Cuéntanos sobre tus necesidades de espacio de oficina en Innovation Campus Málaga.';
+---
+<Layout {title} {description} {path} noIndex>
+  <PageWrapper lang="es" path={path} client:load><Page /></PageWrapper>
+</Layout>

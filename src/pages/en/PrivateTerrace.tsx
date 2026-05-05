@@ -7,6 +7,8 @@ import TerraceIncludes from "@/components/landing/TerraceIncludes";
 import TerraceGallery from "@/components/landing/TerraceGallery";
 import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function PrivateTerrace() {
   return (
     <>

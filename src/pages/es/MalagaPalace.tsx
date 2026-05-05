@@ -19,6 +19,8 @@ import palaceCoffeeBar from "@/assets/palace-coffee-bar.webp";
 import palaceCatering from "@/assets/palace-catering.webp";
 import palaceCoworking from "@/assets/palace-coworking.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const galleryTop = [
   { src: palaceCourtyard, alt: "Patio del Málaga Palace con azulejos ornamentales" },
   { src: palaceOutside, alt: "Exterior del Málaga Palace" },
@@ -64,7 +66,7 @@ export default function MalagaPalaceES() {
 
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
-        <img src={palaceEntrance} alt="Entrada histórica del Málaga Palace" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={_s(palaceEntrance)} alt="Entrada histórica del Málaga Palace" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/50 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
           <Link to="/es" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
@@ -112,7 +114,7 @@ export default function MalagaPalaceES() {
               </Button>
             </div>
             <div className="rounded-xl md:rounded-2xl overflow-hidden">
-              <img src={palaceSecondFloor} alt="Segunda planta del Málaga Palace" className="w-full h-[60vh] md:h-[24rem] object-cover" loading="lazy" />
+              <img src={_s(palaceSecondFloor)} alt="Segunda planta del Málaga Palace" className="w-full h-[60vh] md:h-[24rem] object-cover" loading="lazy" />
             </div>
           </div>
         </div>

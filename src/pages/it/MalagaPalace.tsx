@@ -19,6 +19,8 @@ import palaceCoffeeBar from "@/assets/palace-coffee-bar.webp";
 import palaceCatering from "@/assets/palace-catering.webp";
 import palaceCoworking from "@/assets/palace-coworking.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const galleryTop = [
   { src: palaceCourtyard, alt: "Cortile del Málaga Palace con piastrelle ornamentali" },
   { src: palaceOutside, alt: "Esterno del Málaga Palace" },
@@ -56,7 +58,7 @@ export default function MalagaPalaceIT() {
       <Navbar />
 
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
-        <img src={palaceEntrance} alt="Ingresso storico del Málaga Palace" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={_s(palaceEntrance)} alt="Ingresso storico del Málaga Palace" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/50 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
           <Link to="/it" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
@@ -79,7 +81,7 @@ export default function MalagaPalaceIT() {
               <div className="flex items-start gap-3"><Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" /><span className="font-body text-sm text-neutral-dark/70">Lun–Gio 9:30–18:30 · Ven 9:30–17:00</span></div>
               <Button asChild variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 w-fit"><Link to="/it/trovaci#malaga-palace">Trovaci</Link></Button>
             </div>
-            <div className="rounded-xl md:rounded-2xl overflow-hidden"><img src={palaceSecondFloor} alt="Secondo piano del Málaga Palace" className="w-full h-[60vh] md:h-[24rem] object-cover" loading="lazy" /></div>
+            <div className="rounded-xl md:rounded-2xl overflow-hidden"><img src={_s(palaceSecondFloor)} alt="Secondo piano del Málaga Palace" className="w-full h-[60vh] md:h-[24rem] object-cover" loading="lazy" /></div>
           </div>
         </div>
       </section>
