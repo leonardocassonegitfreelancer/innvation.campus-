@@ -55,7 +55,7 @@ const breadcrumbNames: Record<string, Record<string, string>> = {
     "ancona": "Ancona",
     "olbia": "Olbia",
     "encuentranos": "Encuéntranos",
-    "salas-de-conferencias": "Salas de Reuniones",
+    "salas-de-reuniones": "Salas de Reuniones",
     "terraza-privada": "Terraza Privada",
     "oficinas-privadas": "Oficinas Privadas",
     "registro-de-empresas": "Registro de Empresas",
@@ -73,7 +73,7 @@ const breadcrumbNames: Record<string, Record<string, string>> = {
     "ancona": "Ancona",
     "olbia": "Olbia",
     "trovaci": "Trovaci",
-    "sale-conferenze": "Sale Riunioni",
+    "sale-riunioni": "Sale Riunioni",
     "terrazza-privata": "Terrazza Privata",
     "uffici-privati": "Uffici Privati",
     "registrazione-aziendale": "Registrazione Aziendale",
@@ -88,39 +88,55 @@ const breadcrumbNames: Record<string, Record<string, string>> = {
 
 export const generateBreadcrumbJsonLd = (path: string, baseUrl: string) => {
   const segments = path.split("/").filter(Boolean);
-  const lang = segments[0] === "es" || segments[0] === "it" ? segments[0] : "en";
+  const hasLangPrefix = segments.length > 0 && ["en", "es", "it"].includes(segments[0]);
+  const lang = hasLangPrefix ? (segments[0] as "en" | "es" | "it") : "en";
   const names = breadcrumbNames[lang] || breadcrumbNames.en;
-  
+
   const homePath = lang === "en" ? "/" : `/${lang}`;
   const homeName = names[""] || "Home";
-  
-  const items = [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: homeName,
-      item: `${baseUrl}${homePath}`,
-    },
+
+  const items: object[] = [
+    { "@type": "ListItem", position: 1, name: homeName, item: `${baseUrl}${homePath}` },
   ];
-  
-  const pathSegments = lang === "en" ? segments.slice(1) : segments.slice(1);
-  let currentPath = lang === "en" ? "/en" : `/${lang}`;
-  
+
+  const pathSegments = hasLangPrefix ? segments.slice(1) : segments;
+  let currentPath = hasLangPrefix ? (lang === "en" ? "/en" : `/${lang}`) : "";
+
   pathSegments.forEach((segment, index) => {
     currentPath += `/${segment}`;
     const name = names[segment] || segment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-    
-    items.push({
-      "@type": "ListItem",
-      position: index + 2,
-      name,
-      item: `${baseUrl}${currentPath}`,
-    });
+    items.push({ "@type": "ListItem", position: index + 2, name, item: `${baseUrl}${currentPath}` });
   });
-  
+
+  return { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items };
+};
+
+type LocationKey = "malaga-palace" | "malaga-terrace" | "ancona" | "olbia";
+
+const locationData: Record<LocationKey, { name: string; streetAddress: string; postalCode: string; locality: string; country: string }> = {
+  "malaga-palace": { name: "Innovation Campus — Málaga Palace", streetAddress: "Calle Álamos 7", postalCode: "29012", locality: "Málaga", country: "ES" },
+  "malaga-terrace": { name: "Innovation Campus — Málaga Terrace", streetAddress: "Calle Puerto 14", postalCode: "29016", locality: "Málaga", country: "ES" },
+  "ancona": { name: "Innovation Campus — Ancona", streetAddress: "Centro Storico", postalCode: "", locality: "Ancona", country: "IT" },
+  "olbia": { name: "Innovation Campus — Olbia", streetAddress: "", postalCode: "", locality: "Olbia", country: "IT" },
+};
+
+export const generateLocalBusinessJsonLd = (location: LocationKey, pageUrl: string) => {
+  const d = locationData[location];
   return {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items,
+    "@type": "CoworkingSpace",
+    "name": d.name,
+    "url": pageUrl,
+    "address": {
+      "@type": "PostalAddress",
+      ...(d.streetAddress && { "streetAddress": d.streetAddress }),
+      ...(d.postalCode && { "postalCode": d.postalCode }),
+      "addressLocality": d.locality,
+      "addressCountry": d.country,
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "09:30", "closes": "18:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday"], "opens": "09:30", "closes": "17:00" },
+    ],
   };
 };

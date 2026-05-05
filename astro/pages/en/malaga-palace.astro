@@ -3,16 +3,17 @@ import Layout from '../../layouts/Layout.astro';
 import Navbar from '@/components/landing/Navbar';
 import Footer from '../../components/Footer.astro';
 import MalagaPalace from '@/pages/en/MalagaPalace';
-import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+import { getAlternateLinks, generateBreadcrumbJsonLd, generateLocalBusinessJsonLd } from '@/lib/i18n';
 
 const path = '/en/malaga-palace';
 const title = 'Málaga Palace';
 const description = 'Coworking in a restored 18th-century palace in Málaga\'s historic center. Stone walls, courtyard garden, and steps from Picasso Museum.';
 const alternates = getAlternateLinks(path);
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+const jsonLd = generateLocalBusinessJsonLd('malaga-palace', `https://innovationcampus.biz${path}`);
 ---
 
-<Layout {title} {description} {path} {alternates} {breadcrumb}>
+<Layout {title} {description} {path} {alternates} {breadcrumb} {jsonLd}>
   <div class="overflow-x-hidden">
     <Navbar lang="en" client:load />
     <MalagaPalace lang="en" client:load />

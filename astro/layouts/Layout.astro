@@ -33,10 +33,11 @@ const BASE_URL = 'https://innovationcampus.biz';
 const url = `${BASE_URL}${path}`;
 const image = ogImage.startsWith('http') ? ogImage : `${BASE_URL}${ogImage}`;
 const fullTitle = title.startsWith('Innovation Campus') ? title : `Innovation Campus | ${title}`;
+const htmlLang = path.startsWith('/es') ? 'es' : path.startsWith('/it') ? 'it' : 'en';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
