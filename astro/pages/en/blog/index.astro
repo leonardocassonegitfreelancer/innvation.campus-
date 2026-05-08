@@ -1,20 +1,20 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../../layouts/Layout.astro';
 import Navbar from '@/components/landing/Navbar';
-import Footer from '../../components/Footer.astro';
-import BlogES from '@/pages/es/Blog';
+import Footer from '../../../components/Footer.astro';
+import Blog from '@/pages/en/Blog';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 
-const path = '/es/blog';
+const path = '/en/blog';
 const title = 'Blog';
-const description = 'Ideas sobre coworking, trabajo remoto y construcción de tu negocio desde Innovation Campus.';
+const description = 'Insights on coworking, remote work, and building your business from Innovation Campus.';
 const alternates = getAlternateLinks(path);
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
 <Layout {title} {description} {path} {alternates} {breadcrumb}>
   <div class="overflow-x-hidden">
-    <Navbar lang="es" client:load />
-    <BlogES client:load />
-    <Footer lang="es" />
+    <Navbar lang="en" client:load />
+    <Blog client:load />
+    <Footer lang="en" />
   </div>
 </Layout>

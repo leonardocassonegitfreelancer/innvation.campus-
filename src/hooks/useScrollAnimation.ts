@@ -12,7 +12,13 @@ export function useScrollAnimation(threshold = 0.15) {
     const element = ref.current;
     if (!element) return;
 
-    // Check if already visible (e.g. if we are already scrolled down)
+    // Elements already in viewport at mount time (common in Astro SSR) show immediately.
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

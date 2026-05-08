@@ -1,6 +1,5 @@
 import { Wifi, Sun, Coffee, KeyRound, Music, Wind, Users, UtensilsCrossed } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
+import { useLang } from "@/lib/lang-context";
 
 const translations = {
   en: {
@@ -48,20 +47,17 @@ const translations = {
 };
 
 export default function TerraceIncludes() {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
-  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation(0.1);
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+  const lang = useLang();
   const t = translations[lang];
 
   return (
     <section className="py-20 md:py-28 bg-muted/50">
       <div className="max-w-5xl mx-auto px-6">
-        <div ref={headerRef} className={`scroll-animate ${headerVisible ? "visible" : ""} text-center mb-14`}>
+        <div className="text-center mb-14">
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">{t.tagline}</p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">{t.title}</h2>
         </div>
-        <div ref={gridRef} className={`scroll-animate ${gridVisible ? "visible" : ""} grid grid-cols-2 sm:grid-cols-4 gap-8`}>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
           {t.items.map((item) => (
             <div key={item.label} className="flex flex-col items-center gap-3 text-center">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">

@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import Navbar from "@/components/landing/Navbar";
 import SEOHead from "@/components/SEOHead";
-import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Users, Building2, GraduationCap, Briefcase, Monitor, FileText } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";

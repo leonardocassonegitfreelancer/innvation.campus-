@@ -1,4 +1,3 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLang } from "@/lib/lang-context";
 import serviceTerrace from "@/assets/service-terrace.webp";
 import terraceBar from "@/assets/terrace-bar.webp";
@@ -19,14 +18,13 @@ const images = [
 ];
 
 export default function TerraceGallery() {
-  const { ref, isVisible } = useScrollAnimation();
   const lang = useLang();
   const t = translations[lang];
 
   return (
     <section className="py-20 md:py-28 bg-background">
       <div className="max-w-6xl mx-auto px-6">
-        <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-14`}>
+        <div className="text-center mb-14">
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">{t.tagline}</p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">{t.title}</h2>
         </div>
