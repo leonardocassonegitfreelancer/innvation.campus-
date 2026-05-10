@@ -1,8 +1,5 @@
-import Navbar from "@/components/landing/Navbar";
-import FooterES from "@/components/landing/es/FooterES";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Star, Users, Building2, BookOpen, Calendar, Play } from "lucide-react";
 import { useState, useRef } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -18,6 +15,8 @@ import palaceSkylight from "@/assets/palace-skylight.webp";
 import palaceCoffeeBar from "@/assets/palace-coffee-bar.webp";
 import palaceCatering from "@/assets/palace-catering.webp";
 import palaceCoworking from "@/assets/palace-coworking.webp";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 const galleryTop = [
   { src: palaceCourtyard, alt: "Patio del Málaga Palace con azulejos ornamentales" },
@@ -60,17 +59,16 @@ export default function MalagaPalaceES() {
         description="Coworking en un palacio restaurado del siglo XVIII en el centro histórico de Málaga. Muros de piedra, jardín con patio y a pasos del Museo Picasso."
         path="/es/malaga-palace"
       />
-      <Navbar />
 
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end">
-        <img src={palaceEntrance} alt="Entrada histórica del Málaga Palace" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={_s(palaceEntrance)} alt="Entrada histórica del Málaga Palace" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/50 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
-          <Link to="/es" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
+          <a href="/es" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
             <ArrowLeft className="w-4 h-4" />
             Volver al Inicio
-          </Link>
+          </a>
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-2 font-semibold">
             Malaga Palace
           </p>
@@ -108,11 +106,11 @@ export default function MalagaPalaceES() {
                 <span className="font-body text-sm text-neutral-dark/70">Lun–Jue 9:30–18:30 · Vie 9:30–17:00</span>
               </div>
               <Button asChild variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 w-fit">
-                <Link to="/es/encuentranos#malaga-palace">Encuéntranos</Link>
+                <a href="/es/encuentranos#malaga-palace">Encuéntranos</a>
               </Button>
             </div>
             <div className="rounded-xl md:rounded-2xl overflow-hidden">
-              <img src={palaceSecondFloor} alt="Segunda planta del Málaga Palace" className="w-full h-[60vh] md:h-[24rem] object-cover" loading="lazy" />
+              <img src={_s(palaceSecondFloor)} alt="Segunda planta del Málaga Palace" className="w-full h-[60vh] md:h-[24rem] object-cover" loading="lazy" />
             </div>
           </div>
         </div>
@@ -126,7 +124,7 @@ export default function MalagaPalaceES() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
             {galleryTop.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group">
-                <img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <img src={_s(img.src)} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
             ))}
           </div>
@@ -145,7 +143,7 @@ export default function MalagaPalaceES() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {galleryBottom.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group">
-                <img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <img src={_s(img.src)} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
             ))}
           </div>
@@ -169,21 +167,19 @@ export default function MalagaPalaceES() {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Servicios</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((s) => (
-              <Link key={s.label} to={s.href} className="rounded-xl overflow-hidden bg-card border border-border group hover:shadow-lg transition-shadow">
+              <a key={s.label} href={s.href} className="rounded-xl overflow-hidden bg-card border border-border group hover:shadow-lg transition-shadow">
                 <div className="h-44 overflow-hidden">
-                  <img src={s.img} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                  <img src={_s(s.img)} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
                 <div className="p-4 flex items-center gap-3">
                   <s.icon className="w-5 h-5 text-primary shrink-0" />
                   <span className="font-body text-sm font-medium text-foreground">{s.label}</span>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
       </section>
-
-      <FooterES />
     </main>
   );
 }

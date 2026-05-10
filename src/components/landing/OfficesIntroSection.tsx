@@ -1,6 +1,5 @@
 import { Building2, CalendarCheck, Users } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
 
 const translations = {
   en: {
@@ -35,10 +34,8 @@ const translations = {
   },
 };
 
-export default function OfficesIntroSection() {
+export default function OfficesIntroSection({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
   return (

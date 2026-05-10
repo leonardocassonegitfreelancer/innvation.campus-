@@ -1,0 +1,11 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import Page from '@/pages/es/events/PowerTalksBApr2026ThankYou';
+const path = '/es/eventos/powertalks-malaga-apr-2026-b/gracias';
+const title = 'Gracias — PowerTalks Málaga Segundo Meetup';
+const description = 'Gracias por tu interés en PowerTalks Málaga Segundo Meetup abril 2026.';
+---
+<Layout {title} {description} {path} noIndex>
+  <PageWrapper lang="es" path={path} client:load><Page /></PageWrapper>
+</Layout>

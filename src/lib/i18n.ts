@@ -1,21 +1,21 @@
 export const routeMap: Record<string, Record<string, string>> = {
-  en: { "/": "/", "/en/malaga-palace": "/en/malaga-palace", "/en/malaga-terrace": "/en/malaga-terrace", "/en/ancona": "/en/ancona", "/en/olbia": "/en/olbia", "/en/find-us": "/en/find-us", "/en/meeting-rooms": "/en/meeting-rooms", "/en/private-terrace": "/en/private-terrace", "/en/private-offices": "/en/private-offices", "/en/business-registration": "/en/business-registration", "/en/coworking-space": "/en/coworking-space", "/en/events": "/en/events", "/en/host-your-event": "/en/host-your-event", "/en/academy": "/en/academy", "/en/benefits": "/en/benefits", "/blog": "/blog" },
-  es: { "/": "/es", "/en/malaga-palace": "/es/malaga-palace", "/en/malaga-terrace": "/es/malaga-terrace", "/en/ancona": "/es/ancona", "/en/olbia": "/es/olbia", "/en/find-us": "/es/encuentranos", "/en/meeting-rooms": "/es/salas-de-reuniones", "/en/private-terrace": "/es/terraza-privada", "/en/private-offices": "/es/oficinas-privadas", "/en/business-registration": "/es/registro-de-empresas", "/en/coworking-space": "/es/coworking", "/en/events": "/es/eventos", "/en/host-your-event": "/es/organiza-tu-evento", "/en/academy": "/es/academia", "/en/benefits": "/es/beneficios", "/blog": "/es/blog", "/es": "/es", "/es/malaga-palace": "/es/malaga-palace", "/es/malaga-terrace": "/es/malaga-terrace", "/es/ancona": "/es/ancona", "/es/olbia": "/es/olbia", "/es/encuentranos": "/es/encuentranos", "/es/salas-de-reuniones": "/es/salas-de-reuniones", "/es/terraza-privada": "/es/terraza-privada", "/es/oficinas-privadas": "/es/oficinas-privadas", "/es/registro-de-empresas": "/es/registro-de-empresas", "/es/coworking": "/es/coworking", "/es/eventos": "/es/eventos", "/es/organiza-tu-evento": "/es/organiza-tu-evento", "/es/academia": "/es/academia", "/es/beneficios": "/es/beneficios", "/es/blog": "/es/blog" },
-  it: { "/": "/it", "/en/malaga-palace": "/it/malaga-palace", "/en/malaga-terrace": "/it/malaga-terrace", "/en/ancona": "/it/ancona", "/en/olbia": "/it/olbia", "/en/find-us": "/it/trovaci", "/en/meeting-rooms": "/it/sale-riunioni", "/en/private-terrace": "/it/terrazza-privata", "/en/private-offices": "/it/uffici-privati", "/en/business-registration": "/it/registrazione-aziendale", "/en/coworking-space": "/it/coworking", "/en/events": "/it/eventi", "/en/host-your-event": "/it/organizza-evento", "/en/academy": "/it/academy", "/en/benefits": "/it/vantaggi", "/blog": "/it/blog", "/es": "/it", "/es/malaga-palace": "/it/malaga-palace", "/es/malaga-terrace": "/it/malaga-terrace", "/es/ancona": "/it/ancona", "/es/olbia": "/it/olbia", "/es/encuentranos": "/it/trovaci", "/es/salas-de-reuniones": "/it/sale-riunioni", "/es/terraza-privada": "/it/terrazza-privata", "/es/oficinas-privadas": "/it/uffici-privati", "/es/registro-de-empresas": "/it/registrazione-aziendale", "/es/coworking": "/it/coworking", "/es/eventos": "/it/eventi", "/es/organiza-tu-evento": "/it/organizza-evento", "/es/academia": "/it/academy", "/es/beneficios": "/it/vantaggi", "/es/blog": "/it/blog", "/it": "/it", "/it/malaga-palace": "/it/malaga-palace", "/it/malaga-terrace": "/it/malaga-terrace", "/it/ancona": "/it/ancona", "/it/olbia": "/it/olbia", "/it/trovaci": "/it/trovaci", "/it/sale-riunioni": "/it/sale-riunioni", "/it/terrazza-privata": "/it/terrazza-privata", "/it/uffici-privati": "/it/uffici-privati", "/it/registrazione-aziendale": "/it/registrazione-aziendale", "/it/coworking": "/it/coworking", "/it/eventi": "/it/eventi", "/it/organizza-evento": "/it/organizza-evento", "/it/academy": "/it/academy", "/it/vantaggi": "/it/vantaggi", "/it/blog": "/it/blog" },
+  en: { "/": "/", "/en/malaga-palace": "/en/malaga-palace", "/en/malaga-terrace": "/en/malaga-terrace", "/en/ancona": "/en/ancona", "/en/olbia": "/en/olbia", "/en/find-us": "/en/find-us", "/en/meeting-rooms": "/en/meeting-rooms", "/en/private-terrace": "/en/private-terrace", "/en/private-offices": "/en/private-offices", "/en/business-registration": "/en/business-registration", "/en/coworking-space": "/en/coworking-space", "/en/events": "/en/events", "/en/host-your-event": "/en/host-your-event", "/en/academy": "/en/academy", "/en/benefits": "/en/benefits", "/en/blog": "/en/blog", "/en/contact": "/en/contact" },
+  es: { "/": "/es", "/en/malaga-palace": "/es/malaga-palace", "/en/malaga-terrace": "/es/malaga-terrace", "/en/ancona": "/es/ancona", "/en/olbia": "/es/olbia", "/en/find-us": "/es/encuentranos", "/en/meeting-rooms": "/es/salas-de-reuniones", "/en/private-terrace": "/es/terraza-privada", "/en/private-offices": "/es/oficinas-privadas", "/en/business-registration": "/es/registro-de-empresas", "/en/coworking-space": "/es/coworking", "/en/events": "/es/eventos", "/en/host-your-event": "/es/organiza-tu-evento", "/en/academy": "/es/academia", "/en/benefits": "/es/beneficios", "/en/blog": "/es/blog", "/en/contact": "/es/contacto", "/es": "/es", "/es/malaga-palace": "/es/malaga-palace", "/es/malaga-terrace": "/es/malaga-terrace", "/es/ancona": "/es/ancona", "/es/olbia": "/es/olbia", "/es/encuentranos": "/es/encuentranos", "/es/salas-de-reuniones": "/es/salas-de-reuniones", "/es/terraza-privada": "/es/terraza-privada", "/es/oficinas-privadas": "/es/oficinas-privadas", "/es/registro-de-empresas": "/es/registro-de-empresas", "/es/coworking": "/es/coworking", "/es/eventos": "/es/eventos", "/es/organiza-tu-evento": "/es/organiza-tu-evento", "/es/academia": "/es/academia", "/es/beneficios": "/es/beneficios", "/es/blog": "/es/blog", "/es/contacto": "/es/contacto" },
+  it: { "/": "/it", "/en/malaga-palace": "/it/malaga-palace", "/en/malaga-terrace": "/it/malaga-terrace", "/en/ancona": "/it/ancona", "/en/olbia": "/it/olbia", "/en/find-us": "/it/trovaci", "/en/meeting-rooms": "/it/sale-riunioni", "/en/private-terrace": "/it/terrazza-privata", "/en/private-offices": "/it/uffici-privati", "/en/business-registration": "/it/registrazione-aziendale", "/en/coworking-space": "/it/coworking", "/en/events": "/it/eventi", "/en/host-your-event": "/it/organizza-evento", "/en/academy": "/it/academy", "/en/benefits": "/it/vantaggi", "/en/blog": "/it/blog", "/en/contact": "/it/contatti", "/es": "/it", "/es/malaga-palace": "/it/malaga-palace", "/es/malaga-terrace": "/it/malaga-terrace", "/es/ancona": "/it/ancona", "/es/olbia": "/it/olbia", "/es/encuentranos": "/it/trovaci", "/es/salas-de-reuniones": "/it/sale-riunioni", "/es/terraza-privada": "/it/terrazza-privata", "/es/oficinas-privadas": "/it/uffici-privati", "/es/registro-de-empresas": "/it/registrazione-aziendale", "/es/coworking": "/it/coworking", "/es/eventos": "/it/eventi", "/es/organiza-tu-evento": "/it/organizza-evento", "/es/academia": "/it/academy", "/es/beneficios": "/it/vantaggi", "/es/blog": "/it/blog", "/es/contacto": "/it/contatti", "/it": "/it", "/it/malaga-palace": "/it/malaga-palace", "/it/malaga-terrace": "/it/malaga-terrace", "/it/ancona": "/it/ancona", "/it/olbia": "/it/olbia", "/it/trovaci": "/it/trovaci", "/it/sale-riunioni": "/it/sale-riunioni", "/it/terrazza-privata": "/it/terrazza-privata", "/it/uffici-privati": "/it/uffici-privati", "/it/registrazione-aziendale": "/it/registrazione-aziendale", "/it/coworking": "/it/coworking", "/it/eventi": "/it/eventi", "/it/organizza-evento": "/it/organizza-evento", "/it/academy": "/it/academy", "/it/vantaggi": "/it/vantaggi", "/it/blog": "/it/blog", "/it/contatti": "/it/contatti" },
 };
 
 export const getAlternateLinks = (currentPath: string) => {
   let canonicalEnPath = currentPath;
   
   for (const [enPath, esPath] of Object.entries(routeMap.es)) {
-    if (esPath === currentPath && (enPath.startsWith('/en/') || enPath === '/' || enPath === '/blog')) {
+    if (esPath === currentPath && (enPath.startsWith('/en/') || enPath === '/')) {
       canonicalEnPath = enPath;
       break;
     }
   }
   
   for (const [enPath, itPath] of Object.entries(routeMap.it)) {
-    if (itPath === currentPath && (enPath.startsWith('/en/') || enPath === '/' || enPath === '/blog')) {
+    if (itPath === currentPath && (enPath.startsWith('/en/') || enPath === '/')) {
       canonicalEnPath = enPath;
       break;
     }
@@ -47,6 +47,7 @@ const breadcrumbNames: Record<string, Record<string, string>> = {
     "academy": "Academy",
     "benefits": "Benefits",
     "blog": "Blog",
+    "contact": "Contact",
   },
   es: {
     "": "Inicio",
@@ -55,7 +56,7 @@ const breadcrumbNames: Record<string, Record<string, string>> = {
     "ancona": "Ancona",
     "olbia": "Olbia",
     "encuentranos": "Encuéntranos",
-    "salas-de-conferencias": "Salas de Reuniones",
+    "salas-de-reuniones": "Salas de Reuniones",
     "terraza-privada": "Terraza Privada",
     "oficinas-privadas": "Oficinas Privadas",
     "registro-de-empresas": "Registro de Empresas",
@@ -65,6 +66,7 @@ const breadcrumbNames: Record<string, Record<string, string>> = {
     "academia": "Academia",
     "beneficios": "Beneficios",
     "blog": "Blog",
+    "contacto": "Contacto",
   },
   it: {
     "": "Home",
@@ -73,7 +75,7 @@ const breadcrumbNames: Record<string, Record<string, string>> = {
     "ancona": "Ancona",
     "olbia": "Olbia",
     "trovaci": "Trovaci",
-    "sale-conferenze": "Sale Riunioni",
+    "sale-riunioni": "Sale Riunioni",
     "terrazza-privata": "Terrazza Privata",
     "uffici-privati": "Uffici Privati",
     "registrazione-aziendale": "Registrazione Aziendale",
@@ -83,44 +85,61 @@ const breadcrumbNames: Record<string, Record<string, string>> = {
     "academy": "Academy",
     "vantaggi": "Vantaggi",
     "blog": "Blog",
+    "contatti": "Contatti",
   },
 };
 
 export const generateBreadcrumbJsonLd = (path: string, baseUrl: string) => {
   const segments = path.split("/").filter(Boolean);
-  const lang = segments[0] === "es" || segments[0] === "it" ? segments[0] : "en";
+  const hasLangPrefix = segments.length > 0 && ["en", "es", "it"].includes(segments[0]);
+  const lang = hasLangPrefix ? (segments[0] as "en" | "es" | "it") : "en";
   const names = breadcrumbNames[lang] || breadcrumbNames.en;
-  
+
   const homePath = lang === "en" ? "/" : `/${lang}`;
   const homeName = names[""] || "Home";
-  
-  const items = [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: homeName,
-      item: `${baseUrl}${homePath}`,
-    },
+
+  const items: object[] = [
+    { "@type": "ListItem", position: 1, name: homeName, item: `${baseUrl}${homePath}` },
   ];
-  
-  const pathSegments = lang === "en" ? segments.slice(1) : segments.slice(1);
-  let currentPath = lang === "en" ? "/en" : `/${lang}`;
-  
+
+  const pathSegments = hasLangPrefix ? segments.slice(1) : segments;
+  let currentPath = hasLangPrefix ? (lang === "en" ? "/en" : `/${lang}`) : "";
+
   pathSegments.forEach((segment, index) => {
     currentPath += `/${segment}`;
     const name = names[segment] || segment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-    
-    items.push({
-      "@type": "ListItem",
-      position: index + 2,
-      name,
-      item: `${baseUrl}${currentPath}`,
-    });
+    items.push({ "@type": "ListItem", position: index + 2, name, item: `${baseUrl}${currentPath}` });
   });
-  
+
+  return { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items };
+};
+
+type LocationKey = "malaga-palace" | "malaga-terrace" | "ancona" | "olbia";
+
+const locationData: Record<LocationKey, { name: string; streetAddress: string; postalCode: string; locality: string; country: string }> = {
+  "malaga-palace": { name: "Innovation Campus — Málaga Palace", streetAddress: "Calle Álamos 7", postalCode: "29012", locality: "Málaga", country: "ES" },
+  "malaga-terrace": { name: "Innovation Campus — Málaga Terrace", streetAddress: "Calle Puerto 14", postalCode: "29016", locality: "Málaga", country: "ES" },
+  "ancona": { name: "Innovation Campus — Ancona", streetAddress: "Via Montebello 71", postalCode: "60122", locality: "Ancona", country: "IT" },
+  "olbia": { name: "Innovation Campus — Olbia", streetAddress: "Via Georgia 11, Torre 2, Piano 1", postalCode: "07026", locality: "Olbia", country: "IT" },
+};
+
+export const generateLocalBusinessJsonLd = (location: LocationKey, pageUrl: string) => {
+  const d = locationData[location];
   return {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: items,
+    "@type": "CoworkingSpace",
+    "name": d.name,
+    "url": pageUrl,
+    "address": {
+      "@type": "PostalAddress",
+      ...(d.streetAddress && { "streetAddress": d.streetAddress }),
+      ...(d.postalCode && { "postalCode": d.postalCode }),
+      "addressLocality": d.locality,
+      "addressCountry": d.country,
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "09:30", "closes": "18:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday"], "opens": "09:30", "closes": "17:00" },
+    ],
   };
 };

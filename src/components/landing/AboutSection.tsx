@@ -1,6 +1,8 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import aboutImage from "@/assets/about-campus.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 export default function AboutSection() {
   const { ref: r1, isVisible: v1 } = useScrollAnimation();
   const { ref: r2, isVisible: v2 } = useScrollAnimation();
@@ -21,7 +23,7 @@ export default function AboutSection() {
             className={`scroll-animate ${v2 ? "visible" : ""} w-full md:w-1/2`}>
             
             <img
-              src={aboutImage}
+              src={_s(aboutImage)}
               alt="Innovation Campus — coworking space in Málaga"
               className="w-full h-auto rounded-lg" />
             

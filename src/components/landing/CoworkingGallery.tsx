@@ -17,6 +17,8 @@ import terraceCommunity from "@/assets/terrace-community.webp";
 import terraceEvents from "@/assets/terrace-events.webp";
 import serviceTerrace from "@/assets/service-terrace.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const palaceGalleryTop = [
   { src: palaceCourtyard, alt: "Málaga Palace courtyard" },
   { src: palaceOutside, alt: "Málaga Palace exterior" },
@@ -48,12 +50,34 @@ const videos = {
   terrace: "/videos/malaga-terrace.mp4",
 };
 
-export default function CoworkingGallery() {
+const translations = {
+  en: {
+    tagline: "Explore",
+    title: "Our Spaces in Málaga",
+    palace: "Málaga Palace",
+    terrace: "Málaga Terrace",
+  },
+  es: {
+    tagline: "Explora",
+    title: "Nuestros Espacios en Málaga",
+    palace: "Málaga Palace",
+    terrace: "Málaga Terrace",
+  },
+  it: {
+    tagline: "Esplora",
+    title: "I Nostri Spazi a Málaga",
+    palace: "Málaga Palace",
+    terrace: "Málaga Terrace",
+  }
+};
+
+export default function CoworkingGallery({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const [tab, setTab] = useState<"palace" | "terrace">("palace");
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation(0.1);
+  const t = translations[lang];
 
   const galleryTop = tab === "palace" ? palaceGalleryTop : terraceGalleryTop;
   const galleryBottom = tab === "palace" ? palaceGalleryBottom : terraceGalleryBottom;
@@ -84,10 +108,10 @@ export default function CoworkingGallery() {
       <div className="relative max-w-6xl mx-auto px-6">
         <div ref={headerRef} className={`scroll-animate ${headerVisible ? "visible" : ""} text-center mb-10`}>
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
-            Explore
+            {t.tagline}
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-8">
-            Our Spaces in Málaga
+            {t.title}
           </h2>
 
           {/* Toggle */}
@@ -100,7 +124,7 @@ export default function CoworkingGallery() {
                   : "border border-primary text-primary bg-transparent hover:bg-primary/10"
               }`}
             >
-              Málaga Palace
+              {t.palace}
             </button>
             <button
               onClick={() => handleTabSwitch("terrace")}
@@ -110,7 +134,7 @@ export default function CoworkingGallery() {
                   : "border border-primary text-primary bg-transparent hover:bg-primary/10"
               }`}
             >
-              Málaga Terrace
+              {t.terrace}
             </button>
           </div>
         </div>
@@ -121,7 +145,7 @@ export default function CoworkingGallery() {
             {galleryTop.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group aspect-[4/3]">
                 <img
-                  src={img.src}
+                  src={_s(img.src)}
                   alt={img.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
@@ -161,7 +185,7 @@ export default function CoworkingGallery() {
             {galleryBottom.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group aspect-[4/3]">
                 <img
-                  src={img.src}
+                  src={_s(img.src)}
                   alt={img.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"

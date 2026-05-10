@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostIsland from '@/components/BlogPostIsland';
+import { getBlogPost } from '@/data/blogPosts';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const { slug } = Astro.params;
+const post = getBlogPost(slug ?? '');
+
+const title = post?.title ?? 'Blog Post';
+const description = post?.excerpt ?? 'Read this article on the Innovation Campus blog.';
+const path = `/blog/${slug}`;
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout {title} {description} {path} {alternates} {breadcrumb} noIndex={!post}>
+  <BlogPostIsland slug={slug ?? ''} client:load />
+</Layout>

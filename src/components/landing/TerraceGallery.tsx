@@ -1,8 +1,9 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
+import { useLang } from "@/lib/lang-context";
 import serviceTerrace from "@/assets/service-terrace.webp";
 import terraceBar from "@/assets/terrace-bar.webp";
 import terraceCommunity from "@/assets/terrace-community.webp";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 const translations = {
   en: { tagline: "Gallery", title: "See Our Terrace" },
@@ -17,22 +18,20 @@ const images = [
 ];
 
 export default function TerraceGallery() {
-  const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+  const lang = useLang();
   const t = translations[lang];
 
   return (
     <section className="py-20 md:py-28 bg-background">
       <div className="max-w-6xl mx-auto px-6">
-        <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-14`}>
+        <div className="text-center mb-14">
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">{t.tagline}</p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground">{t.title}</h2>
         </div>
         <div className="flex gap-4 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory scrollbar-hide">
           {images.map((img, i) => (
             <div key={i} className="flex-shrink-0 w-[85%] md:w-[45%] snap-start">
-              <img src={img.src} alt={img.alt} className="w-full h-64 md:h-80 object-cover rounded-xl" />
+              <img src={_s(img.src)} alt={img.alt} className="w-full h-64 md:h-80 object-cover rounded-xl" />
             </div>
           ))}
         </div>

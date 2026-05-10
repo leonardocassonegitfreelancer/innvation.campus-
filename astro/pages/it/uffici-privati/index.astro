@@ -1,0 +1,25 @@
+---
+import ServicePageLayout from '../../../components/ServicePageLayout.astro';
+import PrivateOfficesPage from '@/pages/en/PrivateOffices';
+import servicePrivate from '@/assets/service-private.webp';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/it/uffici-privati';
+const title = 'Uffici Privati';
+const description = 'Spazi ufficio dedicati in diverse dimensioni per soddisfare le esigenze del tuo team a Málaga.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<ServicePageLayout
+  {title}
+  {description}
+  {path}
+  {alternates}
+  {breadcrumb}
+  subtitle="L'ufficio dei tuoi sogni è più vicino di quanto pensi. Lavora in location stimolanti circondato da una comunità imprenditoriale internazionale."
+  image={servicePrivate}
+  lang="it"
+>
+  <PrivateOfficesPage lang="it" client:load />
+</ServicePageLayout>

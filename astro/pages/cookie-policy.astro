@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import CookiePolicy from '@/pages/CookiePolicy';
+const path = '/cookie-policy';
+const title = 'Cookie Policy';
+const description = 'Cookie Policy of Innovation Campus.';
+---
+<Layout {title} {description} {path}>
+  <PageWrapper lang="en" path={path} client:load><CookiePolicy /></PageWrapper>
+</Layout>

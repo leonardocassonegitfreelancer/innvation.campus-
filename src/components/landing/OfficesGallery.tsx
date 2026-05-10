@@ -1,8 +1,10 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
+import { useLang } from "@/lib/lang-context";
 import servicePrivate from "@/assets/service-private.webp";
 import palaceCoworking from "@/assets/palace-coworking.webp";
 import palaceSecondFloor from "@/assets/palace-second-floor.webp";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 const translations = {
   en: { tagline: "Gallery", title: "See Our Offices" },
@@ -18,8 +20,7 @@ const images = [
 
 export default function OfficesGallery() {
   const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+  const lang = useLang();
   const t = translations[lang];
 
   return (
@@ -32,7 +33,7 @@ export default function OfficesGallery() {
         <div className="flex gap-4 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory scrollbar-hide">
           {images.map((img, i) => (
             <div key={i} className="flex-shrink-0 w-[85%] md:w-[45%] snap-start">
-              <img src={img.src} alt={img.alt} className="w-full h-64 md:h-80 object-cover rounded-xl" />
+              <img src={_s(img.src)} alt={img.alt} className="w-full h-64 md:h-80 object-cover rounded-xl" />
             </div>
           ))}
         </div>

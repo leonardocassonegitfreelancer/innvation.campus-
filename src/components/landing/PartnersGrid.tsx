@@ -19,13 +19,7 @@ const translations = {
   },
 };
 
-export default function PartnersGrid() {
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es")
-    ? "es"
-    : location.pathname.startsWith("/it")
-    ? "it"
-    : "en";
+export default function PartnersGrid({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const t = translations[lang];
 
   return (

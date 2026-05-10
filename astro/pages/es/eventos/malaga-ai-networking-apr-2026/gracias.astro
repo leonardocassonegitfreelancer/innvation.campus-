@@ -1,0 +1,11 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import Page from '@/pages/es/events/MalagaAIApr2026ThankYou';
+const path = '/es/eventos/malaga-ai-networking-apr-2026/gracias';
+const title = 'Gracias — Malaga AI Networking Night';
+const description = 'Gracias por tu interés en Malaga AI Networking Night abril 2026.';
+---
+<Layout {title} {description} {path} noIndex>
+  <PageWrapper lang="es" path={path} client:load><Page /></PageWrapper>
+</Layout>

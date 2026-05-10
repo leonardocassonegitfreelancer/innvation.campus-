@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MapPin, Clock, Star } from "lucide-react";
 import historicExt from "@/assets/historic-exterior.webp";
 import seasideExt from "@/assets/terrace-community.webp";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 const locations = [
   {
@@ -13,7 +14,7 @@ const locations = [
     address: "Calle Álamos 7 29012, Málaga",
     hours: "Lun–Gio 9:30–18:30 · Ven fino alle 17:00",
     highlights: ["4 Piani", "2 Terrazze", "Bar", "24/7", "Internet veloce"],
-    desc: "Situato in un edificio restaurato del XVIII secolo vicino al Museo Picasso, questo spazio ti avvolge in secoli di storia. Perfetto per il lavoro profondo, il pensiero strategico e le conversazioni che contano.",
+    desc: "Situato in un edificio restaurado del XVIII secolo vicino al Museo Picasso, questo spazio ti avvolge in secoli di storia. Perfetto per il lavoro profondo, il pensiero strategico e le conversazioni che contano.",
     theme: "historic" as const
   },
   {
@@ -56,7 +57,7 @@ function LocationCard({ name, tagline, img, alt, address, hours, highlights, des
   return (
     <div ref={ref} className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group flex flex-col ${isHistoric ? "stone-texture-bg" : "sea-wave-bg"}`}>
       <div className="relative h-80 md:h-[28rem] overflow-hidden z-10">
-        <img src={img} alt={alt} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110" loading="lazy" />
+        <img src={_s(img)} alt={alt} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110" loading="lazy" />
       </div>
       <div className="p-6 md:p-8 relative z-10 flex flex-col flex-1">
         <div className="mb-4">
@@ -83,9 +84,9 @@ function LocationCard({ name, tagline, img, alt, address, hours, highlights, des
           ))}
         </div>
         <div className="mt-auto pt-8">
-          <Link to={isHistoric ? "/it/malaga-palace" : "/it/malaga-terrace"} className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
+          <a href={isHistoric ? "/it/malaga-palace" : "/it/malaga-terrace"} className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
             Scopri di più
-          </Link>
+          </a>
         </div>
       </div>
     </div>

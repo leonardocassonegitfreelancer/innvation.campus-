@@ -8,26 +8,18 @@ import CoworkingGallery from "@/components/landing/CoworkingGallery";
 import CoworkingFAQ from "@/components/landing/CoworkingFAQ";
 import CoworkingCTA from "@/components/landing/CoworkingCTA";
 
-export default function CoworkingSpace() {
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
+export default function CoworkingSpace({ lang: langProp }: { lang?: "en" | "es" | "it" } = {}) {
+  const lang = langProp ?? "en";
   return (
     <>
-      <SEOHead
-        title="Coworking & Pricing"
-        description="Flexible coworking plans and pricing for individuals and small teams in Málaga."
-        path="/en/coworking-space"
-      />
-      <ServicePageLayout
-        title="Coworking & Pricing"
-        subtitle="Flexible plans and pricing for individuals"
-        image={serviceCoworking}
-      >
-        <CoworkingIntro />
-        <CoworkingPricing />
-        <CoworkingIncludes />
-        <CoworkingGallery />
-        <CoworkingFAQ />
-        <CoworkingCTA />
-      </ServicePageLayout>
+      <CoworkingIntro lang={lang} />
+      <CoworkingPricing lang={lang} />
+      <CoworkingIncludes lang={lang} />
+      <CoworkingGallery lang={lang} />
+      <CoworkingFAQ lang={lang} />
+      <CoworkingCTA lang={lang} />
     </>
   );
 }

@@ -4,11 +4,17 @@ import terraceBar from "@/assets/terrace-bar.webp";
 import terraceEvents from "@/assets/terrace-events.webp";
 import terraceCommunity from "@/assets/terrace-community.webp";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
+import { useLang } from "@/lib/lang-context";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
+const detailBase: Record<"en" | "es" | "it", string> = {
+  en: "/en/private-terrace",
+  es: "/es/terraza-privada",
+  it: "/it/terrazza-privata",
+};
 
 const translations = {
   en: {
@@ -16,6 +22,7 @@ const translations = {
     title: "Choose Your Terrace Experience",
     flagship: "popular",
     requestQuote: "Request Quote",
+    viewDetails: "View Details",
     spaces: [
       {
         id: "full-terrace",
@@ -52,6 +59,7 @@ const translations = {
     title: "Elige Tu Experiencia",
     flagship: "más popular",
     requestQuote: "Solicitar Presupuesto",
+    viewDetails: "Ver Detalles",
     spaces: [
       {
         id: "full-terrace",
@@ -88,6 +96,7 @@ const translations = {
     title: "Scegli la Tua Esperienza",
     flagship: "popolare",
     requestQuote: "Richiedi Preventivo",
+    viewDetails: "Vedi Dettagli",
     spaces: [
       {
         id: "full-terrace",
@@ -129,15 +138,13 @@ const spaceImages: Record<string, string> = {
 };
 
 export default function TerraceSpaces() {
-  const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+  const lang = useLang();
   const t = translations[lang];
 
   return (
     <section className="py-20 md:py-28 bg-background">
       <div className="max-w-6xl mx-auto px-6">
-        <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-14`}>
+        <div className="text-center mb-14">
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
             {t.tagline}
           </p>
@@ -160,7 +167,7 @@ export default function TerraceSpaces() {
                 {spaceImages[space.id] && (
                   <div className={`w-full ${space.highlight ? "h-48 md:h-64" : "h-40 md:h-48"} overflow-hidden`}>
                     <img
-                      src={spaceImages[space.id]}
+                      src={_s(spaceImages[space.id])}
                       alt={space.name}
                       className="w-full h-full object-cover"
                       loading="lazy"
@@ -196,7 +203,7 @@ export default function TerraceSpaces() {
                       variant={space.highlight ? "default" : "outline"}
                       className={space.highlight ? "bg-primary hover:bg-primary/90" : ""}
                     >
-                      <a href="/#contact">{t.requestQuote}</a>
+                      <a href={`${detailBase[lang]}/${space.id}`}>{t.viewDetails}</a>
                     </Button>
                   </div>
                 </CardContent>

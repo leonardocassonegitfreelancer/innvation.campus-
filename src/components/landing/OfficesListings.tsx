@@ -9,7 +9,8 @@ import terraceCommunity from "@/assets/terrace-community.webp";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 interface Office {
   id: string;
@@ -231,7 +232,7 @@ function OfficeCardWithModal({ office, t, activeTab, locationLabel, lang }: any)
         <div className="group cursor-pointer flex flex-col gap-6">
           <div className="relative w-full aspect-[3/4] overflow-hidden rounded-md bg-muted">
             <img
-              src={office.image}
+              src={_s(office.image)}
               alt={office.sizeLabel}
               className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
               loading="lazy"
@@ -263,7 +264,7 @@ function OfficeCardWithModal({ office, t, activeTab, locationLabel, lang }: any)
           {/* Crossfade: key forces remount → fade-in on each change */}
           <img
             key={activeIdx}
-            src={office.gallery[activeIdx]}
+            src={_s(office.gallery[activeIdx])}
             alt={`${office.sizeLabel} view ${activeIdx + 1}`}
             className="absolute inset-0 w-full h-full object-cover animate-in fade-in duration-700"
           />
@@ -283,7 +284,7 @@ function OfficeCardWithModal({ office, t, activeTab, locationLabel, lang }: any)
                       : "opacity-50 scale-95 hover:opacity-80"
                   }`}
                 >
-                  <img src={img} alt="" className="w-full h-full object-cover" />
+                  <img src={_s(img)} alt="" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
@@ -353,11 +354,9 @@ function OfficeCardWithModal({ office, t, activeTab, locationLabel, lang }: any)
   );
 }
 
-export default function OfficesListings() {
+export default function OfficesListings({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const [activeTab, setActiveTab] = useState<"palace" | "terrace">("palace");
   const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang as keyof typeof translations];
   const offices = activeTab === "palace" ? t.palaceOffices : t.terraceOffices;
 

@@ -7,86 +7,136 @@ import { Button } from "@/components/ui/button";
 import palaceOutside from "@/assets/palace-outside-front.webp";
 import terraceEntrance from "@/assets/terrace-entrance.webp";
 
-const locations = [
-  {
-    id: "malaga-palace",
-    name: "Málaga Palace",
-    subtitle: "Historic Center",
-    address: "Calle Álamos 7, 29012 Málaga",
-    hours: "Mon–Fri 09:30–18:30",
-    phone: "+34 671 44 12 88",
-    email: "info@innovationcampus.biz",
-    mapUrl: "https://maps.google.com/?q=Calle+Álamos+7+29012+Málaga",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4215!3d36.7213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+%C3%81lamos+7%2C+29012+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1",
-    image: palaceOutside,
-    imagePosition: "bottom",
-    link: "/en/malaga-palace",
-  },
-  {
-    id: "malaga-terrace",
-    name: "Málaga Terrace",
-    subtitle: "Sea Side",
-    address: "Calle Puerto 14, 29016 Málaga",
-    hours: "Mon–Fri 09:30–18:30",
-    phone: "+34 676 94 39 78",
-    email: "malaga.terrace@innovationcampus.biz",
-    mapUrl: "https://maps.google.com/?q=Calle+Puerto+14+29016+Málaga",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4185!3d36.7143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+Puerto+14%2C+29016+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1",
-    image: terraceEntrance,
-    imagePosition: "top",
-    link: "/en/malaga-terrace",
-  },
-  {
-    id: "ancona",
-    name: "Ancona",
-    subtitle: "Italy",
-    address: "Via Montebello 71, 60122 Ancona AN, Italia",
-    hours: "Mon–Fri 09:30–18:30",
-    phone: "+39 338 335 5908",
-    email: "michela@i-campus.biz",
-    mapUrl: "https://maps.google.com/?q=Via+Montebello+71+60122+Ancona+AN+Italia",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5!2d13.5127!3d43.6158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVia+Montebello+71%2C+60122+Ancona!5e0!3m2!1sen!2sit!4v1",
-    link: "/en/ancona",
-  },
-  {
-    id: "olbia",
-    name: "Olbia",
-    subtitle: "Sardinia",
-    address: "Via Georgia 11, Torre 2, Piano 1, 07026 Olbia SS, Italia",
-    hours: "Mon–Fri 09:30–18:30",
-    phone: "+39 338 335 5908",
-    email: "olbia@innovationcampus.biz",
-    mapUrl: "https://maps.google.com/?q=Via+Georgia+11+07026+Olbia+SS+Italia",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.5!2d9.4963!3d40.9234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVia+Georgia+11%2C+07026+Olbia!5e0!3m2!1sen!2sit!4v1",
-    link: "/en/olbia",
-  },
-];
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
-export default function FindUs() {
+const getSrc = (img: any): string => typeof img === 'string' ? img : img.src;
+
+const translations = {
+  en: {
+    back: "Back to Home",
+    tagline: "Our locations",
+    title: "Find Us",
+    subtitle: "Addresses, hours, and directions for every Innovation Campus location.",
+    openInMaps: "Open in Maps",
+    viewLocation: "View Location",
+    locations: {
+      historic: "Historic Center",
+      seaside: "Sea Side",
+      italy: "Italy",
+      sardinia: "Sardinia",
+      hours: "Mon–Fri 09:30–18:30"
+    }
+  },
+  es: {
+    back: "Volver al inicio",
+    tagline: "Nuestras sedes",
+    title: "Encuéntranos",
+    subtitle: "Direcciones, horarios e indicaciones para cada sede de Innovation Campus.",
+    openInMaps: "Abrir en Maps",
+    viewLocation: "Ver Sede",
+    locations: {
+      historic: "Centro Histórico",
+      seaside: "Frente al Mar",
+      italy: "Italia",
+      sardinia: "Cerdeña",
+      hours: "Lun–Vie 09:30–18:30"
+    }
+  },
+  it: {
+    back: "Torna alla home",
+    tagline: "Le nostre sedi",
+    title: "Trovaci",
+    subtitle: "Indirizzi, orari e indicazioni per ogni sede Innovation Campus.",
+    openInMaps: "Apri in Maps",
+    viewLocation: "Vedi Sede",
+    locations: {
+      historic: "Centro Storico",
+      seaside: "Lungomare",
+      italy: "Italia",
+      sardinia: "Sardegna",
+      hours: "Lun–Ven 09:30–18:30"
+    }
+  }
+};
+
+export default function FindUs({ lang: langProp }: { lang?: "en" | "es" | "it" } = {}) {
+  const lang = langProp ?? "en";
+  const t = translations[lang];
+
+  const locations = [
+    {
+      id: "malaga-palace",
+      name: "Málaga Palace",
+      subtitle: t.locations.historic,
+      address: "Calle Álamos 7, 29012 Málaga",
+      hours: t.locations.hours,
+      phone: "+34 671 44 12 88",
+      email: "info@innovationcampus.biz",
+      mapUrl: "https://maps.google.com/?q=Calle+Álamos+7+29012+Málaga",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4215!3d36.7213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+%C3%81lamos+7%2C+29012+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1",
+      image: getSrc(palaceOutside),
+      imagePosition: "bottom",
+      link: `/${lang}/malaga-palace`,
+    },
+    {
+      id: "malaga-terrace",
+      name: "Málaga Terrace",
+      subtitle: t.locations.seaside,
+      address: "Calle Puerto 14, 29016 Málaga",
+      hours: t.locations.hours,
+      phone: "+34 676 94 39 78",
+      email: "malaga.terrace@innovationcampus.biz",
+      mapUrl: "https://maps.google.com/?q=Calle+Puerto+14+29016+Málaga",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.1!2d-4.4185!3d36.7143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCalle+Puerto+14%2C+29016+M%C3%A1laga!5e0!3m2!1sen!2ses!4v1",
+      image: getSrc(terraceEntrance),
+      imagePosition: "top",
+      link: `/${lang}/malaga-terrace`,
+    },
+    {
+      id: "ancona",
+      name: "Ancona",
+      subtitle: t.locations.italy,
+      address: "Via Montebello 71, 60122 Ancona AN, Italia",
+      hours: t.locations.hours,
+      phone: "+39 338 335 5908",
+      email: "michela@i-campus.biz",
+      mapUrl: "https://maps.google.com/?q=Via+Montebello+71+60122+Ancona+AN+Italia",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5!2d13.5127!3d43.6158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVia+Montebello+71%2C+60122+Ancona!5e0!3m2!1sen!2sit!4v1",
+      link: `/${lang}/ancona`,
+    },
+    {
+      id: "olbia",
+      name: "Olbia",
+      subtitle: t.locations.sardinia,
+      address: "Via Georgia 11, Torre 2, Piano 1, 07026 Olbia SS, Italia",
+      hours: t.locations.hours,
+      phone: "+39 338 335 5908",
+      email: "olbia@innovationcampus.biz",
+      mapUrl: "https://maps.google.com/?q=Via+Georgia+11+07026+Olbia+SS+Italia",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.5!2d9.4963!3d40.9234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVia+Georgia+11%2C+07026+Olbia!5e0!3m2!1sen!2sit!4v1",
+      link: `/${lang}/olbia`,
+    },
+  ];
+
+  const homeLink = lang === "en" ? "/" : `/${lang}`;
+
   return (
-    <main className="overflow-x-hidden">
-      <SEOHead
-        title="Find Us – All Locations"
-        description="Find directions and contact details for all Innovation Campus coworking locations in Málaga, Ancona, and Olbia."
-        path="/en/find-us"
-      />
-      <Navbar />
-
+    <>
       {/* Hero */}
       <section className="pt-32 pb-16 bg-neutral-dark">
         <div className="max-w-6xl mx-auto px-6">
-          <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-6 transition-colors">
+          <Link to={homeLink} className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            {t.back}
           </Link>
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-2 font-semibold">
-            Our locations
+            {t.tagline}
           </p>
           <h1 className="font-display italic text-4xl md:text-5xl font-bold text-primary-foreground">
-            Find Us
+            {t.title}
           </h1>
           <p className="font-body text-primary-foreground/70 mt-3 max-w-xl">
-            Addresses, hours, and directions for every Innovation Campus location.
+            {t.subtitle}
           </p>
           <div className="flex flex-wrap gap-3 mt-6">
             {locations.map((loc) => (
@@ -172,7 +222,7 @@ export default function FindUs() {
               ) : (
                 <Link to={loc.link} className="mt-auto pt-4">
                   <Button variant="outline" className="w-full font-body text-sm uppercase tracking-widest border-white/20 text-white hover:bg-white/10 hover:text-white">
-                    View Location
+                    {t.viewLocation}
                   </Button>
                 </Link>
               )}
@@ -181,8 +231,6 @@ export default function FindUs() {
           ))}
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   );
 }

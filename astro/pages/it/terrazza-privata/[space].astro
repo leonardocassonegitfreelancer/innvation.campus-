@@ -1,0 +1,39 @@
+---
+export const prerender = true;
+
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '@/components/landing/Navbar';
+import Footer from '../../../components/Footer.astro';
+import TerraceSpaceDetail from '@/pages/en/TerraceSpaceDetail';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+type SpaceId = "full-terrace" | "lounge-corner" | "networking-layout" | "private-dining";
+
+const spaceMeta: Record<SpaceId, { title: string; description: string }> = {
+  "full-terrace": { title: "Terrazza Completa", description: "Spazio esterno per fino a 100 persone con vista panoramica, bar premium e catering su misura a Innovation Campus Málaga." },
+  "lounge-corner": { title: "Area Lounge", description: "Angolo intimo esterno per fino a 30 persone. Perfetto per ricevimenti cocktail privati e celebrazioni di team a Málaga." },
+  "networking-layout": { title: "Layout Networking", description: "Spazio esterno aperto per fino a 60 persone con cocktail bar e tavolini alti. Ideale per eventi di networking a Málaga." },
+  "private-dining": { title: "Cena Privata in Terrazza", description: "Esperienza gastronomica esclusiva per fino a 20 persone con menu chef privato e degustazione vini a Innovation Campus Málaga." },
+};
+
+export function getStaticPaths() {
+  return [
+    { params: { space: 'full-terrace' } },
+    { params: { space: 'lounge-corner' } },
+    { params: { space: 'networking-layout' } },
+    { params: { space: 'private-dining' } },
+  ];
+}
+
+const { space } = Astro.params as { space: SpaceId };
+const meta = spaceMeta[space];
+const path = `/it/terrazza-privata/${space}`;
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout title={meta.title} description={meta.description} {path} {breadcrumb}>
+  <div class="overflow-x-hidden">
+    <Navbar lang="it" client:load />
+    <TerraceSpaceDetail lang="it" spaceId={space} client:load />
+    <Footer lang="it" />
+  </div>
+</Layout>

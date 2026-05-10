@@ -1,14 +1,42 @@
 import { Wifi, Users, MapPin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const highlights = [
-  { icon: Wifi, label: "Fast WiFi", desc: "Fiber-optic, reliable connection" },
-  { icon: MapPin, label: "2 Locations", desc: "Historic Center & Seaside" },
-  { icon: Users, label: "Active Community", desc: "Events, networking & perks" },
-];
+const translations = {
+  en: {
+    tagline: "Your Workspace in Málaga",
+    title: "Find Your Perfect Plan",
+    description: "Whether you need a desk for a day or a permanent home for your team, we have flexible coworking options designed around the way you work.",
+    highlights: [
+      { icon: Wifi, label: "Fast WiFi", desc: "Fiber-optic, reliable connection" },
+      { icon: MapPin, label: "2 Locations", desc: "Historic Center & Seaside" },
+      { icon: Users, label: "Active Community", desc: "Events, networking & perks" },
+    ]
+  },
+  es: {
+    tagline: "Tu Espacio en Málaga",
+    title: "Encuentra el Plan Perfecto",
+    description: "Ya sea que necesites un escritorio por un día o un hogar permanente para tu equipo, tenemos opciones de coworking flexibles diseñadas según tu forma de trabajar.",
+    highlights: [
+      { icon: Wifi, label: "WiFi Rápido", desc: "Conexión de fibra óptica fiable" },
+      { icon: MapPin, label: "2 Ubicaciones", desc: "Centro Histórico y Playa" },
+      { icon: Users, label: "Comunidad Activa", desc: "Eventos, networking y beneficios" },
+    ]
+  },
+  it: {
+    tagline: "Il Tuo Spazio a Málaga",
+    title: "Trova il Piano Perfetto",
+    description: "Che tu abbia bisogno di una scrivania per un giorno o di una sede permanente per il tuo team, abbiamo opzioni di coworking flessibili progettate intorno al tuo modo di lavorare.",
+    highlights: [
+      { icon: Wifi, label: "WiFi Veloce", desc: "Connessione in fibra ottica affidabile" },
+      { icon: MapPin, label: "2 Sedi", desc: "Centro Storico e Lungomare" },
+      { icon: Users, label: "Comunità Attiva", desc: "Eventi, networking e vantaggi" },
+    ]
+  }
+};
 
-export default function CoworkingIntro() {
+export default function CoworkingIntro({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const { ref, isVisible } = useScrollAnimation();
+  const t = translations[lang];
 
   return (
     <section className="relative py-20 md:py-28 bg-neutral-dark text-primary-foreground overflow-hidden">
@@ -17,18 +45,17 @@ export default function CoworkingIntro() {
       }} />
       <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} max-w-5xl mx-auto px-6 text-center`}>
         <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
-          Your Workspace in Málaga
+          {t.tagline}
         </p>
         <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
-          Find Your Perfect Plan
+          {t.title}
         </h2>
         <p className="font-body text-lg text-primary-foreground/70 max-w-2xl mx-auto mb-14">
-          Whether you need a desk for a day or a permanent home for your team, we have flexible
-          coworking options designed around the way you work.
+          {t.description}
         </p>
 
         <div className="grid sm:grid-cols-3 gap-8">
-          {highlights.map((h) => (
+          {t.highlights.map((h) => (
             <div key={h.label} className="flex flex-col items-center gap-3">
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
                 <h.icon className="w-6 h-6 text-primary" />

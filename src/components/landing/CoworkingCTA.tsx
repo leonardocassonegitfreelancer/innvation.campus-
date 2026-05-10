@@ -1,8 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-export default function CoworkingCTA() {
+const translations = {
+  en: {
+    title: "Ready to Start?",
+    description: "Book a free tour of our spaces, we'll help you find the right plan.",
+    button: "Book a Tour"
+  },
+  es: {
+    title: "¿Listo para empezar?",
+    description: "Reserva una visita gratuita a nuestros espacios, te aiutaremos a encontrar el plan adecuado.",
+    button: "Reservar Visita"
+  },
+  it: {
+    title: "Pronto per Iniziare?",
+    description: "Prenota un tour gratuito dei nostri spazi, ti aiuteremo a trovare il piano giusto.",
+    button: "Prenota un Tour"
+  }
+};
+
+export default function CoworkingCTA({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const { ref, isVisible } = useScrollAnimation();
+  const t = translations[lang];
 
   return (
     <section className="relative py-20 md:py-28 bg-neutral-dark overflow-hidden">
@@ -11,26 +30,22 @@ export default function CoworkingCTA() {
       }} />
       <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} max-w-3xl mx-auto px-6 text-center relative`}>
         <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">
-          Ready to Start?
+          {t.title}
         </h2>
         <p className="font-body text-lg text-primary-foreground/60 mb-10 max-w-xl mx-auto">
-          Book a free tour of our spaces, 
-we'll help you find the right plan.
+          {t.description}
         </p>
 
         <Button asChild
         size="lg"
         className="bg-primary hover:bg-primary/90 text-primary-foreground font-body uppercase tracking-widest text-sm">
-          
           <a
             href="https://members.innovationcampus.biz/tours/locations"
             target="_blank"
             rel="noopener noreferrer">
-            
-            Book a Tour
+            {t.button}
           </a>
         </Button>
       </div>
     </section>);
-
 }

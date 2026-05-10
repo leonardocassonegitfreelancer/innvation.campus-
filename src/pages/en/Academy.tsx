@@ -5,23 +5,14 @@ import AcademyIntro from "@/components/landing/AcademyIntro";
 import AcademyCourses from "@/components/landing/AcademyCourses";
 import ConferenceCTA from "@/components/landing/ConferenceCTA";
 
-export default function Academy() {
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
+export default function Academy({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   return (
     <>
-      <SEOHead
-        title="Academy"
-        description="Workshops, courses, and training to help you grow at Innovation Campus."
-        path="/en/academy"
-      />
-      <ServicePageLayout
-        title="Academy"
-        subtitle="Workshops, courses, and training to help you get better day by day."
-        image={serviceAcademy}
-      >
-        <AcademyIntro />
-        <AcademyCourses />
-        <ConferenceCTA />
-      </ServicePageLayout>
+      <AcademyIntro lang={lang} />
+      <AcademyCourses lang={lang} />
+      <ConferenceCTA lang={lang} />
     </>
   );
 }

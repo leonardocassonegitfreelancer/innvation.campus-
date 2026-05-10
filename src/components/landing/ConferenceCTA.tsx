@@ -127,18 +127,17 @@ const translations = {
 const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"] as const;
 
 interface ConferenceCTAProps {
+  lang?: "en" | "es" | "it";
   titleOverride?: { en: string; es: string; it: string };
   subtitleOverride?: { en: string; es: string; it: string };
 }
 
-export default function ConferenceCTA({ titleOverride, subtitleOverride }: ConferenceCTAProps = {}) {
+export default function ConferenceCTA({ lang = "en", titleOverride, subtitleOverride }: ConferenceCTAProps = {}) {
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const [service, setService] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
   const conferenceRef = useRef<ConferenceBookingFieldsHandle>(null);
   const { ref, isVisible } = useScrollAnimation();
-  const routeLocation = useLocation();
-  const lang = routeLocation.pathname.startsWith("/es") ? "es" : routeLocation.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
   const displayTitle = titleOverride ? titleOverride[lang] : t.title;
   const displaySubtitle = subtitleOverride ? subtitleOverride[lang] : t.subtitle;
@@ -176,10 +175,9 @@ export default function ConferenceCTA({ titleOverride, subtitleOverride }: Confe
         </p>
         <div className="grid sm:grid-cols-3 gap-6">
           {quickLinks.map((link) => (
-            <Link
+            <a
               key={link.href}
-              to={link.href}
-              onClick={() => window.scrollTo(0, 0)}
+              href={link.href}
               className="group flex flex-col items-center text-center p-6 rounded-2xl border border-white/10 bg-white/5 hover:border-primary/40 hover:bg-white/10 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -191,7 +189,7 @@ export default function ConferenceCTA({ titleOverride, subtitleOverride }: Confe
               <p className="font-body text-sm text-white/60">
                 {link.description}
               </p>
-            </Link>
+            </a>
           ))}
         </div>
       </div>

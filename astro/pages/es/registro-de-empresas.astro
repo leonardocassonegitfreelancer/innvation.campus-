@@ -1,0 +1,25 @@
+---
+import ServicePageLayout from '../../components/ServicePageLayout.astro';
+import BusinessRegistrationPage from '@/pages/en/BusinessRegistration';
+import serviceRegistration from '@/assets/service-registration.webp';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/es/registro-de-empresas';
+const title = 'Registro de Empresas';
+const description = 'Reubica tu empresa a España o Italia con nuestros servicios de registro en Innovation Campus.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<ServicePageLayout
+  {title}
+  {description}
+  {path}
+  {alternates}
+  {breadcrumb}
+  subtitle="Traslada tu empresa a España o Italia con nuestros servicios de registro."
+  image={serviceRegistration}
+  lang="es"
+>
+  <BusinessRegistrationPage lang="es" client:load />
+</ServicePageLayout>

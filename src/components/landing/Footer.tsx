@@ -1,5 +1,4 @@
 import { Facebook, Linkedin, Instagram } from "lucide-react";
-import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -17,7 +16,6 @@ export default function Footer() {
                 Campus
               </span>
             </div>
-
             <div className="space-y-3 text-sm text-white/70">
               <h4 className="text-white/40 text-sm font-light italic mb-2">Opening Hours</h4>
               <div>
@@ -44,14 +42,14 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 3 — Company */}
+          {/* Column 3 — Locations */}
           <div>
             <h4 className="text-white/40 text-sm font-light italic mb-6">​Locations</h4>
             <div className="space-y-3 text-sm text-white/70">
-              <Link to="/en/malaga-palace" className="block hover:text-primary transition-colors">Malaga Palace</Link>
-              <Link to="/en/malaga-terrace" className="block hover:text-primary transition-colors">Malaga Terrace</Link>
-              <Link to="/en/ancona" className="block hover:text-primary transition-colors">Ancona</Link>
-              <Link to="/en/olbia" className="block hover:text-primary transition-colors">Olbia</Link>
+              <a href="/en/malaga-palace" className="block hover:text-primary transition-colors">Malaga Palace</a>
+              <a href="/en/malaga-terrace" className="block hover:text-primary transition-colors">Malaga Terrace</a>
+              <a href="/en/ancona" className="block hover:text-primary transition-colors">Ancona</a>
+              <a href="/en/olbia" className="block hover:text-primary transition-colors">Olbia</a>
             </div>
           </div>
 
@@ -59,40 +57,31 @@ export default function Footer() {
           <div>
             <h4 className="text-white/40 text-sm font-light italic mb-6">Policies</h4>
             <div className="space-y-3 text-sm text-white/70">
-              <Link to="/cookie-policy" className="block hover:text-primary transition-colors">Use of Cookies</Link>
-              <Link to="/legal-notice" className="block hover:text-primary transition-colors">Legal Notice</Link>
-              <Link to="/privacy" className="block hover:text-primary transition-colors">Privacy Policy</Link>
+              <a href="/cookie-policy" className="block hover:text-primary transition-colors">Use of Cookies</a>
+              <a href="/legal-notice" className="block hover:text-primary transition-colors">Legal Notice</a>
+              <a href="/privacy" className="block hover:text-primary transition-colors">Privacy Policy</a>
             </div>
           </div>
         </div>
 
         {/* Divider */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Social icons — left */}
           <div className="flex gap-5">
-            {[{ Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/icampuscoworking" },
-            { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/innovationcampus-coworking/" },
-            { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/innovation_campus/" }].
-            map(({ Icon, label, href }) =>
-            <a
-              key={label}
-              href={href}
-              target={href !== "#" ? "_blank" : undefined}
-              rel={href !== "#" ? "noopener noreferrer" : undefined}
-              aria-label={label}
-              className="text-white/60 hover:text-primary transition-colors">
-              
+            {[
+              { Icon: Facebook, label: "Facebook", href: "https://www.facebook.com/icampuscoworking" },
+              { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/innovationcampus-coworking/" },
+              { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/innovation_campus/" },
+            ].map(({ Icon, label, href }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="text-white/60 hover:text-primary transition-colors">
                 <Icon className="w-5 h-5" />
               </a>
-            )}
+            ))}
           </div>
-
-          {/* Copyright — right */}
           <p className="text-xs text-white/40">
             ©{new Date().getFullYear()} - Innovation Campus. All Rights Reserved
           </p>
         </div>
       </div>
-    </footer>);
-
+    </footer>
+  );
 }

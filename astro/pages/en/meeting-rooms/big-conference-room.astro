@@ -1,0 +1,13 @@
+---
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
+import MeetingRoomPage from '@/components/landing/MeetingRoomPage';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/en/meeting-rooms/big-conference-room';
+const title = 'Big Conference Room';
+const description = 'Our flagship conference room for up to 80 people with 85" 4K display, premium video conferencing and flexible layout in Málaga.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="en">
+  <MeetingRoomPage roomSlug="big-conference-room" lang="en" client:load />
+</RoomPageLayout>

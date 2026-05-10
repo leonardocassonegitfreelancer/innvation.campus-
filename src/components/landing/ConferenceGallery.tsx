@@ -1,8 +1,9 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
 import serviceMeeting from "@/assets/service-meeting.webp";
 import palaceCoworking from "@/assets/palace-coworking.webp";
 import palaceSecondFloor from "@/assets/palace-second-floor.webp";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 const translations = {
   en: {
@@ -19,16 +20,16 @@ const translations = {
   },
 };
 
+const getSrc = (img: any): string => typeof img === 'string' ? img : img.src;
+
 const images = [
-  { src: serviceMeeting, alt: "Conference Room" },
-  { src: palaceCoworking, alt: "Meeting Space" },
-  { src: palaceSecondFloor, alt: "Second Floor" },
+  { src: getSrc(serviceMeeting), alt: "Conference Room" },
+  { src: getSrc(palaceCoworking), alt: "Meeting Space" },
+  { src: getSrc(palaceSecondFloor), alt: "Second Floor" },
 ];
 
-export default function ConferenceGallery() {
+export default function ConferenceGallery({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
   return (

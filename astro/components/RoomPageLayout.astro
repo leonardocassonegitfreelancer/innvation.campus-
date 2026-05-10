@@ -1,0 +1,25 @@
+---
+/**
+ * RoomPageLayout — Astro component for specific meeting room pages.
+ */
+import Layout from '../layouts/Layout.astro';
+import Navbar from '@/components/landing/Navbar';
+import Footer from './Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  breadcrumb?: any;
+  lang?: "en" | "es" | "it";
+}
+
+const { title, description, path, breadcrumb, lang = "en" } = Astro.props;
+---
+<Layout {title} {description} {path} {breadcrumb}>
+  <main class="overflow-x-hidden">
+    <Navbar {lang} client:load />
+    <slot />
+    <Footer />
+  </main>
+</Layout>

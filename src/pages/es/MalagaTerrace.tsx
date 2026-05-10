@@ -1,8 +1,5 @@
-import Navbar from "@/components/landing/Navbar";
-import FooterES from "@/components/landing/es/FooterES";
 import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Users, Building2, Sun, Wifi, Play } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useRef, useState } from "react";
@@ -11,6 +8,8 @@ import terraceCommunity from "@/assets/terrace-community.webp";
 import terraceEvents from "@/assets/terrace-events.webp";
 import serviceTerrace from "@/assets/service-terrace.webp";
 import serviceCommunity from "@/assets/service-community.webp";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 const services = [
   { img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.webp", label: "Espacios de Coworking", icon: Users, href: "/es/coworking" },
@@ -54,19 +53,18 @@ export default function MalagaTerraceES() {
         description="Coworking junto al mar con terraza panorámica en Málaga. Escritorios con vistas al océano, espacios creativos y eventos de networking al atardecer."
         path="/es/malaga-terrace"
       />
-      <Navbar />
 
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
         <div className="absolute inset-[-15%] w-[130%] h-[130%]">
-          <img src={terraceHero} alt="Evento en la azotea de Málaga Terrace" className="w-full h-full object-cover" />
+          <img src={_s(terraceHero)} alt="Evento en la azotea de Málaga Terrace" className="w-full h-full object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/70 to-neutral-dark/30" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-14 w-full">
-          <Link to="/es" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-body mb-4 transition-colors drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
+          <a href="/es" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-body mb-4 transition-colors drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
             <ArrowLeft className="w-4 h-4" />
             Volver al Inicio
-          </Link>
+          </a>
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-2 font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
             Malaga Terrace
           </p>
@@ -98,7 +96,7 @@ export default function MalagaTerraceES() {
                 <span className="font-body text-sm text-seaside-text/80">Lun–Vie 09:30–18:30</span>
               </div>
               <Button asChild variant="outline" className="mt-6 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 w-fit">
-                <Link to="/es/encuentranos#malaga-terrace">Encuéntranos</Link>
+                <a href="/es/encuentranos#malaga-terrace">Encuéntranos</a>
               </Button>
             </div>
             <div className="rounded-2xl overflow-hidden">
@@ -116,7 +114,7 @@ export default function MalagaTerraceES() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
             {galleryTop.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group">
-                <img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <img src={_s(img.src)} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
             ))}
           </div>
@@ -135,7 +133,7 @@ export default function MalagaTerraceES() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {galleryBottom.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group">
-                <img src={img.src} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <img src={_s(img.src)} alt={img.alt} className="w-full h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
             ))}
           </div>
@@ -161,21 +159,19 @@ export default function MalagaTerraceES() {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Servicios</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((s) => (
-              <Link key={s.label} to={s.href} className="rounded-xl overflow-hidden bg-card border border-border group hover:shadow-lg transition-shadow">
+              <a key={s.label} href={s.href} className="rounded-xl overflow-hidden bg-card border border-border group hover:shadow-lg transition-shadow">
                 <div className="h-44 overflow-hidden">
-                  <img src={s.img} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                  <img src={_s(s.img)} alt={s.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
                 <div className="p-4 flex items-center gap-3">
                   <s.icon className="w-5 h-5 text-primary shrink-0" />
                   <span className="font-body text-sm font-medium text-foreground">{s.label}</span>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
       </section>
-
-      <FooterES />
     </main>
   );
 }

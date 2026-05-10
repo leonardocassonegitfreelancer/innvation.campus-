@@ -1,0 +1,25 @@
+---
+import ServicePageLayout from '../../components/ServicePageLayout.astro';
+import BenefitsPage from '@/pages/en/Benefits';
+import servicePerks from '@/assets/service-perks.webp';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/it/vantaggi';
+const title = 'Vantaggi per i Membri';
+const description = 'Sconti e offerte esclusive dai nostri partner per i membri di Innovation Campus.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<ServicePageLayout
+  {title}
+  {description}
+  {path}
+  {alternates}
+  {breadcrumb}
+  subtitle="Sconti e offerte esclusive per i nostri membri."
+  image={servicePerks}
+  lang="it"
+>
+  <BenefitsPage lang="it" client:load />
+</ServicePageLayout>

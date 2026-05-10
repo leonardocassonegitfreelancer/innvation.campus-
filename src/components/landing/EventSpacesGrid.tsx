@@ -5,9 +5,9 @@ import { MapPin, Users, Calendar, FilterX, Search } from "lucide-react";
 import { spacesDataset, getSpaceHref } from "@/data/spaces";
 
 const uiText = {
-  en: { 
-    eyebrow: "Find Your Space", 
-    title: "Host an Unforgettable Event", 
+  en: {
+    eyebrow: "Find Your Space",
+    title: "Host an Unforgettable Event",
     cta: "View Details",
     filters: {
       type: "Event Type",
@@ -20,9 +20,9 @@ const uiText = {
     noResults: "No spaces match exactly, but we can build a tailored setup for you.",
     contactUs: "Reach out to us"
   },
-  es: { 
-    eyebrow: "Encuentra Tu Espacio", 
-    title: "Organiza un Evento Inolvidable", 
+  es: {
+    eyebrow: "Encuentra Tu Espacio",
+    title: "Organiza un Evento Inolvidable",
     cta: "Ver Detalles",
     filters: {
       type: "Tipo de Evento",
@@ -35,9 +35,9 @@ const uiText = {
     noResults: "Ningún espacio coincide exactamente, pero podemos crear uno a medida.",
     contactUs: "Contáctanos"
   },
-  it: { 
-    eyebrow: "Trova il Tuo Spazio", 
-    title: "Organizza un Evento Indimenticabile", 
+  it: {
+    eyebrow: "Trova il Tuo Spazio",
+    title: "Organizza un Evento Indimenticabile",
     cta: "Scopri di Più",
     filters: {
       type: "Tipo di Evento",
@@ -61,11 +61,11 @@ const cardVariants = {
   exit: { opacity: 0, scale: 0.95, y: -20, transition: { duration: 0.2 } },
 };
 
-export default function EventSpacesGrid() {
-  const location = useLocation();
-  const lang = (location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en") as "en"|"es"|"it";
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
+export default function EventSpacesGrid({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const t = uiText[lang];
-  
+
   const [filterType, setFilterType] = useState<string>("all");
   const [filterGuests, setFilterGuests] = useState<string>("all");
   const [filterLocation, setFilterLocation] = useState<string>("all");
@@ -81,7 +81,7 @@ export default function EventSpacesGrid() {
         const guestNum = parseInt(filterGuests, 10);
         if (space.maxGuests < guestNum) return false;
         // Optionally omit too large spaces
-        if (guestNum === 40 && space.maxGuests > 150) return false; 
+        if (guestNum === 40 && space.maxGuests > 150) return false;
       }
       return true;
     });
@@ -90,14 +90,14 @@ export default function EventSpacesGrid() {
   return (
     <section id="event-spaces" className="py-24 md:py-32 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
+
         {/* Header */}
         <motion.div
-           className="mb-10 text-center md:text-left"
-           initial={{ opacity: 0, y: 24 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, margin: "-80px" }}
-           transition={{ duration: 0.7 }}
+          className="mb-10 text-center md:text-left"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7 }}
         >
           <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4 font-semibold">{t.eyebrow}</p>
           <h2 className="font-display font-bold text-foreground leading-tight" style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}>
@@ -106,7 +106,7 @@ export default function EventSpacesGrid() {
         </motion.div>
 
         {/* Interactive Filter Bar */}
-        <motion.div 
+        <motion.div
           className="mb-16 bg-card/80 backdrop-blur-xl border border-border rounded-2xl p-4 md:p-3 shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,14 +114,14 @@ export default function EventSpacesGrid() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-2">
-            
+
             {/* Filter: Type */}
             <div className="flex-1 w-full bg-background border border-border rounded-xl px-4 py-3 flex flex-col justify-center transition-colors focus-within:border-primary/50 group">
               <label className="text-[10px] font-body uppercase text-muted-foreground font-semibold flex items-center gap-1.5 mb-1">
                 <Calendar className="w-3 h-3 text-primary" /> {t.filters.type}
               </label>
-              <select 
-                value={filterType} 
+              <select
+                value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
                 className="w-full bg-transparent outline-none font-body text-sm text-foreground appearance-none cursor-pointer"
               >
@@ -136,8 +136,8 @@ export default function EventSpacesGrid() {
               <label className="text-[10px] font-body uppercase text-muted-foreground font-semibold flex items-center gap-1.5 mb-1">
                 <Users className="w-3 h-3 text-primary" /> {t.filters.guests}
               </label>
-              <select 
-                value={filterGuests} 
+              <select
+                value={filterGuests}
                 onChange={(e) => setFilterGuests(e.target.value)}
                 className="w-full bg-transparent outline-none font-body text-sm text-foreground appearance-none cursor-pointer"
               >
@@ -152,8 +152,8 @@ export default function EventSpacesGrid() {
               <label className="text-[10px] font-body uppercase text-muted-foreground font-semibold flex items-center gap-1.5 mb-1">
                 <MapPin className="w-3 h-3 text-primary" /> {t.filters.location}
               </label>
-              <select 
-                value={filterLocation} 
+              <select
+                value={filterLocation}
                 onChange={(e) => setFilterLocation(e.target.value)}
                 className="w-full bg-transparent outline-none font-body text-sm text-foreground appearance-none cursor-pointer"
               >
@@ -164,7 +164,7 @@ export default function EventSpacesGrid() {
             </div>
 
             {/* Clear Filters Button (Desktop icon, Mobile text) */}
-            <button 
+            <button
               onClick={() => { setFilterType("all"); setFilterGuests("all"); setFilterLocation("all"); }}
               className="md:w-14 w-full h-[52px] shrink-0 rounded-xl bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               title="Reset search"
@@ -187,7 +187,7 @@ export default function EventSpacesGrid() {
                 const tr = space.translations[lang];
                 const href = getSpaceHref(lang, space);
                 const isLarge = filteredSpaces.length > 2 && i % 4 === 0;
-                
+
                 return (
                   <motion.div
                     key={space.slug}
@@ -200,14 +200,14 @@ export default function EventSpacesGrid() {
                   >
                     <a href={href} className="block relative overflow-hidden rounded-3xl bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-500 h-80 md:h-[400px]">
                       <motion.img
-                        src={space.image}
+                        src={_s(space.image)}
                         alt={tr.name}
                         className="w-full h-full object-cover"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      
+
                       {/* Top Badges */}
                       <div className="absolute top-5 left-5 flex gap-2">
                         <span className="font-body text-[10px] uppercase font-bold tracking-widest text-primary bg-background px-3 py-1.5 rounded-full shadow-md">
@@ -226,11 +226,11 @@ export default function EventSpacesGrid() {
                               {tr.name}
                             </h3>
                             <p className="font-body text-sm font-medium text-white/80 drop-shadow-md flex items-center gap-2">
-                              <MapPin className="w-3.5 h-3.5" /> 
+                              <MapPin className="w-3.5 h-3.5" />
                               {space.location === "city" ? t.filters.locationOptions.city : t.filters.locationOptions.seaside}
                             </p>
                           </div>
-                          
+
                           <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors shrink-0">
                             <span className="text-white">→</span>
                           </div>

@@ -1,0 +1,17 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '@/components/landing/Navbar';
+import Footer from '../../../components/Footer.astro';
+import EventLeadCapture from '@/pages/en/EventLeadCapture';
+
+const path = '/en/host-your-event/lead';
+const title = 'Host Your Event — Enquiry';
+const description = 'Request to book a space for your event at Innovation Campus Málaga.';
+---
+<Layout {title} {description} {path} noIndex>
+  <div class="overflow-x-hidden">
+    <Navbar lang="en" client:load />
+    <EventLeadCapture lang="en" client:load />
+    <Footer lang="en" />
+  </div>
+</Layout>

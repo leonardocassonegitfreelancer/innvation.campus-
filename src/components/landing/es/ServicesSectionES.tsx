@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
 import serviceMeeting from "@/assets/service-meeting.webp";
@@ -10,6 +9,8 @@ import serviceCoworking from "@/assets/service-coworking.webp";
 import serviceCommunity from "@/assets/service-community.webp";
 import serviceAcademy from "@/assets/service-academy.webp";
 import servicePerks from "@/assets/service-perks.webp";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 const businessServices = [
   { img: serviceMeeting, label: "Salas de Conferencias Privadas", subtitle: "Con opción de catering", href: "/es/salas-de-reuniones" },
@@ -27,14 +28,14 @@ const individualServices = [
 
 function ServiceCard({ img, label, subtitle, href }: { img: string; label: string; subtitle: string; href: string }) {
   return (
-    <Link to={href} className="group relative aspect-[4/5] rounded-xl overflow-hidden block">
-      <img src={img} alt={label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+    <a href={href} className="group relative aspect-[4/5] rounded-xl overflow-hidden block">
+      <img src={_s(img)} alt={label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 p-5">
         <h3 className="font-body font-bold text-sm md:text-base uppercase tracking-wider text-primary-foreground">{label}</h3>
         <p className="font-body text-xs md:text-sm text-primary-foreground/70 mt-1">{subtitle}</p>
       </div>
-    </Link>
+    </a>
   );
 }
 

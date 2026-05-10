@@ -7,12 +7,17 @@ import terraceCommunity from "@/assets/terrace-community.webp";
 import palaceSkylight from "@/assets/palace-skylight.webp";
 import palaceCourtyard from "@/assets/palace-courtyard.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
+const getSrc = (img: any): string => typeof img === 'string' ? img : img.src;
+const claimSrc = getSrc(claimWhite);
+
 const slides = [
 palaceEntrance,
 palaceCoworking,
 terraceCommunity,
 palaceSkylight,
-palaceCourtyard];
+palaceCourtyard].map(getSrc);
 
 
 export default function MainHero() {
@@ -83,7 +88,7 @@ export default function MainHero() {
           }>
           
           <img
-            src={claimWhite}
+            src={claimSrc}
             alt="Innovation Campus - Coworking Spaces"
             className="h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28" />
           

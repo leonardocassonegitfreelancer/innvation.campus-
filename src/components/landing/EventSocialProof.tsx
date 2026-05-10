@@ -17,9 +17,7 @@ const CompanyLogos = [
   <span key="6" className="text-xl md:text-2xl font-display font-medium tracking-wide">OASIS</span>,
 ];
 
-export default function EventSocialProof() {
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+export default function EventSocialProof({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const t = translations[lang];
 
   return (
@@ -46,8 +44,8 @@ export default function EventSocialProof() {
               ease: "linear",
             },
           }}
-          // A safer, bulletproof way to do marquee in pure CSS is often preferred, but framer motion works well if the duplicated content is long enough.
-          // Alternatively, flex with duplicated arrays:
+        // A safer, bulletproof way to do marquee in pure CSS is often preferred, but framer motion works well if the duplicated content is long enough.
+        // Alternatively, flex with duplicated arrays:
         >
           {/* We duplicate the array 3 times to ensure infinite seamless scrolling */}
           {[...CompanyLogos, ...CompanyLogos, ...CompanyLogos, ...CompanyLogos].map((logo, i) => (

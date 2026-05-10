@@ -11,13 +11,15 @@ interface ServicePageLayoutProps {
   children?: React.ReactNode;
 }
 
+const getSrc = (img: any): string => typeof img === 'string' ? img : img.src;
+
 export default function ServicePageLayout({ title, subtitle, image, children }: ServicePageLayoutProps) {
   return (
     <main className="overflow-x-hidden">
       <Navbar />
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end">
-        <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover" />
+        <img src={getSrc(image)} alt={title} className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
           <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">

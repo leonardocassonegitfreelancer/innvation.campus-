@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AboutUsPage from '@/pages/en/AboutUs';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/en/about-us';
+const title = 'About Us';
+const description = 'Innovation Campus creates inspiring workspaces and cultivates international business-minded communities across Spain and Italy.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<Layout {title} {description} {path} {alternates} {breadcrumb}>
+  <AboutUsPage lang="en" client:load />
+</Layout>

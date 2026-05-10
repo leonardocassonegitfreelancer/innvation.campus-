@@ -45,9 +45,6 @@
   <url><loc>https://innovationcampus.biz/es/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://innovationcampus.biz/it/olbia</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url><loc>https://innovationcampus.biz/en/find-us</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://innovationcampus.biz/es/encuentranos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://innovationcampus.biz/it/trovaci</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- SERVICES -->
   <url><loc>https://innovationcampus.biz/en/coworking-space</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -95,9 +92,6 @@
   <url><loc>https://innovationcampus.biz/es/eventos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://innovationcampus.biz/it/eventi</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
-  <url><loc>https://innovationcampus.biz/en/host-your-event</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://innovationcampus.biz/es/organiza-tu-evento</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://innovationcampus.biz/it/organizza-evento</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <url><loc>https://innovationcampus.biz/en/academy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://innovationcampus.biz/es/academia</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -150,9 +144,14 @@
   <url><loc>https://innovationcampus.biz/it/eventi/powertalks-malaga-apr-2026-b</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
   <!-- BLOG -->
-  <url><loc>https://innovationcampus.biz/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://innovationcampus.biz/en/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://innovationcampus.biz/es/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://innovationcampus.biz/it/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- CONTACT -->
+  <url><loc>https://innovationcampus.biz/en/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/es/contacto</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://innovationcampus.biz/it/contatti</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- LEGAL -->
   <url><loc>https://innovationcampus.biz/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>

@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
+
+const path = '/privacy';
+const title = 'Privacy Policy';
+const description = 'Privacy Policy of Innovation Campus.';
+---
+<Layout {title} {description} {path}>
+  <PageWrapper lang="en" path={path} client:load>
+    <PrivacyPolicy />
+  </PageWrapper>
+</Layout>

@@ -3,6 +3,8 @@ import { MapPin, Clock, Star } from "lucide-react";
 import historicExt from "@/assets/historic-exterior.webp";
 import seasideExt from "@/assets/terrace-community.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const locations = [
 {
   name: "Historic Center",
@@ -68,7 +70,7 @@ function LocationCard({
       {/* Image */}
       <div className="relative h-80 md:h-[28rem] overflow-hidden z-10">
         <img
-          src={img}
+          src={_s(img)}
           alt={alt}
           className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
           loading="lazy" />

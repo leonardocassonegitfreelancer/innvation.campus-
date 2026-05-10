@@ -1,0 +1,14 @@
+---
+import RoomPageLayout from '../../components/RoomPageLayout.astro';
+import FindUsPage from '@/pages/en/FindUs';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/it/trovaci';
+const title = 'Trovaci — Tutte le nostre sedi';
+const description = 'Trova indicazioni e dettagli di contatto per tutte le sedi di coworking Innovation Campus a Málaga, Ancona e Olbia.';
+const alternates = getAlternateLinks(path);
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {alternates} {breadcrumb} lang="it">
+  <FindUsPage lang="it" client:load />
+</RoomPageLayout>

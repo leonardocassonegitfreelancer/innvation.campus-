@@ -14,11 +14,13 @@ import terraceCommunity from "@/assets/terrace-community.webp";
 import terraceEvents from "@/assets/terrace-events.webp";
 import serviceTerrace from "@/assets/service-terrace.webp";
 
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
+
 const palaceTop = [
   { src: palaceCourtyard, alt: "Patio del Málaga Palace" },
   { src: palaceOutside, alt: "Exterior del Málaga Palace" },
   { src: palaceEntrance, alt: "Entrada del Málaga Palace" },
-  { src: palaceSecondFloor, alt: "Segunda planta del Málaga Palace" },
+  { src: palaceSecondFloor, alt: "Segunda pianta del Málaga Palace" },
 ];
 const palaceBottom = [
   { src: palaceSkylight, alt: "Claraboya del Málaga Palace" },
@@ -76,7 +78,7 @@ export default function CoworkingGalleryES() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
             {galleryTop.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group aspect-[4/3]">
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <img src={_s(img.src)} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
             ))}
           </div>
@@ -95,7 +97,7 @@ export default function CoworkingGalleryES() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {galleryBottom.map((img) => (
               <div key={img.alt} className="rounded-xl overflow-hidden group aspect-[4/3]">
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <img src={_s(img.src)} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
               </div>
             ))}
           </div>

@@ -1,0 +1,14 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import GallerySpacesPage from '@/pages/en/GallerySpaces';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/it/galleria/spazi';
+const title = 'Galleria Spazi';
+const description = 'Esplora i nostri spazi di coworking, sale riunioni e venue a Málaga, Ancona e Olbia.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+
+<Layout {title} {description} {path} {breadcrumb}>
+  <GallerySpacesPage lang="it" client:load />
+</Layout>

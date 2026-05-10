@@ -4,11 +4,11 @@ import conferencePicasso2 from "@/assets/conference-picasso-2.webp";
 import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.webp";
 import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.webp";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation } from "react-router-dom";
+
+const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 interface Room {
   id: string;
@@ -263,12 +263,14 @@ const translations = {
   },
 };
 
+const getSrc = (img: any): string => typeof img === 'string' ? img : img.src;
+
 const roomImages: Record<string, string> = {
-  "big-conference": conferencePicasso2,
-  "large-conference": conferenceHalfPicasso2,
-  "quarter-conference": conferenceQuarterPicasso,
-  "training-room": conferenceQuarterPicasso,
-  "phone-booth": conferenceQuarterPicasso,
+  "big-conference": getSrc(conferencePicasso2),
+  "large-conference": getSrc(conferenceHalfPicasso2),
+  "quarter-conference": getSrc(conferenceQuarterPicasso),
+  "training-room": getSrc(conferenceQuarterPicasso),
+  "phone-booth": getSrc(conferenceQuarterPicasso),
 };
 
 const roomPaths: Record<string, Record<string, string>> = {
@@ -295,7 +297,7 @@ const roomPaths: Record<string, Record<string, string>> = {
   },
 };
 
-function RoomCard({ room, lang, t }: { room: Room; lang: string; t: typeof translations.en }) {
+function RoomCard({ room, lang, t }: { room: Room; lang: "en" | "es" | "it"; t: any }) {
   const roomPath = roomPaths[lang]?.[room.id];
   const image = roomImages[room.id];
 
@@ -332,7 +334,7 @@ function RoomCard({ room, lang, t }: { room: Room; lang: string; t: typeof trans
       <CardHeader>
         <CardTitle className={`font-display ${room.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
           {roomPath ? (
-            <Link to={roomPath} className="hover:text-primary transition-colors">{room.name}</Link>
+            <a href={roomPath} className="hover:text-primary transition-colors">{room.name}</a>
           ) : room.name}
         </CardTitle>
         <div className="flex items-center gap-2 text-muted-foreground">
@@ -352,7 +354,7 @@ function RoomCard({ room, lang, t }: { room: Room; lang: string; t: typeof trans
         <div className="flex gap-3">
           {roomPath && (
             <Button asChild variant="default" className="bg-primary hover:bg-primary/90">
-              <Link to={roomPath}>{t.viewDetails}</Link>
+              <a href={roomPath}>{t.viewDetails}</a>
             </Button>
           )}
         </div>
@@ -361,11 +363,9 @@ function RoomCard({ room, lang, t }: { room: Room; lang: string; t: typeof trans
   );
 }
 
-export default function ConferenceRooms() {
+export default function ConferenceRooms({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const [activeTab, setActiveTab] = useState<"centre" | "seaside">("centre");
   const { ref, isVisible } = useScrollAnimation();
-  const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
   const t = translations[lang];
 
   const rooms = activeTab === "centre" ? t.centreRooms : t.seasideRooms;

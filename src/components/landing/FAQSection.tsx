@@ -1,10 +1,5 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
@@ -38,12 +33,12 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const { ref, isVisible } = useScrollAnimation();
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
     <section id="faq" className="py-24 md:py-36 bg-muted/50">
       <div className="max-w-3xl mx-auto px-6">
-        <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-12`}>
+        <div className="text-center mb-12">
           <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">
             FAQ
           </p>
@@ -52,22 +47,34 @@ export default function FAQSection() {
           </h2>
         </div>
 
-        <Accordion type="single" collapsible className="space-y-3">
+        <div className="space-y-3">
           {faqs.map((faq, i) => (
-            <AccordionItem
+            <div
               key={i}
-              value={`faq-${i}`}
-              className="bg-card rounded-lg border border-border px-6 data-[state=open]:shadow-md transition-shadow"
+              className="bg-card rounded-lg border border-border overflow-hidden transition-shadow data-open:shadow-md"
             >
-              <AccordionTrigger className="font-body font-semibold text-foreground text-left hover:text-primary hover:no-underline transition-colors">
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full flex items-center justify-between px-6 py-4 font-body font-semibold text-foreground text-left hover:text-primary transition-colors"
+              >
                 {faq.q}
-              </AccordionTrigger>
-              <AccordionContent className="font-body text-muted-foreground leading-relaxed">
-                {faq.a}
-              </AccordionContent>
-            </AccordionItem>
+                <ChevronDown
+                  className={`w-4 h-4 shrink-0 ml-4 transition-transform duration-200 ${open === i ? "rotate-180" : ""}`}
+                />
+              </button>
+              <div
+                className="grid transition-[grid-template-rows] duration-300 ease-in-out"
+                style={{ gridTemplateRows: open === i ? "1fr" : "0fr" }}
+              >
+                <div className="overflow-hidden">
+                  <div className="px-6 pb-4 font-body text-muted-foreground leading-relaxed">
+                    {faq.a}
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </Accordion>
+        </div>
       </div>
     </section>
   );

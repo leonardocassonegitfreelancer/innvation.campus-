@@ -1,0 +1,53 @@
+---
+/**
+ * QuoteSection — pure HTML/CSS Astro component.
+ * Zero JavaScript. Scroll animation via CSS [data-animate].
+ */
+interface Props {
+  lang?: 'en' | 'es' | 'it';
+}
+
+const { lang = 'en' } = Astro.props;
+
+const content = {
+  en: {
+    line1: "The place where you sit",
+    line2: "changes ",
+    line2Bold: "what",
+    line2Suffix: " you think.",
+    line3: "Choose your world."
+  },
+  es: {
+    line1: "El lugar donde te sientas",
+    line2: "cambia ",
+    line2Bold: "lo que",
+    line2Suffix: " piensas.",
+    line3: "Elige tu mundo."
+  },
+  it: {
+    line1: "Il posto in cui ti siedi",
+    line2: "cambia ",
+    line2Bold: "quello che",
+    line2Suffix: " pensi.",
+    line3: "Scegli il tuo mondo."
+  }
+};
+
+const t = content[lang];
+---
+<section class="relative py-14 md:py-28 bg-neutral-dark overflow-hidden">
+  <!-- Subtle texture -->
+  <div class="absolute inset-0 opacity-5" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;)"></div>
+
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <div class="scroll-animate" data-animate>
+      <blockquote class="font-display text-2xl md:text-4xl lg:text-5xl text-white/90 leading-snug italic">
+        {t.line1}
+        <br />
+        {t.line2}<span class="text-primary not-italic font-bold">{t.line2Bold}</span>{t.line2Suffix}
+        <br />
+        {t.line3}
+      </blockquote>
+    </div>
+  </div>
+</section>

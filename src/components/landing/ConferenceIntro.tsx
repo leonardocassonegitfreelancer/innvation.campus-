@@ -35,10 +35,10 @@ const translations = {
   },
 };
 
-export default function ConferenceIntro() {
+export default function ConferenceIntro({ lang: langProp }: { lang?: "en" | "es" | "it" }) {
   const { ref, isVisible } = useScrollAnimation();
   const location = useLocation();
-  const lang = location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en";
+  const lang = langProp ?? (location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en");
   const t = translations[lang];
 
   return (
