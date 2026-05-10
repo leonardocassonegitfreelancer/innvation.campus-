@@ -1,0 +1,39 @@
+---
+export const prerender = true;
+
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '@/components/landing/Navbar';
+import Footer from '../../../components/Footer.astro';
+import TerraceSpaceDetail from '@/pages/en/TerraceSpaceDetail';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+type SpaceId = "full-terrace" | "lounge-corner" | "networking-layout" | "private-dining";
+
+const spaceMeta: Record<SpaceId, { title: string; description: string }> = {
+  "full-terrace": { title: "Full Terrace", description: "Outdoor venue for up to 100 guests with panoramic views, premium bar and custom catering at Innovation Campus Málaga." },
+  "lounge-corner": { title: "Lounge Corner", description: "Intimate outdoor corner for up to 30 guests. Perfect for private cocktail receptions and team celebrations in Málaga." },
+  "networking-layout": { title: "Networking Layout", description: "Open outdoor space for up to 60 guests with cocktail bar and standing tables. Ideal for networking events in Málaga." },
+  "private-dining": { title: "Private Dining Terrace", description: "Exclusive outdoor dining experience for up to 20 guests with private chef menus and wine pairing at Innovation Campus Málaga." },
+};
+
+export function getStaticPaths() {
+  return [
+    { params: { space: 'full-terrace' } },
+    { params: { space: 'lounge-corner' } },
+    { params: { space: 'networking-layout' } },
+    { params: { space: 'private-dining' } },
+  ];
+}
+
+const { space } = Astro.params as { space: SpaceId };
+const meta = spaceMeta[space];
+const path = `/en/private-terrace/${space}`;
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<Layout title={meta.title} description={meta.description} {path} {breadcrumb}>
+  <div class="overflow-x-hidden">
+    <Navbar lang="en" client:load />
+    <TerraceSpaceDetail lang="en" spaceId={space} client:load />
+    <Footer lang="en" />
+  </div>
+</Layout>

@@ -167,7 +167,7 @@ const slugToRoomIndex: Record<string, number> = {
 const inputCls = "w-full bg-muted border border-border rounded-xl px-4 py-3 font-body text-sm text-foreground focus:outline-none focus:border-primary transition-colors";
 const labelCls = "font-body text-sm font-semibold text-foreground";
 
-export default function EventConversionForm({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
+export default function EventConversionForm({ lang = "en", embedded = false }: { lang?: "en" | "es" | "it"; embedded?: boolean }) {
   const t = translations[lang];
   const rooms = roomOptions[lang];
 
@@ -197,8 +197,8 @@ export default function EventConversionForm({ lang = "en" }: { lang?: "en" | "es
   };
 
   return (
-    <section id="event-contact" className="py-24 bg-card border-t border-border">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="event-contact" className={embedded ? "" : "py-24 bg-card border-t border-border"}>
+      <div className={embedded ? "" : "max-w-4xl mx-auto px-6"}>
 
         <div className="text-center mb-12">
           <h2 className="font-display font-bold text-3xl md:text-5xl text-foreground mb-4">{t.title}</h2>

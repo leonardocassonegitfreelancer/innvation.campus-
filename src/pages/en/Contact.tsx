@@ -99,7 +99,7 @@ export default function Contact({ lang = "en" }: { lang?: "en" | "es" | "it" }) 
       </section>
 
       {/* Contact form */}
-      <ContactSection />
+      <ContactSection lang={lang} />
 
       {/* Compact locations */}
       <section className="py-20 bg-muted/40">

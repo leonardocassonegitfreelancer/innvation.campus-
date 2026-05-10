@@ -1,102 +1,166 @@
-import { useLocation, Navigate } from "react-router-dom";
-import { ArrowLeft, Users, CheckCircle2 } from "lucide-react";
-import SEOHead from "@/components/SEOHead";
-import Navbar from "@/components/landing/Navbar";
-import Footer from "@/components/landing/Footer";
+import { ArrowLeft, Users, CheckCircle2, MapPin, Clock } from "lucide-react";
 import EventConversionForm from "@/components/landing/EventConversionForm";
 import { spacesDataset } from "@/data/spaces";
-import { motion } from "framer-motion";
 
-export default function EventLeadCapture() {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const spaceSlug = searchParams.get("space");
+const _s = (img: unknown): string =>
+  typeof img === "string" ? img : (img as any)?.src ?? "";
+
+const backLinks: Record<"en" | "es" | "it", { meetingRooms: { href: string; label: string }; privateTerrace: { href: string; label: string } }> = {
+  en: {
+    meetingRooms: { href: "/en/meeting-rooms", label: "Back to meeting rooms" },
+    privateTerrace: { href: "/en/private-terrace", label: "Back to private terrace" },
+  },
+  es: {
+    meetingRooms: { href: "/es/salas-de-reuniones", label: "Volver a las salas" },
+    privateTerrace: { href: "/es/terraza-privada", label: "Volver a la terraza privada" },
+  },
+  it: {
+    meetingRooms: { href: "/it/sale-riunioni", label: "Torna alle sale riunioni" },
+    privateTerrace: { href: "/it/terrazza-privata", label: "Torna alla terrazza privata" },
+  },
+};
+
+const locationLabels: Record<"en" | "es" | "it", Record<"city" | "seaside", string>> = {
+  en: { city: "Historic Center — Málaga Palace", seaside: "Sea Side — Málaga Terrace" },
+  es: { city: "Centro Histórico — Málaga Palace", seaside: "Frente al Mar — Málaga Terrace" },
+  it: { city: "Centro Storico — Málaga Palace", seaside: "Lungomare — Málaga Terrace" },
+};
+
+const nearbyHeadings: Record<"en" | "es" | "it", string> = {
+  en: "Other spaces you might like",
+  es: "Otros espacios que podrían interesarte",
+  it: "Altri spazi che potrebbero interessarti",
+};
+
+export default function EventLeadCapture({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
+  const spaceSlug =
+    typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search).get("space") ?? ""
+      : "";
 
   const space = spacesDataset.find((s) => s.slug === spaceSlug);
 
-  // If someone lands here without a specific space or with an invalid one, we route them back to the events page
   if (!space) {
-    return <Navigate to="/en/host-your-event" replace />;
+    if (typeof window !== "undefined") {
+      window.location.href = backLinks[lang].href;
+    }
+    return null;
   }
 
-  const tr = space.translations.en;
-  const amentities = space.amenities.en;
+  const tr = space.translations[lang] ?? space.translations.en;
+  const amenities = space.amenities[lang] ?? space.amenities.en;
+  const otherSpaces = spacesDataset
+    .filter((s) => s.slug !== space.slug && s.location === space.location)
+    .slice(0, 3);
 
-  // Filter cross-sell (other spaces of the similar location but exclude current)
-  const otherSpaces = spacesDataset.filter(s => s.slug !== space.slug && s.location === space.location).slice(0, 3);
+  const backLink = space.baseRoute === "meeting-rooms"
+    ? backLinks[lang].meetingRooms
+    : backLinks[lang].privateTerrace;
+
+  const leadHrefBase =
+    lang === "es"
+      ? "/es/organiza-tu-evento/lead"
+      : lang === "it"
+      ? "/it/organizza-evento/lead"
+      : "/en/host-your-event/lead";
 
   return (
-    <>
-      <SEOHead
-        title={`Request - ${tr.name}`}
-        description={`Request to book the ${tr.name} at Innovation Campus.`}
-        path={`/en/host-your-event/lead?space=${space.slug}`}
-      />
-      <Navbar />
-      <main className="pt-24 bg-muted/30">
-        
-        {/* Booking Summary Section */}
-        <section className="max-w-4xl mx-auto px-6 pt-12 pb-8">
-          <a href="/en/host-your-event" className="inline-flex items-center gap-2 font-body text-sm text-primary mb-8 hover:underline">
-            <ArrowLeft className="w-4 h-4" /> Back to all spaces
-          </a>
-          
-          <div className="bg-card border border-border shadow-md rounded-3xl overflow-hidden flex flex-col md:flex-row">
-            {/* Space Image */}
-            <div className="md:w-1/3 aspect-video md:aspect-auto relative">
-              <img src={space.image} alt={tr.name} className="w-full h-full object-cover" />
-              <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm border border-border px-3 py-1.5 rounded-full font-body text-xs font-bold uppercase tracking-wider text-primary">
+    <main className="pt-20 bg-background min-h-screen">
+
+      {/* Back link */}
+      <div className="max-w-6xl mx-auto px-6 pt-8">
+        <a
+          href={backLink.href}
+          className="inline-flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" /> {backLink.label}
+        </a>
+      </div>
+
+      {/* Main checkout layout */}
+      <div className="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-10 items-start">
+
+        {/* LEFT — Sticky space summary */}
+        <aside className="lg:sticky lg:top-24 space-y-4">
+          <div className="rounded-2xl overflow-hidden border border-border shadow-sm bg-card">
+            <div className="relative aspect-[4/3]">
+              <img
+                src={_s(space.image)}
+                alt={tr.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute top-3 left-3 bg-background/90 backdrop-blur-sm border border-border px-3 py-1 rounded-full font-body text-xs font-bold uppercase tracking-wider text-primary">
                 {tr.label}
               </div>
             </div>
-            
-            {/* Space Details */}
-            <div className="md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-              <h1 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-3">{tr.name}</h1>
-              <div className="flex items-center gap-2 mb-6">
-                 <span className="font-body text-sm font-semibold text-muted-foreground bg-muted px-3 py-1 rounded-full flex items-center gap-2">
-                   <Users className="w-4 h-4" /> {tr.capacityText}
-                 </span>
+
+            <div className="p-6 space-y-4">
+              <div>
+                <h1 className="font-display font-bold text-2xl text-foreground">{tr.name}</h1>
+                <p className="font-body text-sm text-muted-foreground flex items-center gap-1.5 mt-1">
+                  <Users className="w-3.5 h-3.5" /> {tr.capacityText}
+                </p>
               </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {amentities.map((item, i) => (
+
+              <p className="font-body text-xs text-muted-foreground flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 shrink-0" />
+                {locationLabels[lang][space.location]}
+              </p>
+
+              <p className="font-body text-xs text-muted-foreground flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 shrink-0" />
+                Mon–Thu 9:30–18:30 · Fri 9:30–17:00
+              </p>
+
+              <div className="border-t border-border pt-4 space-y-2">
+                {amenities.map((item: string, i: number) => (
                   <div key={i} className="flex items-center gap-2 font-body text-sm text-foreground/80">
-                    <CheckCircle2 className="w-4 h-4 text-primary shrink-0" /> {item}
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" /> {item}
                   </div>
                 ))}
               </div>
             </div>
           </div>
-        </section>
 
-        {/* Lead Capture Form */}
-        <EventConversionForm />
-
-        {/* Cross-Sell */}
-        {otherSpaces.length > 0 && (
-          <section className="py-20 bg-background border-t border-border">
-            <div className="max-w-4xl mx-auto px-6">
-              <h3 className="font-display font-bold text-2xl text-foreground mb-8">Not sure? Other spaces nearby</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {otherSpaces.map(altSpace => (
-                  <a key={altSpace.slug} href={`/en/host-your-event/lead?space=${altSpace.slug}`} className="group block bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-all">
-                     <div className="h-40 overflow-hidden relative">
-                       <img src={altSpace.image} alt={altSpace.translations.en.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                     </div>
-                     <div className="p-4">
-                       <h4 className="font-display font-bold text-lg text-foreground mb-1">{altSpace.translations.en.name}</h4>
-                       <p className="font-body text-sm text-muted-foreground">{altSpace.translations.en.capacityText}</p>
-                     </div>
+          {/* Other spaces — desktop only, no distractions on mobile checkout */}
+          {otherSpaces.length > 0 && (
+            <div className="hidden lg:block space-y-3">
+              <p className="font-body text-xs uppercase tracking-widest text-muted-foreground font-semibold">
+                {nearbyHeadings[lang]}
+              </p>
+              {otherSpaces.map((alt) => {
+                const altTr = alt.translations[lang] ?? alt.translations.en;
+                return (
+                  <a
+                    key={alt.slug}
+                    href={`${leadHrefBase}?space=${alt.slug}`}
+                    className="flex gap-3 items-center bg-card border border-border rounded-xl p-3 hover:border-primary/50 hover:shadow-sm transition-all group"
+                  >
+                    <img
+                      src={_s(alt.image)}
+                      alt={altTr.name}
+                      className="w-16 h-16 object-cover rounded-lg shrink-0"
+                    />
+                    <div>
+                      <p className="font-body text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {altTr.name}
+                      </p>
+                      <p className="font-body text-xs text-muted-foreground flex items-center gap-1">
+                        <Users className="w-3 h-3" /> {altTr.capacityText}
+                      </p>
+                    </div>
                   </a>
-                ))}
-              </div>
+                );
+              })}
             </div>
-          </section>
-        )}
+          )}
+        </aside>
 
-      </main>
-      <Footer />
-    </>
+        {/* RIGHT — Form */}
+        <div>
+          <EventConversionForm lang={lang} embedded />
+        </div>
+      </div>
+    </main>
   );
 }

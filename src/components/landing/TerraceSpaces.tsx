@@ -10,12 +10,19 @@ import { useLang } from "@/lib/lang-context";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
+const detailBase: Record<"en" | "es" | "it", string> = {
+  en: "/en/private-terrace",
+  es: "/es/terraza-privada",
+  it: "/it/terrazza-privata",
+};
+
 const translations = {
   en: {
     tagline: "Our Spaces",
     title: "Choose Your Terrace Experience",
     flagship: "popular",
     requestQuote: "Request Quote",
+    viewDetails: "View Details",
     spaces: [
       {
         id: "full-terrace",
@@ -52,6 +59,7 @@ const translations = {
     title: "Elige Tu Experiencia",
     flagship: "más popular",
     requestQuote: "Solicitar Presupuesto",
+    viewDetails: "Ver Detalles",
     spaces: [
       {
         id: "full-terrace",
@@ -88,6 +96,7 @@ const translations = {
     title: "Scegli la Tua Esperienza",
     flagship: "popolare",
     requestQuote: "Richiedi Preventivo",
+    viewDetails: "Vedi Dettagli",
     spaces: [
       {
         id: "full-terrace",
@@ -194,7 +203,7 @@ export default function TerraceSpaces() {
                       variant={space.highlight ? "default" : "outline"}
                       className={space.highlight ? "bg-primary hover:bg-primary/90" : ""}
                     >
-                      <a href="/#contact">{t.requestQuote}</a>
+                      <a href={`${detailBase[lang]}/${space.id}`}>{t.viewDetails}</a>
                     </Button>
                   </div>
                 </CardContent>

@@ -1,5 +1,5 @@
 ---
-import ServicePageLayout from '../../components/ServicePageLayout.astro';
+import ServicePageLayout from '../../../components/ServicePageLayout.astro';
 import { PageWrapper } from '@/lib/lang-context';
 import TerraceIntro from '@/components/landing/TerraceIntro';
 import TerraceSpaces from '@/components/landing/TerraceSpaces';
@@ -9,19 +9,19 @@ import ConferenceCTA from '@/components/landing/ConferenceCTA';
 import serviceTerrace from '@/assets/service-terrace.webp';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 
-const path = '/es/terraza-privada';
-const title = 'Terraza Privada';
-const subtitle = 'Un espacio exterior exclusivo con opciones de catering para tus eventos y reuniones.';
-const description = 'Un espacio exterior exclusivo con opciones de catering para tus eventos y reuniones en Málaga.';
+const path = '/en/private-terrace';
+const title = 'Private Terrace';
+const subtitle = 'An exclusive outdoor space with catering options for your events and meetings.';
+const description = 'An exclusive outdoor space with catering options for your events and meetings in Málaga.';
 const alternates = getAlternateLinks(path);
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
-<ServicePageLayout {title} {subtitle} {description} {path} {alternates} {breadcrumb} image={serviceTerrace} lang="es">
-  <PageWrapper lang="es" path={path} client:load>
+<ServicePageLayout {title} {subtitle} {description} {path} {alternates} {breadcrumb} image={serviceTerrace} lang="en">
+  <PageWrapper lang="en" path={path} client:load>
     <TerraceIntro />
     <TerraceSpaces />
     <TerraceIncludes />
     <TerraceGallery />
   </PageWrapper>
-  <ConferenceCTA lang="es" client:visible />
+  <ConferenceCTA lang="en" client:visible />
 </ServicePageLayout>

@@ -12,17 +12,119 @@ import {
 } from "@/components/ui/select";
 import { Send } from "lucide-react";
 
-const serviceOptions = [
-  "I want to host my event at Innovation Campus",
-  "I want to rent a private office",
-  "I want to become a coworker",
-  "I want to register my business",
-  "Other / General info",
-] as const;
+const translations = {
+  en: {
+    tagline: "Get in Touch",
+    title: "Start your journey",
+    subtitle: "Ask a question, check availability or become a member.",
+    name: "Name",
+    namePlaceholder: "Your name",
+    email: "Email",
+    emailPlaceholder: "you@example.com",
+    company: "Company Name",
+    companyPlaceholder: "Your company",
+    phone: "Phone Number (with country code)",
+    phonePlaceholder: "+34 600 000 000",
+    locationLabel: "Which location interests you?",
+    locations: [
+      { value: "historic", label: "Historic Center" },
+      { value: "seaside", label: "Seaside" },
+      { value: "both", label: "Both" },
+    ],
+    serviceLabel: "What are you looking for?",
+    servicePlaceholder: "Select a service",
+    services: [
+      "I want to host my event at Innovation Campus",
+      "I want to rent a private office",
+      "I want to become a coworker",
+      "I want to register my business",
+      "Other / General info",
+    ],
+    hearLabel: "How did you hear about us?",
+    hearPlaceholder: "Select an option",
+    hearOptions: ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"],
+    message: "Message",
+    messagePlaceholder: "Tell us what you're looking for...",
+    send: "Send Message",
+    alertService: "Please select a service.",
+    alertSuccess: "Thank you! We'll get back to you soon.",
+  },
+  es: {
+    tagline: "Contáctanos",
+    title: "Empieza tu camino",
+    subtitle: "Haz una pregunta, consulta disponibilidad o hazte miembro.",
+    name: "Nombre",
+    namePlaceholder: "Tu nombre",
+    email: "Correo electrónico",
+    emailPlaceholder: "tu@ejemplo.com",
+    company: "Nombre de la empresa",
+    companyPlaceholder: "Tu empresa",
+    phone: "Teléfono (con código de país)",
+    phonePlaceholder: "+34 600 000 000",
+    locationLabel: "¿Qué sede te interesa?",
+    locations: [
+      { value: "historic", label: "Centro Histórico" },
+      { value: "seaside", label: "Frente al Mar" },
+      { value: "both", label: "Ambas" },
+    ],
+    serviceLabel: "¿Qué estás buscando?",
+    servicePlaceholder: "Selecciona un servicio",
+    services: [
+      "Quiero organizar mi evento en Innovation Campus",
+      "Quiero alquilar una oficina privada",
+      "Quiero ser coworker",
+      "Quiero registrar mi empresa",
+      "Otro / Información general",
+    ],
+    hearLabel: "¿Cómo nos conociste?",
+    hearPlaceholder: "Selecciona una opción",
+    hearOptions: ["Google", "Instagram", "LinkedIn", "Newsletter", "Referido", "Otro"],
+    message: "Mensaje",
+    messagePlaceholder: "Cuéntanos qué buscas...",
+    send: "Enviar mensaje",
+    alertService: "Por favor selecciona un servicio.",
+    alertSuccess: "¡Gracias! Nos pondremos en contacto pronto.",
+  },
+  it: {
+    tagline: "Contattaci",
+    title: "Inizia il tuo percorso",
+    subtitle: "Fai una domanda, verifica la disponibilità o diventa membro.",
+    name: "Nome",
+    namePlaceholder: "Il tuo nome",
+    email: "Email",
+    emailPlaceholder: "tu@esempio.com",
+    company: "Nome azienda",
+    companyPlaceholder: "La tua azienda",
+    phone: "Telefono (con prefisso internazionale)",
+    phonePlaceholder: "+39 000 000 0000",
+    locationLabel: "Quale sede ti interessa?",
+    locations: [
+      { value: "historic", label: "Centro Storico" },
+      { value: "seaside", label: "Lungomare" },
+      { value: "both", label: "Entrambe" },
+    ],
+    serviceLabel: "Cosa stai cercando?",
+    servicePlaceholder: "Seleziona un servizio",
+    services: [
+      "Voglio organizzare il mio evento a Innovation Campus",
+      "Voglio affittare un ufficio privato",
+      "Voglio diventare un coworker",
+      "Voglio registrare la mia azienda",
+      "Altro / Informazioni generali",
+    ],
+    hearLabel: "Come ci hai conosciuto?",
+    hearPlaceholder: "Seleziona un'opzione",
+    hearOptions: ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Altro"],
+    message: "Messaggio",
+    messagePlaceholder: "Dicci cosa stai cercando...",
+    send: "Invia messaggio",
+    alertService: "Seleziona un servizio.",
+    alertSuccess: "Grazie! Ti risponderemo presto.",
+  },
+} as const;
 
-const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"] as const;
-
-export default function ContactSection() {
+export default function ContactSection({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
+  const t = translations[lang];
   const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
   const [service, setService] = useState<string>("");
   const [hearAbout, setHearAbout] = useState<string>("");
@@ -40,13 +142,13 @@ export default function ContactSection() {
         <div>
           <div className="text-center mb-12">
             <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">
-              Get in Touch
+              {t.tagline}
             </p>
             <h2 className={`font-display text-3xl md:text-5xl font-bold ${textColor}`}>
-              Start your journey
+              {t.title}
             </h2>
             <p className={`font-body mt-4 ${mutedColor}`}>
-              Ask a question, check availability or become a member.
+              {t.subtitle}
             </p>
           </div>
 
@@ -54,28 +156,28 @@ export default function ContactSection() {
             onSubmit={(e) => {
               e.preventDefault();
               if (!service) {
-                alert("Please select a service.");
+                alert(t.alertService);
                 return;
               }
-              alert("Thank you! We'll get back to you soon.");
+              alert(t.alertSuccess);
             }}
             className="space-y-6"
           >
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <Label className={`font-body text-sm ${mutedColor}`}>Name</Label>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.name}</Label>
                 <Input
                   required
-                  placeholder="Your name"
+                  placeholder={t.namePlaceholder}
                   className={inputClass}
                 />
               </div>
               <div>
-                <Label className={`font-body text-sm ${mutedColor}`}>Email</Label>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.email}</Label>
                 <Input
                   type="email"
                   required
-                  placeholder="you@example.com"
+                  placeholder={t.emailPlaceholder}
                   className={inputClass}
                 />
               </div>
@@ -83,19 +185,19 @@ export default function ContactSection() {
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <Label className={`font-body text-sm ${mutedColor}`}>Company Name</Label>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.company}</Label>
                 <Input
                   required
-                  placeholder="Your company"
+                  placeholder={t.companyPlaceholder}
                   className={inputClass}
                 />
               </div>
               <div>
-                <Label className={`font-body text-sm ${mutedColor}`}>Phone Number (with country code)</Label>
+                <Label className={`font-body text-sm ${mutedColor}`}>{t.phone}</Label>
                 <Input
                   type="tel"
                   required
-                  placeholder="+34 600 000 000"
+                  placeholder={t.phonePlaceholder}
                   className={inputClass}
                 />
               </div>
@@ -103,16 +205,10 @@ export default function ContactSection() {
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>
-                Which location interests you?
+                {t.locationLabel}
               </Label>
               <div className="flex flex-wrap gap-3 mt-2">
-                {(
-                  [
-                    { value: "historic", label: "Historic Center" },
-                    { value: "seaside", label: "Seaside" },
-                    { value: "both", label: "Both" },
-                  ] as const
-                ).map((opt) => (
+                {t.locations.map((opt) => (
                   <button
                     key={opt.value}
                     type="button"
@@ -131,14 +227,14 @@ export default function ContactSection() {
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>
-                What are you looking for?
+                {t.serviceLabel}
               </Label>
               <Select value={service} onValueChange={setService}>
                 <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!service ? "text-white/30" : ""}`}>
-                  <SelectValue placeholder="Select a service" />
+                  <SelectValue placeholder={t.servicePlaceholder} />
                 </SelectTrigger>
                 <SelectContent className="bg-neutral-dark border-white/20 text-white">
-                  {serviceOptions.map((opt) => (
+                  {t.services.map((opt) => (
                     <SelectItem key={opt} value={opt}>
                       {opt}
                     </SelectItem>
@@ -149,14 +245,14 @@ export default function ContactSection() {
 
             <div>
               <Label className={`font-body text-sm ${mutedColor}`}>
-                How did you hear about us?
+                {t.hearLabel}
               </Label>
               <Select value={hearAbout} onValueChange={setHearAbout}>
                 <SelectTrigger className={`mt-1 bg-white/10 border-white/20 text-white focus:border-primary ${!hearAbout ? "text-white/30" : ""}`}>
-                  <SelectValue placeholder="Select an option" />
+                  <SelectValue placeholder={t.hearPlaceholder} />
                 </SelectTrigger>
                 <SelectContent className="bg-neutral-dark border-white/20 text-white">
-                  {hearAboutOptions.map((opt) => (
+                  {t.hearOptions.map((opt) => (
                     <SelectItem key={opt} value={opt}>
                       {opt}
                     </SelectItem>
@@ -166,9 +262,9 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <Label className={`font-body text-sm ${mutedColor}`}>Message</Label>
+              <Label className={`font-body text-sm ${mutedColor}`}>{t.message}</Label>
               <Textarea
-                placeholder="Tell us what you're looking for..."
+                placeholder={t.messagePlaceholder}
                 rows={4}
                 className={inputClass}
               />
@@ -180,7 +276,7 @@ export default function ContactSection() {
               size="lg"
             >
               <Send className="w-4 h-4" />
-              Send Message
+              {t.send}
             </Button>
           </form>
         </div>

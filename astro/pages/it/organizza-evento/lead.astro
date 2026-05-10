@@ -1,11 +1,17 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { PageWrapper } from '@/lib/lang-context';
-import Page from '@/pages/it/EventLeadCapture';
+import Navbar from '@/components/landing/Navbar';
+import Footer from '../../../components/Footer.astro';
+import EventLeadCapture from '@/pages/it/EventLeadCapture';
+
 const path = '/it/organizza-evento/lead';
 const title = 'Raccontaci del tuo Evento';
 const description = 'Condividi i dettagli del tuo prossimo evento a Innovation Campus Málaga.';
 ---
 <Layout {title} {description} {path} noIndex>
-  <PageWrapper lang="it" path={path} client:load><Page /></PageWrapper>
+  <div class="overflow-x-hidden">
+    <Navbar lang="it" client:load />
+    <EventLeadCapture lang="it" client:load />
+    <Footer lang="it" />
+  </div>
 </Layout>
