@@ -7,7 +7,8 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   output: 'server',
   adapter: cloudflare({
-    entrypointResolution: 'auto'
+    entrypointResolution: 'auto',
+    imageService: 'compile',
   }),
   srcDir: './astro',
   integrations: [
