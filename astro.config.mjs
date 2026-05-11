@@ -4,9 +4,11 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import cloudflare from '@astrojs/cloudflare';
 
+const isDev = process.env.NODE_ENV !== 'production';
+
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare({
+  adapter: isDev ? undefined : cloudflare({
     entrypointResolution: 'auto',
     imageService: 'passthrough',
   }),
