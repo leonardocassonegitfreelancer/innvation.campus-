@@ -16,9 +16,9 @@ export default defineConfig({
   ],
   vite: {
     resolve: {
-      alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
         'react-router-dom': fileURLToPath(new URL('./src/lib/router-shim.tsx', import.meta.url)),
+        'react-dom/server': 'react-dom/server.edge',
       },
     },
     optimizeDeps: {
