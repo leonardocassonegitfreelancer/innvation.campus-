@@ -7,6 +7,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   const { name, email, company, phone, location, service, space, hearAbout, message } = body;
 
+  try {
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
