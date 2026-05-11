@@ -20,7 +20,7 @@ export default defineConfig({
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
         'react-router-dom': fileURLToPath(new URL('./src/lib/router-shim.tsx', import.meta.url)),
-        'react-dom/server': 'react-dom/server.edge',
+        ...(process.env.NODE_ENV === 'production' ? { 'react-dom/server': 'react-dom/server.edge' } : {}),
       },
     },
     ssr: {
