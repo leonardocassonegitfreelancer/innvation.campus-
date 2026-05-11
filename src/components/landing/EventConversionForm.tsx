@@ -1,7 +1,12 @@
 import { useState, useMemo } from "react";
-import { useLocation } from "react-router-dom";
 import { Calendar, Users, Briefcase, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+
+const thankYouBase: Record<"en" | "es" | "it", string> = {
+  en: "/en/thank-you",
+  es: "/es/gracias",
+  it: "/it/grazie",
+};
 
 const roomOptions = {
   en: [
@@ -173,7 +178,9 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
 
   // For preselected room, we might still need search params if accessed via link
   // but we can pass it as a prop too. Let's keep it checking URL for now as it doesn't break SSR as much as useLocation
-  const spaceSlug = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("space") ?? "" : "";
+  const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
+  const spaceSlug = params.get("space") ?? "";
+  const serviceParam = params.get("service") ?? "";
   const preselectedRoom = useMemo(() => {
     const idx = slugToRoomIndex[spaceSlug];
     return idx !== undefined ? rooms[idx] : null;
@@ -190,10 +197,42 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => { setIsSubmitting(false); setIsSubmitted(true); }, 1500);
+    const fd = new FormData(e.currentTarget);
+    try {
+      const res = await fetch("/api/event-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: fd.get("name"),
+          email: fd.get("email"),
+          company: fd.get("company"),
+          date: fd.get("date"),
+          guests: fd.get("guests"),
+          eventType: fd.get("eventType"),
+          duration: fd.get("duration"),
+          startingTime: fd.get("startingTime"),
+          howHeard: fd.get("howHeard"),
+          message: fd.get("message"),
+          rooms: selectedRooms,
+          extras: selectedExtras,
+          projector,
+          microphone,
+          spaceSlug: spaceSlug || serviceParam,
+        }),
+      });
+      if (res.ok) {
+        window.location.href = `${thankYouBase[lang]}/event`;
+      } else {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+      }
+    } catch {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }
   };
 
   return (
@@ -218,11 +257,11 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className={labelCls}><UserIcon className="inline w-4 h-4 text-primary mr-2" />{t.form.name}</label>
-                  <input required type="text" className={inputCls} />
+                  <input name="name" required type="text" className={inputCls} />
                 </div>
                 <div className="space-y-2">
                   <label className={labelCls}><Mail className="inline w-4 h-4 text-primary mr-2" />{t.form.email}</label>
-                  <input required type="email" className={inputCls} />
+                  <input name="email" required type="email" className={inputCls} />
                 </div>
               </div>
 
@@ -230,11 +269,11 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className={labelCls}><Briefcase className="inline w-4 h-4 text-primary mr-2" />{t.form.company}</label>
-                  <input type="text" className={inputCls} />
+                  <input name="company" type="text" className={inputCls} />
                 </div>
                 <div className="space-y-2">
                   <label className={labelCls}>{t.form.type}</label>
-                  <select required className={inputCls + " appearance-none cursor-pointer"}>
+                  <select name="eventType" required className={inputCls + " appearance-none cursor-pointer"}>
                     <option value="" disabled>-- Select --</option>
                     {t.form.typeOptions.map((opt, i) => <option key={i} value={opt}>{opt}</option>)}
                   </select>
@@ -245,11 +284,11 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className={labelCls}><Calendar className="inline w-4 h-4 text-primary mr-2" />{t.form.date}</label>
-                  <input type="date" className={inputCls} />
+                  <input name="date" type="date" className={inputCls} />
                 </div>
                 <div className="space-y-2">
                   <label className={labelCls}><Users className="inline w-4 h-4 text-primary mr-2" />{t.form.guests}</label>
-                  <input required type="number" min="1" placeholder="e.g. 50" className={inputCls} />
+                  <input name="guests" required type="number" min="1" placeholder="e.g. 50" className={inputCls} />
                 </div>
               </div>
 
@@ -275,14 +314,14 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className={labelCls}>{t.form.duration} <span className="text-destructive">*</span></label>
-                  <select required className={inputCls + " appearance-none cursor-pointer"}>
+                  <select name="duration" required className={inputCls + " appearance-none cursor-pointer"}>
                     <option value="" disabled>--</option>
                     {t.form.durationOptions.map((opt, i) => <option key={i} value={opt}>{opt}</option>)}
                   </select>
                 </div>
                 <div className="space-y-2">
                   <label className={labelCls}><Clock className="inline w-4 h-4 text-primary mr-2" />{t.form.startingTime} <span className="text-destructive">*</span></label>
-                  <input required type="time" className={inputCls} />
+                  <input name="startingTime" required type="time" className={inputCls} />
                 </div>
               </div>
 
@@ -333,7 +372,7 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
               {/* How did you hear about us */}
               <div className="space-y-2">
                 <label className={labelCls}>{t.form.howHeard} <span className="text-destructive">*</span></label>
-                <select required className={inputCls + " appearance-none cursor-pointer"}>
+                <select name="howHeard" required className={inputCls + " appearance-none cursor-pointer"}>
                   <option value="" disabled>--</option>
                   {t.form.howHeardOptions.map((opt, i) => <option key={i} value={opt}>{opt}</option>)}
                 </select>
@@ -342,7 +381,7 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
               {/* Additional info */}
               <div className="space-y-2">
                 <label className={labelCls}>{t.form.message}</label>
-                <textarea rows={4} placeholder={t.form.messagePlaceholder} className={inputCls + " resize-y"} />
+                <textarea name="message" rows={4} placeholder={t.form.messagePlaceholder} className={inputCls + " resize-y"} />
               </div>
 
               <div className="pt-2">

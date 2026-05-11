@@ -24,9 +24,9 @@ const spaceSlugMap: Record<SpaceId, string> = {
 };
 
 const leadBase: Record<"en" | "es" | "it", string> = {
-  en: "/en/host-your-event/lead",
-  es: "/es/organiza-tu-evento/lead",
-  it: "/it/organizza-evento/lead",
+  en: "/en/lead",
+  es: "/es/lead",
+  it: "/it/lead",
 };
 
 const backBase: Record<"en" | "es" | "it", { href: string; label: string }> = {
@@ -143,7 +143,7 @@ export default function TerraceSpaceDetail({
 }) {
   const space = data[lang][spaceId];
   const back = backBase[lang];
-  const leadUrl = `${leadBase[lang]}?space=${spaceSlugMap[spaceId]}`;
+  const leadUrl = `${leadBase[lang]}?service=private-terrace&space=${spaceSlugMap[spaceId]}`;
 
   return (
     <main className="pt-20 bg-background min-h-screen">

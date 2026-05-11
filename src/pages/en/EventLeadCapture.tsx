@@ -42,7 +42,7 @@ export default function EventLeadCapture({ lang = "en" }: { lang?: "en" | "es" |
 
   if (!space) {
     if (typeof window !== "undefined") {
-      window.location.href = backLinks[lang].href;
+      window.location.href = backLinks[lang].meetingRooms.href;
     }
     return null;
   }
@@ -57,12 +57,7 @@ export default function EventLeadCapture({ lang = "en" }: { lang?: "en" | "es" |
     ? backLinks[lang].meetingRooms
     : backLinks[lang].privateTerrace;
 
-  const leadHrefBase =
-    lang === "es"
-      ? "/es/organiza-tu-evento/lead"
-      : lang === "it"
-      ? "/it/organizza-evento/lead"
-      : "/en/host-your-event/lead";
+  const leadHrefBase = `/${lang}/lead?service=${space.baseRoute}`;
 
   return (
     <main className="pt-20 bg-background min-h-screen">
@@ -133,7 +128,7 @@ export default function EventLeadCapture({ lang = "en" }: { lang?: "en" | "es" |
                 return (
                   <a
                     key={alt.slug}
-                    href={`${leadHrefBase}?space=${alt.slug}`}
+                    href={`${leadHrefBase}&space=${alt.slug}`}
                     className="flex gap-3 items-center bg-card border border-border rounded-xl p-3 hover:border-primary/50 hover:shadow-sm transition-all group"
                   >
                     <img

@@ -618,9 +618,7 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
   const description = room.description[lang];
   const shortDesc = description.length > 180 ? description.slice(0, 180) + "…" : description;
 
-  const leadUrl = lang === "en" ? `/en/host-your-event/lead?space=${room.slug}` :
-    lang === "es" ? `/es/organiza-tu-evento/lead?space=${room.slug}` :
-      `/it/organizza-evento/lead?space=${room.slug}`;
+  const leadUrl = `/${lang}/lead?service=meeting-rooms&space=${room.slug}`;
 
   return (
     <>

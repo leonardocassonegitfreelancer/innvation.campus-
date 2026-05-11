@@ -56,12 +56,78 @@ function LanguageSwitcher() {
   );
 }
 
+function MobileLangSwitcher() {
+  const lang = useLang();
+  const switchLanguage = (toLang: "en" | "es" | "it") => {
+    const path = typeof window !== "undefined" ? window.location.pathname : "/";
+    const target = routeMap[toLang]?.[path] || (toLang === "es" ? "/es" : toLang === "it" ? "/it" : "/");
+    window.location.href = target;
+  };
+  const current = lang === "es" ? "es" : lang === "it" ? "it" : "en";
+  return (
+    <div className="pt-4 border-t border-white/10 flex items-center gap-2">
+      {(["en", "es", "it"] as const).map((l) => (
+        <button
+          key={l}
+          onClick={() => switchLanguage(l)}
+          className={`font-body text-sm uppercase tracking-widest px-3 py-1.5 rounded-full border transition-all duration-200 ${
+            current === l
+              ? "border-primary text-primary"
+              : "border-white/20 text-white/50 hover:text-white hover:border-white/40"
+          }`}
+        >
+          {l}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function MobileSection({ label, links, open, onToggle, onClose }: { label: string; links: { label: string; href: string }[]; open: boolean; onToggle: () => void; onClose: () => void }) {
+  return (
+    <div className="border-b border-white/10">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between py-4 text-left"
+      >
+        <span className="font-body text-sm font-semibold uppercase tracking-widest text-white/50">
+          {label}
+        </span>
+        <ChevronDown
+          size={16}
+          className={`text-white/40 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-96 pb-4" : "max-h-0"}`}>
+        <div className="flex flex-col gap-1 pl-1">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={onClose}
+              className="font-body text-lg text-white/80 hover:text-primary py-2 transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Navbar({ lang: langProp }: { lang?: "en" | "es" | "it" } = {}) {
   const contextLang = useLang();
   const lang = langProp ?? contextLang;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const links = lang === "es" ? linksES : lang === "it" ? linksIT : linksEN;
+
+  const toggleMobileSection = (key: string) =>
+    setOpenMobileSection((prev) => (prev === key ? null : key));
+
+  const closeMobile = () => { setMobileOpen(false); setOpenMobileSection(null); };
 
   return (
     <PageWrapper lang={lang}>
@@ -71,23 +137,85 @@ export default function Navbar({ lang: langProp }: { lang?: "en" | "es" | "it" }
             <a href={links.home} className="flex items-center">
               <img src={_s(logoWhite)} alt="Innovation/Campus" className="h-7 md:h-12 w-auto" />
             </a>
+
+            {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-6">
               <DropdownMenu label={links.labels.locations} links={links.location} open={openDropdown === "locations"} onToggle={() => setOpenDropdown(openDropdown === "locations" ? null : "locations")} onClose={() => setOpenDropdown(null)} />
               <DropdownMenu label={links.labels.forBusinesses} links={links.business} open={openDropdown === "business"} onToggle={() => setOpenDropdown(openDropdown === "business" ? null : "business")} onClose={() => setOpenDropdown(null)} />
               <DropdownMenu label={links.labels.forIndividuals} links={links.individual} open={openDropdown === "individual"} onToggle={() => setOpenDropdown(openDropdown === "individual" ? null : "individual")} onClose={() => setOpenDropdown(null)} />
               <DropdownMenu label={links.labels.explore} links={links.explore} open={openDropdown === "explore"} onToggle={() => setOpenDropdown(openDropdown === "explore" ? null : "explore")} onClose={() => setOpenDropdown(null)} />
-              {links.nav.map((link) => (<a key={link.href} href={link.href} className="text-white/70 hover:text-white text-sm font-body font-medium tracking-wide transition-colors duration-300">{link.label}</a>))}
               <div className="flex items-center gap-4 ml-2 border-l border-white/10 pl-6">
                 <LanguageSwitcher />
+                {links.nav.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="font-body text-sm font-semibold uppercase tracking-widest px-4 py-2 rounded-full border border-white/20 text-white/80 hover:border-primary hover:text-primary transition-all duration-200"
+                  >
+                    {link.label}
+                  </a>
+                ))}
               </div>
             </div>
-            <div className="md:hidden flex items-center gap-4">
-              <LanguageSwitcher />
-              <button onClick={() => setMobileOpen(!mobileOpen)} className="text-white hover:text-primary transition-colors p-1">{mobileOpen ? <X size={24} /> : <Menu size={24} />}</button>
+
+            {/* Mobile controls */}
+            <div className="md:hidden flex items-center gap-2">
+              {links.nav.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="font-body text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full border border-white/20 text-white/80 hover:border-primary hover:text-primary transition-all duration-200"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <button
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="text-white hover:text-primary transition-colors p-1 ml-1"
+              >
+                {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
             </div>
           </div>
         </div>
-        {mobileOpen && (<div className="md:hidden bg-neutral-dark border-t border-white/10 max-h-[calc(100vh-64px)] overflow-y-auto pb-8"><div className="px-6 py-8 space-y-8"><div className="space-y-4"><p className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">{links.labels.locations}</p><div className="grid grid-cols-1 gap-4">{links.location.map((link) => (<a key={link.href} href={link.href} className="text-xl font-body text-white/80 hover:text-white">{link.label}</a>))}</div></div><div className="space-y-4"><p className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">{links.labels.forBusinesses}</p><div className="grid grid-cols-1 gap-4">{links.business.map((link) => (<a key={link.href} href={link.href} className="text-xl font-body text-white/80 hover:text-white">{link.label}</a>))}</div></div><div className="space-y-4"><p className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">{links.labels.forIndividuals}</p><div className="grid grid-cols-1 gap-4">{links.individual.map((link) => (<a key={link.href} href={link.href} className="text-xl font-body text-white/80 hover:text-white">{link.label}</a>))}</div></div><div className="space-y-4"><p className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">{links.labels.explore}</p><div className="grid grid-cols-1 gap-4">{links.explore.map((link) => (<a key={link.href} href={link.href} className="text-xl font-body text-white/80 hover:text-white">{link.label}</a>))}</div></div><div className="pt-4 border-t border-white/5 space-y-6">{links.nav.map((link) => (<a key={link.href} href={link.href} className="block text-2xl font-display font-bold text-white hover:text-primary transition-colors">{link.label}</a>))}</div></div></div>)}
+
+        {/* Mobile menu */}
+        {mobileOpen && (
+          <div className="md:hidden bg-neutral-dark border-t border-white/10 max-h-[calc(100vh-64px)] overflow-y-auto">
+            <div className="px-6 pt-2 pb-8">
+              <MobileSection
+                label={links.labels.locations}
+                links={links.location}
+                open={openMobileSection === "locations"}
+                onToggle={() => toggleMobileSection("locations")}
+                onClose={closeMobile}
+              />
+              <MobileSection
+                label={links.labels.forBusinesses}
+                links={links.business}
+                open={openMobileSection === "business"}
+                onToggle={() => toggleMobileSection("business")}
+                onClose={closeMobile}
+              />
+              <MobileSection
+                label={links.labels.forIndividuals}
+                links={links.individual}
+                open={openMobileSection === "individual"}
+                onToggle={() => toggleMobileSection("individual")}
+                onClose={closeMobile}
+              />
+              <MobileSection
+                label={links.labels.explore}
+                links={links.explore}
+                open={openMobileSection === "explore"}
+                onToggle={() => toggleMobileSection("explore")}
+                onClose={closeMobile}
+              />
+
+              <MobileLangSwitcher />
+            </div>
+          </div>
+        )}
       </nav>
     </PageWrapper>
   );

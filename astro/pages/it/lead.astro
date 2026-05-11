@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '@/components/landing/Navbar';
+import Footer from '../../components/Footer.astro';
+import LeadPage from '@/pages/en/LeadPage';
+
+const path = '/it/lead';
+const title = 'Richiesta — Innovation Campus';
+const description = 'Contatta Innovation Campus Málaga.';
+---
+<Layout {title} {description} {path} noIndex>
+  <div class="overflow-x-hidden">
+    <Navbar lang="it" client:load />
+    <LeadPage lang="it" client:load />
+    <Footer lang="it" />
+  </div>
+</Layout>
