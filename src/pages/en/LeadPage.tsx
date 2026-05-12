@@ -1,10 +1,24 @@
-import ServiceLeadForm from "@/pages/en/ServiceLeadForm";
+import EventConversionForm from "@/components/landing/EventConversionForm";
 
-type ServiceKey = "meeting-rooms" | "private-terrace" | "private-office" | "coworking" | "business-registration" | "general";
+const serviceMap: Record<string, string> = {
+  "meeting-rooms": "conference",
+  "private-terrace": "terrace",
+  "private-office": "office",
+  "coworking": "coworking",
+  "business-registration": "bizreg",
+  "general": "other",
+};
 
 export default function LeadPage({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
-  const service = (params.get("service") ?? "general") as ServiceKey;
+  const serviceParam = params.get("service") ?? "general";
+  const defaultService = serviceMap[serviceParam] ?? "other";
 
-  return <ServiceLeadForm lang={lang} service={service} />;
+  return (
+    <main className="pt-20 min-h-screen bg-background">
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <EventConversionForm lang={lang} embedded defaultService={defaultService} />
+      </div>
+    </main>
+  );
 }

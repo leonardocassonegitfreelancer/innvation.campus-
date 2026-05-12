@@ -1,6 +1,6 @@
-import { useState, useMemo } from "react";
-import { Calendar, Users, Briefcase, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { Mail, Clock, Send, CheckCircle2, Phone } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const thankYouBase: Record<"en" | "es" | "it", string> = {
   en: "/en/thank-you",
@@ -43,157 +43,217 @@ const roomOptions = {
 
 const translations = {
   en: {
-    title: "Ready to host your event?",
-    subtitle: "Tell us about your needs and we'll get back to you with a tailored proposal within 24 hours.",
+    title: "Get in touch",
+    subtitle: "Ask a question, check availability or request a personalised quote.",
     form: {
       name: "Your Name",
       email: "Work Email",
       company: "Company (Optional)",
+      phone: "Phone Number",
+      service: "What are you looking for?",
+      servicePlaceholder: "Select a service",
+      serviceOptions: [
+        { value: "conference", label: "Book a conference / meeting room" },
+        { value: "terrace", label: "Book a private rooftop terrace" },
+        { value: "office", label: "Rent a private office" },
+        { value: "coworking", label: "Become a coworker" },
+        { value: "bizreg", label: "Business registration" },
+        { value: "other", label: "Other / General info" },
+      ],
+      rooms: "Room Selection",
       date: "Preferred Date",
       guests: "Number of Attendees",
       type: "Event Type",
-      typeOptions: ["Workshop/Training", "Conference/Presentation", "Networking/Party", "Offsite/Retreat", "Other"],
-      rooms: "Room Selection",
+      typeOptions: ["Workshop / Training", "Conference / Presentation", "Networking / Party", "Offsite / Retreat", "Other"],
       duration: "Duration",
-      durationOptions: ["1 h", "2 h", "3 h", "4 h", "Half day", "Full day"],
-      startingTime: "Starting time",
+      durationOptions: [
+        { value: "1h", label: "1 h" },
+        { value: "2h", label: "2 h" },
+        { value: "3h", label: "3 h" },
+        { value: "4h", label: "4 h" },
+        { value: "half", label: "Half day" },
+        { value: "full", label: "Full day" },
+      ],
+      startingTime: "Starting Time",
       projector: "Projector / TV",
       microphone: "Microphone",
       yes: "Yes",
       no: "No",
       extras: "Extras",
       extraOptions: [
-        "Outside business hours / Weekend",
-        "Coffee machine",
-        "Catering: Coffee break",
-        "Catering: Snacks & Drinks",
-        "Catering: Lunch / Dinner",
+        { value: "after-hours", label: "Outside business hours / Weekend" },
+        { value: "coffee", label: "Coffee machine" },
+        { value: "catering-coffee", label: "Catering: Coffee break" },
+        { value: "catering-snacks", label: "Catering: Snacks & Drinks" },
+        { value: "catering-lunch", label: "Catering: Lunch / Dinner" },
       ],
       howHeard: "How did you hear about us?",
+      howHeardPlaceholder: "Select an option",
       howHeardOptions: ["Social Media", "Google Search", "Word of mouth", "Event / Conference", "Other"],
-      message: "Please provide any additional useful info",
-      messagePlaceholder: "Tell us about the vibe, layout preferences, or any specific requirements...",
-      submit: "Request a Proposal",
+      message: "Message",
+      messagePlaceholder: "Tell us about your needs, preferred setup or any specific requirements...",
+      submit: "Send Request",
       submitting: "Sending...",
       successTitle: "Request Received!",
-      successDesc: "Our events team will contact you shortly to finalize the details.",
+      successDesc: "Our team will get back to you within 24 hours with a tailored proposal.",
     },
   },
   es: {
-    title: "¿Listo para organizar tu evento?",
-    subtitle: "Cuéntanos tus necesidades y te responderemos con una propuesta a medida en 24 horas.",
+    title: "Contáctanos",
+    subtitle: "Haz una pregunta, consulta disponibilidad o solicita un presupuesto personalizado.",
     form: {
       name: "Tu Nombre",
       email: "Email de Trabajo",
       company: "Empresa (Opcional)",
+      phone: "Teléfono",
+      service: "¿Qué estás buscando?",
+      servicePlaceholder: "Selecciona un servicio",
+      serviceOptions: [
+        { value: "conference", label: "Reservar una sala de conferencias" },
+        { value: "terrace", label: "Reservar una terraza privada" },
+        { value: "office", label: "Alquilar una oficina privada" },
+        { value: "coworking", label: "Convertirme en coworker" },
+        { value: "bizreg", label: "Domiciliación de empresa" },
+        { value: "other", label: "Otro / Información general" },
+      ],
+      rooms: "Selección de Sala",
       date: "Fecha Preferida",
       guests: "Número de Asistentes",
       type: "Tipo de Evento",
-      typeOptions: ["Taller/Formación", "Conferencia", "Networking/Fiesta", "Retiro de Empresa", "Otro"],
-      rooms: "Selección de Sala",
+      typeOptions: ["Taller / Formación", "Conferencia / Presentación", "Networking / Fiesta", "Retiro de Empresa", "Otro"],
       duration: "Duración",
-      durationOptions: ["1 h", "2 h", "3 h", "4 h", "Medio día", "Día completo"],
-      startingTime: "Hora de inicio",
+      durationOptions: [
+        { value: "1h", label: "1 h" },
+        { value: "2h", label: "2 h" },
+        { value: "3h", label: "3 h" },
+        { value: "4h", label: "4 h" },
+        { value: "half", label: "Medio día" },
+        { value: "full", label: "Día completo" },
+      ],
+      startingTime: "Hora de Inicio",
       projector: "Proyector / TV",
       microphone: "Micrófono",
       yes: "Sí",
       no: "No",
       extras: "Extras",
       extraOptions: [
-        "Fuera de horario / Fin de semana",
-        "Máquina de café",
-        "Catering: Café",
-        "Catering: Snacks & Bebidas",
-        "Catering: Almuerzo / Cena",
+        { value: "after-hours", label: "Fuera de horario / Fin de semana" },
+        { value: "coffee", label: "Máquina de café" },
+        { value: "catering-coffee", label: "Catering: Café" },
+        { value: "catering-snacks", label: "Catering: Snacks & Bebidas" },
+        { value: "catering-lunch", label: "Catering: Almuerzo / Cena" },
       ],
       howHeard: "¿Cómo nos conociste?",
+      howHeardPlaceholder: "Selecciona una opción",
       howHeardOptions: ["Redes Sociales", "Búsqueda en Google", "Boca a boca", "Evento / Conferencia", "Otro"],
-      message: "Información adicional útil",
-      messagePlaceholder: "Cuéntanos sobre el ambiente, disposición preferida o requisitos específicos...",
-      submit: "Solicitar Presupuesto",
+      message: "Mensaje",
+      messagePlaceholder: "Cuéntanos tus necesidades, disposición preferida o cualquier requisito específico...",
+      submit: "Enviar Solicitud",
       submitting: "Enviando...",
       successTitle: "¡Solicitud Recibida!",
-      successDesc: "Nuestro equipo de eventos te contactará pronto para finalizar los detalles.",
+      successDesc: "Nuestro equipo te responderá en 24 horas con una propuesta a medida.",
     },
   },
   it: {
-    title: "Pronto a organizzare il tuo evento?",
-    subtitle: "Raccontaci le tue esigenze e ti risponderemo con una proposta su misura entro 24 ore.",
+    title: "Contattaci",
+    subtitle: "Fai una domanda, verifica la disponibilità o richiedi un preventivo personalizzato.",
     form: {
       name: "Il tuo Nome",
       email: "Email Lavorativa",
       company: "Azienda (Opzionale)",
+      phone: "Numero di Telefono",
+      service: "Cosa stai cercando?",
+      servicePlaceholder: "Seleziona un servizio",
+      serviceOptions: [
+        { value: "conference", label: "Prenotare una sala conferenze / riunioni" },
+        { value: "terrace", label: "Prenotare una terrazza privata" },
+        { value: "office", label: "Affittare un ufficio privato" },
+        { value: "coworking", label: "Diventare coworker" },
+        { value: "bizreg", label: "Domiciliazione aziendale" },
+        { value: "other", label: "Altro / Informazioni generali" },
+      ],
+      rooms: "Selezione Sala",
       date: "Data Preferita",
       guests: "Numero di Partecipanti",
       type: "Tipo di Evento",
-      typeOptions: ["Workshop/Formazione", "Conferenza", "Networking/Festa", "Ritiro Aziendale", "Altro"],
-      rooms: "Selezione Sala",
+      typeOptions: ["Workshop / Formazione", "Conferenza / Presentazione", "Networking / Festa", "Ritiro Aziendale", "Altro"],
       duration: "Durata",
-      durationOptions: ["1 h", "2 h", "3 h", "4 h", "Mezza giornata", "Giornata intera"],
-      startingTime: "Orario di inizio",
+      durationOptions: [
+        { value: "1h", label: "1 h" },
+        { value: "2h", label: "2 h" },
+        { value: "3h", label: "3 h" },
+        { value: "4h", label: "4 h" },
+        { value: "half", label: "Mezza giornata" },
+        { value: "full", label: "Giornata intera" },
+      ],
+      startingTime: "Orario di Inizio",
       projector: "Proiettore / TV",
       microphone: "Microfono",
       yes: "Sì",
       no: "No",
       extras: "Extra",
       extraOptions: [
-        "Fuori orario / Weekend",
-        "Macchina del caffè",
-        "Catering: Pausa caffè",
-        "Catering: Snack & Bevande",
-        "Catering: Pranzo / Cena",
+        { value: "after-hours", label: "Fuori orario / Weekend" },
+        { value: "coffee", label: "Macchina del caffè" },
+        { value: "catering-coffee", label: "Catering: Coffee break" },
+        { value: "catering-snacks", label: "Catering: Snack & Bevande" },
+        { value: "catering-lunch", label: "Catering: Pranzo / Cena" },
       ],
       howHeard: "Come ci hai conosciuto?",
+      howHeardPlaceholder: "Seleziona un'opzione",
       howHeardOptions: ["Social Media", "Ricerca Google", "Passaparola", "Evento / Conferenza", "Altro"],
-      message: "Informazioni aggiuntive utili",
-      messagePlaceholder: "Raccontaci dell'atmosfera, preferenze di layout o requisiti specifici...",
-      submit: "Richiedi un Preventivo",
+      message: "Messaggio",
+      messagePlaceholder: "Raccontaci le tue esigenze, preferenze di allestimento o requisiti specifici...",
+      submit: "Invia Richiesta",
       submitting: "Invio in corso...",
       successTitle: "Richiesta Ricevuta!",
-      successDesc: "Il nostro team eventi ti contatterà a breve per definire i dettagli.",
+      successDesc: "Il nostro team ti risponderà entro 24 ore con una proposta su misura.",
     },
   },
 };
 
-// Maps space slug → room option index (0-based) per lang
-const slugToRoomIndex: Record<string, number> = {
-  "big-conference-room": 0,
-  "large-conference-room": 1,
-  "quarter-conference-room": 2,
-  "training-room": 6,
-  "phone-booth": 3,
-  "malaga-palace": 4,
-  "seaside-terrace": 4,
-  "private-terrace": 5,
-  "sea-view-lounge": 6,
-  "beachfront-events": 4,
-};
-
-const inputCls = "w-full bg-muted border border-border rounded-xl px-4 py-3 font-body text-sm text-foreground focus:outline-none focus:border-primary transition-colors";
+const inputCls =
+  "w-full bg-muted border border-border rounded-xl px-4 py-3 font-body text-sm text-foreground focus:outline-none focus:border-primary transition-colors";
 const labelCls = "font-body text-sm font-semibold text-foreground";
 
-export default function EventConversionForm({ lang = "en", embedded = false }: { lang?: "en" | "es" | "it"; embedded?: boolean }) {
+const pillCls = (active: boolean) =>
+  `px-4 py-2 rounded-full border font-body text-sm transition-all cursor-pointer select-none ${
+    active
+      ? "bg-primary text-primary-foreground border-primary"
+      : "bg-muted border-border text-muted-foreground hover:border-primary/60 hover:text-foreground"
+  }`;
+
+interface EventConversionFormProps {
+  lang?: "en" | "es" | "it";
+  embedded?: boolean;
+  defaultService?: string;
+}
+
+export default function EventConversionForm({
+  lang = "en",
+  embedded = false,
+  defaultService = "",
+}: EventConversionFormProps) {
   const t = translations[lang];
   const rooms = roomOptions[lang];
 
-  // For preselected room, we might still need search params if accessed via link
-  // but we can pass it as a prop too. Let's keep it checking URL for now as it doesn't break SSR as much as useLocation
   const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
   const spaceSlug = params.get("space") ?? "";
-  const serviceParam = params.get("service") ?? "";
-  const preselectedRoom = useMemo(() => {
-    const idx = slugToRoomIndex[spaceSlug];
-    return idx !== undefined ? rooms[idx] : null;
-  }, [spaceSlug, rooms]);
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedRooms, setSelectedRooms] = useState<string[]>(preselectedRoom ? [preselectedRoom] : []);
+  const [service, setService] = useState(defaultService || (spaceSlug ? "conference" : ""));
+  const [selectedRooms, setSelectedRooms] = useState<string[]>([]);
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
+  const [duration, setDuration] = useState("");
   const [projector, setProjector] = useState<"yes" | "no" | "">("");
   const [microphone, setMicrophone] = useState<"yes" | "no" | "">("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const toggleCheckbox = (value: string, list: string[], setList: (v: string[]) => void) => {
+  const isConference = service === "conference";
+  const isTerrace = service === "terrace";
+  const showBookingFields = isConference || isTerrace;
+
+  const toggleItem = (value: string, list: string[], setList: (v: string[]) => void) => {
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
   };
 
@@ -209,10 +269,12 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
           name: fd.get("name"),
           email: fd.get("email"),
           company: fd.get("company"),
+          phone: fd.get("phone"),
+          service,
           date: fd.get("date"),
           guests: fd.get("guests"),
           eventType: fd.get("eventType"),
-          duration: fd.get("duration"),
+          duration,
           startingTime: fd.get("startingTime"),
           howHeard: fd.get("howHeard"),
           message: fd.get("message"),
@@ -220,7 +282,7 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
           extras: selectedExtras,
           projector,
           microphone,
-          spaceSlug: spaceSlug || serviceParam,
+          spaceSlug,
         }),
       });
       if (res.ok) {
@@ -236,13 +298,14 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
   };
 
   return (
-    <section id="event-contact" className={embedded ? "" : "py-24 bg-card border-t border-border"}>
+    <section id="contact" className={embedded ? "" : "py-24 bg-card border-t border-border"}>
       <div className={embedded ? "" : "max-w-4xl mx-auto px-6"}>
-
-        <div className="text-center mb-12">
-          <h2 className="font-display font-bold text-3xl md:text-5xl text-foreground mb-4">{t.title}</h2>
-          <p className="font-body text-lg text-muted-foreground max-w-xl mx-auto">{t.subtitle}</p>
-        </div>
+        {!embedded && (
+          <div className="text-center mb-12">
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-foreground mb-4">{t.title}</h2>
+            <p className="font-body text-lg text-muted-foreground max-w-xl mx-auto">{t.subtitle}</p>
+          </div>
+        )}
 
         {!isSubmitted ? (
           <motion.div
@@ -256,132 +319,237 @@ export default function EventConversionForm({ lang = "en", embedded = false }: {
               {/* Name + Email */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className={labelCls}><UserIcon className="inline w-4 h-4 text-primary mr-2" />{t.form.name}</label>
+                  <label className={labelCls}>
+                    <UserIcon className="inline w-4 h-4 text-primary mr-2" />
+                    {t.form.name} <span className="text-destructive">*</span>
+                  </label>
                   <input name="name" required type="text" className={inputCls} />
                 </div>
                 <div className="space-y-2">
-                  <label className={labelCls}><Mail className="inline w-4 h-4 text-primary mr-2" />{t.form.email}</label>
+                  <label className={labelCls}>
+                    <Mail className="inline w-4 h-4 text-primary mr-2" />
+                    {t.form.email} <span className="text-destructive">*</span>
+                  </label>
                   <input name="email" required type="email" className={inputCls} />
                 </div>
               </div>
 
-              {/* Company + Event Type */}
+              {/* Company + Phone */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className={labelCls}><Briefcase className="inline w-4 h-4 text-primary mr-2" />{t.form.company}</label>
+                  <label className={labelCls}>
+                    <BriefcaseIcon className="inline w-4 h-4 text-primary mr-2" />
+                    {t.form.company}
+                  </label>
                   <input name="company" type="text" className={inputCls} />
                 </div>
                 <div className="space-y-2">
-                  <label className={labelCls}>{t.form.type}</label>
-                  <select name="eventType" required className={inputCls + " appearance-none cursor-pointer"}>
-                    <option value="" disabled>-- Select --</option>
-                    {t.form.typeOptions.map((opt, i) => <option key={i} value={opt}>{opt}</option>)}
-                  </select>
+                  <label className={labelCls}>
+                    <Phone className="inline w-4 h-4 text-primary mr-2" />
+                    {t.form.phone}
+                  </label>
+                  <input name="phone" type="tel" className={inputCls} placeholder="+34 600 000 000" />
                 </div>
               </div>
 
-              {/* Date + Attendees */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className={labelCls}><Calendar className="inline w-4 h-4 text-primary mr-2" />{t.form.date}</label>
-                  <input name="date" type="date" className={inputCls} />
-                </div>
-                <div className="space-y-2">
-                  <label className={labelCls}><Users className="inline w-4 h-4 text-primary mr-2" />{t.form.guests}</label>
-                  <input name="guests" required type="number" min="1" placeholder="e.g. 50" className={inputCls} />
-                </div>
-              </div>
-
-              {/* Room selection */}
-              <div className="space-y-3">
-                <label className={labelCls}>{t.form.rooms}</label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {rooms.map((room) => (
-                    <label key={room} className="flex items-center gap-3 cursor-pointer group">
-                      <input
-                        type="checkbox"
-                        checked={selectedRooms.includes(room)}
-                        onChange={() => toggleCheckbox(room, selectedRooms, setSelectedRooms)}
-                        className="w-4 h-4 rounded accent-primary cursor-pointer"
-                      />
-                      <span className="font-body text-sm text-foreground group-hover:text-primary transition-colors">{room}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Duration + Starting time */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className={labelCls}>{t.form.duration} <span className="text-destructive">*</span></label>
-                  <select name="duration" required className={inputCls + " appearance-none cursor-pointer"}>
-                    <option value="" disabled>--</option>
-                    {t.form.durationOptions.map((opt, i) => <option key={i} value={opt}>{opt}</option>)}
-                  </select>
-                </div>
-                <div className="space-y-2">
-                  <label className={labelCls}><Clock className="inline w-4 h-4 text-primary mr-2" />{t.form.startingTime} <span className="text-destructive">*</span></label>
-                  <input name="startingTime" required type="time" className={inputCls} />
-                </div>
-              </div>
-
-              {/* Projector + Microphone */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className={labelCls}>{t.form.projector}</label>
-                  <div className="flex gap-6">
-                    {(["yes", "no"] as const).map((val) => (
-                      <label key={val} className="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="projector" value={val} checked={projector === val} onChange={() => setProjector(val)} className="accent-primary" />
-                        <span className="font-body text-sm">{val === "yes" ? t.form.yes : t.form.no}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className={labelCls}>{t.form.microphone}</label>
-                  <div className="flex gap-6">
-                    {(["yes", "no"] as const).map((val) => (
-                      <label key={val} className="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="microphone" value={val} checked={microphone === val} onChange={() => setMicrophone(val)} className="accent-primary" />
-                        <span className="font-body text-sm">{val === "yes" ? t.form.yes : t.form.no}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Extras */}
-              <div className="space-y-3">
-                <label className={labelCls}>{t.form.extras}</label>
-                <div className="flex flex-col gap-2">
-                  {t.form.extraOptions.map((extra) => (
-                    <label key={extra} className="flex items-center gap-3 cursor-pointer group">
-                      <input
-                        type="checkbox"
-                        checked={selectedExtras.includes(extra)}
-                        onChange={() => toggleCheckbox(extra, selectedExtras, setSelectedExtras)}
-                        className="w-4 h-4 rounded accent-primary cursor-pointer"
-                      />
-                      <span className="font-body text-sm text-foreground group-hover:text-primary transition-colors">{extra}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* How did you hear about us */}
+              {/* Service selector */}
               <div className="space-y-2">
-                <label className={labelCls}>{t.form.howHeard} <span className="text-destructive">*</span></label>
-                <select name="howHeard" required className={inputCls + " appearance-none cursor-pointer"}>
-                  <option value="" disabled>--</option>
-                  {t.form.howHeardOptions.map((opt, i) => <option key={i} value={opt}>{opt}</option>)}
+                <label className={labelCls}>
+                  {t.form.service} <span className="text-destructive">*</span>
+                </label>
+                <select
+                  name="service"
+                  required
+                  value={service}
+                  onChange={(e) => {
+                    setService(e.target.value);
+                    setSelectedRooms([]);
+                    setDuration("");
+                    setProjector("");
+                    setMicrophone("");
+                    setSelectedExtras([]);
+                  }}
+                  className={inputCls + " appearance-none cursor-pointer"}
+                >
+                  <option value="" disabled>{t.form.servicePlaceholder}</option>
+                  {t.form.serviceOptions.map((opt) => (
+                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                  ))}
                 </select>
               </div>
 
-              {/* Additional info */}
+              {/* Cascading booking fields */}
+              <AnimatePresence>
+                {showBookingFields && (
+                  <motion.div
+                    key="booking-fields"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-8 overflow-hidden"
+                  >
+                    {/* Room selection — conference only */}
+                    {isConference && (
+                      <div className="space-y-3">
+                        <label className={labelCls}>{t.form.rooms}</label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {rooms.map((room) => (
+                            <label key={room} className="flex items-center gap-3 cursor-pointer group">
+                              <input
+                                type="checkbox"
+                                checked={selectedRooms.includes(room)}
+                                onChange={() => toggleItem(room, selectedRooms, setSelectedRooms)}
+                                className="w-4 h-4 rounded accent-primary cursor-pointer"
+                              />
+                              <span className="font-body text-sm text-foreground group-hover:text-primary transition-colors">
+                                {room}
+                              </span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Date + Starting time */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className={labelCls}>{t.form.date}</label>
+                        <input name="date" type="date" className={inputCls} />
+                      </div>
+                      <div className="space-y-2">
+                        <label className={labelCls}>
+                          <Clock className="inline w-4 h-4 text-primary mr-2" />
+                          {t.form.startingTime}
+                        </label>
+                        <input name="startingTime" type="time" className={inputCls} />
+                      </div>
+                    </div>
+
+                    {/* Guests + Event type */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className={labelCls}>
+                          <UsersIcon className="inline w-4 h-4 text-primary mr-2" />
+                          {t.form.guests} <span className="text-destructive">*</span>
+                        </label>
+                        <input
+                          name="guests"
+                          required
+                          type="number"
+                          min="1"
+                          placeholder="e.g. 30"
+                          className={inputCls}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className={labelCls}>{t.form.type}</label>
+                        <select name="eventType" className={inputCls + " appearance-none cursor-pointer"}>
+                          <option value="">--</option>
+                          {t.form.typeOptions.map((opt, i) => (
+                            <option key={i} value={opt}>{opt}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Duration — pills */}
+                    <div className="space-y-3">
+                      <label className={labelCls}>{t.form.duration}</label>
+                      <div className="flex flex-wrap gap-2">
+                        {t.form.durationOptions.map((opt) => (
+                          <button
+                            key={opt.value}
+                            type="button"
+                            onClick={() => setDuration(opt.value === duration ? "" : opt.value)}
+                            className={pillCls(duration === opt.value)}
+                          >
+                            {opt.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Projector + Microphone — pills (conference only) */}
+                    {isConference && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-3">
+                          <label className={labelCls}>{t.form.projector}</label>
+                          <div className="flex gap-2">
+                            {(["yes", "no"] as const).map((val) => (
+                              <button
+                                key={val}
+                                type="button"
+                                onClick={() => setProjector(val === projector ? "" : val)}
+                                className={pillCls(projector === val)}
+                              >
+                                {val === "yes" ? t.form.yes : t.form.no}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="space-y-3">
+                          <label className={labelCls}>{t.form.microphone}</label>
+                          <div className="flex gap-2">
+                            {(["yes", "no"] as const).map((val) => (
+                              <button
+                                key={val}
+                                type="button"
+                                onClick={() => setMicrophone(val === microphone ? "" : val)}
+                                className={pillCls(microphone === val)}
+                              >
+                                {val === "yes" ? t.form.yes : t.form.no}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Extras — pills (conference only) */}
+                    {isConference && (
+                      <div className="space-y-3">
+                        <label className={labelCls}>{t.form.extras}</label>
+                        <div className="flex flex-wrap gap-2">
+                          {t.form.extraOptions.map((extra) => (
+                            <button
+                              key={extra.value}
+                              type="button"
+                              onClick={() => toggleItem(extra.value, selectedExtras, setSelectedExtras)}
+                              className={pillCls(selectedExtras.includes(extra.value))}
+                            >
+                              {extra.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* How did you hear */}
+              <div className="space-y-2">
+                <label className={labelCls}>
+                  {t.form.howHeard} <span className="text-destructive">*</span>
+                </label>
+                <select name="howHeard" required className={inputCls + " appearance-none cursor-pointer"}>
+                  <option value="" disabled>{t.form.howHeardPlaceholder}</option>
+                  {t.form.howHeardOptions.map((opt, i) => (
+                    <option key={i} value={opt}>{opt}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Message */}
               <div className="space-y-2">
                 <label className={labelCls}>{t.form.message}</label>
-                <textarea name="message" rows={4} placeholder={t.form.messagePlaceholder} className={inputCls + " resize-y"} />
+                <textarea
+                  name="message"
+                  rows={4}
+                  placeholder={t.form.messagePlaceholder}
+                  className={inputCls + " resize-y"}
+                />
               </div>
 
               <div className="pt-2">
@@ -416,6 +584,22 @@ function UserIcon({ className }: { className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
       <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+    </svg>
+  );
+}
+
+function BriefcaseIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+    </svg>
+  );
+}
+
+function UsersIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
     </svg>
   );
 }

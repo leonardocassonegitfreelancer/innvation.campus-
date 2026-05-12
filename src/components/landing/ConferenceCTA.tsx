@@ -1,197 +1,56 @@
-import { useState, useRef } from "react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useLocation, Link } from "react-router-dom";
-import { CalendarDays, Building2, Users } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Send } from "lucide-react";
-import ConferenceBookingFields, { type ConferenceBookingFieldsHandle } from "./ConferenceBookingFields";
+import EventConversionForm from "./EventConversionForm";
 
-const translations = {
+const headings = {
   en: {
-    sectionLabel: "Get in Touch",
-    title: "Get in touch",
-    subtitle: "Ask a question, check availability or request a personalized quote.",
-    name: "Name",
-    namePlaceholder: "Your name",
-    email: "Email",
-    emailPlaceholder: "you@example.com",
-    company: "Company Name",
-    companyPlaceholder: "Your company",
-    phone: "Phone Number (with country code)",
-    phonePlaceholder: "+34 600 000 000",
-    locationLabel: "Which location interests you?",
-    locations: [
-      { value: "historic" as const, label: "Historic Centers" },
-      { value: "seaside" as const, label: "Seaside" },
-      { value: "both" as const, label: "Both" },
-    ],
-    serviceLabel: "What are you looking for?",
-    servicePlaceholder: "Select a service",
-    services: [
-      { value: "conference", label: "I want to book a conference room" },
-      { value: "terrace", label: "I want to book a private rooftop terrace" },
-      { value: "office", label: "I want to rent a private office" },
-      { value: "coworker", label: "I want to become a coworker" },
-      { value: "other", label: "Other / General info" },
-    ],
-    hearLabel: "How did you hear about us?",
-    hearPlaceholder: "Select an option",
-    message: "Message",
-    messagePlaceholder: "Tell us what you're looking for...",
-    submit: "Send Message",
-    thankYou: "Thank you! We'll get back to you soon.",
-    selectService: "Please select a service.",
+    label: "Get in Touch",
+    title: "Ready to book your space?",
+    subtitle: "Tell us what you need and we'll get back to you within 24 hours.",
   },
   es: {
-    sectionLabel: "Contáctanos",
-    title: "Contáctanos",
-    subtitle: "Haz una pregunta, consulta disponibilidad o solicita un presupuesto personalizado.",
-    name: "Nombre",
-    namePlaceholder: "Tu nombre",
-    email: "Email",
-    emailPlaceholder: "tu@ejemplo.com",
-    company: "Nombre de Empresa",
-    companyPlaceholder: "Tu empresa",
-    phone: "Teléfono (con código de país)",
-    phonePlaceholder: "+34 600 000 000",
-    locationLabel: "¿Qué ubicación te interesa?",
-    locations: [
-      { value: "historic" as const, label: "Centro Histórico" },
-      { value: "seaside" as const, label: "Frente al Mar" },
-      { value: "both" as const, label: "Ambas" },
-    ],
-    serviceLabel: "¿Qué estás buscando?",
-    servicePlaceholder: "Selecciona un servicio",
-    services: [
-      { value: "conference", label: "Quiero reservar una sala de conferencias" },
-      { value: "terrace", label: "Quiero reservar una terraza privada en la azotea" },
-      { value: "office", label: "Quiero alquilar una oficina privada" },
-      { value: "coworker", label: "Quiero ser coworker" },
-      { value: "other", label: "Otro / Información general" },
-    ],
-    hearLabel: "¿Cómo nos conociste?",
-    hearPlaceholder: "Selecciona una opción",
-    message: "Mensaje",
-    messagePlaceholder: "Cuéntanos qué necesitas...",
-    submit: "Enviar Mensaje",
-    thankYou: "¡Gracias! Te responderemos pronto.",
-    selectService: "Por favor selecciona un servicio.",
+    label: "Contáctanos",
+    title: "¿Listo para reservar tu espacio?",
+    subtitle: "Cuéntanos qué necesitas y te responderemos en 24 horas.",
   },
   it: {
-    sectionLabel: "Contattaci",
-    title: "Contattaci",
-    subtitle: "Fai una domanda, verifica la disponibilità o richiedi un preventivo personalizzato.",
-    name: "Nome",
-    namePlaceholder: "Il tuo nome",
-    email: "Email",
-    emailPlaceholder: "tu@esempio.com",
-    company: "Nome Azienda",
-    companyPlaceholder: "La tua azienda",
-    phone: "Telefono (con prefisso internazionale)",
-    phonePlaceholder: "+39 333 000 0000",
-    locationLabel: "Quale sede ti interessa?",
-    locations: [
-      { value: "historic" as const, label: "Centro Storico" },
-      { value: "seaside" as const, label: "Lungomare" },
-      { value: "both" as const, label: "Entrambe" },
-    ],
-    serviceLabel: "Cosa stai cercando?",
-    servicePlaceholder: "Seleziona un servizio",
-    services: [
-      { value: "conference", label: "Voglio prenotare una sala conferenze" },
-      { value: "terrace", label: "Voglio prenotare una terrazza privata sul tetto" },
-      { value: "office", label: "Voglio affittare un ufficio privato" },
-      { value: "coworker", label: "Voglio diventare coworker" },
-      { value: "other", label: "Altro / Informazioni generali" },
-    ],
-    hearLabel: "Come ci hai conosciuto?",
-    hearPlaceholder: "Seleziona un'opzione",
-    message: "Messaggio",
-    messagePlaceholder: "Raccontaci cosa stai cercando...",
-    submit: "Invia Messaggio",
-    thankYou: "Grazie! Ti risponderemo presto.",
-    selectService: "Per favore seleziona un servizio.",
+    label: "Contattaci",
+    title: "Pronto a prenotare il tuo spazio?",
+    subtitle: "Raccontaci cosa cerchi e ti risponderemo entro 24 ore.",
   },
 };
 
-const hearAboutOptions = ["Google", "Instagram", "LinkedIn", "Newsletter", "Referral", "Other"] as const;
-
 interface ConferenceCTAProps {
   lang?: "en" | "es" | "it";
+  defaultService?: string;
   titleOverride?: { en: string; es: string; it: string };
   subtitleOverride?: { en: string; es: string; it: string };
 }
 
-export default function ConferenceCTA({ lang = "en", titleOverride, subtitleOverride }: ConferenceCTAProps = {}) {
-  const [location, setLocation] = useState<"historic" | "seaside" | "both">("both");
-  const [service, setService] = useState<string>("");
-  const [hearAbout, setHearAbout] = useState<string>("");
-  const conferenceRef = useRef<ConferenceBookingFieldsHandle>(null);
-  const { ref, isVisible } = useScrollAnimation();
-  const t = translations[lang];
-  const displayTitle = titleOverride ? titleOverride[lang] : t.title;
-  const displaySubtitle = subtitleOverride ? subtitleOverride[lang] : t.subtitle;
-
-  const isConference = service === "conference";
-  const mutedColor = "text-white/60";
-  const inputClass = "mt-1 bg-white/10 border-white/20 text-white placeholder:text-white/30 focus:border-primary";
-  const quickLinksData = {
-    en: [
-      { title: "Host Your Event", description: "Conference rooms, terraces & custom setups", href: "/en/host-your-event", icon: CalendarDays },
-      { title: "Book an Office", description: "Private offices for teams of any size", href: "/en/private-offices", icon: Building2 },
-      { title: "Become a Coworker", description: "Flexible plans starting from one day", href: "/en/coworking-space", icon: Users },
-    ],
-    es: [
-      { title: "Organiza Tu Evento", description: "Salas de conferencias, terrazas y montajes personalizados", href: "/es/organiza-tu-evento", icon: CalendarDays },
-      { title: "Reserva una Oficina", description: "Oficinas privadas para equipos de cualquier tamaño", href: "/es/oficinas-privadas", icon: Building2 },
-      { title: "Hazte Coworker", description: "Planes flexibles desde un día", href: "/es/coworking", icon: Users },
-    ],
-    it: [
-      { title: "Organizza un Evento", description: "Sale conferenze, terrazze e allestimenti personalizzati", href: "/it/organizza-evento", icon: CalendarDays },
-      { title: "Prenota un Ufficio", description: "Uffici privati per team di qualsiasi dimensione", href: "/it/uffici-privati", icon: Building2 },
-      { title: "Diventa Coworker", description: "Piani flessibili a partire da un giorno", href: "/it/coworking", icon: Users },
-    ],
-  };
-  const quickLinks = quickLinksData[lang];
+export default function ConferenceCTA({
+  lang = "en",
+  defaultService = "",
+  titleOverride,
+  subtitleOverride,
+}: ConferenceCTAProps = {}) {
+  const h = headings[lang];
+  const title = titleOverride ? titleOverride[lang] : h.title;
+  const subtitle = subtitleOverride ? subtitleOverride[lang] : h.subtitle;
 
   return (
     <section id="contact" className="relative py-24 md:py-36 bg-neutral-dark overflow-hidden">
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"
-      }} />
-      <div className="relative max-w-5xl mx-auto px-6">
-        <p className="font-body text-xs uppercase tracking-[0.4em] text-primary text-center mb-10">
-          {lang === "es" ? "Enlaces Rápidos" : lang === "it" ? "Link Utili" : "Quick Links"}
-        </p>
-        <div className="grid sm:grid-cols-3 gap-6">
-          {quickLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="group flex flex-col items-center text-center p-6 rounded-2xl border border-white/10 bg-white/5 hover:border-primary/40 hover:bg-white/10 transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <link.icon className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="font-display text-lg font-semibold text-white mb-1">
-                {link.title}
-              </h3>
-              <p className="font-body text-sm text-white/60">
-                {link.description}
-              </p>
-            </a>
-          ))}
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/G%3E%3C/svg%3E\")",
+        }}
+      />
+      <div className="relative max-w-4xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <p className="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">{h.label}</p>
+          <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">{title}</h2>
+          <p className="font-body text-lg text-white/60 max-w-xl mx-auto">{subtitle}</p>
         </div>
+        <EventConversionForm lang={lang} embedded defaultService={defaultService} />
       </div>
     </section>
   );
