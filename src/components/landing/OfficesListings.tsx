@@ -8,7 +8,6 @@ import terrace2 from "@/assets/terrace-events.webp";
 import terraceCommunity from "@/assets/terrace-community.webp";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
@@ -356,7 +355,6 @@ function OfficeCardWithModal({ office, t, activeTab, locationLabel, lang }: any)
 
 export default function OfficesListings({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const [activeTab, setActiveTab] = useState<"palace" | "terrace">("palace");
-  const { ref, isVisible } = useScrollAnimation();
   const t = translations[lang as keyof typeof translations];
   const offices = activeTab === "palace" ? t.palaceOffices : t.terraceOffices;
 
@@ -366,7 +364,7 @@ export default function OfficesListings({ lang = "en" }: { lang?: "en" | "es" | 
   return (
     <section className="py-24 md:py-32 bg-background flex flex-col items-center">
       <div className="w-full max-w-[1400px] px-6 lg:px-12">
-        <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-16 md:mb-24`}>
+        <div className="text-center mb-16 md:mb-24">
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-6 font-semibold">
             {t.tagline}
           </p>

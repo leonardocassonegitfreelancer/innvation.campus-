@@ -1,4 +1,3 @@
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Phone, Sparkles, DoorOpen, Smartphone, Headphones, MapPin } from "lucide-react";
 
 const translations = {
@@ -41,13 +40,12 @@ const translations = {
 };
 
 export default function OfficesAmenities({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
-  const { ref, isVisible = true } = useScrollAnimation();
   const t = translations[lang];
 
   return (
     <section className="py-20 md:py-28 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-6">
-        <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-16`}>
+        <div className="text-center mb-16">
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
             {t.tagline}
           </p>
