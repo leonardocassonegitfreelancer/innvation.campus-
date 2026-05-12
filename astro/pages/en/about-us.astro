@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Navbar from '@/components/landing/Navbar';
+import Footer from '../../components/Footer.astro';
 import AboutUsPage from '@/pages/en/AboutUs';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 
@@ -11,5 +13,9 @@ const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz'
 ---
 
 <Layout {title} {description} {path} {alternates} {breadcrumb}>
-  <AboutUsPage lang="en" client:load />
+  <div class="overflow-x-hidden">
+    <Navbar lang="en" client:load />
+    <AboutUsPage lang="en" client:load />
+    <Footer lang="en" />
+  </div>
 </Layout>
