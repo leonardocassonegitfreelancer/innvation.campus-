@@ -23,11 +23,11 @@ const translations = {
     tabIndividual: "For Individuals",
     businessServices: [
       { title: "Meeting Rooms", desc: "Conferences, workshops & events", href: "/en/meeting-rooms", img: conferencePicasso },
+      { title: "Private Terrace", desc: "Outdoor events & receptions", href: "/en/private-terrace", img: terraceHero },
       { title: "Private Office", desc: "Dedicated office spaces", href: "/en/private-offices", img: palaceSecondFloor },
       { title: "Business Registration", desc: "Domicile your company", href: "/en/business-registration", img: palaceBrandingWall },
     ],
     individualServices: [
-      { title: "Private Terrace", desc: "Outdoor events & receptions", href: "/en/private-terrace", img: terraceHero },
       { title: "Coworking", desc: "Flexible desks & memberships", href: "/en/coworking-space", img: palaceCoworking },
       { title: "Discover Events", desc: "Community & networking events", href: "/en/events", img: serviceCommunity },
     ],
@@ -56,11 +56,11 @@ const translations = {
     tabIndividual: "Para Particulares",
     businessServices: [
       { title: "Salas de Reuniones", desc: "Conferencias, talleres y eventos", href: "/es/salas-de-reuniones", img: conferencePicasso },
+      { title: "Terraza Privada", desc: "Eventos al aire libre y recepciones", href: "/es/terraza-privada", img: terraceHero },
       { title: "Oficina Privada", desc: "Espacios de oficina dedicados", href: "/es/oficinas-privadas", img: palaceSecondFloor },
       { title: "Registro de Empresa", desc: "Domicilia tu empresa", href: "/es/registro-de-empresas", img: palaceBrandingWall },
     ],
     individualServices: [
-      { title: "Terraza Privada", desc: "Eventos al aire libre y recepciones", href: "/es/terraza-privada", img: terraceHero },
       { title: "Coworking", desc: "Puestos y membresías flexibles", href: "/es/coworking", img: palaceCoworking },
       { title: "Descubre Eventos", desc: "Eventos de comunidad y networking", href: "/es/eventos", img: serviceCommunity },
     ],
@@ -89,11 +89,11 @@ const translations = {
     tabIndividual: "Per Persone",
     businessServices: [
       { title: "Sale Riunioni", desc: "Conferenze, workshop ed eventi", href: "/it/sale-riunioni", img: conferencePicasso },
+      { title: "Terrazza Privata", desc: "Eventi outdoor e ricevimenti", href: "/it/terrazza-privata", img: terraceHero },
       { title: "Ufficio Privato", desc: "Spazi ufficio dedicati", href: "/it/uffici-privati", img: palaceSecondFloor },
       { title: "Domiciliazione", desc: "Domicilia la tua azienda", href: "/it/registrazione-aziendale", img: palaceBrandingWall },
     ],
     individualServices: [
-      { title: "Terrazza Privata", desc: "Eventi outdoor e ricevimenti", href: "/it/terrazza-privata", img: terraceHero },
       { title: "Coworking", desc: "Postazioni e abbonamenti flessibili", href: "/it/coworking", img: palaceCoworking },
       { title: "Scopri gli Eventi", desc: "Eventi community e networking", href: "/it/eventi", img: serviceCommunity },
     ],
@@ -191,11 +191,14 @@ export default function Contact({ lang = "en" }: { lang?: "en" | "es" | "it" }) 
             </div>
           </div>
 
-          {/* DESKTOP: full 3+3 grid */}
-          <div className="hidden md:grid grid-cols-3 gap-5">
-            {[...t.businessServices, ...t.individualServices].map((svc) => (
-              <ServiceCard key={svc.href} svc={svc} />
-            ))}
+          {/* DESKTOP: 4 business + 2 individual */}
+          <div className="hidden md:block space-y-5">
+            <div className="grid grid-cols-4 gap-5">
+              {t.businessServices.map((svc) => <ServiceCard key={svc.href} svc={svc} />)}
+            </div>
+            <div className="grid grid-cols-2 gap-5 max-w-2xl mx-auto">
+              {t.individualServices.map((svc) => <ServiceCard key={svc.href} svc={svc} />)}
+            </div>
           </div>
 
         </div>
