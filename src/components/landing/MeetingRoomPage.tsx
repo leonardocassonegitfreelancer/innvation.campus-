@@ -646,10 +646,9 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
             ))}
           </div>
 
-          {/* Desktop: Airbnb style — large left + 2 stacked right + thumbnail strip */}
+          {/* Desktop: large left + 2 stacked right */}
           <div className="hidden md:block">
-            {/* Top: large left (2/3) + 2 stacked right (1/3) */}
-            <div className="grid gap-1 h-[420px]" style={{ gridTemplateColumns: "2fr 1fr" }}>
+            <div className="grid gap-1 h-[280px]" style={{ gridTemplateColumns: "2fr 1fr" }}>
               <div className="overflow-hidden cursor-pointer min-h-0" onClick={() => setShowGallery(true)}>
                 <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
               </div>
@@ -661,15 +660,6 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
                 ))}
               </div>
             </div>
-            {room.photos.length > 3 && (
-              <div className="grid grid-cols-2 gap-1 mt-1">
-                {room.photos.slice(3, 5).map((photo, i) => (
-                  <div key={i} className="aspect-[16/9] overflow-hidden cursor-pointer" onClick={() => setShowGallery(true)}>
-                    <img src={photo} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         </section>
 
