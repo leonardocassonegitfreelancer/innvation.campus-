@@ -1,7 +1,7 @@
 import OfficesListings from "@/components/landing/OfficesListings";
 import OfficesIntroSection from "@/components/landing/OfficesIntroSection";
 import OfficesAmenities from "@/components/landing/OfficesAmenities";
-import EventConversionForm from "@/components/landing/EventConversionForm";
+import LeadForm from "@/components/landing/LeadForm";
 
 export default function PrivateOffices({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   return (
@@ -9,7 +9,7 @@ export default function PrivateOffices({ lang = "en" }: { lang?: "en" | "es" | "
       <OfficesIntroSection lang={lang} />
       <OfficesListings lang={lang} />
       <OfficesAmenities lang={lang} />
-      <EventConversionForm lang={lang} defaultService="office" />
+      <LeadForm lang={lang} defaultService="office" />
     </>
   );
 }

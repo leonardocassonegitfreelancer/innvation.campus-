@@ -1,5 +1,5 @@
 import { ArrowLeft, Users, CheckCircle2, MapPin, Clock } from "lucide-react";
-import EventConversionForm from "@/components/landing/EventConversionForm";
+import LeadForm from "@/components/landing/LeadForm";
 import { spacesDataset } from "@/data/spaces";
 
 const _s = (img: unknown): string =>
@@ -153,7 +153,7 @@ export default function EventLeadCapture({ lang = "en" }: { lang?: "en" | "es" |
 
         {/* RIGHT — Form */}
         <div>
-          <EventConversionForm lang={lang} embedded />
+          <LeadForm lang={lang} embedded />
         </div>
       </div>
     </main>

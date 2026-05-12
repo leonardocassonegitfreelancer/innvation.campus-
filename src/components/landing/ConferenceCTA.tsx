@@ -1,4 +1,4 @@
-import EventConversionForm from "./EventConversionForm";
+import LeadForm from "./LeadForm";
 
 const headings = {
   en: {
@@ -50,7 +50,7 @@ export default function ConferenceCTA({
           <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">{title}</h2>
           <p className="font-body text-lg text-white/60 max-w-xl mx-auto">{subtitle}</p>
         </div>
-        <EventConversionForm lang={lang} embedded defaultService={defaultService} />
+        <LeadForm lang={lang} embedded defaultService={defaultService} />
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ import EventHero from "@/components/landing/EventHero";
 import EventSocialProof from "@/components/landing/EventSocialProof";
 import EventSpacesGrid from "@/components/landing/EventSpacesGrid";
 import EventDetails from "@/components/landing/EventDetails";
-import EventConversionForm from "@/components/landing/EventConversionForm";
+import LeadForm from "@/components/landing/LeadForm";
 
 export default function HostYourEvent({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   return (
@@ -27,7 +27,7 @@ export default function HostYourEvent({ lang = "en" }: { lang?: "en" | "es" | "i
         <EventSocialProof lang={lang} />
         <EventSpacesGrid lang={lang} />
         <EventDetails lang={lang} />
-        <EventConversionForm lang={lang} />
+        <LeadForm lang={lang} />
       </main>
       <Footer />
     </>

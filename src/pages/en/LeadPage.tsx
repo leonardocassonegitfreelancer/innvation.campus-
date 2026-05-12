@@ -1,4 +1,4 @@
-import EventConversionForm from "@/components/landing/EventConversionForm";
+import LeadForm from "@/components/landing/LeadForm";
 
 const serviceMap: Record<string, string> = {
   "meeting-rooms": "conference",
@@ -17,7 +17,7 @@ export default function LeadPage({ lang = "en" }: { lang?: "en" | "es" | "it" })
   return (
     <main className="pt-20 min-h-screen bg-background">
       <div className="max-w-4xl mx-auto px-6 py-12">
-        <EventConversionForm lang={lang} embedded defaultService={defaultService} />
+        <LeadForm lang={lang} embedded defaultService={defaultService} />
       </div>
     </main>
   );

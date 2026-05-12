@@ -223,17 +223,17 @@ const pillCls = (active: boolean) =>
       : "bg-muted border-border text-muted-foreground hover:border-primary/60 hover:text-foreground"
   }`;
 
-interface EventConversionFormProps {
+interface LeadFormProps {
   lang?: "en" | "es" | "it";
   embedded?: boolean;
   defaultService?: string;
 }
 
-export default function EventConversionForm({
+export default function LeadForm({
   lang = "en",
   embedded = false,
   defaultService = "",
-}: EventConversionFormProps) {
+}: LeadFormProps) {
   const t = translations[lang];
   const rooms = roomOptions[lang];
 
