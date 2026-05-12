@@ -240,7 +240,17 @@ export default function LeadForm({
   const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
   const spaceSlug = params.get("space") ?? "";
 
-  const [service, setService] = useState(defaultService || (spaceSlug ? "conference" : ""));
+  const urlServiceMap: Record<string, string> = {
+    "meeting-rooms": "conference",
+    "private-terrace": "terrace",
+    "private-office": "office",
+    "coworking": "coworking",
+    "business-registration": "bizreg",
+    "general": "other",
+  };
+  const urlService = urlServiceMap[params.get("service") ?? ""] ?? "";
+
+  const [service, setService] = useState(defaultService || urlService || (spaceSlug ? "conference" : ""));
   const [selectedRooms, setSelectedRooms] = useState<string[]>([]);
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
   const [duration, setDuration] = useState("");
