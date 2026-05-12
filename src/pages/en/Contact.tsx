@@ -5,10 +5,10 @@ import terraceHero from "@/assets/terrace-hero.webp";
 import palaceSecondFloor from "@/assets/palace-second-floor.webp";
 import palaceCoworking from "@/assets/palace-coworking.webp";
 import palaceBrandingWall from "@/assets/palace-branding-wall.webp";
-import palaceEntrance from "@/assets/palace-entrance.webp";
 import palaceCourtyard from "@/assets/palace-courtyard.webp";
 import terraceEvents from "@/assets/terrace-events.webp";
 import anconaHero from "@/assets/ancona-hero.webp";
+import serviceCommunity from "@/assets/service-community.webp";
 
 const _s = (img: unknown): string =>
   typeof img === "string" ? img : (img as any)?.src ?? "";
@@ -24,7 +24,7 @@ const translations = {
       { title: "Private Office", desc: "Dedicated office spaces", href: "/en/private-offices", img: palaceSecondFloor },
       { title: "Coworking", desc: "Flexible desks & memberships", href: "/en/coworking-space", img: palaceCoworking },
       { title: "Business Registration", desc: "Domicile your company", href: "/en/business-registration", img: palaceBrandingWall },
-      { title: "General Enquiry", desc: "Any other question", href: "/en/lead?service=general", img: palaceEntrance },
+      { title: "Discover Events", desc: "Community & networking events", href: "/en/events", img: serviceCommunity },
     ],
     inquiry: {
       tagline: "General Enquiries",
@@ -53,7 +53,7 @@ const translations = {
       { title: "Oficina Privada", desc: "Espacios de oficina dedicados", href: "/es/oficinas-privadas", img: palaceSecondFloor },
       { title: "Coworking", desc: "Puestos y membresías flexibles", href: "/es/coworking", img: palaceCoworking },
       { title: "Registro de Empresa", desc: "Domicilia tu empresa", href: "/es/registro-de-empresas", img: palaceBrandingWall },
-      { title: "Consulta General", desc: "Cualquier otra pregunta", href: "/es/lead?service=general", img: palaceEntrance },
+      { title: "Descubre Eventos", desc: "Eventos de comunidad y networking", href: "/es/eventos", img: serviceCommunity },
     ],
     inquiry: {
       tagline: "Consultas Generales",
@@ -82,7 +82,7 @@ const translations = {
       { title: "Ufficio Privato", desc: "Spazi ufficio dedicati", href: "/it/uffici-privati", img: palaceSecondFloor },
       { title: "Coworking", desc: "Postazioni e abbonamenti flessibili", href: "/it/coworking", img: palaceCoworking },
       { title: "Domiciliazione", desc: "Domicilia la tua azienda", href: "/it/registrazione-aziendale", img: palaceBrandingWall },
-      { title: "Informazioni Generali", desc: "Qualsiasi altra domanda", href: "/it/lead?service=general", img: palaceEntrance },
+      { title: "Scopri gli Eventi", desc: "Eventi community e networking", href: "/it/eventi", img: serviceCommunity },
     ],
     inquiry: {
       tagline: "Informazioni Generali",
@@ -127,12 +127,12 @@ export default function Contact({ lang = "en" }: { lang?: "en" | "es" | "it" }) 
       {/* Services image grid */}
       <section className="py-16 bg-background">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {t.services.map((svc) => (
               <a
                 key={svc.href}
                 href={svc.href}
-                className="group relative rounded-2xl overflow-hidden aspect-[4/3] block"
+                className="group relative rounded-xl overflow-hidden aspect-[4/5] block"
               >
                 <img
                   src={_s(svc.img)}
