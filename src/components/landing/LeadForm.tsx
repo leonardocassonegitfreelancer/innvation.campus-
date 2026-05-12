@@ -543,7 +543,7 @@ export default function LeadForm({
                 <label className={labelCls}>
                   {t.form.howHeard} <span className="text-destructive">*</span>
                 </label>
-                <select name="howHeard" required className={inputCls + " appearance-none cursor-pointer"}>
+                <select name="howHeard" required defaultValue="" className={inputCls + " appearance-none cursor-pointer"}>
                   <option value="" disabled>{t.form.howHeardPlaceholder}</option>
                   {t.form.howHeardOptions.map((opt, i) => (
                     <option key={i} value={opt}>{opt}</option>

@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { useLocation, Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import ConferenceCTA from "./ConferenceCTA";
 import SEOHead from "@/components/SEOHead";
 import serviceMeeting from "@/assets/service-meeting.webp";
 import conferencePicasso from "@/assets/conference-picasso.webp";
@@ -850,7 +849,6 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
           </div>
         </div>
 
-        <ConferenceCTA lang={lang} />
       </div>
 
       {/* ── Mobile sticky CTA ──────────────────────────────── */}
