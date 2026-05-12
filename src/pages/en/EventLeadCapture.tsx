@@ -86,7 +86,7 @@ export default function EventLeadCapture({ lang = "en" }: { lang?: "en" | "es" |
               const idx = Math.min(activePhoto, photos.length - 1);
               return (
                 <>
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-[4/3] lg:aspect-[16/9] overflow-hidden">
                     <img
                       key={idx}
                       src={_s(photos[idx])}
@@ -108,7 +108,7 @@ export default function EventLeadCapture({ lang = "en" }: { lang?: "en" | "es" |
                         <button
                           key={i}
                           onClick={() => setActivePhoto(i)}
-                          className={`relative flex-1 aspect-[4/3] rounded-lg overflow-hidden transition-all duration-200 ${
+                          className={`relative flex-1 aspect-square lg:aspect-[4/3] rounded-lg overflow-hidden transition-all duration-200 ${
                             i === idx
                               ? "ring-2 ring-primary ring-offset-1"
                               : "opacity-60 hover:opacity-90"
