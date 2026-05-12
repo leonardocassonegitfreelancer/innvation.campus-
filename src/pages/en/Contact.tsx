@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 import conferencePicasso from "@/assets/conference-picasso.webp";
@@ -18,12 +19,16 @@ const translations = {
     tagline: "Get in Touch",
     title: "Contact Us",
     subtitle: "Find the right channel for your enquiry.",
-    services: [
+    tabBusiness: "For Businesses",
+    tabIndividual: "For Individuals",
+    businessServices: [
       { title: "Meeting Rooms", desc: "Conferences, workshops & events", href: "/en/meeting-rooms", img: conferencePicasso },
-      { title: "Private Terrace", desc: "Outdoor events & receptions", href: "/en/private-terrace", img: terraceHero },
       { title: "Private Office", desc: "Dedicated office spaces", href: "/en/private-offices", img: palaceSecondFloor },
-      { title: "Coworking", desc: "Flexible desks & memberships", href: "/en/coworking-space", img: palaceCoworking },
       { title: "Business Registration", desc: "Domicile your company", href: "/en/business-registration", img: palaceBrandingWall },
+    ],
+    individualServices: [
+      { title: "Private Terrace", desc: "Outdoor events & receptions", href: "/en/private-terrace", img: terraceHero },
+      { title: "Coworking", desc: "Flexible desks & memberships", href: "/en/coworking-space", img: palaceCoworking },
       { title: "Discover Events", desc: "Community & networking events", href: "/en/events", img: serviceCommunity },
     ],
     inquiry: {
@@ -47,12 +52,16 @@ const translations = {
     tagline: "Contáctanos",
     title: "Contacto",
     subtitle: "Encuentra el canal adecuado para tu consulta.",
-    services: [
+    tabBusiness: "Para Empresas",
+    tabIndividual: "Para Particulares",
+    businessServices: [
       { title: "Salas de Reuniones", desc: "Conferencias, talleres y eventos", href: "/es/salas-de-reuniones", img: conferencePicasso },
-      { title: "Terraza Privada", desc: "Eventos al aire libre y recepciones", href: "/es/terraza-privada", img: terraceHero },
       { title: "Oficina Privada", desc: "Espacios de oficina dedicados", href: "/es/oficinas-privadas", img: palaceSecondFloor },
-      { title: "Coworking", desc: "Puestos y membresías flexibles", href: "/es/coworking", img: palaceCoworking },
       { title: "Registro de Empresa", desc: "Domicilia tu empresa", href: "/es/registro-de-empresas", img: palaceBrandingWall },
+    ],
+    individualServices: [
+      { title: "Terraza Privada", desc: "Eventos al aire libre y recepciones", href: "/es/terraza-privada", img: terraceHero },
+      { title: "Coworking", desc: "Puestos y membresías flexibles", href: "/es/coworking", img: palaceCoworking },
       { title: "Descubre Eventos", desc: "Eventos de comunidad y networking", href: "/es/eventos", img: serviceCommunity },
     ],
     inquiry: {
@@ -76,12 +85,16 @@ const translations = {
     tagline: "Contattaci",
     title: "Contatti",
     subtitle: "Trova il canale giusto per la tua richiesta.",
-    services: [
+    tabBusiness: "Per Aziende",
+    tabIndividual: "Per Persone",
+    businessServices: [
       { title: "Sale Riunioni", desc: "Conferenze, workshop ed eventi", href: "/it/sale-riunioni", img: conferencePicasso },
-      { title: "Terrazza Privata", desc: "Eventi outdoor e ricevimenti", href: "/it/terrazza-privata", img: terraceHero },
       { title: "Ufficio Privato", desc: "Spazi ufficio dedicati", href: "/it/uffici-privati", img: palaceSecondFloor },
-      { title: "Coworking", desc: "Postazioni e abbonamenti flessibili", href: "/it/coworking", img: palaceCoworking },
       { title: "Domiciliazione", desc: "Domicilia la tua azienda", href: "/it/registrazione-aziendale", img: palaceBrandingWall },
+    ],
+    individualServices: [
+      { title: "Terrazza Privata", desc: "Eventi outdoor e ricevimenti", href: "/it/terrazza-privata", img: terraceHero },
+      { title: "Coworking", desc: "Postazioni e abbonamenti flessibili", href: "/it/coworking", img: palaceCoworking },
       { title: "Scopri gli Eventi", desc: "Eventi community e networking", href: "/it/eventi", img: serviceCommunity },
     ],
     inquiry: {
@@ -103,8 +116,36 @@ const translations = {
   },
 };
 
+function ServiceCard({ svc }: { svc: { title: string; desc: string; href: string; img: unknown } }) {
+  return (
+    <a
+      href={svc.href}
+      className="group relative rounded-xl overflow-hidden aspect-[4/5] block"
+    >
+      <img
+        src={_s(svc.img)}
+        alt={svc.title}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
+        <div>
+          <p className="font-body text-xs text-white/60 uppercase tracking-wider mb-1">{svc.desc}</p>
+          <h3 className="font-display font-bold text-xl text-white">{svc.title}</h3>
+        </div>
+        <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
+          <ArrowRight className="w-4 h-4 text-primary-foreground" />
+        </div>
+      </div>
+    </a>
+  );
+}
+
 export default function Contact({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const t = translations[lang];
+  const [activeTab, setActiveTab] = useState<"business" | "individual">("business");
+
+  const mobileCards = activeTab === "business" ? t.businessServices : t.individualServices;
 
   return (
     <main className="overflow-x-hidden">
@@ -127,31 +168,36 @@ export default function Contact({ lang = "en" }: { lang?: "en" | "es" | "it" }) 
       {/* Services image grid */}
       <section className="py-16 bg-background">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {t.services.map((svc) => (
-              <a
-                key={svc.href}
-                href={svc.href}
-                className="group relative rounded-xl overflow-hidden aspect-[4/5] block"
-              >
-                <img
-                  src={_s(svc.img)}
-                  alt={svc.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
-                  <div>
-                    <p className="font-body text-xs text-white/60 uppercase tracking-wider mb-1">{svc.desc}</p>
-                    <h3 className="font-display font-bold text-xl text-white">{svc.title}</h3>
-                  </div>
-                  <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-                    <ArrowRight className="w-4 h-4 text-primary-foreground" />
-                  </div>
-                </div>
-              </a>
+
+          {/* MOBILE: toggle + active group */}
+          <div className="md:hidden">
+            <div className="flex gap-3 mb-8 justify-center">
+              {(["business", "individual"] as const).map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`flex-1 max-w-[180px] py-3 px-4 rounded-md font-body text-sm font-semibold uppercase tracking-wider transition-colors ${
+                    activeTab === tab
+                      ? "bg-primary text-primary-foreground"
+                      : "border border-primary text-primary bg-transparent"
+                  }`}
+                >
+                  {tab === "business" ? t.tabBusiness : t.tabIndividual}
+                </button>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {mobileCards.map((svc) => <ServiceCard key={svc.href} svc={svc} />)}
+            </div>
+          </div>
+
+          {/* DESKTOP: full 3+3 grid */}
+          <div className="hidden md:grid grid-cols-3 gap-5">
+            {[...t.businessServices, ...t.individualServices].map((svc) => (
+              <ServiceCard key={svc.href} svc={svc} />
             ))}
           </div>
+
         </div>
       </section>
 
