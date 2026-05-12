@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ArrowLeft, Users, CheckCircle2, MapPin, Clock } from "lucide-react";
 import LeadForm from "@/components/landing/LeadForm";
 import { spacesDataset } from "@/data/spaces";
@@ -39,6 +40,7 @@ export default function EventLeadCapture({ lang = "en" }: { lang?: "en" | "es" |
       : "";
 
   const space = spacesDataset.find((s) => s.slug === spaceSlug);
+  const [activePhoto, setActivePhoto] = useState(0);
 
   if (!space) {
     if (typeof window !== "undefined") {
@@ -78,16 +80,52 @@ export default function EventLeadCapture({ lang = "en" }: { lang?: "en" | "es" |
         {/* LEFT — Sticky space summary */}
         <aside className="lg:sticky lg:top-24 space-y-4">
           <div className="rounded-2xl overflow-hidden border border-border shadow-sm bg-card">
-            <div className="relative aspect-[4/3]">
-              <img
-                src={_s(space.image)}
-                alt={tr.name}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute top-3 left-3 bg-background/90 backdrop-blur-sm border border-border px-3 py-1 rounded-full font-body text-xs font-bold uppercase tracking-wider text-primary">
-                {tr.label}
-              </div>
-            </div>
+            {/* Gallery */}
+            {(() => {
+              const photos = space.photos ?? [space.image];
+              const idx = Math.min(activePhoto, photos.length - 1);
+              return (
+                <>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      key={idx}
+                      src={_s(photos[idx])}
+                      alt={tr.name}
+                      className="w-full h-full object-cover transition-opacity duration-300"
+                    />
+                    <div className="absolute top-3 left-3 bg-background/90 backdrop-blur-sm border border-border px-3 py-1 rounded-full font-body text-xs font-bold uppercase tracking-wider text-primary">
+                      {tr.label}
+                    </div>
+                    {photos.length > 1 && (
+                      <div className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm text-white text-xs font-body px-2 py-1 rounded-full">
+                        {idx + 1} / {photos.length}
+                      </div>
+                    )}
+                  </div>
+                  {photos.length > 1 && (
+                    <div className="flex gap-1.5 p-2 bg-black/5">
+                      {photos.map((ph, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setActivePhoto(i)}
+                          className={`relative flex-1 aspect-[4/3] rounded-lg overflow-hidden transition-all duration-200 ${
+                            i === idx
+                              ? "ring-2 ring-primary ring-offset-1"
+                              : "opacity-60 hover:opacity-90"
+                          }`}
+                        >
+                          <img
+                            src={_s(ph)}
+                            alt=""
+                            className="w-full h-full object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </>
+              );
+            })()}
 
             <div className="p-6 space-y-4">
               <div>

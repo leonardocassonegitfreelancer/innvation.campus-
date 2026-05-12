@@ -1,11 +1,23 @@
 import conferenceHall from "@/assets/conference-picasso.webp";
+import conferenceHall2 from "@/assets/conference-picasso-2.webp";
 import conferenceHalf from "@/assets/conference-half-picasso.webp";
+import conferenceHalf2 from "@/assets/conference-half-picasso-2.webp";
 import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.webp";
 import trainingRoom from "@/assets/service-meeting.webp";
 import palaceSkylight from "@/assets/palace-skylight.webp";
+import palaceCourtyard from "@/assets/palace-courtyard.webp";
+import palaceEntrance from "@/assets/palace-entrance.webp";
+import palaceCatering from "@/assets/palace-catering.webp";
+import palaceCoffeeBar from "@/assets/palace-coffee-bar.webp";
+import palaceSecondFloor from "@/assets/palace-second-floor.webp";
+import palaceCoworking from "@/assets/palace-coworking.webp";
 import seasideExterior from "@/assets/seaside-exterior.webp";
-import terraceBar from "@/assets/terrace-bar.webp";
 import seasideInterior from "@/assets/seaside-interior.webp";
+import historicInterior from "@/assets/historic-interior.webp";
+import terraceBar from "@/assets/terrace-bar.webp";
+import terraceHero from "@/assets/terrace-hero.webp";
+import terraceCommunity from "@/assets/terrace-community.webp";
+import terraceEntrance from "@/assets/terrace-entrance.webp";
 import terraceEvents from "@/assets/terrace-events.webp";
 
 export type EventType = "conference" | "workshop" | "networking" | "party";
@@ -20,7 +32,8 @@ export interface SpaceTranslation {
 export interface SpaceData {
   slug: string;
   routeSlug?: string; // Optional override for the URL slug (when different from the data slug)
-  image: string;
+  image: unknown;
+  photos?: unknown[];
   maxGuests: number;
   location: LocationType;
   eventTypes: EventType[];
@@ -43,6 +56,7 @@ export const spacesDataset: SpaceData[] = [
   {
     slug: "big-conference-room",
     image: conferenceHall,
+    photos: [conferenceHall, conferenceHall2, palaceCoffeeBar, palaceCourtyard],
     maxGuests: 80,
     location: "city",
     eventTypes: ["conference", "workshop", "networking"],
@@ -62,6 +76,7 @@ export const spacesDataset: SpaceData[] = [
   {
     slug: "large-conference-room",
     image: conferenceHalf,
+    photos: [conferenceHalf, conferenceHalf2, conferenceHall, palaceCoffeeBar],
     maxGuests: 40,
     location: "city",
     eventTypes: ["conference", "workshop"],
@@ -81,6 +96,7 @@ export const spacesDataset: SpaceData[] = [
   {
     slug: "training-room",
     image: trainingRoom,
+    photos: [trainingRoom, conferenceQuarterPicasso, palaceCoworking, palaceCoffeeBar],
     maxGuests: 40,
     location: "city",
     eventTypes: ["workshop", "networking"],
@@ -100,6 +116,7 @@ export const spacesDataset: SpaceData[] = [
   {
     slug: "malaga-palace",
     image: palaceSkylight,
+    photos: [palaceSkylight, palaceCourtyard, palaceEntrance, palaceCatering],
     maxGuests: 150,
     location: "city",
     eventTypes: ["networking", "party"],
@@ -120,6 +137,7 @@ export const spacesDataset: SpaceData[] = [
   {
     slug: "phone-booth",
     image: conferenceQuarterPicasso,
+    photos: [conferenceQuarterPicasso, palaceSecondFloor, palaceCoffeeBar],
     maxGuests: 2,
     location: "city",
     eventTypes: ["workshop", "networking"],
@@ -142,6 +160,7 @@ export const spacesDataset: SpaceData[] = [
     slug: "seaside-terrace",
     routeSlug: "malaga-terrace",
     image: seasideExterior,
+    photos: [seasideExterior, terraceEvents, terraceHero, terraceBar],
     maxGuests: 120,
     location: "seaside",
     eventTypes: ["networking", "party"],
@@ -161,6 +180,7 @@ export const spacesDataset: SpaceData[] = [
   {
     slug: "private-terrace",
     image: terraceBar,
+    photos: [terraceBar, terraceHero, terraceCommunity, terraceEntrance],
     maxGuests: 30,
     location: "seaside",
     eventTypes: ["networking", "party"],
@@ -181,6 +201,7 @@ export const spacesDataset: SpaceData[] = [
     slug: "sea-view-lounge",
     routeSlug: "malaga-terrace",
     image: seasideInterior,
+    photos: [seasideInterior, seasideExterior, historicInterior, terraceHero],
     maxGuests: 40,
     location: "seaside",
     eventTypes: ["conference", "workshop", "networking"],
@@ -201,6 +222,7 @@ export const spacesDataset: SpaceData[] = [
     slug: "beachfront-events",
     routeSlug: "host-your-event",
     image: terraceEvents,
+    photos: [terraceEvents, seasideExterior, terraceHero, terraceEntrance],
     maxGuests: 200,
     location: "seaside",
     eventTypes: ["conference", "networking", "party"],
