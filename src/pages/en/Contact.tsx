@@ -191,14 +191,11 @@ export default function Contact({ lang = "en" }: { lang?: "en" | "es" | "it" }) 
             </div>
           </div>
 
-          {/* DESKTOP: 4 business + 2 individual */}
-          <div className="hidden md:block space-y-5">
-            <div className="grid grid-cols-4 gap-5">
-              {t.businessServices.map((svc) => <ServiceCard key={svc.href} svc={svc} />)}
-            </div>
-            <div className="grid grid-cols-2 gap-5 max-w-2xl mx-auto">
-              {t.individualServices.map((svc) => <ServiceCard key={svc.href} svc={svc} />)}
-            </div>
+          {/* DESKTOP: 3+3 grid, all 6 visible */}
+          <div className="hidden md:grid grid-cols-3 gap-5">
+            {[...t.businessServices, ...t.individualServices].map((svc) => (
+              <ServiceCard key={svc.href} svc={svc} />
+            ))}
           </div>
 
         </div>
