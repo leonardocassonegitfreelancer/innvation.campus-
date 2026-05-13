@@ -1,5 +1,6 @@
 ---
-import EventPageLayout from '../../../../components/EventPageLayout.astro';
+import Layout from '../../../../layouts/Layout.astro';
+import { PageWrapper } from '@/lib/lang-context';
 import { generateBreadcrumbJsonLd } from '@/lib/i18n';
 import Page from '@/pages/en/events/PowerTalksApr2026';
 const path = '/en/events/powertalks-malaga-apr-2026';
@@ -7,6 +8,6 @@ const title = 'PowerTalks Málaga Meetup April 2026';
 const description = 'Join PowerTalks Málaga for a Toastmasters English public speaking meetup. Practice, improve and inspire. April 15, 2026.';
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
-<EventPageLayout {title} {description} {path} {breadcrumb} lang="en">
-  <Page client:load />
-</EventPageLayout>
+<Layout {title} {description} {path} {breadcrumb}>
+  <PageWrapper lang="en" path={path} client:load><Page /></PageWrapper>
+</Layout>

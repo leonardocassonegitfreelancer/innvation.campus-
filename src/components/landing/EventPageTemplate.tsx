@@ -1,4 +1,7 @@
 import { ArrowLeft, Calendar, Clock, MapPin, User } from "lucide-react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import SEOHead from "@/components/SEOHead";
 
 export interface ScheduleItem {
   time: string;
@@ -57,7 +60,11 @@ export default function EventPageTemplate({
 }: EventPageProps) {
   return (
     <>
-      {/* Hero */}
+      <SEOHead title={seo.title} description={seo.description} path={seo.path} />
+      <main className="overflow-x-hidden">
+        <Navbar />
+
+        {/* Hero */}
         <section className="relative h-[55vh] min-h-[400px] flex items-end">
           <img
             src={hero.image}
@@ -177,6 +184,8 @@ export default function EventPageTemplate({
           </div>
         </section>
 
+        <Footer />
+      </main>
     </>
   );
 }

@@ -1,4 +1,7 @@
 import { CheckCircle2, Calendar, MapPin } from "lucide-react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import SEOHead from "@/components/SEOHead";
 
 export interface EventThankYouProps {
   seo: {
@@ -46,7 +49,16 @@ export default function EventThankYouTemplate({ seo, lang, event }: EventThankYo
   const t = ui[lang];
   return (
     <>
-      <section className="min-h-[75vh] flex items-center justify-center py-24 bg-background">
+      <SEOHead
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        noIndex
+      />
+      <main className="overflow-x-hidden">
+        <Navbar />
+
+        <section className="min-h-[75vh] flex items-center justify-center py-24 bg-background">
           <div className="max-w-lg mx-auto px-6 text-center">
 
             {/* Check icon */}
@@ -97,6 +109,8 @@ export default function EventThankYouTemplate({ seo, lang, event }: EventThankYo
           </div>
         </section>
 
+        <Footer />
+      </main>
     </>
   );
 }
