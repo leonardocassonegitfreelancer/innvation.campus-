@@ -684,7 +684,7 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
         </section>
 
         {/* ── Photo Grid ─────────────────────────────────── */}
-        <section className="relative bg-neutral-900 pt-20 lg:pt-0">
+        <section className="relative bg-neutral-900 pt-20 lg:hidden">
           {/* Mobile: swipeable single photo (Booking.com style) */}
           <div
             className="md:hidden relative h-64 overflow-hidden cursor-pointer"

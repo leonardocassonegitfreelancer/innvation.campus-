@@ -4,9 +4,10 @@ import { getAlternateLinks } from '@/lib/i18n';
 import ScrollAnimate from '../components/ScrollAnimate.astro';
 
 // Astro static components (zero JS)
-import AboutSection from '../components/AboutSection.astro';
+import AboutSnippet from '../components/AboutSnippet.astro';
 import QuoteSection from '../components/QuoteSection.astro';
 import LocationsSection from '../components/LocationsSection.astro';
+import HomeCTA from '../components/HomeCTA.astro';
 import FooterSection from '../components/Footer.astro';
 
 // React islands (hydrated selectively)
@@ -14,7 +15,6 @@ import Navbar from '@/components/landing/Navbar';
 import MainHero from '@/components/landing/MainHero';
 import ServicesSection from '@/components/landing/ServicesSection';
 import FAQSection from '@/components/landing/FAQSection';
-import ConferenceCTA from '@/components/landing/ConferenceCTA';
 
 const path = '/';
 const title = 'Offices - Coworking - Events';
@@ -38,31 +38,26 @@ const jsonLd = {
     <!-- Navbar: interactive (mobile menu, dropdowns, lang switcher) — hydrate immediately -->
     <Navbar lang="en" client:load />
 
-    <!-- Hero: interactive (slideshow, auto-advance, clickable indicators) — hydrate immediately -->
+    <!-- Hero (dark) -->
     <MainHero client:load />
 
-    <!-- About: pure HTML/CSS — zero JavaScript -->
-    <AboutSection />
-
-    <!-- Services: tab toggle on mobile — hydrate when scrolled into view -->
+    <!-- Services (light) — visitors self-qualify immediately -->
     <ServicesSection client:visible />
 
-    <!-- Quote: pure HTML/CSS — zero JavaScript -->
+    <!-- Quote (dark) -->
     <QuoteSection />
 
-    <!-- Locations: pure HTML/CSS — zero JavaScript -->
+    <!-- Locations (light) -->
     <LocationsSection />
 
-    <!-- FAQ: accordion interaction — hydrate immediately so it's always interactive -->
+    <!-- Project / About (dark) -->
+    <AboutSnippet lang="en" />
+
+    <!-- FAQ — structured data for AI/featured snippets -->
     <FAQSection client:load />
 
-    <!-- Contact form: complex form — hydrate when scrolled into view -->
-    <ConferenceCTA
-      lang="en"
-      titleOverride={{ en: "Start your journey", es: "Comienza tu viaje", it: "Inizia il tuo viaggio" }}
-      subtitleOverride={{ en: "Ask a question, check availability or become a member.", es: "Haz una pregunta, consulta disponibilidad o hazte miembro.", it: "Fai una domanda, verifica la disponibilità o diventa membro." }}
-      client:visible
-    />
+    <!-- CTA (light) -->
+    <HomeCTA lang="en" />
 
     <!-- Footer: pure HTML/CSS — zero JavaScript -->
     <FooterSection />

@@ -1,0 +1,67 @@
+---
+import aboutImage from '../../src/assets/about-campus.webp';
+const imgSrc = typeof aboutImage === 'string' ? aboutImage : aboutImage.src;
+
+interface Props {
+  lang?: 'en' | 'es' | 'it';
+}
+
+const { lang = 'en' } = Astro.props;
+
+const content = {
+  en: {
+    eyebrow: "The Campus",
+    title: "BETWEEN SPAIN AND ITALY, A PROJECT THAT NEVER STANDS STILL",
+    body: "An independent coworking across two countries and three cities — Málaga, Ancona and Olbia — built for the people who are building something real.",
+    cta: "Read our story →",
+    href: "/en/about-us",
+    alt: "Innovation Campus — coworking space in Málaga"
+  },
+  es: {
+    eyebrow: "El Campus",
+    title: "ENTRE ESPAÑA E ITALIA, UN PROYECTO QUE NUNCA SE DETIENE",
+    body: "Un coworking independiente en dos países y tres ciudades — Málaga, Ancona y Olbia — construido para quienes están construyendo algo real.",
+    cta: "Nuestra historia →",
+    href: "/es/quienes-somos",
+    alt: "Innovation Campus — espacio de coworking en Málaga"
+  },
+  it: {
+    eyebrow: "Il Campus",
+    title: "TRA SPAGNA E ITALIA, UN PROGETTO CHE NON SI FERMA MAI",
+    body: "Un coworking indipendente in due paesi e tre città — Málaga, Ancona e Olbia — costruito per chi sta costruendo qualcosa di reale.",
+    cta: "La nostra storia →",
+    href: "/it/chi-siamo",
+    alt: "Innovation Campus — spazio di coworking a Málaga"
+  }
+};
+
+const t = content[lang];
+---
+<section id="about" class="relative py-16 md:py-24 bg-neutral-dark overflow-hidden">
+  <div class="absolute inset-0 opacity-5" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;)"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 md:px-12">
+    <div class="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+
+      <div class="scroll-animate w-full md:w-1/2" data-animate>
+        <img src={imgSrc} alt={t.alt} class="w-full h-auto rounded-lg" />
+      </div>
+
+      <div class="scroll-animate w-full md:w-1/2" data-animate style="transition-delay: 0.15s">
+        <p class="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">{t.eyebrow}</p>
+        <h2
+          class="text-4xl md:text-5xl lg:text-6xl leading-none mb-6 uppercase text-secondary font-medium"
+          style="font-family: 'Bebas Neue', sans-serif"
+        >
+          {t.title}
+        </h2>
+        <div class="w-12 h-[3px] bg-primary mb-6"></div>
+        <p class="font-body text-base leading-relaxed text-secondary mb-6">{t.body}</p>
+        <a href={t.href} class="inline-flex items-center font-body text-primary font-semibold hover:underline underline-offset-4 transition-all">
+          {t.cta}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

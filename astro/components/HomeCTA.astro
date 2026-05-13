@@ -1,0 +1,64 @@
+---
+interface Props {
+  lang?: 'en' | 'es' | 'it';
+}
+
+const { lang = 'en' } = Astro.props;
+
+const content = {
+  en: {
+    eyebrow: "Get started",
+    title: "Ready to find your space?",
+    body: "Come and see it. A free visit costs nothing — and it might change where you work forever.",
+    cta: "Book a free visit",
+    href: "/en/contact",
+    or: "or call us:",
+    phone: "+34 671 44 12 88"
+  },
+  es: {
+    eyebrow: "Empezar",
+    title: "¿Listo para encontrar tu espacio?",
+    body: "Ven a verlo. Una visita gratuita no cuesta nada — y puede cambiar para siempre dónde trabajas.",
+    cta: "Reservar una visita gratuita",
+    href: "/es/contacto",
+    or: "o llámanos:",
+    phone: "+34 671 44 12 88"
+  },
+  it: {
+    eyebrow: "Inizia",
+    title: "Pronto a trovare il tuo spazio?",
+    body: "Vieni a vederlo. Una visita gratuita non costa nulla — e potrebbe cambiare per sempre dove lavori.",
+    cta: "Prenota una visita gratuita",
+    href: "/it/contatti",
+    or: "o chiamaci:",
+    phone: "+34 671 44 12 88"
+  }
+};
+
+const t = content[lang];
+---
+<section class="py-20 md:py-28 bg-white">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <div class="scroll-animate" data-animate>
+      <p class="font-body text-xs uppercase tracking-[0.4em] text-primary mb-4">{t.eyebrow}</p>
+      <h2
+        class="text-4xl md:text-5xl lg:text-6xl leading-none mb-6 uppercase font-medium text-neutral-900"
+        style="font-family: 'Bebas Neue', sans-serif"
+      >
+        {t.title}
+      </h2>
+      <p class="font-body text-base md:text-lg text-neutral-600 mb-10 max-w-xl mx-auto leading-relaxed">
+        {t.body}
+      </p>
+      <a
+        href={t.href}
+        class="inline-block bg-primary text-white font-body font-semibold text-base px-8 py-4 rounded-none hover:bg-primary/90 transition-colors"
+      >
+        {t.cta}
+      </a>
+      <p class="mt-6 font-body text-sm text-neutral-400">
+        {t.or} <a href={`tel:${t.phone.replace(/\s/g,'')}`} class="text-neutral-600 hover:text-primary transition-colors">{t.phone}</a>
+      </p>
+    </div>
+  </div>
+</section>
