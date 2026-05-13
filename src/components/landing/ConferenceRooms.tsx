@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Users, MapPin } from "lucide-react";
 import bigConferenceRoom1 from "@/assets/big-conference-room-01.webp";
+import largeConferenceRoom1 from "@/assets/large-conference-room-01.webp";
+import quarterConferenceRoom1 from "@/assets/quarter-conference-room-01.webp";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -265,8 +267,8 @@ const getSrc = (img: any): string => typeof img === 'string' ? img : img.src;
 
 const roomImages: Record<string, string> = {
   "big-conference": getSrc(bigConferenceRoom1),
-  "large-conference": "/placeholder.svg",
-  "quarter-conference": "/placeholder.svg",
+  "large-conference": getSrc(largeConferenceRoom1),
+  "quarter-conference": getSrc(quarterConferenceRoom1),
   "training-room": "/placeholder.svg",
   "phone-booth": "/placeholder.svg",
 };

@@ -51,6 +51,12 @@ export interface RoomData {
 const bigConfPhotosGlob = import.meta.glob('@/assets/big-conference-room-*.webp', { eager: true });
 const bigConfPhotos = Object.values(bigConfPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
 
+const largeConfPhotosGlob = import.meta.glob('@/assets/large-conference-room-*.webp', { eager: true });
+const largeConfPhotos = Object.values(largeConfPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
+
+const quarterConfPhotosGlob = import.meta.glob('@/assets/quarter-conference-room-*.webp', { eager: true });
+const quarterConfPhotos = Object.values(quarterConfPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
+
 const rooms: RoomData[] = [
   {
     slug: "big-conference-room",
@@ -134,8 +140,8 @@ const rooms: RoomData[] = [
       it: { title: "Large Conference Room", description: "Una sala versatile per fino a 50 persone con display 4K da 55\" e videoconferenza professionale a Málaga." },
     },
     capacity: { en: "Up to 50 people", es: "Hasta 50 personas", it: "Fino a 50 persone" },
-    heroImage: "/placeholder.svg",
-    photos: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    heroImage: largeConfPhotos[0] || "/placeholder.svg",
+    photos: largeConfPhotos.length > 0 ? largeConfPhotos : ["/placeholder.svg"],
     features: {
       en: ["55\" 4K Display", "Video Conferencing", "Whiteboard", "Boardroom Setup"],
       es: ["Pantalla 4K 55\"", "Videoconferencia", "Pizarra", "Mesa de Juntas"],
@@ -206,8 +212,8 @@ const rooms: RoomData[] = [
       it: { title: "Quarter Conference Room", description: "Una sala intima per fino a 30 persone con display da 43\" e videoconferenza a Málaga." },
     },
     capacity: { en: "Up to 30 people", es: "Hasta 30 personas", it: "Fino a 30 persone" },
-    heroImage: "/placeholder.svg",
-    photos: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    heroImage: quarterConfPhotos[0] || "/placeholder.svg",
+    photos: quarterConfPhotos.length > 0 ? quarterConfPhotos : ["/placeholder.svg"],
     features: {
       en: ["43\" Display", "Video Conferencing", "Whiteboard", "Intimate Setting"],
       es: ["Pantalla 43\"", "Videoconferencia", "Pizarra", "Ambiente Íntimo"],
