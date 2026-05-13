@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Users, Monitor, Video, PenTool, Coffee, Wifi, Headphones, Wind,
-  UtensilsCrossed, KeyRound, Projector, LayoutGrid, X, ChevronDown,
-  ChevronUp, ChevronLeft, ChevronRight, ArrowLeft, Grid2X2, AlignJustify, Table2, Maximize2,
+  UtensilsCrossed, KeyRound, Projector, LayoutGrid, X,
+  ChevronLeft, ChevronRight, ArrowLeft, Grid2X2, AlignJustify, Table2, Maximize2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation, Link } from "react-router-dom";
@@ -11,6 +11,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SEOHead from "@/components/SEOHead";
 import serviceMeeting from "@/assets/service-meeting.webp";
+import bigConf27 from "@/assets/big-conference-room-27.webp";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
@@ -61,7 +62,7 @@ const rooms: RoomData[] = [
       it: { title: "Grande Sala Conferenze – City Center Picasso", description: "La nostra sala principale per fino a 80 persone con display 4K da 85\", videoconferenza premium e layout flessibile a Málaga." },
     },
     capacity: { en: "Up to 80 people", es: "Hasta 80 personas", it: "Fino a 80 persone" },
-    heroImage: bigConfPhotos[0] || "/placeholder.svg",
+    heroImage: getSrc(bigConf27),
     photos: bigConfPhotos.length > 0 ? bigConfPhotos : ["/placeholder.svg"],
     features: {
       en: ["85\" 4K Display", "Premium Video Conferencing", "Large Whiteboard", "Flexible Layout"],
@@ -437,43 +438,64 @@ const labels = {
     back: "Back",
     allRooms: "All Conference Rooms",
     aboutRoom: "About This Room",
-    readMore: "Read more",
-    readLess: "Read less",
     idealFor: "Ideal For",
     facilities: "Facilities",
     layouts: "Room Configurations",
     people: "people",
     otherRooms: "Explore Other Rooms",
-    getInTouch: "Get in Touch",
+    getInTouch: "Request availability",
     showPhotos: "Show all photos",
+    included: "What's included",
+    noCommitment: "Free · No commitment · Reply within 24h",
+    pastEvents: "Events hosted here",
+    pastEventsItems: [
+      { tag: "Workshop", title: "Product Design Sprint" },
+      { tag: "Conference", title: "Tech Leadership Summit" },
+      { tag: "Networking", title: "Startup Founders Meetup" },
+      { tag: "Training", title: "Agile Certification Course" },
+    ],
   },
   es: {
     back: "Volver",
     allRooms: "Todas las Salas",
     aboutRoom: "Sobre Esta Sala",
-    readMore: "Leer más",
-    readLess: "Leer menos",
     idealFor: "Ideal Para",
     facilities: "Instalaciones",
     layouts: "Configuraciones de Sala",
     people: "personas",
     otherRooms: "Explorar Otras Salas",
-    getInTouch: "Contáctanos",
+    getInTouch: "Consultar disponibilidad",
     showPhotos: "Ver todas las fotos",
+    included: "Qué está incluido",
+    noCommitment: "Gratis · Sin compromiso · Respuesta en 24h",
+    pastEvents: "Eventos celebrados aquí",
+    pastEventsItems: [
+      { tag: "Workshop", title: "Sprint de Diseño de Producto" },
+      { tag: "Conferencia", title: "Cumbre de Liderazgo Tech" },
+      { tag: "Networking", title: "Encuentro de Fundadores" },
+      { tag: "Formación", title: "Curso Certificación Agile" },
+    ],
   },
   it: {
     back: "Indietro",
     allRooms: "Tutte le Sale",
     aboutRoom: "Informazioni sulla Sala",
-    readMore: "Leggi di più",
-    readLess: "Leggi meno",
     idealFor: "Ideale Per",
     facilities: "Servizi",
     layouts: "Configurazioni Sala",
     people: "persone",
     otherRooms: "Esplora Altre Sale",
-    getInTouch: "Contattaci",
+    getInTouch: "Verifica disponibilità",
     showPhotos: "Vedi tutte le foto",
+    included: "Cosa è incluso",
+    noCommitment: "Gratuito · Senza impegno · Risposta entro 24h",
+    pastEvents: "Eventi ospitati qui",
+    pastEventsItems: [
+      { tag: "Workshop", title: "Sprint di Product Design" },
+      { tag: "Conferenza", title: "Summit Tech Leadership" },
+      { tag: "Networking", title: "Incontro Founder Startup" },
+      { tag: "Formazione", title: "Corso Certificazione Agile" },
+    ],
   },
 };
 
@@ -604,7 +626,8 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
   const lang = langProp ?? (location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en");
   const room = rooms.find((r) => r.slug === roomSlug);
   const [showGallery, setShowGallery] = useState(false);
-  const [descExpanded, setDescExpanded] = useState(false);
+  const [mobilePhoto, setMobilePhoto] = useState(0);
+  const mobileTouchStart = useRef<number>(0);
   const t = labels[lang];
 
   if (!room) return null;
@@ -613,7 +636,7 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
   const paths = roomPaths[lang];
   const otherRooms = rooms.filter((r) => r.slug !== roomSlug);
   const description = room.description[lang];
-  const shortDesc = description.length > 180 ? description.slice(0, 180) + "…" : description;
+  const shortDesc = description.length > 160 ? description.slice(0, 160) + "…" : description;
 
   const leadUrl = `/${lang}/lead?service=meeting-rooms&space=${room.slug}`;
 
@@ -624,27 +647,65 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
       </AnimatePresence>
 
       <div>
-        {/* ── Photo Grid ─────────────────────────────────── */}
-        <section className="relative bg-neutral-900 pt-20">
-          {/* Mobile: 1 large + 2×2 grid (Booking.com style) */}
-          <div className="md:hidden grid grid-cols-2 gap-0.5">
-            <div className="col-span-2 h-52 overflow-hidden cursor-pointer" onClick={() => setShowGallery(true)}>
-              <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover" />
-            </div>
-            {room.photos.slice(1, 5).map((photo, i) => (
-              <div key={i} className="h-28 overflow-hidden cursor-pointer relative" onClick={() => setShowGallery(true)}>
-                <img src={photo} alt="" className="w-full h-full object-cover" />
-                {i === 3 && (
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <span className="text-white font-display font-bold text-lg">+{room.photos.length - 4}</span>
-                  </div>
-                )}
+        {/* ── Desktop hero — full-width with text overlay ─── */}
+        <section className="hidden lg:flex relative h-[70vh] min-h-[500px] items-end cursor-pointer" onClick={() => setShowGallery(true)}>
+          <img src={room.heroImage} alt={room.name} className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6 pb-12 w-full">
+            <Link
+              to={conferencePaths[lang]}
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-body mb-4 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              {t.allRooms}
+            </Link>
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <h1 className="font-display text-4xl md:text-5xl font-bold text-white">{room.name}</h1>
+                <p className="font-body text-white/70 mt-2 flex items-center gap-2">
+                  <Users className="w-4 h-4" />
+                  {room.capacity[lang]}
+                </p>
               </div>
-            ))}
+              {room.highlight && (
+                <span className="shrink-0 font-body text-[10px] uppercase tracking-[0.2em] border border-white/50 text-white px-3 py-1 rounded-full mb-1">
+                  Flagship
+                </span>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Photo Grid ─────────────────────────────────── */}
+        <section className="relative bg-neutral-900 pt-20 lg:pt-0">
+          {/* Mobile: swipeable single photo (Booking.com style) */}
+          <div
+            className="md:hidden relative h-64 overflow-hidden cursor-pointer"
+            onClick={() => setShowGallery(true)}
+            onTouchStart={(e) => { mobileTouchStart.current = e.touches[0].clientX; }}
+            onTouchEnd={(e) => {
+              const diff = mobileTouchStart.current - e.changedTouches[0].clientX;
+              if (Math.abs(diff) > 40) {
+                setMobilePhoto((p) => diff > 0
+                  ? Math.min(p + 1, room.photos.length - 1)
+                  : Math.max(p - 1, 0)
+                );
+              }
+            }}
+          >
+            <img
+              src={room.photos[mobilePhoto]}
+              alt={room.name}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute bottom-3 right-3 bg-black/60 text-white font-body text-xs px-2.5 py-1 rounded-full">
+              {mobilePhoto + 1} / {room.photos.length}
+            </div>
           </div>
 
-          {/* Desktop: large left + stacked right with Show All button */}
-          <div className="hidden md:block relative max-w-7xl mx-auto px-4 md:px-6 mb-8">
+          {/* Tablet only: large grid hero (md → lg) */}
+          <div className="hidden md:block lg:hidden relative max-w-7xl mx-auto px-4 md:px-6 mb-8">
             <div className="grid gap-2 h-[400px] lg:h-[500px] rounded-2xl overflow-hidden" style={{ gridTemplateColumns: "2fr 1fr 1fr" }}>
               <div className="overflow-hidden cursor-pointer min-h-0 relative group" onClick={() => setShowGallery(true)}>
                 <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-90" />
@@ -682,10 +743,10 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
         {/* ── Content + Sidebar ──────────────────────────── */}
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-14">
 
-          {/* Back link */}
+          {/* Back link — mobile/tablet only (desktop version is in hero) */}
           <Link
             to={conferencePaths[lang]}
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm font-body mb-8 transition-colors"
+            className="lg:hidden inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm font-body mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             {t.allRooms}
@@ -696,9 +757,9 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
             {/* ── Left column ──────────────────────────── */}
             <div className="lg:col-span-8 space-y-12">
 
-              {/* Title + highlights */}
+              {/* Title + highlights — mobile/tablet only */}
               <div>
-                <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="lg:hidden flex items-start justify-between gap-4 mb-4">
                   <div>
                     <h1 className="font-display text-2xl md:text-4xl font-bold text-foreground">{room.name}</h1>
                     <p className="font-body text-muted-foreground mt-1 flex items-center gap-2">
@@ -713,91 +774,56 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
                   )}
                 </div>
 
-                {/* Feature pills */}
-                <div className="flex flex-wrap gap-2 pt-2 pb-6 border-b border-border">
-                  {room.features[lang].map((f, i) => (
-                    <span key={i} className="font-body text-sm px-3 py-1.5 rounded-full bg-muted text-foreground">
-                      {f}
-                    </span>
-                  ))}
-                </div>
               </div>
 
               {/* Description */}
               <div>
                 <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-3">{t.aboutRoom}</p>
-                <p className="font-body text-foreground/80 leading-relaxed">
-                  {descExpanded ? description : shortDesc}
-                </p>
-                {description.length > 180 && (
-                  <button
-                    onClick={() => setDescExpanded(!descExpanded)}
-                    className="mt-3 flex items-center gap-1 font-body text-sm text-primary hover:text-primary/80 transition-colors"
-                  >
-                    {descExpanded ? t.readLess : t.readMore}
-                    {descExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                  </button>
-                )}
+                <p className="font-body text-foreground/80 leading-relaxed">{description}</p>
+              </div>
+
+              {/* Feature pills */}
+              <div className="flex flex-wrap gap-2 pb-2 border-b border-border">
+                {room.features[lang].map((f, i) => (
+                  <span key={i} className="font-body text-sm px-3 py-1.5 rounded-full bg-muted text-foreground">
+                    {f}
+                  </span>
+                ))}
               </div>
 
               {/* Ideal For */}
               <div>
-                <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-5">{t.idealFor}</p>
-                <div className="grid sm:grid-cols-2 gap-3">
+                <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4">{t.idealFor}</p>
+                <div className="flex flex-wrap gap-2">
                   {room.useCases[lang].map((uc, i) => (
-                    <div key={i} className="flex items-center gap-3 p-4 rounded-xl border border-border hover:border-primary/40 transition-colors">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <span className="font-body text-sm text-foreground">{uc}</span>
-                    </div>
+                    <span key={i} className="flex items-center gap-2 font-body text-sm px-3 py-1.5 rounded-full bg-muted text-foreground">
+                      <div className="w-1 h-1 rounded-full bg-primary shrink-0" />
+                      {uc}
+                    </span>
                   ))}
                 </div>
               </div>
 
-              {/* Facilities by category */}
+              {/* Past events gallery */}
               <div>
-                <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-5">{t.facilities}</p>
-                <div className="space-y-6">
-                  {room.facilitiesCategories[lang].map((cat, ci) => (
-                    <div key={ci}>
-                      <h3 className="font-body text-sm font-semibold text-foreground mb-3">{cat.category}</h3>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                        {cat.items.map((item, ii) => {
-                          const Icon = getFacilityIcon(item);
-                          return (
-                            <div key={ii} className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
-                              <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
-                                <Icon className="w-4 h-4 text-primary" />
-                              </div>
-                              <span className="font-body text-xs text-foreground leading-tight">{item}</span>
-                            </div>
-                          );
-                        })}
+                <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-5">{t.pastEvents}</p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {t.pastEventsItems.map((ev, i) => (
+                    <div key={i} className="group rounded-xl overflow-hidden border border-border hover:border-primary/40 transition-colors">
+                      <div className="aspect-video bg-muted flex items-center justify-center overflow-hidden">
+                        <div className="w-full h-full bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center">
+                          <span className="text-muted-foreground/40 text-xs font-body">Photo</span>
+                        </div>
+                      </div>
+                      <div className="p-3">
+                        <span className="inline-block font-body text-[10px] uppercase tracking-[0.15em] text-primary mb-1">{ev.tag}</span>
+                        <p className="font-body text-xs font-semibold text-foreground leading-tight">{ev.title}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Layout configurations */}
-              <div>
-                <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-5">{t.layouts}</p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  {room.layouts[lang].map((layout, i) => {
-                    const Icon = layoutIcons[layout.icon];
-                    return (
-                      <div key={i} className="flex flex-col items-center gap-3 p-5 rounded-xl border border-border text-center hover:border-primary/40 transition-colors">
-                        <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-muted-foreground" />
-                        </div>
-                        <div>
-                          <p className="font-body text-sm font-semibold text-foreground">{layout.name}</p>
-                          <p className="font-body text-xs text-muted-foreground mt-0.5">{layout.capacity} {t.people}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
 
               {/* Other rooms */}
               <div>
@@ -822,44 +848,101 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
 
             {/* ── Right: Sticky sidebar ─────────────────── */}
             <div className="hidden lg:block lg:col-span-4">
-              <div className="sticky top-24 rounded-2xl border border-border p-6 space-y-6 shadow-sm">
-                <div>
-                  <h2 className="font-display text-xl font-bold text-foreground">{room.name}</h2>
-                  <p className="font-body text-sm text-muted-foreground mt-1 flex items-center gap-2">
-                    <Users className="w-4 h-4" />
-                    {room.capacity[lang]}
-                  </p>
-                </div>
 
-                <div className="space-y-2">
-                  {room.features[lang].map((f, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm font-body text-foreground/80">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      {f}
+              {/* Desktop photo grid — above booking card */}
+              <div className="rounded-2xl overflow-hidden mb-4 cursor-pointer" onClick={() => setShowGallery(true)}>
+                <div className="grid gap-1 h-64" style={{ gridTemplateColumns: "2fr 1fr" }}>
+                  <div className="overflow-hidden group min-h-0">
+                    <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <div className="grid grid-rows-2 gap-1 min-h-0">
+                    <div className="overflow-hidden group">
+                      <img src={room.photos[1] || room.photos[0]} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
-                  ))}
-                </div>
-
-                <div className="border-t border-border pt-4 space-y-2">
-                  {room.layouts[lang].map((layout, i) => {
-                    const Icon = layoutIcons[layout.icon];
-                    return (
-                      <div key={i} className="flex items-center justify-between text-sm font-body">
-                        <div className="flex items-center gap-2 text-muted-foreground">
-                          <Icon className="w-4 h-4" />
-                          {layout.name}
+                    <div className="overflow-hidden relative group">
+                      <img src={room.photos[2] || room.photos[0]} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                      {room.photos.length > 3 && (
+                        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                          <span className="text-white text-sm font-body font-semibold flex items-center gap-1.5">
+                            <Grid2X2 className="w-4 h-4" />
+                            +{room.photos.length - 3} {t.showPhotos}
+                          </span>
                         </div>
-                        <span className="font-semibold text-foreground">{layout.capacity} {t.people}</span>
-                      </div>
-                    );
-                  })}
+                      )}
+                    </div>
+                  </div>
                 </div>
+              </div>
 
-                <Button asChild className="w-full">
-                  <Link to={leadUrl}>
-                    {t.getInTouch}
-                  </Link>
-                </Button>
+              <div className="sticky top-24 rounded-2xl border border-border shadow-sm">
+
+                <div className="p-6 space-y-5">
+                  {/* Name + capacity */}
+                  <div>
+                    <div className="flex items-start justify-between gap-2">
+                      <h2 className="font-display text-xl font-bold text-foreground">{room.name}</h2>
+                      {room.highlight && (
+                        <span className="shrink-0 font-body text-[9px] uppercase tracking-[0.2em] border border-primary text-primary px-2 py-0.5 rounded-full">
+                          Flagship
+                        </span>
+                      )}
+                    </div>
+                    <p className="font-body text-sm text-muted-foreground mt-1 flex items-center gap-2">
+                      <Users className="w-4 h-4" />
+                      {room.capacity[lang]}
+                    </p>
+                  </div>
+
+                  {/* Features */}
+                  <div className="space-y-1.5">
+                    {room.features[lang].map((f, i) => (
+                      <div key={i} className="flex items-center gap-2 text-sm font-body text-foreground/80">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                        {f}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Layouts */}
+                  <div className="border-t border-border pt-4 space-y-2">
+                    {room.layouts[lang].map((layout, i) => {
+                      const Icon = layoutIcons[layout.icon];
+                      return (
+                        <div key={i} className="flex items-center justify-between text-sm font-body">
+                          <div className="flex items-center gap-2 text-muted-foreground">
+                            <Icon className="w-4 h-4" />
+                            {layout.name}
+                          </div>
+                          <span className="font-semibold text-foreground">{layout.capacity} {t.people}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* CTA */}
+                  <div className="border-t border-border pt-4">
+                    <Button asChild className="w-full h-12 text-base font-semibold">
+                      <Link to={leadUrl}>{t.getInTouch}</Link>
+                    </Button>
+                    <p className="text-center font-body text-xs text-muted-foreground mt-2">{t.noCommitment}</p>
+                  </div>
+
+                  {/* What's included */}
+                  <div className="border-t border-border pt-4">
+                    <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">{t.included}</p>
+                    <div className="grid grid-cols-2 gap-x-3 gap-y-2">
+                      {room.amenities[lang].map((a, i) => {
+                        const Icon = getFacilityIcon(a);
+                        return (
+                          <div key={i} className="flex items-center gap-1.5 font-body text-xs text-foreground/70">
+                            <Icon className="w-3 h-3 text-primary shrink-0" />
+                            <span className="leading-tight">{a}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
