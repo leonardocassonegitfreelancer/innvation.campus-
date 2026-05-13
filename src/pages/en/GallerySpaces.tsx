@@ -13,7 +13,7 @@ import palaceOutside from "@/assets/palace-outside.webp";
 import palaceOutsideFront from "@/assets/palace-outside-front.webp";
 import palaceBrandingWall from "@/assets/palace-branding-wall.webp";
 import historicExterior from "@/assets/historic-exterior.webp";
-import historicInterior from "@/assets/historic-interior.webp";
+
 import terraceHero from "@/assets/terrace-hero.webp";
 import terraceEntrance from "@/assets/terrace-entrance.webp";
 import terraceBar from "@/assets/terrace-bar.webp";
@@ -25,8 +25,8 @@ const conferenceQuarterPicasso = "/placeholder.svg";
 import anconaHero from "@/assets/ancona-hero.webp";
 import anconaCoworking from "@/assets/ancona-coworking.webp";
 import anconautoMeeting from "@/assets/ancona-meeting.webp";
-import seasideExterior from "@/assets/seaside-exterior.webp";
-import seasideInterior from "@/assets/seaside-interior.webp";
+const seasideExterior = anconaHero;
+const seasideInterior = anconaCoworking;
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
@@ -43,7 +43,7 @@ const photos: { src: string; alt: string; filter: Filter }[] = [
   { src: palaceOutsideFront, alt: "Málaga Palace front entrance", filter: "malaga-palace" },
   { src: palaceBrandingWall, alt: "Innovation Campus branding wall", filter: "malaga-palace" },
   { src: historicExterior, alt: "Historic building exterior", filter: "malaga-palace" },
-  { src: historicInterior, alt: "Historic building interior", filter: "malaga-palace" },
+  { src: historicExterior, alt: "Historic building interior", filter: "malaga-palace" },
   { src: terraceHero, alt: "Málaga Terrace hero", filter: "malaga-terrace" },
   { src: terraceEntrance, alt: "Málaga Terrace entrance", filter: "malaga-terrace" },
   { src: terraceBar, alt: "Málaga Terrace bar area", filter: "malaga-terrace" },
