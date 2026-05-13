@@ -1,6 +1,5 @@
 ---
-import Layout from '../../../../layouts/Layout.astro';
-import { PageWrapper } from '@/lib/lang-context';
+import EventPageLayout from '../../../../components/EventPageLayout.astro';
 import { generateBreadcrumbJsonLd } from '@/lib/i18n';
 import Page from '@/pages/en/events/MalagaAIApr2026';
 const path = '/en/events/malaga-ai-networking-apr-2026';
@@ -8,6 +7,6 @@ const title = 'Malaga AI Networking Night — April 2026';
 const description = 'An evening of AI conversations, demos, and networking at Innovation Campus Málaga Palace. Meet builders, researchers, and AI enthusiasts. April 23, 2026.';
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
-<Layout {title} {description} {path} {breadcrumb}>
-  <PageWrapper lang="en" path={path} client:load><Page /></PageWrapper>
-</Layout>
+<EventPageLayout {title} {description} {path} {breadcrumb} lang="en">
+  <Page client:load />
+</EventPageLayout>

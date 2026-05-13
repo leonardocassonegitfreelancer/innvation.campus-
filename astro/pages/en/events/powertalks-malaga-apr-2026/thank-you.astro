@@ -1,11 +1,10 @@
 ---
-import Layout from '../../../../layouts/Layout.astro';
-import { PageWrapper } from '@/lib/lang-context';
+import EventPageLayout from '../../../../components/EventPageLayout.astro';
 import Page from '@/pages/en/events/PowerTalksApr2026ThankYou';
 const path = '/en/events/powertalks-malaga-apr-2026/thank-you';
 const title = 'Thank You — PowerTalks Málaga';
 const description = 'Thank you for your interest in PowerTalks Málaga April 2026.';
 ---
-<Layout {title} {description} {path} noIndex>
-  <PageWrapper lang="en" path={path} client:load><Page /></PageWrapper>
-</Layout>
+<EventPageLayout {title} {description} {path} noIndex lang="en">
+  <Page client:load />
+</EventPageLayout>
