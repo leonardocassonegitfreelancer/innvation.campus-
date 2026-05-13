@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
-import conferencePicasso from "@/assets/conference-picasso.webp";
+import conferencePicasso from "@/assets/big-conference-room-01.webp";
 import terraceHero from "@/assets/terrace-hero.webp";
 import palaceSecondFloor from "@/assets/palace-second-floor.webp";
 import palaceCoworking from "@/assets/palace-coworking.webp";

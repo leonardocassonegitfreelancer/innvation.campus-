@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Users, MapPin } from "lucide-react";
-import conferencePicasso2 from "@/assets/conference-picasso-2.webp";
-import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.webp";
-import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.webp";
+import bigConferenceRoom1 from "@/assets/big-conference-room-01.webp";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -266,11 +264,11 @@ const translations = {
 const getSrc = (img: any): string => typeof img === 'string' ? img : img.src;
 
 const roomImages: Record<string, string> = {
-  "big-conference": getSrc(conferencePicasso2),
-  "large-conference": getSrc(conferenceHalfPicasso2),
-  "quarter-conference": getSrc(conferenceQuarterPicasso),
-  "training-room": getSrc(conferenceQuarterPicasso),
-  "phone-booth": getSrc(conferenceQuarterPicasso),
+  "big-conference": getSrc(bigConferenceRoom1),
+  "large-conference": "/placeholder.svg",
+  "quarter-conference": "/placeholder.svg",
+  "training-room": "/placeholder.svg",
+  "phone-booth": "/placeholder.svg",
 };
 
 const roomPaths: Record<string, Record<string, string>> = {

@@ -11,11 +11,6 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SEOHead from "@/components/SEOHead";
 import serviceMeeting from "@/assets/service-meeting.webp";
-import conferencePicasso from "@/assets/conference-picasso.webp";
-import conferencePicasso2 from "@/assets/conference-picasso-2.webp";
-import conferenceQuarterPicasso from "@/assets/conference-quarter-picasso.webp";
-import conferenceHalfPicasso from "@/assets/conference-half-picasso.webp";
-import conferenceHalfPicasso2 from "@/assets/conference-half-picasso-2.webp";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
@@ -52,6 +47,9 @@ export interface RoomData {
 }
 
 /* ─── Room data ──────────────────────────────────────────── */
+const bigConfPhotosGlob = import.meta.glob('@/assets/big-conference-room-*.webp', { eager: true });
+const bigConfPhotos = Object.values(bigConfPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
+
 const rooms: RoomData[] = [
   {
     slug: "big-conference-room",
@@ -63,8 +61,8 @@ const rooms: RoomData[] = [
       it: { title: "Grande Sala Conferenze – City Center Picasso", description: "La nostra sala principale per fino a 80 persone con display 4K da 85\", videoconferenza premium e layout flessibile a Málaga." },
     },
     capacity: { en: "Up to 80 people", es: "Hasta 80 personas", it: "Fino a 80 persone" },
-    heroImage: getSrc(conferencePicasso),
-    photos: [conferencePicasso, conferencePicasso2, conferenceHalfPicasso, conferenceHalfPicasso2, conferenceQuarterPicasso].map(getSrc),
+    heroImage: bigConfPhotos[0] || "/placeholder.svg",
+    photos: bigConfPhotos.length > 0 ? bigConfPhotos : ["/placeholder.svg"],
     features: {
       en: ["85\" 4K Display", "Premium Video Conferencing", "Large Whiteboard", "Flexible Layout"],
       es: ["Pantalla 4K 85\"", "Videoconferencia Premium", "Pizarra Grande", "Disposición Flexible"],
@@ -135,8 +133,8 @@ const rooms: RoomData[] = [
       it: { title: "Large Conference Room", description: "Una sala versatile per fino a 50 persone con display 4K da 55\" e videoconferenza professionale a Málaga." },
     },
     capacity: { en: "Up to 50 people", es: "Hasta 50 personas", it: "Fino a 50 persone" },
-    heroImage: getSrc(conferenceHalfPicasso),
-    photos: [conferenceHalfPicasso, conferenceHalfPicasso2, conferencePicasso, conferencePicasso2, conferenceQuarterPicasso].map(getSrc),
+    heroImage: "/placeholder.svg",
+    photos: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
     features: {
       en: ["55\" 4K Display", "Video Conferencing", "Whiteboard", "Boardroom Setup"],
       es: ["Pantalla 4K 55\"", "Videoconferencia", "Pizarra", "Mesa de Juntas"],
@@ -207,8 +205,8 @@ const rooms: RoomData[] = [
       it: { title: "Quarter Conference Room", description: "Una sala intima per fino a 30 persone con display da 43\" e videoconferenza a Málaga." },
     },
     capacity: { en: "Up to 30 people", es: "Hasta 30 personas", it: "Fino a 30 persone" },
-    heroImage: getSrc(conferenceQuarterPicasso),
-    photos: [conferenceQuarterPicasso, conferencePicasso, conferenceHalfPicasso, conferenceHalfPicasso2, conferencePicasso2].map(getSrc),
+    heroImage: "/placeholder.svg",
+    photos: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
     features: {
       en: ["43\" Display", "Video Conferencing", "Whiteboard", "Intimate Setting"],
       es: ["Pantalla 43\"", "Videoconferencia", "Pizarra", "Ambiente Íntimo"],
@@ -280,7 +278,7 @@ const rooms: RoomData[] = [
     },
     capacity: { en: "Up to 40 people", es: "Hasta 40 personas", it: "Fino a 40 persone" },
     heroImage: getSrc(serviceMeeting),
-    photos: [serviceMeeting, conferenceQuarterPicasso, conferenceHalfPicasso, conferencePicasso, conferencePicasso2].map(getSrc),
+    photos: [getSrc(serviceMeeting), "/placeholder.svg", "/placeholder.svg"],
     features: {
       en: ["4K Projector", "Classroom Layout", "Whiteboard Wall", "Breakout Areas"],
       es: ["Proyector 4K", "Disposición Aula", "Pared Pizarra", "Zonas de Descanso"],
@@ -348,8 +346,8 @@ const rooms: RoomData[] = [
       it: { title: "Cabina Telefonica – Innovation Campus Málaga", description: "Cabina telefonica privata e insonorizzata per 1–2 persone. Ideale per chiamate riservate, videoriunioni rapide e lavoro concentrato a Málaga." },
     },
     capacity: { en: "1–2 people", es: "1–2 personas", it: "1–2 persone" },
-    heroImage: getSrc(conferenceQuarterPicasso),
-    photos: [conferenceQuarterPicasso, conferencePicasso2, conferenceHalfPicasso2, conferencePicasso, conferenceHalfPicasso].map(getSrc),
+    heroImage: "/placeholder.svg",
+    photos: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
     features: {
       en: ["Soundproofed", "27\" Display", "Video Call Ready", "Noise-Cancelling Mic"],
       es: ["Insonorizada", "Pantalla 27\"", "Lista para Video", "Micro Cancelación Ruido"],
@@ -645,20 +643,39 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
             ))}
           </div>
 
-          {/* Desktop: large left + 2 stacked right */}
-          <div className="hidden md:block">
-            <div className="grid gap-1 h-[280px]" style={{ gridTemplateColumns: "2fr 1fr" }}>
-              <div className="overflow-hidden cursor-pointer min-h-0" onClick={() => setShowGallery(true)}>
-                <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+          {/* Desktop: large left + stacked right with Show All button */}
+          <div className="hidden md:block relative max-w-7xl mx-auto px-4 md:px-6 mb-8">
+            <div className="grid gap-2 h-[400px] lg:h-[500px] rounded-2xl overflow-hidden" style={{ gridTemplateColumns: "2fr 1fr 1fr" }}>
+              <div className="overflow-hidden cursor-pointer min-h-0 relative group" onClick={() => setShowGallery(true)}>
+                <img src={room.photos[0]} alt={room.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-90" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
               </div>
-              <div className="grid grid-rows-2 gap-1 min-h-0">
+              <div className="grid grid-rows-2 gap-2 min-h-0">
                 {room.photos.slice(1, 3).map((photo, i) => (
-                  <div key={i} className="overflow-hidden cursor-pointer min-h-0" onClick={() => setShowGallery(true)}>
-                    <img src={photo} alt="" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                  <div key={i} className="overflow-hidden cursor-pointer min-h-0 relative group" onClick={() => setShowGallery(true)}>
+                    <img src={photo} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-90" />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-rows-2 gap-2 min-h-0">
+                {room.photos.slice(3, 5).map((photo, i) => (
+                  <div key={i} className="overflow-hidden cursor-pointer min-h-0 relative group" onClick={() => setShowGallery(true)}>
+                    <img src={photo || room.photos[0]} alt="" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-90" />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
                   </div>
                 ))}
               </div>
             </div>
+            
+            {/* Show all photos button (Airbnb style) */}
+            <button 
+              onClick={() => setShowGallery(true)}
+              className="absolute bottom-6 right-10 lg:right-12 bg-white text-black font-body font-medium text-sm px-4 py-2.5 rounded-lg flex items-center gap-2 hover:bg-neutral-100 hover:scale-105 active:scale-95 transition-all shadow-md border border-neutral-200 z-10"
+            >
+              <Grid2X2 className="w-4 h-4" />
+              {t.showPhotos}
+            </button>
           </div>
         </section>
 

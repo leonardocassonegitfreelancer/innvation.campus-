@@ -221,7 +221,7 @@ export const eventsDataset: EventData[] = [
 ];
 ```
 
-> **Note:** Replace `/placeholder.svg` with real event images. Download images from the WordPress site and add them to `public/lovable-uploads/` or `src/assets/`. Replace `externalUrl` values with the actual Meetup/Eventbrite URLs for each event.
+> **Note:** Replace `/placeholder.svg` with real event images. Download images from the WordPress site and add them to `public/assets/` or `src/assets/`. Replace `externalUrl` values with the actual Meetup/Eventbrite URLs for each event.
 
 - [ ] **Step 2: Verify TypeScript compiles**
 

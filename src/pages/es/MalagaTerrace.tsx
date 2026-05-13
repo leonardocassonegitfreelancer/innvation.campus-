@@ -8,27 +8,33 @@ import terraceCommunity from "@/assets/terrace-community.webp";
 import terraceEvents from "@/assets/terrace-events.webp";
 import serviceTerrace from "@/assets/service-terrace.webp";
 import serviceCommunity from "@/assets/service-community.webp";
+import img_terrace_coworking_alt from "@/assets/terrace-coworking-alt.webp";
+import img_terrace_meeting_alt from "@/assets/terrace-meeting-alt.webp";
+import img_terrace_reception from "@/assets/terrace-reception.webp";
+import img_terrace_cafe from "@/assets/terrace-cafe.webp";
+import img_terrace_interior from "@/assets/terrace-interior.webp";
+import img_terrace_lounge from "@/assets/terrace-lounge.webp";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 const services = [
-  { img: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.webp", label: "Espacios de Coworking", icon: Users, href: "/es/coworking" },
-  { img: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.webp", label: "Salas de Reuniones", icon: Building2, href: "/es/salas-de-reuniones" },
+  { img: _s(img_terrace_coworking_alt), label: "Espacios de Coworking", icon: Users, href: "/es/coworking" },
+  { img: _s(img_terrace_meeting_alt), label: "Salas de Reuniones", icon: Building2, href: "/es/salas-de-reuniones" },
   { img: serviceTerrace, label: "Terraza Privada", icon: Sun, href: "/es/terraza-privada" },
   { img: serviceCommunity, label: "Eventos Comunitarios", icon: Wifi, href: "/es/eventos" },
 ];
 
 const galleryTop = [
-  { src: "/lovable-uploads/d002f55d-0b40-4966-a3c1-172cb490f76f.webp", alt: "Entrada de Málaga Terrace" },
-  { src: "/lovable-uploads/237d9ba8-6193-4e35-a922-d914b6bd9079.webp", alt: "Área de bar de Málaga Terrace" },
-  { src: "/lovable-uploads/d4ee74cf-f799-4dfb-9788-53fa9ece8dd7.webp", alt: "Interior de Málaga Terrace" },
+  { src: _s(img_terrace_reception), alt: "Entrada de Málaga Terrace" },
+  { src: _s(img_terrace_cafe), alt: "Área de bar de Málaga Terrace" },
+  { src: _s(img_terrace_interior), alt: "Interior de Málaga Terrace" },
   { src: terraceCommunity, alt: "Evento comunitario en Málaga Terrace" },
 ];
 
 const galleryBottom = [
   { src: terraceEvents, alt: "Evento en la azotea de Málaga Terrace" },
-  { src: "/lovable-uploads/abec2e73-ccdf-40fa-b924-c31203f7fd86.webp", alt: "Coworking en Málaga Terrace" },
-  { src: "/lovable-uploads/122af4dc-98a0-42f9-b087-a116c12ebf64.webp", alt: "Sala de reuniones en Málaga Terrace" },
+  { src: _s(img_terrace_coworking_alt), alt: "Coworking en Málaga Terrace" },
+  { src: _s(img_terrace_meeting_alt), alt: "Sala de reuniones en Málaga Terrace" },
   { src: serviceTerrace, alt: "Terraza privada en Málaga Terrace" },
 ];
 
@@ -100,7 +106,7 @@ export default function MalagaTerraceES() {
               </Button>
             </div>
             <div className="rounded-2xl overflow-hidden">
-              <img alt="Bar de Innovation Campus Terrace" className="w-full h-80 md:h-[24rem] object-cover" loading="lazy" src="/lovable-uploads/d9d2b368-e5c7-40e9-af7b-7e21ef4e7e61.webp" />
+              <img alt="Bar de Innovation Campus Terrace" className="w-full h-80 md:h-[24rem] object-cover" loading="lazy" src={_s(img_terrace_lounge)} />
             </div>
           </div>
         </div>
