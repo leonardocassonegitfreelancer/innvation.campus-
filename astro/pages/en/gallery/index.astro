@@ -1,5 +1,5 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
 import GalleryPage from '@/pages/en/Gallery';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 
@@ -10,6 +10,6 @@ const alternates = getAlternateLinks(path);
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
 
-<Layout {title} {description} {path} {alternates} {breadcrumb}>
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="en">
   <GalleryPage lang="en" client:load />
-</Layout>
+</RoomPageLayout>

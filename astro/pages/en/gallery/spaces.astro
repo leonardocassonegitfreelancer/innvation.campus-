@@ -1,5 +1,5 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
 import GallerySpacesPage from '@/pages/en/GallerySpaces';
 import { generateBreadcrumbJsonLd } from '@/lib/i18n';
 
@@ -9,6 +9,6 @@ const description = 'Explore our coworking spaces, meeting rooms, and venues acr
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
 
-<Layout {title} {description} {path} {breadcrumb}>
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="en">
   <GallerySpacesPage lang="en" client:load />
-</Layout>
+</RoomPageLayout>

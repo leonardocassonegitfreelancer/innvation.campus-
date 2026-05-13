@@ -1,6 +1,3 @@
-import Navbar from "@/components/landing/Navbar";
-import Footer from "@/components/landing/Footer";
-import SEOHead from "@/components/SEOHead";
 import { useState } from "react";
 
 import palaceEntrance from "@/assets/palace-entrance.webp";
