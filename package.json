@@ -78,6 +78,7 @@
     "@types/react": "19",
     "@types/react-dom": "19",
     "@vitejs/plugin-react-swc": "^4.3.0",
+    "adm-zip": "^0.5.17",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
