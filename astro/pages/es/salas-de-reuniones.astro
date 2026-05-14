@@ -2,6 +2,7 @@
 import ServicePageLayout from '../../components/ServicePageLayout.astro';
 import ConferenceIntro from '@/components/landing/ConferenceIntro';
 import ConferenceRooms from '@/components/landing/ConferenceRooms';
+import EventSocialProof from '@/components/landing/EventSocialProof';
 import ServicePhotoGrid from '../../components/ServicePhotoGrid.astro';
 import ScrollAnimate from '../../components/ScrollAnimate.astro';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
@@ -29,6 +30,7 @@ const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz'
   lang="es"
 >
   <ConferenceIntro lang="es" client:load />
+  <EventSocialProof lang="es" client:visible />
   <ConferenceRooms lang="es" client:visible />
   <ServicePhotoGrid
     eyebrow="También disponible en esta ubicación"

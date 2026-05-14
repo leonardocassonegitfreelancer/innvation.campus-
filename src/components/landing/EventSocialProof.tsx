@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
 
 const translations = {
   en: { title: "Trusted by innovative companies for their offsites & events" },
