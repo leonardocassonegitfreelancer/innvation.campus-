@@ -2,6 +2,21 @@ import { Users, Monitor, UtensilsCrossed } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "react-router-dom";
 
+const locations = {
+  en: [
+    { label: "Historic Center", address: "Calle Álamos 7, 29012 Málaga" },
+    { label: "Sea Side", address: "Calle Puerto 14, 29016 Málaga" },
+  ],
+  es: [
+    { label: "Centro Histórico", address: "Calle Álamos 7, 29012 Málaga" },
+    { label: "Frente al Mar", address: "Calle Puerto 14, 29016 Málaga" },
+  ],
+  it: [
+    { label: "Centro Storico", address: "Calle Álamos 7, 29012 Málaga" },
+    { label: "Lungomare", address: "Calle Puerto 14, 29016 Málaga" },
+  ],
+};
+
 const translations = {
   en: {
     tagline: "Professional Meeting Spaces",
@@ -40,6 +55,7 @@ export default function ConferenceIntro({ lang: langProp }: { lang?: "en" | "es"
   const location = useLocation();
   const lang = langProp ?? (location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en");
   const t = translations[lang];
+  const locs = locations[lang];
 
   return (
     <section className="relative py-20 md:py-28 bg-neutral-dark overflow-hidden">
@@ -67,6 +83,22 @@ export default function ConferenceIntro({ lang: langProp }: { lang?: "en" | "es"
               </div>
               <h3 className="font-display text-xl font-bold text-primary-foreground mb-2">{item.title}</h3>
               <p className="font-body text-primary-foreground/60">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-10 mt-12 pt-10 border-t border-white/10">
+          {locs.map((loc) => (
+            <div key={loc.label} className="flex items-center gap-2 text-primary-foreground/50">
+              <svg className="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span className="font-body text-sm">
+                <span className="text-primary-foreground/80 font-semibold">{loc.label}</span>
+                {" — "}
+                {loc.address}
+              </span>
             </div>
           ))}
         </div>
