@@ -3,7 +3,7 @@ import conferenceHall2 from "@/assets/big-conference-room-02.webp";
 const conferenceHalf = "/placeholder.svg";
 const conferenceHalf2 = "/placeholder.svg";
 const conferenceQuarterPicasso = "/placeholder.svg";
-import trainingRoom from "@/assets/service-meeting.webp";
+import trainingRoom from "@/assets/training-room-01.webp";
 import palaceSkylight from "@/assets/palace-skylight.webp";
 import palaceCourtyard from "@/assets/palace-courtyard.webp";
 import palaceEntrance from "@/assets/palace-entrance.webp";
@@ -97,15 +97,15 @@ export const spacesDataset: SpaceData[] = [
     slug: "training-room",
     image: trainingRoom,
     photos: [trainingRoom, conferenceQuarterPicasso, palaceCoworking, palaceCoffeeBar],
-    maxGuests: 40,
+    maxGuests: 6,
     location: "city",
     eventTypes: ["workshop", "networking"],
     size: "small",
     baseRoute: "meeting-rooms",
     translations: {
-      en: { label: "Meeting", name: "Training Room", capacityText: "Up to 40 guests" },
-      es: { label: "Reunión", name: "Sala de Formación", capacityText: "Hasta 40 personas" },
-      it: { label: "Riunione", name: "Sala Formazione", capacityText: "Fino a 40 persone" },
+      en: { label: "Meeting", name: "Training Room", capacityText: "Up to 6 people" },
+      es: { label: "Reunión", name: "Sala de Formación", capacityText: "Hasta 6 personas" },
+      it: { label: "Riunione", name: "Sala Formazione", capacityText: "Fino a 6 persone" },
     },
     amenities: {
       en: ["High-Speed WiFi", "Classroom Layout", "Two 65-inch Displays", "Whiteboards", "Coffee Station"],
