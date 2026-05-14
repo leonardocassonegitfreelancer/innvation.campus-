@@ -1,5 +1,7 @@
 import conferenceHall from "@/assets/big-conference-room-01.webp";
 import conferenceHall2 from "@/assets/big-conference-room-02.webp";
+import largeConferenceRoom1 from "@/assets/large-conference-room-01.webp";
+import largeConferenceRoom2 from "@/assets/large-conference-room-02.webp";
 const conferenceHalf = "/placeholder.svg";
 const conferenceHalf2 = "/placeholder.svg";
 const conferenceQuarterPicasso = "/placeholder.svg";
@@ -75,17 +77,17 @@ export const spacesDataset: SpaceData[] = [
   },
   {
     slug: "large-conference-room",
-    image: conferenceHalf,
-    photos: [conferenceHalf, conferenceHalf2, conferenceHall, palaceCoffeeBar],
-    maxGuests: 40,
+    image: largeConferenceRoom1,
+    photos: [largeConferenceRoom1, largeConferenceRoom2, conferenceHall, palaceCoffeeBar],
+    maxGuests: 50,
     location: "city",
     eventTypes: ["conference", "workshop"],
     size: "small",
     baseRoute: "meeting-rooms",
     translations: {
-      en: { label: "Conference", name: "Large Conference Room", capacityText: "Up to 40 guests" },
-      es: { label: "Conferencia", name: "Sala de Conferencias Grande", capacityText: "Hasta 40 personas" },
-      it: { label: "Conferenze", name: "Sala Conferenze Grande", capacityText: "Fino a 40 persone" },
+      en: { label: "Conference", name: "Large Conference Room", capacityText: "Up to 50 people" },
+      es: { label: "Conferencia", name: "Sala de Conferencias Grande", capacityText: "Hasta 50 personas" },
+      it: { label: "Conferenze", name: "Sala Conferenze Grande", capacityText: "Fino a 50 persone" },
     },
     amenities: {
       en: ["High-Speed WiFi", "85-inch 4K Display", "Video Conferencing Setup", "Whiteboards"],
