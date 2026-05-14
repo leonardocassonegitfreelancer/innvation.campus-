@@ -114,6 +114,29 @@ export const eventsDataset: EventData[] = [
     },
   },
   {
+    slug: "powertalks-open-house-jun-2026",
+    date: "2026-06-03",
+    time: "19:00 - 21:00",
+    location: "Málaga Terrace — Calle Puerto 14",
+    image: "/placeholder.svg",
+    tag: "workshop",
+    externalUrl: "https://www.meetup.com/es-es/malaga-speaking-with-confidence-and-enthusiasm-meetup-group/events/314397785/?eventOrigin=group_upcoming_events",
+    translations: {
+      en: {
+        title: "Practice Public Speaking — PowerTalks Málaga \"Open House\" at Toastmasters",
+        excerpt: "Join an open session of our Toastmasters club. Witness speeches, observe evaluations, and try impromptu speaking through Table Topics — free and open to all.",
+      },
+      es: {
+        title: "Practica la Oratoria — PowerTalks Málaga \"Open House\" en Toastmasters",
+        excerpt: "Únete a una sesión abierta de nuestro club Toastmasters. Observa discursos, evaluaciones constructivas y prueba el habla improvisada — gratis y abierto a todos.",
+      },
+      it: {
+        title: "Allenati in Pubblico — PowerTalks Málaga \"Open House\" da Toastmasters",
+        excerpt: "Partecipa a una sessione aperta del nostro club Toastmasters. Assisti a discorsi, valutazioni costruttive e prova l'improvvisazione con i Table Topics — gratuito e aperto a tutti.",
+      },
+    },
+  },
+  {
     slug: "powertalks-malaga-apr-2026-b",
     date: "2026-04-29",
     time: "19:00 - 20:30",
