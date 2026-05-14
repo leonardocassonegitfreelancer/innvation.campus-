@@ -3,6 +3,7 @@ import { Users, MapPin } from "lucide-react";
 import bigConferenceRoom1 from "@/assets/big-conference-room-01.webp";
 import largeConferenceRoom1 from "@/assets/large-conference-room-01.webp";
 import quarterConferenceRoom1 from "@/assets/quarter-conference-room-01.webp";
+import trainingRoom1 from "@/assets/training-room-01.webp";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -66,8 +67,8 @@ const translations = {
       {
         id: "training-room",
         name: "Training Room",
-        capacity: "Up to 40 people",
-        features: ["4K Projector", "Classroom Layout", "Whiteboard Wall", "Breakout Areas"],
+        capacity: "Up to 6 people",
+        features: ["Large Display", "Whiteboard", "Video Call Ready", "High-Speed WiFi"],
         highlight: false,
         roomType: "training",
       },
@@ -146,8 +147,8 @@ const translations = {
       {
         id: "training-room",
         name: "Training Room",
-        capacity: "Hasta 40 personas",
-        features: ["Proyector 4K", "Disposición Aula", "Pared Pizarra", "Zonas de Descanso"],
+        capacity: "Hasta 6 personas",
+        features: ["Pantalla Grande", "Pizarra", "Lista para Video", "WiFi Alta Velocidad"],
         highlight: false,
         roomType: "training",
       },
@@ -226,8 +227,8 @@ const translations = {
       {
         id: "training-room",
         name: "Training Room",
-        capacity: "Fino a 40 persone",
-        features: ["Proiettore 4K", "Layout Aula", "Parete Lavagna", "Aree Breakout"],
+        capacity: "Fino a 6 persone",
+        features: ["Display Grande", "Lavagna", "Video Call Ready", "WiFi Alta Velocità"],
         highlight: false,
         roomType: "training",
       },
@@ -269,7 +270,7 @@ const roomImages: Record<string, string> = {
   "big-conference": getSrc(bigConferenceRoom1),
   "large-conference": getSrc(largeConferenceRoom1),
   "quarter-conference": getSrc(quarterConferenceRoom1),
-  "training-room": "/placeholder.svg",
+  "training-room": getSrc(trainingRoom1),
   "phone-booth": "/placeholder.svg",
 };
 

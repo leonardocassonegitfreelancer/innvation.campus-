@@ -57,6 +57,9 @@ const largeConfPhotos = Object.values(largeConfPhotosGlob).map((mod: any) => get
 const quarterConfPhotosGlob = import.meta.glob('@/assets/quarter-conference-room-*.webp', { eager: true });
 const quarterConfPhotos = Object.values(quarterConfPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
 
+const trainingRoomPhotosGlob = import.meta.glob('@/assets/training-room-*.webp', { eager: true });
+const trainingRoomPhotos = Object.values(trainingRoomPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
+
 const rooms: RoomData[] = [
   {
     slug: "big-conference-room",
@@ -279,68 +282,65 @@ const rooms: RoomData[] = [
     slug: "training-room",
     name: "Training Room",
     seo: {
-      en: { title: "Training Room – Innovation Campus Málaga", description: "Dedicated training room with classroom setup, projector, and all amenities for workshops and courses in Málaga." },
-      es: { title: "Sala de Formación – Innovation Campus Málaga", description: "Sala de formación dedicada con configuración de aula, proyector y todas las comodidades para talleres y cursos en Málaga." },
-      it: { title: "Sala Formazione – Innovation Campus Málaga", description: "Sala formazione dedicata con configurazione aula, proiettore e tutti i servizi per workshop e corsi a Málaga." },
+      en: { title: "Training Room – Innovation Campus Málaga", description: "Intimate training room for up to 6 people. Perfect for focused workshops, coaching sessions, and small team training in Málaga." },
+      es: { title: "Sala de Formación – Innovation Campus Málaga", description: "Sala de formación íntima para hasta 6 personas. Perfecta para talleres enfocados, sesiones de coaching y formación en equipo pequeño en Málaga." },
+      it: { title: "Sala Formazione – Innovation Campus Málaga", description: "Sala formazione intima per fino a 6 persone. Ideale per workshop focalizzati, sessioni di coaching e formazione in piccoli team a Málaga." },
     },
-    capacity: { en: "Up to 40 people", es: "Hasta 40 personas", it: "Fino a 40 persone" },
-    heroImage: getSrc(serviceMeeting),
-    photos: [getSrc(serviceMeeting), "/placeholder.svg", "/placeholder.svg"],
+    capacity: { en: "Up to 6 people", es: "Hasta 6 personas", it: "Fino a 6 persone" },
+    heroImage: trainingRoomPhotos[0] || getSrc(serviceMeeting),
+    photos: trainingRoomPhotos.length > 0 ? trainingRoomPhotos : [getSrc(serviceMeeting)],
     features: {
-      en: ["4K Projector", "Classroom Layout", "Whiteboard Wall", "Breakout Areas"],
-      es: ["Proyector 4K", "Disposición Aula", "Pared Pizarra", "Zonas de Descanso"],
-      it: ["Proiettore 4K", "Layout Aula", "Parete Lavagna", "Aree Breakout"],
+      en: ["Large Display", "Whiteboard", "Video Call Ready", "High-Speed WiFi"],
+      es: ["Pantalla Grande", "Pizarra", "Lista para Video", "WiFi Alta Velocidad"],
+      it: ["Display Grande", "Lavagna", "Video Call Ready", "WiFi Alta Velocità"],
     },
     description: {
-      en: "Our Training Room is purpose-built for educational sessions, professional development, and intensive workshops. The classroom-style layout ensures every participant has clear sightlines and desk space.",
-      es: "Nuestra Sala de Formación está diseñada específicamente para sesiones educativas, desarrollo profesional y talleres intensivos. La disposición estilo aula asegura que cada participante tenga visibilidad clara y espacio de escritorio.",
-      it: "La nostra Sala Formazione è progettata appositamente per sessioni educative, sviluppo professionale e workshop intensivi. Il layout stile aula garantisce che ogni partecipante abbia visibilità chiara e spazio scrivania.",
+      en: "A focused, intimate space for up to 6 people — ideal for hands-on training sessions, coaching, mentoring, and small team workshops. Everything is within reach: whiteboard, display, and reliable connectivity, in a room designed for concentration and real work.",
+      es: "Un espacio íntimo y concentrado para hasta 6 personas, ideal para sesiones de formación práctica, coaching, mentoría y talleres de equipo pequeño. Todo a mano: pizarra, pantalla y conectividad fiable, en una sala diseñada para la concentración y el trabajo real.",
+      it: "Uno spazio intimo e focalizzato per fino a 6 persone, ideale per sessioni di formazione pratica, coaching, mentoring e workshop in piccoli team. Tutto a portata di mano: lavagna, display e connettività affidabile, in una sala progettata per la concentrazione e il lavoro vero.",
     },
     useCases: {
-      en: ["Corporate training", "Professional workshops", "Certification courses", "Team building", "Hackathons"],
-      es: ["Formación corporativa", "Talleres profesionales", "Cursos de certificación", "Team building", "Hackathons"],
-      it: ["Formazione aziendale", "Workshop professionali", "Corsi di certificazione", "Team building", "Hackathon"],
+      en: ["Hands-on training", "Coaching & mentoring", "Small team workshops", "Onboarding sessions", "Skill intensives"],
+      es: ["Formación práctica", "Coaching y mentoría", "Talleres de equipo pequeño", "Sesiones de incorporación", "Intensivos de habilidades"],
+      it: ["Formazione pratica", "Coaching e mentoring", "Workshop in piccoli team", "Sessioni di onboarding", "Intensivi sulle competenze"],
     },
     amenities: {
-      en: ["High-Speed WiFi", "4K Projector", "Sound System", "Whiteboard Wall", "Climate Control", "Catering Available", "Breakout Area", "Secure Access"],
-      es: ["WiFi Alta Velocidad", "Proyector 4K", "Sistema de Sonido", "Pared Pizarra", "Climatización", "Catering Disponible", "Zona Descanso", "Acceso Seguro"],
-      it: ["WiFi Alta Velocità", "Proiettore 4K", "Sistema Audio", "Parete Lavagna", "Climatizzazione", "Catering Disponibile", "Area Breakout", "Accesso Sicuro"],
+      en: ["High-Speed WiFi", "Large Display", "Whiteboard", "Video Conferencing", "Climate Control", "Catering Available", "Secure Access"],
+      es: ["WiFi Alta Velocidad", "Pantalla Grande", "Pizarra", "Videoconferencia", "Climatización", "Catering Disponible", "Acceso Seguro"],
+      it: ["WiFi Alta Velocità", "Display Grande", "Lavagna", "Videoconferenza", "Climatizzazione", "Catering Disponibile", "Accesso Sicuro"],
     },
     facilitiesCategories: {
       en: [
-        { category: "AV & Technology", items: ["4K Projector", "Sound System", "Whiteboard Wall"] },
+        { category: "AV & Technology", items: ["Large Display", "Video Conferencing", "Whiteboard"] },
         { category: "Connectivity", items: ["High-Speed WiFi", "Power Outlets"] },
-        { category: "Comfort", items: ["Climate Control", "Breakout Area"] },
+        { category: "Comfort", items: ["Climate Control"] },
         { category: "Services", items: ["Catering Available", "Secure Access"] },
       ],
       es: [
-        { category: "AV y Tecnología", items: ["Proyector 4K", "Sistema de Sonido", "Pared Pizarra"] },
+        { category: "AV y Tecnología", items: ["Pantalla Grande", "Videoconferencia", "Pizarra"] },
         { category: "Conectividad", items: ["WiFi Alta Velocidad", "Enchufes"] },
-        { category: "Confort", items: ["Climatización", "Zona Descanso"] },
+        { category: "Confort", items: ["Climatización"] },
         { category: "Servicios", items: ["Catering Disponible", "Acceso Seguro"] },
       ],
       it: [
-        { category: "AV e Tecnologia", items: ["Proiettore 4K", "Sistema Audio", "Parete Lavagna"] },
+        { category: "AV e Tecnologia", items: ["Display Grande", "Videoconferenza", "Lavagna"] },
         { category: "Connettività", items: ["WiFi Alta Velocità", "Prese"] },
-        { category: "Comfort", items: ["Climatizzazione", "Area Breakout"] },
+        { category: "Comfort", items: ["Climatizzazione"] },
         { category: "Servizi", items: ["Catering Disponibile", "Accesso Sicuro"] },
       ],
     },
     layouts: {
       en: [
-        { name: "Classroom", capacity: 40, icon: "classroom" },
-        { name: "Theatre", capacity: 40, icon: "theatre" },
-        { name: "Boardroom", capacity: 20, icon: "boardroom" },
+        { name: "Boardroom", capacity: 6, icon: "boardroom" },
+        { name: "Classroom", capacity: 6, icon: "classroom" },
       ],
       es: [
-        { name: "Aula", capacity: 40, icon: "classroom" },
-        { name: "Teatro", capacity: 40, icon: "theatre" },
-        { name: "Mesa de Juntas", capacity: 20, icon: "boardroom" },
+        { name: "Mesa de Juntas", capacity: 6, icon: "boardroom" },
+        { name: "Aula", capacity: 6, icon: "classroom" },
       ],
       it: [
-        { name: "Aula", capacity: 40, icon: "classroom" },
-        { name: "Teatro", capacity: 40, icon: "theatre" },
-        { name: "Boardroom", capacity: 20, icon: "boardroom" },
+        { name: "Boardroom", capacity: 6, icon: "boardroom" },
+        { name: "Aula", capacity: 6, icon: "classroom" },
       ],
     },
   },
