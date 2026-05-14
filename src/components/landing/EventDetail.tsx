@@ -50,8 +50,9 @@ export default function EventDetail({ slug, lang = "en", leadUrl }: Props) {
   const [fullLeadUrl, setFullLeadUrl] = useState(leadUrl);
 
   useEffect(() => {
-    const qs = window.location.search;
-    if (qs) setFullLeadUrl(`${leadUrl}${qs}`);
+    const qs = new URLSearchParams(window.location.search);
+    qs.set("event_page", window.location.pathname);
+    setFullLeadUrl(`${leadUrl}?${qs.toString()}`);
   }, [leadUrl]);
 
   const event = eventsDataset.find(e => e.slug === slug);

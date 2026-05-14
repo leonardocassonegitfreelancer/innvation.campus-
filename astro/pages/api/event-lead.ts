@@ -16,8 +16,11 @@ export const GET: APIRoute = async ({ url }) => {
       const ping = new URL(appsScriptUrl);
       ping.searchParams.set("slug", slug);
       ping.searchParams.set("lang", lang);
-      ping.searchParams.set("page_url", url.toString());
       ping.searchParams.set("redirect_url", event.externalUrl);
+      const leadPage = url.searchParams.get("lead_page");
+      if (leadPage) ping.searchParams.set("lead_page", leadPage);
+      const eventPage = url.searchParams.get("event_page");
+      if (eventPage) ping.searchParams.set("event_page", eventPage);
       for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
         const v = url.searchParams.get(key);
         if (v) ping.searchParams.set(key, v);

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { eventsDataset } from "@/data/events";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 const ui = {
@@ -27,40 +26,22 @@ interface Props {
 
 export default function EventLeadThankYou({ slug, lang = "en" }: Props) {
   const t = ui[lang];
-  const event = eventsDataset.find(e => e.slug === slug);
-  const [destUrl, setDestUrl] = useState(event?.externalUrl ?? "/");
+  const [destUrl, setDestUrl] = useState(`/api/event-lead?slug=${slug}&lang=${lang}`);
 
   useEffect(() => {
-    if (!event?.externalUrl) return;
-
-    const params = new URLSearchParams(window.location.search);
-    const appsScriptUrl = import.meta.env.PUBLIC_APPS_SCRIPT_URL as string | undefined;
-
-    if (appsScriptUrl) {
-      try {
-        const ping = new URL(appsScriptUrl);
-        ping.searchParams.set("slug", slug);
-        ping.searchParams.set("lang", lang);
-        ping.searchParams.set("page_url", window.location.href);
-        for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
-          const v = params.get(key);
-          if (v) ping.searchParams.set(key, v);
-        }
-        navigator.sendBeacon(ping.toString());
-      } catch {
-        // malformed env var — skip silently
-      }
-    }
-
-    const dest = event.externalUrl;
-    setDestUrl(dest);
+    const qs = new URLSearchParams(window.location.search);
+    qs.set("slug", slug);
+    qs.set("lang", lang);
+    qs.set("lead_page", window.location.href);
+    const apiUrl = `/api/event-lead?${qs.toString()}`;
+    setDestUrl(apiUrl);
 
     const timer = setTimeout(() => {
-      window.location.href = dest;
+      window.location.href = apiUrl;
     }, 1800);
 
     return () => clearTimeout(timer);
-  }, [slug, lang, event]);
+  }, [slug, lang]);
 
   return (
     <main className="min-h-screen bg-background flex items-center justify-center px-6">

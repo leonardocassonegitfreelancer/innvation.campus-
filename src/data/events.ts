@@ -124,15 +124,15 @@ export const eventsDataset: EventData[] = [
     translations: {
       en: {
         title: "Practice Public Speaking — PowerTalks Málaga \"Open House\" at Toastmasters",
-        excerpt: "Join an open session of our Toastmasters club. Witness speeches, observe evaluations, and try impromptu speaking through Table Topics — free and open to all.",
+        excerpt: "Are you looking to enhance your public speaking and leadership skills?\n\nWe're excited to invite you to an Open Session of our Toastmasters Club!\n\nWhether you're a seasoned speaker or just starting out, Toastmasters is a fantastic opportunity to grow and learn in a friendly, supportive environment.\n\nDuring the session, you'll get a taste of what Toastmasters is all about:\n\n• Witnessing speeches by our current members\n• Observing constructive evaluations\n• Learning about impromptu speaking through Table Topics\n\nThis is a great chance not only to improve your communication and leadership abilities but also to meet like-minded individuals who are eager to learn and grow.\n\nFree and open to all.",
       },
       es: {
         title: "Practica la Oratoria — PowerTalks Málaga \"Open House\" en Toastmasters",
-        excerpt: "Únete a una sesión abierta de nuestro club Toastmasters. Observa discursos, evaluaciones constructivas y prueba el habla improvisada — gratis y abierto a todos.",
+        excerpt: "¿Quieres mejorar tus habilidades de oratoria y liderazgo?\n\n¡Te invitamos a una Sesión Abierta de nuestro Club Toastmasters!\n\nTanto si eres un orador experimentado como si estás empezando, Toastmasters es una oportunidad fantástica para crecer y aprender en un entorno amigable y de apoyo.\n\nDurante la sesión, descubrirás de qué trata Toastmasters:\n\n• Discursos de nuestros miembros actuales\n• Evaluaciones constructivas\n• Oratoria improvisada a través de Table Topics\n\nEs una gran oportunidad no solo para mejorar tus habilidades de comunicación y liderazgo, sino también para conocer a personas con ideas afines.\n\nGratis y abierto a todos.",
       },
       it: {
         title: "Allenati in Pubblico — PowerTalks Málaga \"Open House\" da Toastmasters",
-        excerpt: "Partecipa a una sessione aperta del nostro club Toastmasters. Assisti a discorsi, valutazioni costruttive e prova l'improvvisazione con i Table Topics — gratuito e aperto a tutti.",
+        excerpt: "Vuoi migliorare le tue capacità di public speaking e leadership?\n\nTi invitiamo a una Sessione Aperta del nostro Club Toastmasters!\n\nChe tu sia un oratore esperto o alle prime armi, Toastmasters è un'opportunità fantastica per crescere e imparare in un ambiente amichevole e di supporto.\n\nDurante la sessione, scoprirai di cosa si tratta Toastmasters:\n\n• Discorsi dei nostri membri attuali\n• Valutazioni costruttive\n• Improvvisazione con i Table Topics\n\nUn'ottima occasione per migliorare le tue capacità comunicative e di leadership e incontrare persone con interessi simili.\n\nGratuito e aperto a tutti.",
       },
     },
   },
