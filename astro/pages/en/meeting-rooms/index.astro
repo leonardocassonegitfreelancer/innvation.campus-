@@ -7,7 +7,7 @@ import ServicePhotoGrid from '../../../components/ServicePhotoGrid.astro';
 import QuoteSection from '../../../components/QuoteSection.astro';
 import ScrollAnimate from '../../../components/ScrollAnimate.astro';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
-import serviceMeeting from '@/assets/service-meeting.webp';
+import serviceMeeting from '@/assets/big-conference-room-01.webp';
 import serviceCoworking from '@/assets/service-coworking.webp';
 import servicePrivate from '@/assets/service-private.webp';
 import serviceCommunity from '@/assets/service-community.webp';
@@ -39,7 +39,7 @@ const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz'
     eyebrow="Also available at this location"
     title="Other Spaces & Services"
     items={[
-      { label: "Host Your Event", href: "/en/host-your-event", image: serviceCommunity },
+      { label: "Host Your Event", href: "/en/events", image: serviceCommunity },
       { label: "Private Terrace", href: "/en/private-terrace", image: serviceTerrace },
       { label: "Coworking Space", href: "/en/coworking-space", image: serviceCoworking },
       { label: "Private Offices", href: "/en/private-offices", image: servicePrivate },

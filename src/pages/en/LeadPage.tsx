@@ -1,5 +1,6 @@
 import LeadForm from "@/components/landing/LeadForm";
 import EventLeadCapture from "@/pages/en/EventLeadCapture";
+import EventCommunityLead from "@/pages/en/EventCommunityLead";
 
 const serviceMap: Record<string, string> = {
   "meeting-rooms": "conference",
@@ -47,11 +48,15 @@ export default function LeadPage({ lang = "en" }: { lang?: "en" | "es" | "it" })
   const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
   const spaceSlug = params.get("space") ?? "";
 
+  const serviceParam = params.get("service") ?? "general";
+
+  if (serviceParam === "event") {
+    return <EventCommunityLead lang={lang} />;
+  }
+
   if (spaceSlug) {
     return <EventLeadCapture lang={lang} />;
   }
-
-  const serviceParam = params.get("service") ?? "general";
   const defaultService = serviceMap[serviceParam] ?? "other";
   const hero = (heroContent[defaultService] ?? heroContent.other)[lang];
 
