@@ -1,0 +1,18 @@
+---
+export const prerender = true;
+
+import RoomPageLayout from '../../../../components/RoomPageLayout.astro';
+import EventLeadThankYou from '@/components/landing/EventLeadThankYou';
+import { eventsDataset } from '@/data/events';
+
+export function getStaticPaths() {
+  return eventsDataset.map(e => ({ params: { slug: e.slug } }));
+}
+
+const { slug } = Astro.params as { slug: string };
+const path = `/en/lead/event/${slug}`;
+---
+
+<RoomPageLayout title="You're being redirected…" description="" {path} lang="en">
+  <EventLeadThankYou {slug} lang="en" client:load />
+</RoomPageLayout>

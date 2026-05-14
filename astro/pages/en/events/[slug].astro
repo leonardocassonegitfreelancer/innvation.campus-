@@ -1,0 +1,24 @@
+---
+export const prerender = true;
+
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
+import EventDetail from '@/components/landing/EventDetail';
+import { eventsDataset } from '@/data/events';
+
+export function getStaticPaths() {
+  return eventsDataset.map(e => ({ params: { slug: e.slug } }));
+}
+
+const { slug } = Astro.params as { slug: string };
+const event = eventsDataset.find(e => e.slug === slug)!;
+const tr = event.translations.en;
+
+const title = `${tr.title} — Innovation Campus`;
+const description = tr.excerpt;
+const path = `/en/events/${slug}`;
+const leadUrl = `/en/lead/event/${slug}`;
+---
+
+<RoomPageLayout {title} {description} {path} lang="en">
+  <EventDetail {slug} lang="en" {leadUrl} client:load />
+</RoomPageLayout>
