@@ -2,7 +2,6 @@
 import ServicePageLayout from '../../../components/ServicePageLayout.astro';
 import ConferenceIntro from '@/components/landing/ConferenceIntro';
 import ConferenceRooms from '@/components/landing/ConferenceRooms';
-import ConferenceIncludes from '../../../components/ConferenceIncludes.astro';
 import ServicePhotoGrid from '../../../components/ServicePhotoGrid.astro';
 import ScrollAnimate from '../../../components/ScrollAnimate.astro';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
@@ -31,8 +30,6 @@ const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz'
 >
   <ConferenceIntro lang="en" client:load />
   <ConferenceRooms client:visible />
-  <ConferenceIncludes lang="en" />
-
   <ServicePhotoGrid
     eyebrow="Also available at this location"
     title="Other Spaces & Services"
