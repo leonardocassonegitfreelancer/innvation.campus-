@@ -114,27 +114,6 @@ export const spacesDataset: SpaceData[] = [
     }
   },
   {
-    slug: "malaga-palace",
-    image: palaceSkylight,
-    photos: [palaceSkylight, palaceCourtyard, palaceEntrance, palaceCatering],
-    maxGuests: 150,
-    location: "city",
-    eventTypes: ["networking", "party"],
-    size: "large",
-    baseRoute: "", // Root page e.g. /en/malaga-palace
-    translations: {
-      en: { label: "Premium", name: "Málaga Palace Courtyard", capacityText: "Up to 150 guests" },
-      es: { label: "Premium", name: "Patio Palacio Málaga", capacityText: "Hasta 150 personas" },
-      it: { label: "Premium", name: "Cortile Palazzo Málaga", capacityText: "Fino a 150 persone" },
-    },
-    amenities: {
-      en: ["Natural Skylight", "Catering Space", "Lounge Furniture", "Ambient Lighting", "Bar Setup"],
-      es: ["Claraboya Natural", "Espacio para Catering", "Mobiliario Lounge", "Iluminación Ambiental", "Zona de Bar"],
-      it: ["Lucernario Naturale", "Spazio Catering", "Arredo Lounge", "Illuminazione Ambientale", "Area Bar"],
-    }
-  },
-
-  {
     slug: "phone-booth",
     image: conferenceQuarterPicasso,
     photos: [conferenceQuarterPicasso, palaceSecondFloor, palaceCoffeeBar],
