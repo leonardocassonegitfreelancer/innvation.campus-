@@ -1,0 +1,54 @@
+---
+interface Item {
+  label: string;
+  href: string;
+  image: any; // ImageMetadata from Astro import
+  alt?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  items: Item[];
+}
+
+const { eyebrow, title, items } = Astro.props;
+
+const getSrc = (img: any): string =>
+  typeof img === 'string' ? img : img?.src ?? img ?? '';
+---
+<section class="py-20 md:py-28 bg-background">
+  <div class="max-w-6xl mx-auto px-6">
+    {eyebrow && (
+      <p class="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold text-center">
+        {eyebrow}
+      </p>
+    )}
+    <h2
+      class="text-3xl md:text-4xl font-bold text-foreground text-center mb-12"
+      style="font-family: 'Bebas Neue', sans-serif"
+    >
+      {title}
+    </h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {items.map((item) => (
+        <a
+          href={item.href}
+          class="rounded-xl overflow-hidden bg-card border border-border group hover:shadow-lg transition-shadow"
+        >
+          <div class="h-44 overflow-hidden">
+            <img
+              src={getSrc(item.image)}
+              alt={item.alt ?? item.label}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-4 flex items-center gap-3">
+            <span class="font-body text-sm font-medium text-foreground">{item.label}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

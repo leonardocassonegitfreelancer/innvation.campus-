@@ -3,10 +3,14 @@ import ServicePageLayout from '../../components/ServicePageLayout.astro';
 import ConferenceIntro from '@/components/landing/ConferenceIntro';
 import ConferenceRooms from '@/components/landing/ConferenceRooms';
 import ConferenceIncludes from '../../components/ConferenceIncludes.astro';
-import QuickLinksSection from '../../components/QuickLinksSection.astro';
+import ServicePhotoGrid from '../../components/ServicePhotoGrid.astro';
 import ScrollAnimate from '../../components/ScrollAnimate.astro';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 import serviceMeeting from '@/assets/service-meeting.webp';
+import serviceCoworking from '@/assets/service-coworking.webp';
+import servicePrivate from '@/assets/service-private.webp';
+import serviceCommunity from '@/assets/service-community.webp';
+import serviceTerrace from '@/assets/service-terrace.webp';
 
 const path = '/es/salas-de-reuniones';
 const title = 'Salas de Reuniones';
@@ -28,17 +32,17 @@ const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz'
   <ConferenceIntro lang="es" client:load />
   <ConferenceRooms lang="es" client:visible />
   <ConferenceIncludes lang="es" />
-  <QuickLinksSection
-    eyebrow="Explorar"
-    title="Otros espacios y servicios"
-    links={[
-      { label: "Organiza Tu Evento", description: "Alquiler de espacio privado para cualquier ocasión", href: "/es/organiza-tu-evento" },
-      { label: "Terraza Privada", description: "Terraza con vistas al mar", href: "/es/terraza-privada" },
-      { label: "Coworking", description: "Escritorios flexibles y membresías", href: "/es/coworking" },
-      { label: "Oficinas Privadas", description: "Oficinas dedicadas para tu equipo", href: "/es/oficinas-privadas" },
-      { label: "Málaga Palace", description: "Ubicación en el Centro Histórico", href: "/es/malaga-palace" },
-      { label: "Contacto", description: "Haz una pregunta o reserva una visita", href: "/es/contacto" },
+
+  <ServicePhotoGrid
+    eyebrow="También disponible en esta ubicación"
+    title="Otros Espacios y Servicios"
+    items={[
+      { label: "Organiza Tu Evento", href: "/es/organiza-tu-evento", image: serviceCommunity },
+      { label: "Terraza Privada", href: "/es/terraza-privada", image: serviceTerrace },
+      { label: "Coworking", href: "/es/coworking", image: serviceCoworking },
+      { label: "Oficinas Privadas", href: "/es/oficinas-privadas", image: servicePrivate },
     ]}
   />
+
   <ScrollAnimate />
 </ServicePageLayout>

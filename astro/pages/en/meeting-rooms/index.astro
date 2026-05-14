@@ -1,16 +1,16 @@
 ---
-/**
- * Meeting Rooms Index — Islands Architecture.
- * Selective hydration for interactive components.
- */
 import ServicePageLayout from '../../../components/ServicePageLayout.astro';
 import ConferenceIntro from '@/components/landing/ConferenceIntro';
 import ConferenceRooms from '@/components/landing/ConferenceRooms';
 import ConferenceIncludes from '../../../components/ConferenceIncludes.astro';
-import QuickLinksSection from '../../../components/QuickLinksSection.astro';
+import ServicePhotoGrid from '../../../components/ServicePhotoGrid.astro';
 import ScrollAnimate from '../../../components/ScrollAnimate.astro';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 import serviceMeeting from '@/assets/service-meeting.webp';
+import serviceCoworking from '@/assets/service-coworking.webp';
+import servicePrivate from '@/assets/service-private.webp';
+import serviceCommunity from '@/assets/service-community.webp';
+import serviceTerrace from '@/assets/service-terrace.webp';
 
 const path = '/en/meeting-rooms';
 const title = 'Meeting Rooms';
@@ -30,23 +30,17 @@ const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz'
   lang="en"
 >
   <ConferenceIntro lang="en" client:load />
-
-  <!-- Room list: interactive tabs/cards — hydrate when visible -->
   <ConferenceRooms client:visible />
-
-  <!-- Features: static — zero JS -->
   <ConferenceIncludes lang="en" />
 
-  <QuickLinksSection
-    eyebrow="Explore"
-    title="Other spaces & services"
-    links={[
-      { label: "Host Your Event", description: "Private venue hire for any occasion", href: "/en/host-your-event" },
-      { label: "Private Terrace", description: "Open-air sea-view terrace", href: "/en/private-terrace" },
-      { label: "Coworking Space", description: "Flexible desks & memberships", href: "/en/coworking-space" },
-      { label: "Private Offices", description: "Dedicated offices for your team", href: "/en/private-offices" },
-      { label: "Málaga Palace", description: "Historic Center location", href: "/en/malaga-palace" },
-      { label: "Contact Us", description: "Ask a question or book a visit", href: "/en/contact" },
+  <ServicePhotoGrid
+    eyebrow="Also available at this location"
+    title="Other Spaces & Services"
+    items={[
+      { label: "Host Your Event", href: "/en/host-your-event", image: serviceCommunity },
+      { label: "Private Terrace", href: "/en/private-terrace", image: serviceTerrace },
+      { label: "Coworking Space", href: "/en/coworking-space", image: serviceCoworking },
+      { label: "Private Offices", href: "/en/private-offices", image: servicePrivate },
     ]}
   />
 
