@@ -1,0 +1,43 @@
+---
+interface Link {
+  label: string;
+  href: string;
+  description?: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  links: Link[];
+}
+
+const { eyebrow, title, links } = Astro.props;
+---
+<section class="py-16 md:py-20 bg-neutral-50 border-t border-neutral-200">
+  <div class="max-w-6xl mx-auto px-6">
+    {eyebrow && (
+      <p class="font-body text-xs uppercase tracking-[0.4em] text-primary mb-3">{eyebrow}</p>
+    )}
+    <h2
+      class="text-3xl md:text-4xl font-medium uppercase text-neutral-900 mb-10"
+      style="font-family: 'Bebas Neue', sans-serif"
+    >
+      {title}
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="group flex flex-col gap-1 bg-white border border-neutral-200 rounded-xl px-5 py-4 hover:border-primary hover:shadow-md transition-all duration-200"
+        >
+          <span class="font-body font-semibold text-sm text-neutral-900 group-hover:text-primary transition-colors">
+            {link.label}
+          </span>
+          {link.description && (
+            <span class="font-body text-xs text-neutral-500">{link.description}</span>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

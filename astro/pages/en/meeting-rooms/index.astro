@@ -8,7 +8,7 @@ import ConferenceIntro from '@/components/landing/ConferenceIntro';
 import ConferenceRooms from '@/components/landing/ConferenceRooms';
 import ConferenceIncludes from '../../../components/ConferenceIncludes.astro';
 import ConferenceGallery from '@/components/landing/ConferenceGallery';
-import ConferenceCTA from '@/components/landing/ConferenceCTA';
+import QuickLinksSection from '../../../components/QuickLinksSection.astro';
 import ScrollAnimate from '../../../components/ScrollAnimate.astro';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 import serviceMeeting from '@/assets/service-meeting.webp';
@@ -41,8 +41,18 @@ const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz'
   <!-- Gallery: interactive carousel — hydrate when visible -->
   <ConferenceGallery client:visible />
 
-  <!-- Contact: complex form — hydrate when visible -->
-  <ConferenceCTA lang="en" client:visible />
+  <QuickLinksSection
+    eyebrow="Explore"
+    title="Other spaces & services"
+    links={[
+      { label: "Host Your Event", description: "Private venue hire for any occasion", href: "/en/host-your-event" },
+      { label: "Private Terrace", description: "Open-air sea-view terrace", href: "/en/private-terrace" },
+      { label: "Coworking Space", description: "Flexible desks & memberships", href: "/en/coworking-space" },
+      { label: "Private Offices", description: "Dedicated offices for your team", href: "/en/private-offices" },
+      { label: "Málaga Palace", description: "Historic Center location", href: "/en/malaga-palace" },
+      { label: "Contact Us", description: "Ask a question or book a visit", href: "/en/contact" },
+    ]}
+  />
 
   <ScrollAnimate />
 </ServicePageLayout>
