@@ -5,35 +5,61 @@
  */
 interface Props {
   lang?: 'en' | 'es' | 'it';
+  variant?: 'default' | 'meeting';
 }
 
-const { lang = 'en' } = Astro.props;
+const { lang = 'en', variant = 'default' } = Astro.props;
 
 const content = {
-  en: {
-    line1: "The place where you sit",
-    line2: "changes ",
-    line2Bold: "what",
-    line2Suffix: " you think.",
-    line3: "Choose your world."
+  default: {
+    en: {
+      line1: "The place where you sit",
+      line2: "changes ",
+      line2Bold: "what",
+      line2Suffix: " you think.",
+      line3: "Choose your world."
+    },
+    es: {
+      line1: "El lugar donde te sientas",
+      line2: "cambia ",
+      line2Bold: "lo que",
+      line2Suffix: " piensas.",
+      line3: "Elige tu mundo."
+    },
+    it: {
+      line1: "Il posto in cui ti siedi",
+      line2: "cambia ",
+      line2Bold: "quello che",
+      line2Suffix: " pensi.",
+      line3: "Scegli il tuo mondo."
+    }
   },
-  es: {
-    line1: "El lugar donde te sientas",
-    line2: "cambia ",
-    line2Bold: "lo que",
-    line2Suffix: " piensas.",
-    line3: "Elige tu mundo."
-  },
-  it: {
-    line1: "Il posto in cui ti siedi",
-    line2: "cambia ",
-    line2Bold: "quello che",
-    line2Suffix: " pensi.",
-    line3: "Scegli il tuo mondo."
+  meeting: {
+    en: {
+      line1: "The best decisions",
+      line2: "are made in the ",
+      line2Bold: "right room",
+      line2Suffix: ".",
+      line3: ""
+    },
+    es: {
+      line1: "Las mejores decisiones",
+      line2: "se toman en el ",
+      line2Bold: "lugar correcto",
+      line2Suffix: ".",
+      line3: ""
+    },
+    it: {
+      line1: "Le migliori decisioni",
+      line2: "si prendono nella ",
+      line2Bold: "sala giusta",
+      line2Suffix: ".",
+      line3: ""
+    }
   }
 };
 
-const t = content[lang];
+const t = content[variant][lang];
 ---
 <section class="relative py-14 md:py-28 bg-neutral-dark overflow-hidden">
   <!-- Subtle texture -->
@@ -45,8 +71,7 @@ const t = content[lang];
         {t.line1}
         <br />
         {t.line2}<span class="text-primary not-italic font-bold">{t.line2Bold}</span>{t.line2Suffix}
-        <br />
-        {t.line3}
+        {t.line3 && <><br />{t.line3}</>}
       </blockquote>
     </div>
   </div>
