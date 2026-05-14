@@ -12,8 +12,8 @@ const tagColors: Record<EventTag, string> = {
   other:      "bg-gray-500",
 };
 
-function getEventHref(lang: "en" | "it" | "es", slug: string): string {
-  return `/${lang}/lead?service=event&space=${slug}`;
+function getEventHref(slug: string): string {
+  return `/api/event-redirect?slug=${slug}`;
 }
 
 const ui = {
@@ -216,7 +216,7 @@ export default function EventsHub({ lang = "en" }: { lang?: "en" | "es" | "it" }
                                 {event.location}
                               </div>
                               <a
-                                href={getEventHref(lang, event.slug)}
+                                href={getEventHref(event.slug)}
                                 className="inline-flex items-center gap-1.5 font-body font-bold text-sm text-primary border-b border-primary pb-0.5 hover:opacity-75 transition-opacity"
                               >
                                 {t.register} <ArrowRight className="w-3.5 h-3.5" />
