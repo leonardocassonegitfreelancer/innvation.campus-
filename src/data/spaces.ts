@@ -39,7 +39,7 @@ export interface SpaceData {
   maxGuests: number;
   location: LocationType;
   eventTypes: EventType[];
-  size: "large" | "small";
+  size: "large" | "medium" | "small";
   baseRoute: string; // The base folder route independent of lang, e.g. "/meeting-rooms" or ""
   translations: {
     en: SpaceTranslation;
@@ -82,7 +82,7 @@ export const spacesDataset: SpaceData[] = [
     maxGuests: 50,
     location: "city",
     eventTypes: ["conference", "workshop"],
-    size: "small",
+    size: "medium",
     baseRoute: "meeting-rooms",
     translations: {
       en: { label: "Conference", name: "Large Conference Room", capacityText: "Up to 50 people" },
