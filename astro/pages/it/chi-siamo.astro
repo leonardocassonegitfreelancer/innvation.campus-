@@ -1,20 +1,25 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '@/components/landing/Navbar';
-import Footer from '../../components/Footer.astro';
-import AboutUsPage from '@/pages/en/AboutUs';
-import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+import ServicePageLayout from '../../components/ServicePageLayout.astro';
+import AboutUs from '@/pages/en/AboutUs';
+import aboutCampus from '@/assets/palace-outside-front.webp';
+import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 
 const path = '/it/chi-siamo';
 const title = 'Chi Siamo';
 const description = 'Innovation Campus crea spazi di lavoro ispiranti e coltiva comunità imprenditoriali internazionali in Spagna e Italia.';
+const alternates = getAlternateLinks(path);
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
 
-<Layout {title} {description} {path} {breadcrumb}>
-  <div class="overflow-x-hidden">
-    <Navbar lang="it" client:load />
-    <AboutUsPage lang="it" client:load />
-    <Footer lang="it" />
-  </div>
-</Layout>
+<ServicePageLayout
+  {title}
+  {description}
+  {path}
+  {alternates}
+  {breadcrumb}
+  subtitle="Spazi ispiratori. Comunità internazionale. Impatto reale."
+  image={aboutCampus}
+  lang="it"
+>
+  <AboutUs lang="it" client:load />
+</ServicePageLayout>

@@ -1,19 +1,12 @@
-import Navbar from "@/components/landing/Navbar";
-import Footer from "@/components/landing/Footer";
-import SEOHead from "@/components/SEOHead";
-import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-import aboutCampus from "@/assets/about-campus.webp";
-import palaceCatering from "@/assets/palace-catering.webp";
-import serviceCoworking from "@/assets/service-coworking.webp";
+import palaceCourtyard from "@/assets/palace-courtyard.webp";
+import palaceCoworking from "@/assets/palace-coworking.webp";
+import terraceCommunity from "@/assets/terrace-community.webp";
+import historicExterior from "@/assets/historic-exterior.webp";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 const translations = {
   en: {
-    back: "Back to Home",
-    title: "About Us",
-    subtitle: "Inspiring workspaces. International community. Real impact.",
     mission: {
       eyebrow: "Our Mission",
       title: "Where ambition meets the right environment",
@@ -22,9 +15,9 @@ const translations = {
     },
     stats: [
       { value: "2", label: "Countries" },
-      { value: "3", label: "Cities" },
-      { value: "3,200+", label: "Square Metres" },
       { value: "4", label: "Locations" },
+      { value: "3,200+", label: "Square Metres" },
+      { value: "500+", label: "Members" },
     ],
     offer: {
       eyebrow: "What We Do",
@@ -44,24 +37,21 @@ const translations = {
         { city: "Málaga", country: "Spain", venues: [{ label: "Málaga Palace", href: "/en/malaga-palace" }, { label: "Málaga Terrace", href: "/en/malaga-terrace" }] },
         { city: "Ancona", country: "Italy", venues: [{ label: "Innovation Campus Ancona", href: "/en/ancona" }] },
         { city: "Olbia", country: "Italy", venues: [{ label: "Innovation Campus Olbia", href: "/en/olbia" }] },
-      ]
-    }
+      ],
+    },
   },
   es: {
-    back: "Volver al inicio",
-    title: "Sobre Nosotros",
-    subtitle: "Espacios inspiradores. Comunidad internacional. Impacto real.",
     mission: {
       eyebrow: "Nuestra Misión",
       title: "Donde la ambición encuentra el entorno adecuado",
       p1: "Innovation Campus ofrece a empresas, startups y emprendedores espacios de trabajo profesionales y elegantes, un servicio excelente y la oportunidad de formar parte de una próspera comunidad empresarial.",
-      p2: "Operamos en ciudades de tamaño medio che ofrecen el equilibrio adecuado entre éxito empresarial y calidad de vida, lugares donde las grandes ideas pueden crecer sin el ruido de una megalópolis.",
+      p2: "Operamos en ciudades de tamaño medio que ofrecen el equilibrio adecuado entre éxito empresarial y calidad de vida — lugares donde las grandes ideas pueden crecer sin el ruido de una megalópolis.",
     },
     stats: [
       { value: "2", label: "Países" },
-      { value: "3", label: "Ciudades" },
-      { value: "3.200+", label: "Metros Cuadrados" },
       { value: "4", label: "Ubicaciones" },
+      { value: "3.200+", label: "Metros Cuadrados" },
+      { value: "500+", label: "Miembros" },
     ],
     offer: {
       eyebrow: "Qué Hacemos",
@@ -81,13 +71,10 @@ const translations = {
         { city: "Málaga", country: "España", venues: [{ label: "Málaga Palace", href: "/es/malaga-palace" }, { label: "Málaga Terrace", href: "/es/malaga-terrace" }] },
         { city: "Ancona", country: "Italia", venues: [{ label: "Innovation Campus Ancona", href: "/es/ancona" }] },
         { city: "Olbia", country: "Italia", venues: [{ label: "Innovation Campus Olbia", href: "/es/olbia" }] },
-      ]
-    }
+      ],
+    },
   },
   it: {
-    back: "Torna alla Home",
-    title: "Chi Siamo",
-    subtitle: "Spazi di lavoro ispiratori. Comunità internazionale. Impatto reale.",
     mission: {
       eyebrow: "La Nostra Missione",
       title: "Dove l'ambizione incontra l'ambiente giusto",
@@ -96,9 +83,9 @@ const translations = {
     },
     stats: [
       { value: "2", label: "Paesi" },
-      { value: "3", label: "Città" },
-      { value: "3.200+", label: "Metri Quadrati" },
       { value: "4", label: "Location" },
+      { value: "3.200+", label: "Metri Quadrati" },
+      { value: "500+", label: "Membri" },
     ],
     offer: {
       eyebrow: "Cosa Facciamo",
@@ -118,86 +105,104 @@ const translations = {
         { city: "Málaga", country: "Spagna", venues: [{ label: "Málaga Palace", href: "/it/malaga-palace" }, { label: "Málaga Terrace", href: "/it/malaga-terrace" }] },
         { city: "Ancona", country: "Italia", venues: [{ label: "Innovation Campus Ancona", href: "/it/ancona" }] },
         { city: "Olbia", country: "Italia", venues: [{ label: "Innovation Campus Olbia", href: "/it/olbia" }] },
-      ]
-    }
-  }
+      ],
+    },
+  },
 };
 
 export default function AboutUs({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const t = translations[lang];
 
   return (
-    <main className="overflow-x-hidden">
-      {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-end">
-        <img src={_s(aboutCampus)} alt="Innovation Campus" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
-          <a href={lang === "en" ? "/" : `/${lang}`} className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
-            <ArrowLeft className="w-4 h-4" /> {t.back}
-          </a>
-          <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground">{t.title}</h1>
-          <p className="font-body text-lg md:text-xl text-primary-foreground/70 mt-3 max-w-2xl">
-            {t.subtitle}
-          </p>
-        </div>
-      </section>
-
-      {/* Mission */}
-      <section className="py-20 bg-background">
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <>
+      {/* Mission — editorial split */}
+      <section className="py-24 md:py-36 bg-background">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div>
-            <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">{t.mission.eyebrow}</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
+            <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-6 font-semibold">
+              {t.mission.eyebrow}
+            </p>
+            <h2 className="font-display italic text-4xl md:text-5xl lg:text-6xl font-medium text-foreground mb-8 leading-tight">
               {t.mission.title}
             </h2>
-            <p className="font-body text-foreground/70 text-lg leading-relaxed mb-4">
-              {t.mission.p1}
-            </p>
-            <p className="font-body text-foreground/70 text-lg leading-relaxed">
-              {t.mission.p2}
-            </p>
+            <div className="space-y-5 border-l-2 border-primary/20 pl-6">
+              <p className="font-body text-lg text-foreground/70 leading-relaxed">
+                {t.mission.p1}
+              </p>
+              <p className="font-body text-lg text-foreground/70 leading-relaxed">
+                {t.mission.p2}
+              </p>
+            </div>
           </div>
-          <img
-            src={_s(serviceCoworking)}
-            alt="Coworking at Innovation Campus"
-            className="w-full h-80 object-cover rounded-2xl"
-          />
+          <div className="relative">
+            <img
+              src={_s(palaceCourtyard)}
+              alt="Innovation Campus"
+              className="w-full h-[500px] lg:h-[620px] object-cover rounded-2xl"
+            />
+            <img
+              src={_s(palaceCoworking)}
+              alt="Coworking"
+              className="absolute -bottom-8 -left-8 w-48 h-36 object-cover rounded-xl shadow-2xl border-4 border-background hidden lg:block"
+            />
+          </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-16 bg-neutral-dark">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {/* Stats — dark band */}
+      <section className="py-20 bg-neutral-dark">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             {t.stats.map((stat) => (
               <div key={stat.label}>
-                <p className="font-display text-4xl md:text-5xl font-bold text-primary mb-2">{stat.value}</p>
-                <p className="font-body text-sm uppercase tracking-widest text-primary-foreground/60">{stat.label}</p>
+                <p className="font-display text-5xl md:text-7xl font-light text-primary mb-3 tracking-tight">
+                  {stat.value}
+                </p>
+                <p className="font-body text-xs uppercase tracking-[0.25em] text-white/40">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Photo strip */}
+      <section className="grid grid-cols-2 h-[40vh] md:h-[55vh]">
+        <div className="relative overflow-hidden">
+          <img src={_s(historicExterior)} alt="Historic campus" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-neutral-dark/30" />
+        </div>
+        <div className="relative overflow-hidden">
+          <img src={_s(terraceCommunity)} alt="Community" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-neutral-dark/20" />
+        </div>
+      </section>
+
       {/* What we offer */}
-      <section className="py-20 bg-background">
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <img
-            src={_s(palaceCatering)}
-            alt="Innovation Campus events"
-            className="w-full h-80 object-cover rounded-2xl order-last lg:order-first"
-          />
+      <section className="py-24 md:py-36 bg-background">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="order-last lg:order-first">
+            <img
+              src={_s(terraceCommunity)}
+              alt="Community events"
+              className="w-full h-[480px] object-cover rounded-2xl"
+            />
+          </div>
           <div>
-            <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">{t.offer.eyebrow}</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
+            <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-6 font-semibold">
+              {t.offer.eyebrow}
+            </p>
+            <h2 className="font-display italic text-4xl md:text-5xl font-medium text-foreground mb-10 leading-tight">
               {t.offer.title}
             </h2>
-            <ul className="space-y-4">
+            <ul className="space-y-5">
               {t.offer.list.map((item) => (
-                <li key={item} className="flex items-start gap-3 font-body text-foreground/70">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0" />
-                  {item}
+                <li key={item} className="flex items-start gap-4 group">
+                  <span className="w-5 h-5 rounded-full border border-primary/40 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/10 transition-colors">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  </span>
+                  <span className="font-body text-base text-foreground/75 leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
@@ -206,25 +211,43 @@ export default function AboutUs({ lang = "en" }: { lang?: "en" | "es" | "it" }) 
       </section>
 
       {/* Locations */}
-      <section className="py-16 bg-muted/30 border-t border-border">
-        <div className="max-w-5xl mx-auto px-6 text-center mb-12">
-          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">{t.locations.eyebrow}</p>
-          <h2 className="font-display text-3xl font-bold text-foreground">{t.locations.title}</h2>
-        </div>
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {t.locations.list.map((loc) => (
-            <div key={loc.city} className="bg-background border border-border rounded-2xl p-6">
-              <p className="font-body text-xs uppercase tracking-widest text-muted-foreground mb-1">{loc.country}</p>
-              <h3 className="font-display text-xl font-bold text-foreground mb-3">{loc.city}</h3>
-              {loc.venues.map((v) => (
-                <a key={v.href} href={v.href} className="block font-body text-sm text-primary hover:underline">
-                  {v.label} →
-                </a>
-              ))}
-            </div>
-          ))}
+      <section className="py-24 bg-neutral-dark">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
+              {t.locations.eyebrow}
+            </p>
+            <h2 className="font-display italic text-4xl md:text-5xl font-medium text-primary-foreground">
+              {t.locations.title}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10">
+            {t.locations.list.map((loc) => (
+              <div key={loc.city} className="bg-neutral-dark p-10 flex flex-col gap-6">
+                <div>
+                  <p className="font-body text-xs uppercase tracking-[0.25em] text-white/30 mb-2">
+                    {loc.country}
+                  </p>
+                  <h3 className="font-display italic text-3xl font-medium text-primary-foreground">
+                    {loc.city}
+                  </h3>
+                </div>
+                <div className="space-y-2 mt-auto">
+                  {loc.venues.map((v) => (
+                    <a
+                      key={v.href}
+                      href={v.href}
+                      className="block font-body text-sm text-white/50 hover:text-primary transition-colors duration-200"
+                    >
+                      {v.label} →
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }
