@@ -1,77 +1,161 @@
 # Innovation Campus
 
-> Premium coworking spaces, meeting rooms, and event venues in Málaga (Spain), Ancona, and Olbia (Italy).
+> Premium coworking spaces, private offices, meeting rooms, and event venues in Málaga (Spain), Ancona and Olbia (Italy). Flexible terms, outstanding service, international entrepreneurial community.
 
-Innovation Campus provides flexible workspaces for professionals, startups, and companies. Our locations offer coworking desks, private offices, state-of-the-art meeting rooms, and event spaces for up to 80 people.
+Innovation Campus is a boutique workspace operator for companies, startups, freelancers, and entrepreneurs who want more than a desk — a full professional environment with concierge-level service, a curated community, and prime locations in mid-size European cities.
+
+---
+
+## Who we are
+
+Innovation Campus was founded to serve a growing class of mobile professionals and international businesses looking for inspiring, well-equipped workspaces outside the major European capitals. We operate in cities that combine high quality of life with a thriving startup and business ecosystem: Málaga, Ancona, and Olbia.
+
+Our spaces are not generic co-working chains. Each location has a distinctive character — a restored historic palace in Málaga's old town, a bright sea-view building steps from the Mediterranean, a dedicated hub in the heart of Ancona, and an emerging innovation center in Olbia, Sardinia.
+
+---
 
 ## Locations
 
-- **Málaga Palace** — Historic Center, Málaga, Spain. Full-service coworking with multiple conference rooms and a rooftop terrace.
-- **Málaga Terrace** — Seaside, Málaga, Spain. Coworking space with sea views and terrace.
-- **Ancona** — Ancona, Italy. Coworking and meeting rooms.
-- **Olbia** — Olbia, Sardinia, Italy. Coworking and event spaces.
+### Málaga Palace — Historic Center, Málaga, Spain
+Our flagship location inside a restored 19th-century palace in Málaga's historic center. Spread across 4 floors with a rooftop terrace, offering coworking, private offices, five meeting rooms, and event spaces for up to 80 people.
+- Address: Centro Histórico, Málaga, Spain
+- EN: https://innovationcampus.biz/en/malaga-palace
+- ES: https://innovationcampus.biz/es/malaga-palace
+- IT: https://innovationcampus.biz/it/malaga-palace
 
-## Services
+### Málaga Terrace — Seaside, Málaga, Spain
+A modern workspace with panoramic sea views on the Málaga seafront. Coworking desks, private offices from 1 to 20 people, and a private rooftop terrace.
+- EN: https://innovationcampus.biz/en/malaga-terrace
+- ES: https://innovationcampus.biz/es/malaga-terrace
+- IT: https://innovationcampus.biz/it/malaga-terrace
 
-### Coworking
-Flexible hot desks and dedicated desks. Daily, weekly, and monthly memberships available.
+### Innovation Campus Ancona — Ancona, Italy
+Coworking, private offices, and meeting rooms in the center of Ancona, capital of the Marche region.
+- EN: https://innovationcampus.biz/en/ancona
+- ES: https://innovationcampus.biz/es/ancona
+- IT: https://innovationcampus.biz/it/ancona
+
+### Innovation Campus Olbia — Olbia, Sardinia, Italy
+Workspace and event spaces in Olbia, one of Sardinia's fastest-growing business hubs. Ideal for teams visiting Sardinia or companies with local presence.
+- EN: https://innovationcampus.biz/en/olbia
+- ES: https://innovationcampus.biz/es/olbia
+- IT: https://innovationcampus.biz/it/olbia
+
+---
+
+## Services & Products
+
+### Coworking Space
+Hot desks and dedicated desks available daily, weekly, and monthly. Access to shared amenities: reception service, high-speed WiFi, printing, coffee bar, and community events.
+- Best for: freelancers, remote workers, digital nomads, visiting professionals
+- Locations: Málaga Palace, Málaga Terrace, Ancona, Olbia
 - EN: https://innovationcampus.biz/en/coworking-space
 - ES: https://innovationcampus.biz/es/coworking
 - IT: https://innovationcampus.biz/it/coworking
 
-### Meeting Rooms
-Five conference rooms at Málaga Palace, all equipped with 4K displays and video conferencing.
-- **Big Conference Room** — Up to 80 people, 85" 4K display, premium A/V
-- **Large Conference Room** — Up to 50 people, 55" 4K display, boardroom setup
-- **Quarter Conference Room** — Up to 30 people, 43" display, intimate setting
-- **Training Room** — Up to 40 people, 4K projector, classroom layout
-- **Phone Booth** — 1–2 people, soundproofed, video call ready
-
-Meeting rooms overview:
-- EN: https://innovationcampus.biz/en/meeting-rooms
-- ES: https://innovationcampus.biz/es/salas-de-reuniones
-- IT: https://innovationcampus.biz/it/sale-riunioni
-
-Individual room pages:
-- https://innovationcampus.biz/en/meeting-rooms/big-conference-room
-- https://innovationcampus.biz/en/meeting-rooms/large-conference-room
-- https://innovationcampus.biz/en/meeting-rooms/quarter-conference-room
-- https://innovationcampus.biz/en/meeting-rooms/training-room
-- https://innovationcampus.biz/en/meeting-rooms/phone-booth
-
 ### Private Offices
-Dedicated private office suites for teams.
+Fully enclosed private office suites for teams of 1 to 20+ people. Available on flexible monthly rolling contracts with no long-term commitment. Includes reception, cleaning, smart keyless access, and multi-location access.
+- Sizes available: small (1–3 people), medium (4–8 people), large (9–20 people)
+- Locations: Málaga Palace, Málaga Terrace
 - EN: https://innovationcampus.biz/en/private-offices
 - ES: https://innovationcampus.biz/es/oficinas-privadas
 - IT: https://innovationcampus.biz/it/uffici-privati
 
-### Events & Venue Hire
-Host corporate events, workshops, conferences, and team retreats. Capacity up to 80 people.
+### Meeting Rooms
+Five professional conference rooms at Málaga Palace, all equipped with 4K displays and video conferencing. Available for half-day or full-day hire.
+- **Big Conference Room** — Up to 80 people. 85" 4K display, premium A/V system, flexible layout. Best for large team meetings, workshops, presentations.
+- **Large Conference Room** — Up to 50 people. 55" 4K display, boardroom setup. Best for board meetings, client presentations.
+- **Quarter Conference Room** — Up to 30 people. 43" display, intimate boardroom. Best for team meetings, interviews, small workshops.
+- **Training Room** — Up to 40 people. 4K projector, classroom layout, whiteboards. Best for training sessions, courses, seminars.
+- **Phone Booth** — 1–2 people. Soundproofed pod, video call ready. Best for private calls, focus work.
+- EN: https://innovationcampus.biz/en/meeting-rooms
+- ES: https://innovationcampus.biz/es/salas-de-reuniones
+- IT: https://innovationcampus.biz/it/sale-riunioni
+
+### Event Venue Hire
+Host corporate events, product launches, networking nights, workshops, conferences, and team retreats at our Málaga Palace location. Catering available. Capacity up to 80 people.
 - EN: https://innovationcampus.biz/en/host-your-event
 - ES: https://innovationcampus.biz/es/organiza-tu-evento
 - IT: https://innovationcampus.biz/it/organizza-evento
 
 ### Private Terrace
-Exclusive rooftop terrace for events and meetings.
+Exclusive rooftop terrace at Málaga Palace for outdoor events, cocktail receptions, and private meetings. Unique setting in Málaga's historic center.
 - EN: https://innovationcampus.biz/en/private-terrace
+- ES: https://innovationcampus.biz/es/terraza-privada
+- IT: https://innovationcampus.biz/it/terrazza-privata
 
 ### Business Registration
-Register your company address at Innovation Campus.
+Register your company's legal address at Innovation Campus. Ideal for international companies establishing a presence in Spain or Italy without a physical office.
 - EN: https://innovationcampus.biz/en/business-registration
+- ES: https://innovationcampus.biz/es/registro-de-empresas
+- IT: https://innovationcampus.biz/it/registrazione-aziendale
 
 ### Academy
-Training programs and workshops.
+Training programs, workshops, and professional development courses for entrepreneurs and teams. Topics include business development, digital skills, leadership, and startup growth.
 - EN: https://innovationcampus.biz/en/academy
+- ES: https://innovationcampus.biz/es/academia
+- IT: https://innovationcampus.biz/it/academy
+
+### Member Perks & Benefits
+Exclusive discounts and perks for Innovation Campus members — from local businesses, travel, software, and professional services.
+- EN: https://innovationcampus.biz/en/benefits
+- ES: https://innovationcampus.biz/es/beneficios
+- IT: https://innovationcampus.biz/it/vantaggi
+
+### Community Events
+Regular networking events, talks, meetups, and social gatherings organized by and for the Innovation Campus community.
+- EN: https://innovationcampus.biz/en/events
+- ES: https://innovationcampus.biz/es/eventos
+- IT: https://innovationcampus.biz/it/eventi
+
+---
+
+## Key differentiators
+
+- **Location quality**: historic palace and seafront building in Málaga — not generic business parks
+- **Flexible contracts**: monthly rolling terms, no long-term lock-in
+- **Full-service**: reception, cleaning, 24/7 keyless access, app, multi-location access included
+- **International community**: members from across Europe and beyond — startups, agencies, remote teams, entrepreneurs
+- **Mid-size cities**: Málaga, Ancona, and Olbia offer quality of life that major capitals can't match, at competitive costs
+- **Event capability**: one of Málaga's few coworking spaces that can host events for 80+ people
+
+---
+
+## Target audience
+
+- **Freelancers & remote workers** looking for a professional environment in Spain or Italy
+- **Startups & scale-ups** needing flexible private offices without long leases
+- **International companies** establishing a Spanish or Italian presence (business registration + office)
+- **Event organizers** looking for a unique venue in Málaga
+- **Visiting teams** needing a temporary base for project work or client meetings
+- **Local businesses** needing professional meeting rooms on demand
+
+---
 
 ## Contact
 
-- General: info@innovationcampus.biz
-- Book a visit: https://members.innovationcampus.biz/tours/locations
+- Website: https://innovationcampus.biz
+- Email: info@innovationcampus.biz
+- Book a visit or tour: https://members.innovationcampus.biz/tours/locations
+- Málaga Palace: +34 671 44 12 88
+- Málaga Terrace: +34 676 94 39 78
+- Ancona / Olbia: +39 338 335 5908
+
+---
 
 ## Key pages
 
 - Home (EN): https://innovationcampus.biz/
 - Home (ES): https://innovationcampus.biz/es
 - Home (IT): https://innovationcampus.biz/it
-- Find us (EN): https://innovationcampus.biz/en/find-us
-- Blog (EN): https://innovationcampus.biz/blog
+- About Us: https://innovationcampus.biz/en/about-us
+- Contact: https://innovationcampus.biz/en/contact
+- Gallery: https://innovationcampus.biz/en/gallery
+- Blog: https://innovationcampus.biz/en/blog
+- Find us: https://innovationcampus.biz/en/find-us
+
+---
+
+## Languages
+
+This website is available in English, Spanish, and Italian. All service and location pages exist in all three languages with localized URLs.
