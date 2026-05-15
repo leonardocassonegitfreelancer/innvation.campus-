@@ -206,7 +206,7 @@ export default function EventsHub({ lang = "en" }: { lang?: "en" | "es" | "it" }
     <main className="overflow-x-hidden min-h-screen bg-background">
 
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[360px] flex items-end">
+      <section className="relative h-[68vh] min-h-[480px] flex items-end">
         <img src={_s(serviceCommunity)} alt={t.title} className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
