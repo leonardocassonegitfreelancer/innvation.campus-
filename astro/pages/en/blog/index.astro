@@ -1,7 +1,5 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import Navbar from '@/components/landing/Navbar';
-import Footer from '../../../components/Footer.astro';
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
 import Blog from '@/pages/en/Blog';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 
@@ -11,10 +9,6 @@ const description = 'Insights on coworking, remote work, and building your busin
 const alternates = getAlternateLinks(path);
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
-<Layout {title} {description} {path} {alternates} {breadcrumb}>
-  <div class="overflow-x-hidden">
-    <Navbar lang="en" client:load />
-    <Blog client:load />
-    <Footer lang="en" />
-  </div>
-</Layout>
+<RoomPageLayout {title} {description} {path} {alternates} {breadcrumb} lang="en">
+  <Blog client:load />
+</RoomPageLayout>

@@ -1,9 +1,7 @@
 ---
 export const prerender = true;
 
-import Layout from '../../../layouts/Layout.astro';
-import Navbar from '@/components/landing/Navbar';
-import Footer from '../../../components/Footer.astro';
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
 import TerraceSpaceDetail from '@/pages/en/TerraceSpaceDetail';
 import { generateBreadcrumbJsonLd } from '@/lib/i18n';
 
@@ -30,10 +28,6 @@ const meta = spaceMeta[space];
 const path = `/it/terrazza-privata/${space}`;
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
-<Layout title={meta.title} description={meta.description} {path} {breadcrumb}>
-  <div class="overflow-x-hidden">
-    <Navbar lang="it" client:load />
-    <TerraceSpaceDetail lang="it" spaceId={space} client:load />
-    <Footer lang="it" />
-  </div>
-</Layout>
+<RoomPageLayout title={meta.title} description={meta.description} {path} {breadcrumb} lang="it">
+  <TerraceSpaceDetail lang="it" spaceId={space} client:load />
+</RoomPageLayout>

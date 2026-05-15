@@ -1,7 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '@/components/landing/Navbar';
-import Footer from '../../components/Footer.astro';
+import RoomPageLayout from '../../components/RoomPageLayout.astro';
 import Contact from '@/pages/en/Contact';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 
@@ -11,10 +9,6 @@ const description = 'Contattaci su Innovation Campus. Compila il modulo o vienic
 const alternates = getAlternateLinks(path);
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
-<Layout {title} {description} {path} {alternates} {breadcrumb}>
-  <div class="overflow-x-hidden">
-    <Navbar lang="it" client:load />
-    <Contact lang="it" client:load />
-    <Footer lang="it" />
-  </div>
-</Layout>
+<RoomPageLayout {title} {description} {path} {alternates} {breadcrumb} lang="it">
+  <Contact lang="it" client:load />
+</RoomPageLayout>
