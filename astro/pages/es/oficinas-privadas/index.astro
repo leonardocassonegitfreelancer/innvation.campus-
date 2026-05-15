@@ -1,6 +1,9 @@
 ---
 import ServicePageLayout from '../../../components/ServicePageLayout.astro';
-import PrivateOfficesPage from '@/pages/en/PrivateOffices';
+import OfficesIntroSection from '@/components/landing/OfficesIntroSection';
+import OfficesListings from '@/components/landing/OfficesListings';
+import OfficesAmenities from '@/components/landing/OfficesAmenities';
+import LeadForm from '@/components/landing/LeadForm';
 import servicePrivate from '@/assets/service-private.webp';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 
@@ -21,5 +24,8 @@ const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz'
   image={servicePrivate}
   lang="es"
 >
-  <PrivateOfficesPage lang="es" client:load />
+  <OfficesIntroSection lang="es" client:load />
+  <OfficesListings lang="es" client:load />
+  <OfficesAmenities lang="es" client:visible />
+  <LeadForm lang="es" defaultService="office" client:visible />
 </ServicePageLayout>

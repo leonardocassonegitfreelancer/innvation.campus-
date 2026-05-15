@@ -58,8 +58,7 @@ export default function OfficesAmenities({ lang = "en" }: { lang?: "en" | "es" |
           {t.items.map(({ icon: Icon, label, desc }, i) => (
             <div
               key={label}
-              className="group p-8 bg-white border-l-2 border-transparent hover:border-primary transition-all duration-300 hover:shadow-md animate-fade-in"
-              style={{ animationDelay: `${i * 80}ms` }}
+              className="group p-8 bg-white border-l-2 border-transparent hover:border-primary transition-all duration-300 hover:shadow-md"
             >
               <div className="w-10 h-10 flex items-center justify-center bg-primary/10 mb-5 group-hover:bg-primary/20 transition-colors">
                 <Icon className="w-5 h-5 text-primary" />
