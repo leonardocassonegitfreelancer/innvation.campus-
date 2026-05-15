@@ -25,7 +25,7 @@ const translations = {
   en: {
     tagline: "Our Rooms",
     title: "Choose Your Space",
-    sizeLabels: { small: "Small", medium: "Medium", large: "Large" },
+    sizeLabels: { small: "Small", medium: "Large", large: "XL" },
     conferenceRoomsLabel: "Conference Rooms",
     otherSpacesLabel: "Other Spaces",
     trainingBadge: "Training",
@@ -105,7 +105,7 @@ const translations = {
   es: {
     tagline: "Nuestras Salas",
     title: "Elige Tu Espacio",
-    sizeLabels: { small: "Pequeña", medium: "Mediana", large: "Grande" },
+    sizeLabels: { small: "Pequeña", medium: "Grande", large: "XL" },
     conferenceRoomsLabel: "Salas de Conferencias",
     otherSpacesLabel: "Otros Espacios",
     trainingBadge: "Formación",
@@ -185,7 +185,7 @@ const translations = {
   it: {
     tagline: "Le Nostre Sale",
     title: "Scegli il Tuo Spazio",
-    sizeLabels: { small: "Piccola", medium: "Media", large: "Grande" },
+    sizeLabels: { small: "Piccola", medium: "Grande", large: "XL" },
     conferenceRoomsLabel: "Sale Conferenze",
     otherSpacesLabel: "Altri Spazi",
     trainingBadge: "Formazione",
