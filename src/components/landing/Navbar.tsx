@@ -46,7 +46,7 @@ function LanguageSwitcher() {
         <Globe size={16} />{currentLang}<ChevronDown size={14} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <div className="absolute top-full right-0 mt-0 w-28 bg-neutral-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl py-1 z-50">
+        <div className="absolute top-full left-0 mt-0 w-28 bg-neutral-dark/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl py-1 z-50">
           <button onClick={() => switchLanguage("en")} className={`w-full text-left px-4 py-2 text-sm font-body transition-colors ${currentLang === "EN" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5"}`}>English</button>
           <button onClick={() => switchLanguage("es")} className={`w-full text-left px-4 py-2 text-sm font-body transition-colors ${currentLang === "ES" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5"}`}>Español</button>
           <button onClick={() => switchLanguage("it")} className={`w-full text-left px-4 py-2 text-sm font-body transition-colors ${currentLang === "IT" ? "text-primary" : "text-white/70 hover:text-white hover:bg-white/5"}`}>Italiano</button>
@@ -144,6 +144,7 @@ export default function Navbar({ lang: langProp }: { lang?: "en" | "es" | "it" }
               <DropdownMenu label={links.labels.forBusinesses} links={links.business} open={openDropdown === "business"} onToggle={() => setOpenDropdown(openDropdown === "business" ? null : "business")} onClose={() => setOpenDropdown(null)} />
               <DropdownMenu label={links.labels.forIndividuals} links={links.individual} open={openDropdown === "individual"} onToggle={() => setOpenDropdown(openDropdown === "individual" ? null : "individual")} onClose={() => setOpenDropdown(null)} />
               <DropdownMenu label={links.labels.explore} links={links.explore} open={openDropdown === "explore"} onToggle={() => setOpenDropdown(openDropdown === "explore" ? null : "explore")} onClose={() => setOpenDropdown(null)} />
+              <LanguageSwitcher />
               <div className="flex items-center ml-2 border-l border-white/10 pl-6 gap-3">
                 {links.nav.map((link) => (
                   <a
@@ -154,7 +155,6 @@ export default function Navbar({ lang: langProp }: { lang?: "en" | "es" | "it" }
                     {link.label}
                   </a>
                 ))}
-                <LanguageSwitcher />
               </div>
             </div>
 
