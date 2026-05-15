@@ -144,8 +144,7 @@ export default function Navbar({ lang: langProp }: { lang?: "en" | "es" | "it" }
               <DropdownMenu label={links.labels.forBusinesses} links={links.business} open={openDropdown === "business"} onToggle={() => setOpenDropdown(openDropdown === "business" ? null : "business")} onClose={() => setOpenDropdown(null)} />
               <DropdownMenu label={links.labels.forIndividuals} links={links.individual} open={openDropdown === "individual"} onToggle={() => setOpenDropdown(openDropdown === "individual" ? null : "individual")} onClose={() => setOpenDropdown(null)} />
               <DropdownMenu label={links.labels.explore} links={links.explore} open={openDropdown === "explore"} onToggle={() => setOpenDropdown(openDropdown === "explore" ? null : "explore")} onClose={() => setOpenDropdown(null)} />
-              <LanguageSwitcher />
-              <div className="flex items-center ml-2 border-l border-white/10 pl-6">
+              <div className="flex items-center ml-2 border-l border-white/10 pl-6 gap-3">
                 {links.nav.map((link) => (
                   <a
                     key={link.href}
@@ -155,6 +154,7 @@ export default function Navbar({ lang: langProp }: { lang?: "en" | "es" | "it" }
                     {link.label}
                   </a>
                 ))}
+                <LanguageSwitcher />
               </div>
             </div>
 
