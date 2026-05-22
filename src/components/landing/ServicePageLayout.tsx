@@ -18,16 +18,17 @@ export default function ServicePageLayout({ title, subtitle, image, children }: 
     <main className="overflow-x-hidden">
       <Navbar />
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-end">
+      <section className="relative h-screen flex items-end">
         <img src={getSrc(image)} alt={title} className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/40 to-transparent" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-12 w-full">
-          <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-body mb-4 transition-colors">
+        <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark via-neutral-dark/30 to-transparent" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 30%)" }} />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-16 md:pb-20 w-full">
+          <Link to="/" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-body mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
-          <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground">{title}</h1>
-          <p className="font-body text-lg md:text-xl text-primary-foreground/70 mt-3 max-w-2xl">{subtitle}</p>
+          <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground leading-tight">{title}</h1>
+          <p className="font-body text-lg md:text-xl text-primary-foreground/70 mt-4 max-w-2xl">{subtitle}</p>
         </div>
       </section>
 

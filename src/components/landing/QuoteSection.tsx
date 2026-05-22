@@ -13,7 +13,7 @@ export default function QuoteSection() {
       <div className="max-w-5xl mx-auto px-6 text-center" ref={ref}>
         <div className={`scroll-animate ${isVisible ? "visible" : ""}`}>
           
-          <blockquote className="font-display text-2xl md:text-4xl lg:text-5xl text-white/90 leading-snug italic">
+          <blockquote className="font-display text-4xl md:text-5xl lg:text-6xl text-white/90 leading-snug italic">
             The place where you sit
             <br />
             changes{" "}

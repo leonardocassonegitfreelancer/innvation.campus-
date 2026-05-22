@@ -32,7 +32,7 @@ function ServiceCard({ img, label, subtitle, href }: { img: any; label: string; 
   return (
     <a
       href={href}
-      className="group relative aspect-[4/5] rounded-xl overflow-hidden block"
+      className="group relative aspect-[4/5] rounded-2xl overflow-hidden block shadow-[0_4px_24px_rgba(0,0,0,0.18)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.28)] transition-shadow duration-500"
     >
       <img
         src={getSrc(img)}
@@ -40,14 +40,15 @@ function ServiceCard({ img, label, subtitle, href }: { img: any; label: string; 
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+      <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
       <div className="absolute bottom-0 left-0 right-0 p-5">
-        <h3 className="font-body font-bold text-sm md:text-base uppercase tracking-wider text-primary-foreground">
-          {label}
-        </h3>
-        <p className="font-body text-xs md:text-sm text-primary-foreground/70 mt-1">
+        <p className="font-body text-[10px] uppercase tracking-[0.18em] text-white/70 mb-1" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}>
           {subtitle}
         </p>
+        <h3 className="font-body font-bold text-base md:text-lg uppercase tracking-wide text-white leading-tight" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.9)" }}>
+          {label}
+        </h3>
       </div>
     </a>
   );
@@ -132,4 +133,5 @@ export default function ServicesSection() {
       </div>
     </section>
   );
+
 }

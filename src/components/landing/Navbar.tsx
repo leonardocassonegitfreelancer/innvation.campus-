@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Phone } from "lucide-react";
 import logoWhite from "@/assets/logo-white.webp";
 import { routeMap } from "@/lib/i18n";
 import { useLang, PageWrapper } from "@/lib/lang-context";
@@ -65,15 +65,13 @@ function MobileLangSwitcher() {
   };
   const current = lang === "es" ? "es" : lang === "it" ? "it" : "en";
   return (
-    <div className="pt-4 border-t border-white/10 flex items-center gap-2">
+    <div className="flex items-center gap-5">
       {(["en", "es", "it"] as const).map((l) => (
         <button
           key={l}
           onClick={() => switchLanguage(l)}
-          className={`font-body text-sm uppercase tracking-widest px-3 py-1.5 rounded-full border transition-all duration-200 ${
-            current === l
-              ? "border-primary text-primary"
-              : "border-white/20 text-white/50 hover:text-white hover:border-white/40"
+          className={`font-body text-[11px] uppercase tracking-[0.2em] transition-colors duration-200 ${
+            current === l ? "text-white font-semibold" : "text-white/50 hover:text-white/80"
           }`}
         >
           {l}
@@ -88,24 +86,24 @@ function MobileSection({ label, links, open, onToggle, onClose }: { label: strin
     <div className="border-b border-white/10">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between py-4 text-left"
+        className="w-full flex items-center justify-between py-5 text-left"
       >
-        <span className="font-body text-sm font-semibold uppercase tracking-widest text-white/50">
+        <span className="font-body text-base font-semibold uppercase tracking-[0.14em] text-white">
           {label}
         </span>
         <ChevronDown
           size={16}
-          className={`text-white/40 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`text-white/50 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
       </button>
-      <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-96 pb-4" : "max-h-0"}`}>
+      <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-[28rem] pb-5" : "max-h-0"}`}>
         <div className="flex flex-col gap-1 pl-1">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={onClose}
-              className="font-body text-lg text-white/80 hover:text-primary py-2 transition-colors"
+              className="font-body text-2xl font-light text-white/85 hover:text-white py-2 transition-colors duration-150"
             >
               {link.label}
             </a>
@@ -131,7 +129,7 @@ export default function Navbar({ lang: langProp }: { lang?: "en" | "es" | "it" }
 
   return (
     <PageWrapper lang={lang}>
-      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-neutral-dark/95 backdrop-blur-md shadow-lg">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${mobileOpen ? "bg-[#0a0a0a]" : "bg-neutral-dark/95 backdrop-blur-md shadow-lg"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             <a href={links.home} className="flex items-center">
@@ -145,6 +143,13 @@ export default function Navbar({ lang: langProp }: { lang?: "en" | "es" | "it" }
               <DropdownMenu label={links.labels.forIndividuals} links={links.individual} open={openDropdown === "individual"} onToggle={() => setOpenDropdown(openDropdown === "individual" ? null : "individual")} onClose={() => setOpenDropdown(null)} />
               <DropdownMenu label={links.labels.explore} links={links.explore} open={openDropdown === "explore"} onToggle={() => setOpenDropdown(openDropdown === "explore" ? null : "explore")} onClose={() => setOpenDropdown(null)} />
               <LanguageSwitcher />
+              <a
+                href="tel:+34671441288"
+                className="hidden lg:flex items-center gap-1.5 font-body text-xs text-white/60 hover:text-white transition-colors duration-200"
+              >
+                <Phone size={12} strokeWidth={1.8} />
+                +34 671 44 12 88
+              </a>
               <div className="flex items-center ml-2 border-l border-white/10 pl-6 gap-3">
                 {links.nav.map((link) => (
                   <a
@@ -159,63 +164,78 @@ export default function Navbar({ lang: langProp }: { lang?: "en" | "es" | "it" }
             </div>
 
             {/* Mobile controls */}
-            <div className="md:hidden flex items-center gap-2">
-              {links.nav.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="font-body text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full border border-white/20 text-white/80 hover:border-primary hover:text-primary transition-all duration-200"
-                >
-                  {link.label}
-                </a>
-              ))}
+            <div className="md:hidden flex items-center gap-3">
+              <a
+                href="tel:+34671441288"
+                className="flex items-center gap-1 font-body text-[13px] font-medium text-white/90 hover:text-white transition-colors tracking-tight"
+              >
+                <Phone size={13} strokeWidth={1.8} />
+                +34671441288
+              </a>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="text-white hover:text-primary transition-colors p-1 ml-1"
+                className="text-white/70 hover:text-white transition-colors duration-200 p-1.5 -mr-1"
+                aria-label="Toggle menu"
               >
-                {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+                {mobileOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="md:hidden bg-neutral-dark border-t border-white/10 max-h-[calc(100vh-64px)] overflow-y-auto">
-            <div className="px-6 pt-2 pb-8">
-              <MobileSection
-                label={links.labels.locations}
-                links={links.location}
-                open={openMobileSection === "locations"}
-                onToggle={() => toggleMobileSection("locations")}
-                onClose={closeMobile}
-              />
-              <MobileSection
-                label={links.labels.forBusinesses}
-                links={links.business}
-                open={openMobileSection === "business"}
-                onToggle={() => toggleMobileSection("business")}
-                onClose={closeMobile}
-              />
-              <MobileSection
-                label={links.labels.forIndividuals}
-                links={links.individual}
-                open={openMobileSection === "individual"}
-                onToggle={() => toggleMobileSection("individual")}
-                onClose={closeMobile}
-              />
-              <MobileSection
-                label={links.labels.explore}
-                links={links.explore}
-                open={openMobileSection === "explore"}
-                onToggle={() => toggleMobileSection("explore")}
-                onClose={closeMobile}
-              />
-
-              <MobileLangSwitcher />
-            </div>
+        {/* Mobile menu — full-screen overlay, seamlessly attached to bar */}
+        <div
+          className={`md:hidden fixed top-16 left-0 right-0 bottom-0 bg-[#0a0a0a] z-40 overflow-y-auto flex flex-col transition-all duration-300 ease-out ${
+            mobileOpen
+              ? "opacity-100 translate-y-0 pointer-events-auto"
+              : "opacity-0 -translate-y-2 pointer-events-none"
+          }`}
+        >
+          <div className="flex-1 px-6 pt-1">
+            <MobileSection
+              label={links.labels.locations}
+              links={links.location}
+              open={openMobileSection === "locations"}
+              onToggle={() => toggleMobileSection("locations")}
+              onClose={closeMobile}
+            />
+            <MobileSection
+              label={links.labels.forBusinesses}
+              links={links.business}
+              open={openMobileSection === "business"}
+              onToggle={() => toggleMobileSection("business")}
+              onClose={closeMobile}
+            />
+            <MobileSection
+              label={links.labels.forIndividuals}
+              links={links.individual}
+              open={openMobileSection === "individual"}
+              onToggle={() => toggleMobileSection("individual")}
+              onClose={closeMobile}
+            />
+            <MobileSection
+              label={links.labels.explore}
+              links={links.explore}
+              open={openMobileSection === "explore"}
+              onToggle={() => toggleMobileSection("explore")}
+              onClose={closeMobile}
+            />
           </div>
-        )}
+
+          <div className="px-6 pt-5 pb-10 border-t border-white/[0.06] space-y-5">
+            <MobileLangSwitcher />
+            {links.nav.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={closeMobile}
+                className="block w-full text-center font-body text-sm font-semibold uppercase tracking-[0.15em] py-4 border border-white/30 rounded-xl text-white hover:border-white hover:bg-white/5 transition-all duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
       </nav>
     </PageWrapper>
   );

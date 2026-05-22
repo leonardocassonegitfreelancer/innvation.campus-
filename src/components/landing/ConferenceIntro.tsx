@@ -64,7 +64,7 @@ export default function ConferenceIntro({ lang: langProp }: { lang?: "en" | "es"
       }} />
       <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} relative max-w-6xl mx-auto px-6`}>
         <div className="text-center mb-16">
-          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">
+          <p className="font-body text-xs uppercase tracking-[0.12em] md:tracking-[0.3em] text-primary mb-4 font-semibold">
             {t.tagline}
           </p>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-4">
