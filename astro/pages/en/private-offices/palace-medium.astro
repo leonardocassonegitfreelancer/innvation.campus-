@@ -1,0 +1,13 @@
+---
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
+import OfficeDetailPage from '@/components/landing/OfficeDetailPage';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/en/private-offices/palace-medium';
+const title = 'Medium Private Office — Málaga Palace';
+const description = 'A spacious 4–8 person private office with high ceilings and courtyard views in the historic heart of Málaga at Innovation Campus Palace.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="en">
+  <OfficeDetailPage officeSlug="palace-medium" lang="en" client:load />
+</RoomPageLayout>

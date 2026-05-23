@@ -60,6 +60,9 @@ const quarterConfPhotos = Object.values(quarterConfPhotosGlob).map((mod: any) =>
 const trainingRoomPhotosGlob = import.meta.glob('@/assets/training-room-*.webp', { eager: true });
 const trainingRoomPhotos = Object.values(trainingRoomPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
 
+const phoneBoothPhotosGlob = import.meta.glob('@/assets/phone-booth-*.webp', { eager: true });
+const phoneBoothPhotos = Object.values(phoneBoothPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
+
 const rooms: RoomData[] = [
   {
     slug: "big-conference-room",
@@ -353,8 +356,8 @@ const rooms: RoomData[] = [
       it: { title: "Cabina Telefonica – Innovation Campus Málaga", description: "Cabina telefonica privata e insonorizzata per 1–2 persone. Ideale per chiamate riservate, videoriunioni rapide e lavoro concentrato a Málaga." },
     },
     capacity: { en: "1–2 people", es: "1–2 personas", it: "1–2 persone" },
-    heroImage: "/placeholder.svg",
-    photos: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    heroImage: phoneBoothPhotos[0] || "/placeholder.svg",
+    photos: phoneBoothPhotos.length > 0 ? phoneBoothPhotos : ["/placeholder.svg"],
     features: {
       en: ["Soundproofed", "27\" Display", "Video Call Ready", "Noise-Cancelling Mic"],
       es: ["Insonorizada", "Pantalla 27\"", "Lista para Video", "Micro Cancelación Ruido"],
@@ -506,9 +509,9 @@ const labels = {
 };
 
 const conferencePaths: Record<string, string> = {
-  en: "/en/meeting-rooms",
-  es: "/es/salas-de-reuniones",
-  it: "/it/sale-riunioni",
+  en: "/en/meeting-rooms#rooms",
+  es: "/es/salas-de-reuniones#rooms",
+  it: "/it/sale-riunioni#rooms",
 };
 
 /* ─── Facility icon helper ───────────────────────────────── */
@@ -809,27 +812,6 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
                   ))}
                 </div>
               </div>
-
-              {/* Past events gallery */}
-              <div>
-                <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-5">{t.pastEvents}</p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {t.pastEventsItems.map((ev, i) => (
-                    <div key={i} className="group rounded-xl overflow-hidden border border-border hover:border-primary/40 transition-colors">
-                      <div className="aspect-video bg-muted flex items-center justify-center overflow-hidden">
-                        <div className="w-full h-full bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 flex items-center justify-center">
-                          <span className="text-muted-foreground/40 text-xs font-body">Photo</span>
-                        </div>
-                      </div>
-                      <div className="p-3">
-                        <span className="inline-block font-body text-[10px] uppercase tracking-[0.15em] text-primary mb-1">{ev.tag}</span>
-                        <p className="font-body text-xs font-semibold text-foreground leading-tight">{ev.title}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
 
               {/* Other rooms */}
               <div>

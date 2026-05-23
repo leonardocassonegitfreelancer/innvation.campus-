@@ -1,0 +1,13 @@
+---
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
+import OfficeDetailPage from '@/components/landing/OfficeDetailPage';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/en/private-offices/terrace-large';
+const title = 'Large Private Office — Málaga Terrace';
+const description = 'The top-floor premium office suite at Málaga Terrace with panoramic sea and city views. Fully isolated for 9–20 people at Innovation Campus.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="en">
+  <OfficeDetailPage officeSlug="terrace-large" lang="en" client:load />
+</RoomPageLayout>

@@ -1,0 +1,55 @@
+---
+interface Props { lang?: "en" | "es" | "it" }
+const { lang = "en" } = Astro.props;
+
+const t = {
+  en: {
+    p: "Innovation Campus is a coworking space and business hub in the heart of Málaga, Spain. With two locations — one in the historic centre, one steps from the Mediterranean — we offer flexible coworking desks, private offices, meeting rooms with catering, and a growing community of entrepreneurs and remote workers.",
+    stats: [
+      { value: "2", label: "Locations in Málaga" },
+      { value: "80+", label: "Meeting room capacity" },
+      { value: "4", label: "Types of workspace" },
+      { value: "ES · IT", label: "Spain & Italy" },
+    ],
+  },
+  es: {
+    p: "Innovation Campus es un espacio de coworking y hub empresarial en el corazón de Málaga. Con dos ubicaciones — una en el centro histórico, otra frente al Mediterráneo — ofrecemos escritorios flexibles, oficinas privadas, salas de reuniones con catering y una comunidad de emprendedores y nómadas digitales.",
+    stats: [
+      { value: "2", label: "Sedes en Málaga" },
+      { value: "80+", label: "Aforo sala de reuniones" },
+      { value: "4", label: "Tipos de espacio" },
+      { value: "ES · IT", label: "España & Italia" },
+    ],
+  },
+  it: {
+    p: "Innovation Campus è uno spazio di coworking e hub imprenditoriale nel cuore di Málaga, Spagna. Con due sedi — una nel centro storico, una sul Mediterraneo — offriamo postazioni flessibili, uffici privati, sale riunioni con catering e una comunità attiva di imprenditori e lavoratori da remoto.",
+    stats: [
+      { value: "2", label: "Sedi a Málaga" },
+      { value: "80+", label: "Capienza sala riunioni" },
+      { value: "4", label: "Tipi di spazio" },
+      { value: "ES · IT", label: "Spagna & Italia" },
+    ],
+  },
+}[lang];
+---
+
+<section class="bg-background py-14 md:py-20 border-b border-neutral-200/60">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+
+      <p class="font-body text-base md:text-lg text-foreground/70 leading-relaxed">
+        {t.p}
+      </p>
+
+      <div class="grid grid-cols-2 gap-6">
+        {t.stats.map(s => (
+          <div>
+            <p class="font-display text-3xl md:text-4xl font-bold text-primary">{s.value}</p>
+            <p class="font-body text-xs uppercase tracking-[0.18em] text-foreground/50 mt-1">{s.label}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -4,6 +4,7 @@ import bigConferenceRoom1 from "@/assets/big-conference-room-01.webp";
 import largeConferenceRoom1 from "@/assets/large-conference-room-01.webp";
 import quarterConferenceRoom1 from "@/assets/quarter-conference-room-01.webp";
 import trainingRoom1 from "@/assets/training-room-01.webp";
+import phoneBooth1 from "@/assets/phone-booth-01.webp";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -271,7 +272,7 @@ const roomImages: Record<string, string> = {
   "large-conference": getSrc(largeConferenceRoom1),
   "quarter-conference": getSrc(quarterConferenceRoom1),
   "training-room": getSrc(trainingRoom1),
-  "phone-booth": "/placeholder.svg",
+  "phone-booth": getSrc(phoneBooth1),
 };
 
 const roomPaths: Record<string, Record<string, string>> = {
@@ -375,7 +376,7 @@ export default function ConferenceRooms({ lang = "en" }: { lang?: "en" | "es" | 
   const hasSections = otherRooms.length > 0;
 
   return (
-    <section id={activeTab === "centre" ? "centre" : "seaside"} className="py-20 md:py-28 bg-background">
+    <section id="rooms" className="py-20 md:py-28 bg-background">
       <div className="max-w-6xl mx-auto px-6">
         <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-14`}>
           <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-4 font-semibold">

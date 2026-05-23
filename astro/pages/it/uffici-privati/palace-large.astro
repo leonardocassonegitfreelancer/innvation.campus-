@@ -1,0 +1,13 @@
+---
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
+import OfficeDetailPage from '@/components/landing/OfficeDetailPage';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/it/uffici-privati/palace-large';
+const title = 'Ufficio Privato Grande — Málaga Palace';
+const description = 'Una suite ufficio privata completamente accessibile per 9–15 persone nell\'edificio storico più iconico di Málaga. Pronta per eventi con catering opzionale.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="it">
+  <OfficeDetailPage officeSlug="palace-large" lang="it" client:load />
+</RoomPageLayout>

@@ -9,6 +9,7 @@ import QuoteSection from '../components/QuoteSection.astro';
 import LocationsSection from '../components/LocationsSection.astro';
 import HomeCTA from '../components/HomeCTA.astro';
 import FooterSection from '../components/Footer.astro';
+import IntroStrip from '../components/IntroStrip.astro';
 
 // React islands (hydrated selectively)
 import Navbar from '@/components/landing/Navbar';
@@ -40,6 +41,9 @@ const jsonLd = {
 
     <!-- Hero (dark) -->
     <MainHero client:load />
+
+    <!-- Intro strip — SEO text + stats, zero JS -->
+    <IntroStrip lang="en" />
 
     <!-- Services (light) — visitors self-qualify immediately -->
     <ServicesSection client:visible />
