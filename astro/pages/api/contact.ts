@@ -40,6 +40,27 @@ export const POST: APIRoute = async ({ request }) => {
       const error = await response.text();
       throw new Error(error);
     }
+
+    // Fire-and-forget ping to Google Apps Script for CRM logging
+    const appsScriptUrl = import.meta.env.PUBLIC_APPS_SCRIPT_URL as string | undefined;
+    if (appsScriptUrl) {
+      try {
+        const ping = new URL(appsScriptUrl);
+        ping.searchParams.set("name", name ?? "");
+        ping.searchParams.set("email", email ?? "");
+        ping.searchParams.set("company", company ?? "");
+        ping.searchParams.set("phone", phone ?? "");
+        ping.searchParams.set("location", location ?? "");
+        ping.searchParams.set("service", service ?? "");
+        ping.searchParams.set("space", space ?? "");
+        ping.searchParams.set("hearAbout", hearAbout ?? "");
+        ping.searchParams.set("message", message ?? "");
+        fetch(ping.toString()).catch(() => {});
+      } catch {
+        // malformed env var — skip silently
+      }
+    }
+
     return new Response(JSON.stringify({ ok: true }), { status: 200 });
   } catch (err) {
     console.error("Resend error:", err);
