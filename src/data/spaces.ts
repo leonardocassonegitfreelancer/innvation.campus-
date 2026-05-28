@@ -186,6 +186,47 @@ export const spacesDataset: SpaceData[] = [
     },
   },
 
+  {
+    slug: "full-terrace",
+    image: terraceHero,
+    photos: [terraceHero, terraceEvents, terraceBar, terraceCommunity],
+    maxGuests: 120,
+    location: "seaside",
+    eventTypes: ["networking", "party", "conference"],
+    size: "large",
+    baseRoute: "private-terrace",
+    translations: {
+      en: { label: "Terrace", name: "Full Terrace Experience", capacityText: "Up to 120 guests" },
+      es: { label: "Terraza", name: "Experiencia Terraza Completa", capacityText: "Hasta 120 personas" },
+      it: { label: "Terrazza", name: "Esperienza Terrazza Completa", capacityText: "Fino a 120 persone" },
+    },
+    amenities: {
+      en: ["Full Bar Service", "Custom Catering", "Sea Views", "Flexible Seating", "Sound System", "Private Access"],
+      es: ["Servicio de Barra Completo", "Catering a Medida", "Vistas al Mar", "Asientos Flexibles", "Sistema de Sonido", "Acceso Privado"],
+      it: ["Servizio Bar Completo", "Catering su Misura", "Vista Mare", "Sedute Flessibili", "Sistema Audio", "Accesso Privato"],
+    },
+  },
+  {
+    slug: "half-terrace",
+    image: terraceBar,
+    photos: [terraceBar, terraceHero, terraceCommunity, terraceEvents],
+    maxGuests: 60,
+    location: "seaside",
+    eventTypes: ["networking", "party"],
+    size: "medium",
+    baseRoute: "private-terrace",
+    translations: {
+      en: { label: "Terrace", name: "Half Terrace Experience", capacityText: "Up to 60 guests" },
+      es: { label: "Terraza", name: "Experiencia Media Terraza", capacityText: "Hasta 60 personas" },
+      it: { label: "Terrazza", name: "Esperienza Mezza Terrazza", capacityText: "Fino a 60 persone" },
+    },
+    amenities: {
+      en: ["Bar Service", "Catering Available", "Sea Views", "Flexible Seating", "Ambient Lighting", "Private Area"],
+      es: ["Servicio de Barra", "Catering Disponible", "Vistas al Mar", "Asientos Flexibles", "Iluminación Ambiental", "Área Privada"],
+      it: ["Servizio Bar", "Catering Disponibile", "Vista Mare", "Sedute Flessibili", "Illuminazione Ambientale", "Area Privata"],
+    },
+  },
+
   // SEASIDE SPACES
   {
     slug: "seaside-terrace",
@@ -283,6 +324,11 @@ export const getSpaceHref = (lang: "en" | "es" | "it", space: SpaceData) => {
       en: "/en/meeting-rooms/",
       es: "/es/salas-de-reuniones/", // Using canonical URLs from valid i18n mapping
       it: "/it/sale-riunioni/"
+    },
+    "private-terrace": {
+      en: "/en/private-terrace/",
+      es: "/es/terraza-privada/",
+      it: "/it/terrazza-privata/"
     },
     "host-your-event": {
       en: "/en/host-your-event/",

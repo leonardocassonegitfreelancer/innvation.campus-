@@ -931,7 +931,9 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp, backUrl }: M
   const shortDesc = description.length > 160 ? description.slice(0, 160) + "…" : description;
 
   const backPath = backUrl ?? conferencePaths[lang];
-  const leadUrl = `/${lang}/lead?service=meeting-rooms&space=${room.slug}`;
+  const terraceRooms = new Set(["full-terrace", "half-terrace"]);
+  const leadService = terraceRooms.has(room.slug) ? "private-terrace" : "meeting-rooms";
+  const leadUrl = `/${lang}/lead?service=${leadService}&space=${room.slug}`;
 
   return (
     <>
