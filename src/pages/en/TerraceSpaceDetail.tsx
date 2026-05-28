@@ -4,7 +4,7 @@ const _s = (img: unknown): string =>
   typeof img === "string" ? img : (img as any)?.src ?? "";
 
 const fullTerraceGlob = import.meta.glob('@/assets/full-terrace-*.webp', { eager: true });
-const fullTerracePhotos: string[] = Object.keys(fullTerraceGlob).sort().map((k) => _s(fullTerraceGlob[k]));
+const fullTerracePhotos: string[] = Object.values(fullTerraceGlob).map((mod: any) => _s(mod.default || mod));
 
 export type SpaceId = "full-terrace" | "half-terrace";
 
