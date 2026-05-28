@@ -3,15 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLang } from "@/lib/lang-context";
+import fullTerrace01 from "@/assets/full-terrace-01.webp";
+import fullTerrace05 from "@/assets/full-terrace-05.webp";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
-const fullTerraceGlob = import.meta.glob('@/assets/full-terrace-*.webp', { eager: true });
-const fullTerracePhotos: string[] = Object.values(fullTerraceGlob).map((mod: any) => _s(mod.default || mod));
-
 const spaceImages: Record<string, string> = {
-  "full-terrace": fullTerracePhotos[0] || "",
-  "half-terrace": fullTerracePhotos[4] || fullTerracePhotos[0] || "",
+  "full-terrace": _s(fullTerrace01),
+  "half-terrace": _s(fullTerrace05),
 };
 
 const detailBase: Record<"en" | "es" | "it", string> = {
@@ -109,16 +108,14 @@ export default function TerraceSpaces() {
                 key={space.id}
                 className="relative overflow-hidden border-2 border-primary bg-primary/5 transition-all duration-300 hover:shadow-lg"
               >
-                {image && (
-                  <div className="w-full h-48 md:h-64 overflow-hidden">
-                    <img
-                      src={image}
-                      alt={space.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                )}
+                <div className="w-full h-48 md:h-64 overflow-hidden">
+                  <img
+                    src={image}
+                    alt={space.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
                 <Badge className="absolute top-4 right-4 bg-background/90 text-foreground border border-border backdrop-blur-sm">
                   {t.badge}
                 </Badge>

@@ -1,10 +1,43 @@
 import { ArrowLeft, Users, CheckCircle2 } from "lucide-react";
+import fullTerrace01 from "@/assets/full-terrace-01.webp";
+import fullTerrace02 from "@/assets/full-terrace-02.webp";
+import fullTerrace03 from "@/assets/full-terrace-03.webp";
+import fullTerrace04 from "@/assets/full-terrace-04.webp";
+import fullTerrace05 from "@/assets/full-terrace-05.webp";
+import fullTerrace06 from "@/assets/full-terrace-06.webp";
+import fullTerrace07 from "@/assets/full-terrace-07.webp";
+import fullTerrace08 from "@/assets/full-terrace-08.webp";
+import fullTerrace09 from "@/assets/full-terrace-09.webp";
+import fullTerrace10 from "@/assets/full-terrace-10.webp";
+import fullTerrace11 from "@/assets/full-terrace-11.webp";
+import fullTerrace12 from "@/assets/full-terrace-12.webp";
+import fullTerrace13 from "@/assets/full-terrace-13.webp";
+import fullTerrace14 from "@/assets/full-terrace-14.webp";
+import fullTerrace15 from "@/assets/full-terrace-15.webp";
+import fullTerrace16 from "@/assets/full-terrace-16.webp";
+import fullTerrace17 from "@/assets/full-terrace-17.webp";
+import fullTerrace18 from "@/assets/full-terrace-18.webp";
+import fullTerrace19 from "@/assets/full-terrace-19.webp";
+import fullTerrace20 from "@/assets/full-terrace-20.webp";
+import fullTerrace21 from "@/assets/full-terrace-21.webp";
+import fullTerrace22 from "@/assets/full-terrace-22.webp";
+import fullTerrace23 from "@/assets/full-terrace-23.webp";
+import fullTerrace24 from "@/assets/full-terrace-24.webp";
+import fullTerrace25 from "@/assets/full-terrace-25.webp";
+import fullTerrace26 from "@/assets/full-terrace-26.webp";
+import fullTerrace27 from "@/assets/full-terrace-27.webp";
 
 const _s = (img: unknown): string =>
   typeof img === "string" ? img : (img as any)?.src ?? "";
 
-const fullTerraceGlob = import.meta.glob('@/assets/full-terrace-*.webp', { eager: true });
-const fullTerracePhotos: string[] = Object.values(fullTerraceGlob).map((mod: any) => _s(mod.default || mod));
+const fullTerracePhotos: string[] = [
+  fullTerrace01, fullTerrace02, fullTerrace03, fullTerrace04, fullTerrace05,
+  fullTerrace06, fullTerrace07, fullTerrace08, fullTerrace09, fullTerrace10,
+  fullTerrace11, fullTerrace12, fullTerrace13, fullTerrace14, fullTerrace15,
+  fullTerrace16, fullTerrace17, fullTerrace18, fullTerrace19, fullTerrace20,
+  fullTerrace21, fullTerrace22, fullTerrace23, fullTerrace24, fullTerrace25,
+  fullTerrace26, fullTerrace27,
+].map(_s);
 
 export type SpaceId = "full-terrace" | "half-terrace";
 
