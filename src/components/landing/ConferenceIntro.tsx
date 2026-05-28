@@ -25,7 +25,7 @@ const translations = {
     highlights: [
       { icon: Users, title: "Up to 80 People", desc: "Flexible room sizes for any meeting" },
       { icon: Monitor, title: "Premium Tech", desc: "Projectors, microphones & whiteboards" },
-      { icon: UtensilsCrossed, title: "Catering Available", desc: "Quality food improves satisfaction by 3x" },
+      { icon: UtensilsCrossed, title: "Catering Available", desc: "Good food makes any event more memorable" },
     ],
   },
   es: {
@@ -35,7 +35,7 @@ const translations = {
     highlights: [
       { icon: Users, title: "Hasta 80 Personas", desc: "Tamaños flexibles para cualquier reunión" },
       { icon: Monitor, title: "Tecnología Premium", desc: "Proyectores, micrófonos y pizarras" },
-      { icon: UtensilsCrossed, title: "Catering Disponible", desc: "La comida de calidad mejora la satisfacción 3x" },
+      { icon: UtensilsCrossed, title: "Catering Disponible", desc: "La buena comida hace cualquier evento más memorable" },
     ],
   },
   it: {
@@ -45,7 +45,7 @@ const translations = {
     highlights: [
       { icon: Users, title: "Fino a 80 Persone", desc: "Sale flessibili per ogni riunione" },
       { icon: Monitor, title: "Tecnologia Premium", desc: "Proiettori, microfoni e lavagne" },
-      { icon: UtensilsCrossed, title: "Catering Disponibile", desc: "Il cibo di qualità migliora la soddisfazione 3x" },
+      { icon: UtensilsCrossed, title: "Catering Disponibile", desc: "Il buon cibo rende ogni evento più memorabile" },
     ],
   },
 };
