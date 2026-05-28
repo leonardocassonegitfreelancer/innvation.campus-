@@ -2,7 +2,7 @@ import { useLang } from "@/lib/lang-context";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
-const galleryGlob = import.meta.glob('@/assets/terrace-gallery-*.webp', { eager: true });
+const galleryGlob = import.meta.glob('@/assets/full-terrace-*.webp', { eager: true });
 const galleryPhotos: string[] = Object.keys(galleryGlob)
   .sort()
   .map((k) => _s(galleryGlob[k]));
