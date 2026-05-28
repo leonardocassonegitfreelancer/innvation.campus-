@@ -25,5 +25,5 @@ const path = `/es/terraza-privada/${space}`;
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
 <RoomPageLayout title={meta.title} description={meta.description} {path} {breadcrumb} lang="es">
-  <MeetingRoomPage roomSlug={space} lang="es" client:load />
+  <MeetingRoomPage roomSlug={space} lang="es" backUrl="/es/terraza-privada" client:load />
 </RoomPageLayout>

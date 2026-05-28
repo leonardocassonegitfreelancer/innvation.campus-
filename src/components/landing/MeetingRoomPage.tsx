@@ -912,9 +912,9 @@ function PhotoGallery({ photos, onClose }: { photos: string[]; onClose: () => vo
 }
 
 /* ─── Main component ─────────────────────────────────────── */
-interface MeetingRoomPageProps { roomSlug: string; lang?: "en" | "es" | "it" }
+interface MeetingRoomPageProps { roomSlug: string; lang?: "en" | "es" | "it"; backUrl?: string }
 
-export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoomPageProps) {
+export default function MeetingRoomPage({ roomSlug, lang: langProp, backUrl }: MeetingRoomPageProps) {
   const lang = langProp ?? (typeof window !== "undefined" && window.location.pathname.startsWith("/es") ? "es" : typeof window !== "undefined" && window.location.pathname.startsWith("/it") ? "it" : "en");
   const room = rooms.find((r) => r.slug === roomSlug);
   const [showGallery, setShowGallery] = useState(false);
@@ -930,6 +930,7 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
   const description = room.description[lang];
   const shortDesc = description.length > 160 ? description.slice(0, 160) + "…" : description;
 
+  const backPath = backUrl ?? conferencePaths[lang];
   const leadUrl = `/${lang}/lead?service=meeting-rooms&space=${room.slug}`;
 
   return (
@@ -945,7 +946,7 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent" />
           <div className="relative z-10 max-w-7xl mx-auto px-6 pb-12 w-full">
             <a
-              href={conferencePaths[lang]}
+              href={backPath}
               onClick={(e) => e.stopPropagation()}
               className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-body mb-4 transition-colors"
             >
@@ -1037,7 +1038,7 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
 
           {/* Back link — mobile/tablet only (desktop version is in hero) */}
           <a
-            href={conferencePaths[lang]}
+            href={backPath}
             className="lg:hidden inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm font-body mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
