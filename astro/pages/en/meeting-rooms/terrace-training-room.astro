@@ -1,0 +1,13 @@
+---
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
+import MeetingRoomPage from '@/components/landing/MeetingRoomPage';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/en/meeting-rooms/terrace-training-room';
+const title = 'Training Room — Málaga Terrace';
+const description = 'Intimate training room for up to 6 people at Innovation Campus Málaga Terrace. Perfect for focused workshops, coaching and small team sessions.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="en">
+  <MeetingRoomPage roomSlug="terrace-training-room" lang="en" client:load />
+</RoomPageLayout>

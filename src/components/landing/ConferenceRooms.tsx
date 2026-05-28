@@ -5,6 +5,7 @@ import largeConferenceRoom1 from "@/assets/large-conference-room-01.webp";
 import quarterConferenceRoom1 from "@/assets/quarter-conference-room-01.webp";
 import trainingRoom1 from "@/assets/training-room-01.webp";
 import phoneBooth1 from "@/assets/phone-booth-01.webp";
+import terraceTrainingRoom1 from "@/assets/terrace-training-room-01.webp";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -84,22 +85,12 @@ const translations = {
     ] as Room[],
     seasideRooms: [
       {
-        id: "seaside-main",
-        name: "Seaside Conference Room",
-        capacity: "Up to 40 people",
-        features: ["65\" 4K Display", "Video Conferencing", "Sea Views", "Flexible Layout"],
+        id: "terrace-training",
         highlight: true,
-        roomType: "conference",
-        size: "large",
-      },
-      {
-        id: "seaside-meeting",
-        name: "Seaside Meeting Room",
-        capacity: "Up to 12 people",
-        features: ["55\" Display", "Video Conferencing", "Whiteboard", "Terrace Access"],
-        highlight: false,
-        roomType: "conference",
-        size: "small",
+        name: "Training Room",
+        capacity: "Up to 30 people",
+        features: ["Projector", "Whiteboard", "Microphone & Speaker", "Catering Available"],
+        roomType: "training",
       },
     ] as Room[],
   },
@@ -164,22 +155,12 @@ const translations = {
     ] as Room[],
     seasideRooms: [
       {
-        id: "seaside-main",
-        name: "Sala de Conferencias Seaside",
-        capacity: "Hasta 40 personas",
-        features: ["Pantalla 4K 65\"", "Videoconferencia", "Vistas al Mar", "Disposición Flexible"],
+        id: "terrace-training",
         highlight: true,
-        roomType: "conference",
-        size: "large",
-      },
-      {
-        id: "seaside-meeting",
-        name: "Sala de Reuniones Seaside",
-        capacity: "Hasta 12 personas",
-        features: ["Pantalla 55\"", "Videoconferencia", "Pizarra", "Acceso Terraza"],
-        highlight: false,
-        roomType: "conference",
-        size: "small",
+        name: "Training Room",
+        capacity: "Hasta 30 personas",
+        features: ["Proyector", "Pizarra", "Micrófono y Altavoz", "Catering Disponible"],
+        roomType: "training",
       },
     ] as Room[],
   },
@@ -244,22 +225,12 @@ const translations = {
     ] as Room[],
     seasideRooms: [
       {
-        id: "seaside-main",
-        name: "Sala Conferenze Seaside",
-        capacity: "Fino a 40 persone",
-        features: ["Display 4K 65\"", "Videoconferenza", "Vista Mare", "Layout Flessibile"],
+        id: "terrace-training",
         highlight: true,
-        roomType: "conference",
-        size: "large",
-      },
-      {
-        id: "seaside-meeting",
-        name: "Sala Riunioni Seaside",
-        capacity: "Fino a 12 persone",
-        features: ["Display 55\"", "Videoconferenza", "Lavagna", "Accesso Terrazza"],
-        highlight: false,
-        roomType: "conference",
-        size: "small",
+        name: "Training Room",
+        capacity: "Fino a 30 persone",
+        features: ["Proiettore", "Lavagna", "Microfono e Altoparlante", "Catering Disponibile"],
+        roomType: "training",
       },
     ] as Room[],
   },
@@ -273,6 +244,7 @@ const roomImages: Record<string, string> = {
   "quarter-conference": getSrc(quarterConferenceRoom1),
   "training-room": getSrc(trainingRoom1),
   "phone-booth": getSrc(phoneBooth1),
+  "terrace-training": getSrc(terraceTrainingRoom1),
 };
 
 const roomPaths: Record<string, Record<string, string>> = {
@@ -282,6 +254,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference": "/en/meeting-rooms/quarter-conference-room",
     "training-room": "/en/meeting-rooms/training-room",
     "phone-booth": "/en/meeting-rooms/phone-booth",
+    "terrace-training": "/en/meeting-rooms/terrace-training-room",
   },
   es: {
     "big-conference": "/es/salas/gran-sala-conferencias",
@@ -289,6 +262,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference": "/es/salas/sala-quarter",
     "training-room": "/es/salas/sala-formacion",
     "phone-booth": "/es/salas/cabina-telefonica",
+    "terrace-training": "/es/salas/sala-formacion-terraza",
   },
   it: {
     "big-conference": "/it/sale/grande-sala-conferenze",
@@ -296,6 +270,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference": "/it/sale/sala-quarter",
     "training-room": "/it/sale/sala-formazione",
     "phone-booth": "/it/sale/cabina-telefonica",
+    "terrace-training": "/it/sale/sala-formazione-terrazza",
   },
 };
 

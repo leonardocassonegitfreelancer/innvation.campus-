@@ -21,6 +21,10 @@ import terraceHero from "@/assets/terrace-hero.webp";
 import terraceCommunity from "@/assets/terrace-community.webp";
 import terraceEntrance from "@/assets/terrace-entrance.webp";
 import terraceEvents from "@/assets/terrace-events.webp";
+import terraceTraining1 from "@/assets/terrace-training-room-01.webp";
+import terraceTraining2 from "@/assets/terrace-training-room-02.webp";
+import terraceTraining3 from "@/assets/terrace-training-room-03.webp";
+import terraceTraining4 from "@/assets/terrace-training-room-04.webp";
 
 export type EventType = "conference" | "workshop" | "networking" | "party";
 export type LocationType = "city" | "seaside";
@@ -134,6 +138,27 @@ export const spacesDataset: SpaceData[] = [
       es: ["Insonorizada", "Pantalla 27\"", "Videoconferencia", "Micro Cancelación Ruido", "Carga USB-C"],
       it: ["Insonorizzata", "Display 27\"", "Videoconferenza", "Microfono Antirumore", "Ricarica USB-C"],
     }
+  },
+
+  {
+    slug: "terrace-training-room",
+    image: terraceTraining1,
+    photos: [terraceTraining1, terraceTraining2, terraceTraining3, terraceTraining4],
+    maxGuests: 30,
+    location: "seaside",
+    eventTypes: ["conference", "workshop"],
+    size: "medium",
+    baseRoute: "meeting-rooms",
+    translations: {
+      en: { label: "Training", name: "Training Room — Terrace", capacityText: "Up to 30 people" },
+      es: { label: "Formación", name: "Sala de Formación — Terraza", capacityText: "Hasta 30 personas" },
+      it: { label: "Formazione", name: "Sala Formazione — Terrazza", capacityText: "Fino a 30 persone" },
+    },
+    amenities: {
+      en: ["Projector", "Whiteboard", "Microphone & Speaker", "42m² · 5th Floor", "High-Speed WiFi", "Catering Available", "Events Allowed"],
+      es: ["Proyector", "Pizarra", "Micrófono y Altavoz", "42m² · 5º Piso", "WiFi Alta Velocidad", "Catering Disponible", "Eventos Permitidos"],
+      it: ["Proiettore", "Lavagna", "Microfono e Altoparlante", "42m² · 5º Piano", "WiFi Alta Velocità", "Catering Disponibile", "Eventi Consentiti"],
+    },
   },
 
   // SEASIDE SPACES

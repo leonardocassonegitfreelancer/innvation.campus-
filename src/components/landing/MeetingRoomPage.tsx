@@ -6,7 +6,6 @@ import {
   ChevronLeft, ChevronRight, ArrowLeft, Grid2X2, AlignJustify, Table2, Maximize2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useLocation, Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SEOHead from "@/components/SEOHead";
@@ -62,6 +61,9 @@ const trainingRoomPhotos = Object.values(trainingRoomPhotosGlob).map((mod: any) 
 
 const phoneBoothPhotosGlob = import.meta.glob('@/assets/phone-booth-*.webp', { eager: true });
 const phoneBoothPhotos = Object.values(phoneBoothPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
+
+const terraceTrainingPhotosGlob = import.meta.glob('@/assets/terrace-training-room-*.webp', { eager: true });
+const terraceTrainingPhotos = Object.values(terraceTrainingPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
 
 const rooms: RoomData[] = [
   {
@@ -404,6 +406,72 @@ const rooms: RoomData[] = [
       it: [{ name: "Individuale", capacity: 1, icon: "boardroom" }, { name: "Duo", capacity: 2, icon: "boardroom" }],
     },
   },
+  {
+    slug: "terrace-training-room",
+    name: "Training Room — Terrace",
+    seo: {
+      en: { title: "Training Room — Málaga Terrace", description: "Training room for up to 30 people on the 5th floor at Innovation Campus Málaga Terrace. 42m², projector, microphone, whiteboard and speaker included. Catering and events allowed." },
+      es: { title: "Sala de Formación — Málaga Terrace", description: "Sala de formación para hasta 30 personas en el 5º piso de Innovation Campus Málaga Terrace. 42m², proyector, micrófono, pizarra y altavoz incluidos. Catering y eventos permitidos." },
+      it: { title: "Sala Formazione — Málaga Terrace", description: "Sala formazione per fino a 30 persone al 5º piano di Innovation Campus Málaga Terrace. 42m², proiettore, microfono, lavagna e altoparlante inclusi. Catering ed eventi consentiti." },
+    },
+    capacity: { en: "Up to 30 people", es: "Hasta 30 personas", it: "Fino a 30 persone" },
+    heroImage: terraceTrainingPhotos[0] || "/placeholder.svg",
+    photos: terraceTrainingPhotos.length > 0 ? terraceTrainingPhotos : ["/placeholder.svg"],
+    features: {
+      en: ["Projector", "Whiteboard", "Microphone & Speaker", "Catering Available"],
+      es: ["Proyector", "Pizarra", "Micrófono y Altavoz", "Catering Disponible"],
+      it: ["Proiettore", "Lavagna", "Microfono e Altoparlante", "Catering Disponibile"],
+    },
+    description: {
+      en: "A bright 42m² training room on the 5th floor of Málaga Terrace, with capacity for up to 30 people and 29 chairs. Equipped with projector, whiteboard, microphone and speaker — everything you need for training days, workshops, and corporate events. Catering available and events allowed.",
+      es: "Una luminosa sala de formación de 42m² en el 5º piso de Málaga Terrace, con capacidad para hasta 30 personas y 29 sillas. Equipada con proyector, pizarra, micrófono y altavoz. Catering disponible y eventos permitidos.",
+      it: "Una luminosa sala formazione di 42m² al 5º piano di Málaga Terrace, con capacità fino a 30 persone e 29 sedie. Dotata di proiettore, lavagna, microfono e altoparlante. Catering disponibile ed eventi consentiti.",
+    },
+    useCases: {
+      en: ["Training days", "Corporate workshops", "Team presentations", "Events & conferences", "Onboarding sessions"],
+      es: ["Jornadas de formación", "Talleres corporativos", "Presentaciones de equipo", "Eventos y conferencias", "Sesiones de incorporación"],
+      it: ["Giornate di formazione", "Workshop aziendali", "Presentazioni di team", "Eventi e conferenze", "Sessioni di onboarding"],
+    },
+    amenities: {
+      en: ["High-Speed WiFi", "Projector", "Whiteboard", "Microphone", "Speaker", "Catering Available", "Events Allowed", "Secure Access"],
+      es: ["WiFi Alta Velocidad", "Proyector", "Pizarra", "Micrófono", "Altavoz", "Catering Disponible", "Eventos Permitidos", "Acceso Seguro"],
+      it: ["WiFi Alta Velocità", "Proiettore", "Lavagna", "Microfono", "Altoparlante", "Catering Disponibile", "Eventi Consentiti", "Accesso Sicuro"],
+    },
+    facilitiesCategories: {
+      en: [
+        { category: "AV & Technology", items: ["Projector", "Whiteboard", "Microphone", "Speaker"] },
+        { category: "Connectivity", items: ["High-Speed WiFi", "Power Outlets"] },
+        { category: "Space", items: ["42m²", "5th Floor", "29 Chairs"] },
+        { category: "Services", items: ["Catering Available", "Events Allowed", "Secure Access"] },
+      ],
+      es: [
+        { category: "AV y Tecnología", items: ["Proyector", "Pizarra", "Micrófono", "Altavoz"] },
+        { category: "Conectividad", items: ["WiFi Alta Velocidad", "Enchufes"] },
+        { category: "Espacio", items: ["42m²", "5º Piso", "29 Sillas"] },
+        { category: "Servicios", items: ["Catering Disponible", "Eventos Permitidos", "Acceso Seguro"] },
+      ],
+      it: [
+        { category: "AV e Tecnologia", items: ["Proiettore", "Lavagna", "Microfono", "Altoparlante"] },
+        { category: "Connettività", items: ["WiFi Alta Velocità", "Prese"] },
+        { category: "Spazio", items: ["42m²", "5º Piano", "29 Sedie"] },
+        { category: "Servizi", items: ["Catering Disponibile", "Eventi Consentiti", "Accesso Sicuro"] },
+      ],
+    },
+    layouts: {
+      en: [
+        { name: "Theatre", capacity: 30, icon: "theatre" },
+        { name: "Classroom", capacity: 29, icon: "classroom" },
+      ],
+      es: [
+        { name: "Teatro", capacity: 30, icon: "theatre" },
+        { name: "Aula", capacity: 29, icon: "classroom" },
+      ],
+      it: [
+        { name: "Teatro", capacity: 30, icon: "theatre" },
+        { name: "Aula", capacity: 29, icon: "classroom" },
+      ],
+    },
+  },
 ];
 
 /* ─── Route map ──────────────────────────────────────────── */
@@ -414,6 +482,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference-room": "/en/meeting-rooms/quarter-conference-room",
     "training-room": "/en/meeting-rooms/training-room",
     "phone-booth": "/en/meeting-rooms/phone-booth",
+    "terrace-training-room": "/en/meeting-rooms/terrace-training-room",
   },
   es: {
     "big-conference-room": "/es/salas/gran-sala-conferencias",
@@ -421,6 +490,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference-room": "/es/salas/sala-quarter",
     "training-room": "/es/salas/sala-formacion",
     "phone-booth": "/es/salas/cabina-telefonica",
+    "terrace-training-room": "/es/salas/sala-formacion-terraza",
   },
   it: {
     "big-conference-room": "/it/sale/grande-sala-conferenze",
@@ -428,6 +498,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference-room": "/it/sale/sala-quarter",
     "training-room": "/it/sale/sala-formazione",
     "phone-booth": "/it/sale/cabina-telefonica",
+    "terrace-training-room": "/it/sale/sala-formazione-terrazza",
   },
 };
 
@@ -631,8 +702,7 @@ function PhotoGallery({ photos, onClose }: { photos: string[]; onClose: () => vo
 interface MeetingRoomPageProps { roomSlug: string; lang?: "en" | "es" | "it" }
 
 export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoomPageProps) {
-  const location = useLocation();
-  const lang = langProp ?? (location.pathname.startsWith("/es") ? "es" : location.pathname.startsWith("/it") ? "it" : "en");
+  const lang = langProp ?? (typeof window !== "undefined" && window.location.pathname.startsWith("/es") ? "es" : typeof window !== "undefined" && window.location.pathname.startsWith("/it") ? "it" : "en");
   const room = rooms.find((r) => r.slug === roomSlug);
   const [showGallery, setShowGallery] = useState(false);
   const [mobilePhoto, setMobilePhoto] = useState(0);
@@ -661,14 +731,14 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
           <img src={room.heroImage} alt={room.name} className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent" />
           <div className="relative z-10 max-w-7xl mx-auto px-6 pb-12 w-full">
-            <Link
-              to={conferencePaths[lang]}
+            <a
+              href={conferencePaths[lang]}
               onClick={(e) => e.stopPropagation()}
               className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-body mb-4 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               {t.allRooms}
-            </Link>
+            </a>
             <div className="flex items-end justify-between gap-4">
               <div>
                 <h1 className="font-display text-4xl md:text-5xl font-bold text-white">{room.name}</h1>
@@ -753,13 +823,13 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-14">
 
           {/* Back link — mobile/tablet only (desktop version is in hero) */}
-          <Link
-            to={conferencePaths[lang]}
+          <a
+            href={conferencePaths[lang]}
             className="lg:hidden inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-sm font-body mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             {t.allRooms}
-          </Link>
+          </a>
 
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
 
@@ -818,9 +888,9 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
                 <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-5">{t.otherRooms}</p>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {otherRooms.map((r) => (
-                    <Link
+                    <a
                       key={r.slug}
-                      to={paths[r.slug]}
+                      href={paths[r.slug]}
                       className="flex items-center gap-4 p-4 rounded-xl border border-border hover:border-primary/50 hover:shadow-sm transition-all group"
                     >
                       <img src={r.heroImage} alt={r.name} className="w-16 h-12 object-cover rounded-lg shrink-0" />
@@ -828,7 +898,7 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
                         <h3 className="font-display text-sm font-bold text-foreground group-hover:text-primary transition-colors">{r.name}</h3>
                         <p className="font-body text-xs text-muted-foreground mt-0.5">{r.capacity[lang]}</p>
                       </div>
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -910,7 +980,7 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
                   {/* CTA */}
                   <div className="border-t border-border pt-4">
                     <Button asChild className="w-full h-12 text-base font-semibold">
-                      <Link to={leadUrl}>{t.getInTouch}</Link>
+                      <a href={leadUrl}>{t.getInTouch}</a>
                     </Button>
                     <p className="text-center font-body text-xs text-muted-foreground mt-2">{t.noCommitment}</p>
                   </div>
@@ -942,9 +1012,9 @@ export default function MeetingRoomPage({ roomSlug, lang: langProp }: MeetingRoo
       {/* ── Mobile sticky CTA ──────────────────────────────── */}
       <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-background/95 backdrop-blur-sm border-t border-border px-4 py-3">
         <Button asChild className="w-full">
-          <Link to={leadUrl}>
+          <a href={leadUrl}>
             {t.getInTouch}
-          </Link>
+          </a>
         </Button>
       </div>
     </>
