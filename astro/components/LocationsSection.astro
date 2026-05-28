@@ -19,7 +19,7 @@ const content = {
     eyebrow: "Our Malaga Locations",
     title: "Two worlds ",
     titleSpan: "Your choice",
-    seeMore: "See more",
+    seeMore: "Explore Space",
     locations: [
       {
         name: "Historic Center",
@@ -29,9 +29,9 @@ const content = {
         address: "Calle Álamos 7 29012, Málaga",
         hours: "Mon–Thu 9:30–18:30 · Fri until 17:00",
         highlights: ["4 Floors", "2 Rooftop terraces", "Bar", "24/7", "Fast internet"],
-        desc: "Nestled in a restored 18th-century building near the Picasso Museum, this space wraps you in centuries of history. Perfect for deep work, strategic thinking, and conversations that matter.",
         theme: "historic" as const,
         href: "/en/malaga-palace",
+        desc: "Nestled in a restored 18th-century building near the Picasso Museum, this space wraps you in centuries of history. Perfect for deep work, strategic thinking, and conversations that matter.",
       },
       {
         name: "Seaside",
@@ -41,9 +41,9 @@ const content = {
         address: "Calle Puerto 14 29016, Málaga",
         hours: "Mon–Thu 9:30–18:30 · Fri until 17:00",
         highlights: ["Panoramic rooftop terrace", "Ocean-view desks", "Open-plan creative zone", "Nearby the sea"],
-        desc: "Glass, light, and sea. A modern space designed for creative energy, collaboration, and the kind of freedom that only comes from working with the horizon in view.",
         theme: "seaside" as const,
         href: "/en/malaga-terrace",
+        desc: "Glass, light, and sea. A modern space designed for creative energy, collaboration, and the kind of freedom that only comes from working with the horizon in view.",
       }
     ]
   },
@@ -51,7 +51,7 @@ const content = {
     eyebrow: "Nuestras Ubicaciones en Málaga",
     title: "Dos mundos ",
     titleSpan: "Tu elección",
-    seeMore: "Ver más",
+    seeMore: "Descubrir el espacio",
     locations: [
       {
         name: "Centro Histórico",
@@ -61,9 +61,9 @@ const content = {
         address: "Calle Álamos 7 29012, Málaga",
         hours: "Lun–Jue 9:30–18:30 · Vie hasta 17:00",
         highlights: ["4 Plantas", "2 Terrazas", "Bar", "24/7", "Internet rápido"],
-        desc: "Ubicado en un edificio restaurado del siglo XVIII cerca del Museo Picasso, este espacio te envuelve en siglos de historia. Perfecto para trabajo profundo, pensamiento estratégico y conversaciones que importan.",
         theme: "historic" as const,
         href: "/es/malaga-palace",
+        desc: "Ubicado en un edificio restaurado del siglo XVIII cerca del Museo Picasso, este espacio te envuelve en siglos de historia. Perfecto para trabajo profundo, pensamiento estratégico y conversaciones que importan.",
       },
       {
         name: "Junto al Mar",
@@ -73,9 +73,9 @@ const content = {
         address: "Calle Puerto 14 29016, Málaga",
         hours: "Lun–Jue 9:30–18:30 · Vie hasta 17:00",
         highlights: ["Terraza panorámica", "Escritorios con vista al mar", "Zona creativa abierta", "Cerca del mar"],
-        desc: "Cristal, luz y mar. Un espacio moderno diseñado para la energía creativa, la colaboración y ese tipo de libertad que solo viene de trabajar con el horizonte a la vista.",
         theme: "seaside" as const,
         href: "/es/malaga-terrace",
+        desc: "Cristal, luz y mar. Un espacio moderno diseñado para la energía creativa, la colaboración y ese tipo de libertad que solo viene de trabajar con el horizonte a la vista.",
       }
     ]
   },
@@ -83,7 +83,7 @@ const content = {
     eyebrow: "Le Nostre Location a Málaga",
     title: "Due mondi ",
     titleSpan: "La tua scelta",
-    seeMore: "Scopri di più",
+    seeMore: "Scopri lo spazio",
     locations: [
       {
         name: "Centro Storico",
@@ -93,9 +93,9 @@ const content = {
         address: "Calle Álamos 7 29012, Málaga",
         hours: "Lun–Gio 9:30–18:30 · Ven fino alle 17:00",
         highlights: ["4 Piani", "2 Terrazze", "Bar", "24/7", "Internet veloce"],
-        desc: "Situato in un edificio restaurato del XVIII secolo vicino al Museo Picasso, questo spazio ti avvolge in secoli di storia. Perfetto per il lavoro profondo, il pensiero strategico e le conversazioni che contano.",
         theme: "historic" as const,
         href: "/it/malaga-palace",
+        desc: "Situato in un edificio restaurato del XVIII secolo vicino al Museo Picasso, questo spazio ti avvolge in secoli di storia. Perfetto per il lavoro profondo, il pensiero strategico e le conversazioni che contano.",
       },
       {
         name: "Sul Mare",
@@ -105,9 +105,9 @@ const content = {
         address: "Calle Puerto 14 29016, Málaga",
         hours: "Lun–Gio 9:30–18:30 · Ven fino alle 17:00",
         highlights: ["Terrazza panoramica", "Scrivanie vista mare", "Zona creativa open-plan", "Vicino al mare"],
-        desc: "Vetro, luce e mare. Uno spazio moderno progettato per l'energia creativa, la collaborazione e quel tipo di libertà che deriva solo dal lavorare con l'orizzonte in vista.",
         theme: "seaside" as const,
         href: "/it/malaga-terrace",
+        desc: "Vetro, luce e mare. Uno spazio moderno progettato per l'energia creativa, la collaborazione e quel tipo di libertà che deriva solo dal lavorare con l'orizzonte in vista.",
       }
     ]
   }
@@ -125,21 +125,28 @@ const t = content[lang];
         {t.title} <br class="md:hidden" /><span class="text-primary">{t.titleSpan}</span>
       </h2>
     </div>
-
     <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
       {t.locations.map((loc) => {
         const isHistoric = loc.theme === 'historic';
         return (
           <div
-            class={`${isHistoric ? 'scroll-animate-left' : 'scroll-animate-right'} rounded-2xl overflow-hidden group flex flex-col ${isHistoric ? 'stone-texture-bg' : 'sea-wave-bg'}`}
+            class={`
+              ${isHistoric ? 'scroll-animate-left' : 'scroll-animate-right'} 
+              rounded-2xl overflow-hidden group flex flex-col transition-all duration-500 ease-out
+              ${isHistoric 
+                ? 'stone-texture-bg border border-amber-600/10 hover:border-amber-500/30 hover:shadow-[0_20px_50px_rgba(217,119,6,0.12)]' 
+                : 'sea-wave-bg border border-sky-400/15 hover:border-sky-400/35 hover:shadow-[0_20px_50px_rgba(14,165,233,0.12)]'
+              }
+              hover:-translate-y-2
+            `}
             data-animate
           >
-            {/* Image */}
+            {/* Image (No floating badges) */}
             <div class="relative h-80 md:h-[28rem] overflow-hidden z-10">
               <img
                 src={loc.img}
                 alt={loc.alt}
-                class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
+                class="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105"
                 loading="lazy"
               />
             </div>
@@ -147,45 +154,75 @@ const t = content[lang];
             {/* Content */}
             <div class="p-6 md:p-8 relative z-10 flex flex-col flex-1">
               <div class="mb-4">
-                <p class="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1 font-semibold">
+                <p class={`
+                  font-body text-[10px] tracking-[0.3em] uppercase mb-1.5 font-bold transition-all duration-300
+                  ${isHistoric ? 'text-amber-800' : 'text-sky-800'}
+                `}>
                   {loc.tagline}
                 </p>
-                <h3 class={`font-bebas ${isHistoric ? 'text-neutral-dark' : 'text-seaside-text'} text-3xl md:text-4xl`}>
+                <h3 class={`
+                  font-display font-semibold text-3xl md:text-4xl transition-colors duration-300
+                  ${isHistoric ? 'text-neutral-900 group-hover:text-amber-950' : 'text-sky-950 group-hover:text-sky-900'}
+                `}>
                   {loc.name}
                 </h3>
+                <div class={`h-[2px] w-8 mt-2.5 rounded-full transition-all duration-500 group-hover:w-16 ${
+                  isHistoric ? 'bg-amber-600/30 group-hover:bg-amber-600' : 'bg-sky-600/30 group-hover:bg-sky-500'
+                }`} />
               </div>
-              <p class={`font-body text-sm leading-relaxed mb-6 ${isHistoric ? 'text-neutral-dark/80' : 'text-seaside-text'}`}>
+
+              <p class={`
+                font-body text-sm leading-relaxed mb-6 transition-colors duration-300
+                ${isHistoric ? 'text-neutral-800/85 group-hover:text-neutral-900' : 'text-sky-950/80 group-hover:text-sky-950'}
+              `}>
                 {loc.desc}
               </p>
 
-              <div class="space-y-3 mb-6">
-                <div class="flex items-start gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mt-0.5 shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <span class={`font-body text-sm ${isHistoric ? 'text-neutral-dark/70' : 'text-seaside-text'}`}>
+              {/* Info Box */}
+              <div class="space-y-3.5 mb-6 border-t border-black/5 pt-6 mt-auto">
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={`shrink-0 ${isHistoric ? 'text-amber-700' : 'text-sky-700'}`}><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span class={`font-body text-xs font-medium tracking-wide transition-colors duration-300 ${
+                    isHistoric ? 'text-neutral-700/90 group-hover:text-neutral-900' : 'text-sky-900/85 group-hover:text-sky-950'
+                  }`}>
                     {loc.address}
                   </span>
                 </div>
-                <div class="flex items-start gap-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mt-0.5 shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  <span class={`font-body text-sm ${isHistoric ? 'text-neutral-dark/70' : 'text-seaside-text'}`}>
+                <div class="flex items-center gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={`shrink-0 ${isHistoric ? 'text-amber-700' : 'text-sky-700'}`}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span class={`font-body text-xs font-medium tracking-wide transition-colors duration-300 ${
+                    isHistoric ? 'text-neutral-700/90 group-hover:text-neutral-900' : 'text-sky-900/85 group-hover:text-sky-950'
+                  }`}>
                     {loc.hours}
                   </span>
                 </div>
               </div>
 
-              <div class="flex flex-wrap gap-2">
+              {/* Highlights placed back at bottom with premium style */}
+              <div class="flex flex-wrap gap-2 mb-8">
                 {loc.highlights.map((h) => (
-                  <span class={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${isHistoric ? 'bg-neutral-dark/10 text-neutral-dark/80' : 'bg-seaside-text/10 text-seaside-text'}`}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    {h}
+                  <span class={`inline-flex items-center gap-1.5 font-body text-[11px] px-3.5 py-1.5 rounded-lg border transition-all duration-300 ${
+                    isHistoric 
+                      ? 'bg-amber-600/10 text-amber-950 border-amber-600/10 group-hover:bg-amber-600/15' 
+                      : 'bg-sky-400/15 text-sky-950 border-sky-400/10 group-hover:bg-sky-400/25'
+                  }`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" class="text-amber-500 shrink-0"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span class="font-medium tracking-wide">{h}</span>
                   </span>
                 ))}
               </div>
 
-              <div class="mt-auto pt-8">
+              {/* Premium CTA Button */}
+              <div>
                 <a
                   href={loc.href}
-                  class="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300"
+                  class={`
+                    w-full inline-flex items-center justify-center font-body text-xs uppercase tracking-widest py-3.5 px-6 rounded-xl font-bold transition-all duration-300
+                    ${isHistoric 
+                      ? 'bg-amber-950 text-amber-50 hover:bg-amber-800 hover:shadow-[0_8px_25px_rgba(120,53,4,0.25)]' 
+                      : 'bg-sky-950 text-sky-50 hover:bg-sky-900 hover:shadow-[0_8px_25px_rgba(8,112,184,0.25)]'
+                    }
+                  `}
                 >
                   {t.seeMore}
                 </a>

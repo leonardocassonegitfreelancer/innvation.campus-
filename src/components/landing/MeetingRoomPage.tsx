@@ -59,8 +59,11 @@ const quarterConfPhotos = Object.values(quarterConfPhotosGlob).map((mod: any) =>
 const trainingRoomPhotosGlob = import.meta.glob('@/assets/training-room-*.webp', { eager: true });
 const trainingRoomPhotos = Object.values(trainingRoomPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
 
-const phoneBoothPhotosGlob = import.meta.glob('@/assets/phone-booth-*.webp', { eager: true });
-const phoneBoothPhotos = Object.values(phoneBoothPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
+const phoneBoothPalaceGlob = import.meta.glob('@/assets/phone-booth-malaga-palace-*.webp', { eager: true });
+const phoneBoothPalacePhotos = Object.values(phoneBoothPalaceGlob).map((mod: any) => getSrc(mod.default || mod));
+
+const phoneBoothTerraceGlob = import.meta.glob('@/assets/phone-booth-malaga-terrace-*.webp', { eager: true });
+const phoneBoothTerracePhotos = Object.values(phoneBoothTerraceGlob).map((mod: any) => getSrc(mod.default || mod));
 
 const terraceTrainingPhotosGlob = import.meta.glob('@/assets/terrace-training-room-*.webp', { eager: true });
 const terraceTrainingPhotos = Object.values(terraceTrainingPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
@@ -364,8 +367,8 @@ const rooms: RoomData[] = [
       it: { title: "Cabina Telefonica – Innovation Campus Málaga", description: "Cabina telefonica privata e insonorizzata per 1–2 persone. Ideale per chiamate riservate, videoriunioni rapide e lavoro concentrato a Málaga." },
     },
     capacity: { en: "1–2 people", es: "1–2 personas", it: "1–2 persone" },
-    heroImage: phoneBoothPhotos[0] || "/placeholder.svg",
-    photos: phoneBoothPhotos.length > 0 ? phoneBoothPhotos : ["/placeholder.svg"],
+    heroImage: phoneBoothPalacePhotos[0] || "/placeholder.svg",
+    photos: phoneBoothPalacePhotos.length > 0 ? phoneBoothPalacePhotos : ["/placeholder.svg"],
     features: {
       en: ["Soundproofed", "27\" Display", "Video Call Ready", "Noise-Cancelling Mic"],
       es: ["Insonorizada", "Pantalla 27\"", "Lista para Video", "Micro Cancelación Ruido"],
@@ -375,6 +378,63 @@ const rooms: RoomData[] = [
       en: "Our Phone Booth is a compact, fully soundproofed private pod designed for confidential phone calls, quick video meetings, and focused individual work. Step inside and enjoy complete acoustic privacy without leaving the campus.",
       es: "Nuestra Cabina Telefónica es un espacio privado compacto e insonorizado, diseñado para llamadas confidenciales, videorreuniones rápidas y trabajo individual concentrado. Entra y disfruta de total privacidad acústica sin salir del campus.",
       it: "La nostra Cabina Telefonica è un pod privato compatto e completamente insonorizzato, progettato per chiamate riservate, videoriunioni rapide e lavoro individuale concentrato. Entra e goditi completa privacy acustica senza lasciare il campus.",
+    },
+    useCases: {
+      en: ["Confidential calls", "Quick video meetings", "Focused deep work", "Recruiting interviews", "Private conversations"],
+      es: ["Llamadas confidenciales", "Videorreuniones rápidas", "Trabajo concentrado", "Entrevistas de selección", "Conversaciones privadas"],
+      it: ["Chiamate riservate", "Videoriunioni rapide", "Lavoro in deep focus", "Colloqui di selezione", "Conversazioni private"],
+    },
+    amenities: {
+      en: ["High-Speed WiFi", "27\" Display", "Video Conferencing", "Noise-Cancelling Mic", "Climate Control", "USB-C Charging", "Secure Access"],
+      es: ["WiFi Alta Velocidad", "Pantalla 27\"", "Videoconferencia", "Micro Cancelación Ruido", "Climatización", "Carga USB-C", "Acceso Seguro"],
+      it: ["WiFi Alta Velocità", "Display 27\"", "Videoconferenza", "Microfono Antirumore", "Climatizzazione", "Ricarica USB-C", "Accesso Sicuro"],
+    },
+    facilitiesCategories: {
+      en: [
+        { category: "AV & Technology", items: ["27\" Display", "Video Conferencing", "Noise-Cancelling Mic"] },
+        { category: "Connectivity", items: ["High-Speed WiFi", "USB-C Charging"] },
+        { category: "Comfort", items: ["Climate Control", "Soundproofing"] },
+        { category: "Services", items: ["Secure Access"] },
+      ],
+      es: [
+        { category: "AV y Tecnología", items: ["Pantalla 27\"", "Videoconferencia", "Micro Cancelación Ruido"] },
+        { category: "Conectividad", items: ["WiFi Alta Velocidad", "Carga USB-C"] },
+        { category: "Confort", items: ["Climatización", "Insonorización"] },
+        { category: "Servicios", items: ["Acceso Seguro"] },
+      ],
+      it: [
+        { category: "AV e Tecnologia", items: ["Display 27\"", "Videoconferenza", "Microfono Antirumore"] },
+        { category: "Connettività", items: ["WiFi Alta Velocità", "Ricarica USB-C"] },
+        { category: "Comfort", items: ["Climatizzazione", "Insonorizzazione"] },
+        { category: "Servizi", items: ["Accesso Sicuro"] },
+      ],
+    },
+    layouts: {
+      en: [{ name: "Individual", capacity: 1, icon: "boardroom" }, { name: "Duo", capacity: 2, icon: "boardroom" }],
+      es: [{ name: "Individual", capacity: 1, icon: "boardroom" }, { name: "Dúo", capacity: 2, icon: "boardroom" }],
+      it: [{ name: "Individuale", capacity: 1, icon: "boardroom" }, { name: "Duo", capacity: 2, icon: "boardroom" }],
+    },
+  },
+  {
+    slug: "phone-booth-terrace",
+    name: "Phone Booth",
+    seo: {
+      en: { title: "Phone Booth — Málaga Terrace", description: "Private soundproofed phone booth for 1–2 people at Innovation Campus Málaga Terrace. Perfect for confidential calls, quick video meetings, and focused work." },
+      es: { title: "Cabina Telefónica — Málaga Terrace", description: "Cabina telefónica privada e insonorizada para 1–2 personas en Innovation Campus Málaga Terrace. Perfecta para llamadas confidenciales y videorreuniones rápidas." },
+      it: { title: "Cabina Telefonica — Málaga Terrace", description: "Cabina telefonica privata e insonorizzata per 1–2 persone presso Innovation Campus Málaga Terrace. Ideale per chiamate riservate e videoriunioni rapide." },
+    },
+    capacity: { en: "1–2 people", es: "1–2 personas", it: "1–2 persone" },
+    heroImage: phoneBoothTerracePhotos[0] || "/placeholder.svg",
+    photos: phoneBoothTerracePhotos.length > 0 ? phoneBoothTerracePhotos : ["/placeholder.svg"],
+    features: {
+      en: ["Soundproofed", "27\" Display", "Video Call Ready", "Noise-Cancelling Mic"],
+      es: ["Insonorizada", "Pantalla 27\"", "Lista para Video", "Micro Cancelación Ruido"],
+      it: ["Insonorizzata", "Display 27\"", "Video Call Ready", "Microfono Antirumore"],
+    },
+    description: {
+      en: "Our Phone Booth at Málaga Terrace is a compact, fully soundproofed private pod designed for confidential phone calls, quick video meetings, and focused individual work. Enjoy complete acoustic privacy with sea views just steps away.",
+      es: "Nuestra Cabina Telefónica en Málaga Terrace es un espacio privado compacto e insonorizado para llamadas confidenciales, videorreuniones rápidas y trabajo individual concentrado. Privacidad total con vistas al mar a pocos pasos.",
+      it: "La nostra Cabina Telefonica a Málaga Terrace è un pod privato e completamente insonorizzato per chiamate riservate, videoriunioni rapide e lavoro concentrato. Privacy totale con vista sul mare a pochi passi.",
     },
     useCases: {
       en: ["Confidential calls", "Quick video meetings", "Focused deep work", "Recruiting interviews", "Private conversations"],
@@ -686,6 +746,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference-room": "/en/meeting-rooms/quarter-conference-room",
     "training-room": "/en/meeting-rooms/training-room",
     "phone-booth": "/en/meeting-rooms/phone-booth",
+    "phone-booth-terrace": "/en/meeting-rooms/phone-booth-terrace",
     "terrace-training-room": "/en/meeting-rooms/terrace-training-room",
     "4th-floor-training-room": "/en/meeting-rooms/4th-floor-training-room",
     "full-terrace": "/en/private-terrace/full-terrace",
@@ -697,6 +758,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference-room": "/es/salas/sala-quarter",
     "training-room": "/es/salas/sala-formacion",
     "phone-booth": "/es/salas/cabina-telefonica",
+    "phone-booth-terrace": "/es/salas/cabina-telefonica-terraza",
     "terrace-training-room": "/es/salas/sala-formacion-terraza",
     "4th-floor-training-room": "/es/salas/sala-formacion-4-planta",
     "full-terrace": "/es/terraza-privada/full-terrace",
@@ -708,6 +770,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference-room": "/it/sale/sala-quarter",
     "training-room": "/it/sale/sala-formazione",
     "phone-booth": "/it/sale/cabina-telefonica",
+    "phone-booth-terrace": "/it/sale/cabina-telefonica-terrazza",
     "terrace-training-room": "/it/sale/sala-formazione-terrazza",
     "4th-floor-training-room": "/it/sale/sala-formazione-4-piano",
     "full-terrace": "/it/terrazza-privata/full-terrace",

@@ -55,37 +55,106 @@ function LocationCard({ name, tagline, img, alt, address, hours, highlights, des
   const isHistoric = theme === "historic";
 
   return (
-    <div ref={ref} className={`${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} ${isVisible ? "visible" : ""} rounded-2xl overflow-hidden group flex flex-col ${isHistoric ? "stone-texture-bg" : "sea-wave-bg"}`}>
+    <div
+      ref={ref}
+      className={`
+        ${isHistoric ? "scroll-animate-left" : "scroll-animate-right"} 
+        ${isVisible ? "visible" : ""} 
+        rounded-2xl overflow-hidden group flex flex-col transition-all duration-500 ease-out
+        ${isHistoric 
+          ? "stone-texture-bg border border-amber-600/10 hover:border-amber-500/30 hover:shadow-[0_20px_50px_rgba(217,119,6,0.12)]" 
+          : "sea-wave-bg border border-sky-400/15 hover:border-sky-400/35 hover:shadow-[0_20px_50px_rgba(14,165,233,0.12)]"
+        }
+        hover:-translate-y-2
+      `}
+    >
+      {/* Image */}
       <div className="relative h-80 md:h-[28rem] overflow-hidden z-10">
-        <img src={_s(img)} alt={alt} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110" loading="lazy" />
+        <img
+          src={_s(img)}
+          alt={alt}
+          className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105"
+          loading="lazy" 
+        />
       </div>
+
+      {/* Content */}
       <div className="p-6 md:p-8 relative z-10 flex flex-col flex-1">
         <div className="mb-4">
-          <p className="font-body text-xs uppercase tracking-[0.3em] text-primary mb-1 font-semibold">{tagline}</p>
-          <h3 className={`font-bebas ${isHistoric ? "text-neutral-dark" : "text-seaside-text"} text-3xl md:text-4xl`}>{name}</h3>
+          <p className={`
+            font-body text-[10px] tracking-[0.3em] uppercase mb-1.5 font-bold transition-all duration-300
+            ${isHistoric ? "text-amber-800" : "text-sky-800"}
+          `}>
+            {tagline}
+          </p>
+          <h3 className={`
+            font-display font-semibold text-3xl md:text-4xl transition-colors duration-300
+            ${isHistoric ? "text-neutral-900 group-hover:text-amber-950" : "text-sky-950 group-hover:text-sky-900"}
+          `}>
+            {name}
+          </h3>
+          <div className={`h-[2px] w-8 mt-2.5 rounded-full transition-all duration-500 group-hover:w-16 ${
+            isHistoric ? "bg-amber-600/30 group-hover:bg-amber-600" : "bg-sky-600/30 group-hover:bg-sky-500"
+          }`} />
         </div>
-        <p className={`font-body text-sm leading-relaxed mb-6 ${isHistoric ? "text-neutral-dark/80" : "text-seaside-text"}`}>{desc}</p>
-        <div className="space-y-3 mb-6">
-          <div className="flex items-start gap-3">
-            <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-            <span className={`font-body text-sm ${isHistoric ? "text-neutral-dark/70" : "text-seaside-text"}`}>{address}</span>
+
+        <p className={`
+          font-body text-sm leading-relaxed mb-6 transition-colors duration-300
+          ${isHistoric ? "text-neutral-800/85 group-hover:text-neutral-900" : "text-sky-950/80 group-hover:text-sky-950"}
+        `}>
+          {desc}
+        </p>
+
+        {/* Info Box */}
+        <div className="space-y-3.5 mb-6 border-t border-black/5 pt-6 mt-auto">
+          <div className="flex items-center gap-3">
+            <MapPin className={`w-4 h-4 shrink-0 ${isHistoric ? "text-amber-700" : "text-sky-700"}`} />
+            <span className={`font-body text-xs font-medium tracking-wide transition-colors duration-300 ${
+              isHistoric ? "text-neutral-700/90 group-hover:text-neutral-900" : "text-sky-900/85 group-hover:text-sky-950"
+            }`}>
+              {address}
+            </span>
           </div>
-          <div className="flex items-start gap-3">
-            <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-            <span className={`font-body text-sm ${isHistoric ? "text-neutral-dark/70" : "text-seaside-text"}`}>{hours}</span>
+          <div className="flex items-center gap-3">
+            <Clock className={`w-4 h-4 shrink-0 ${isHistoric ? "text-amber-700" : "text-sky-700"}`} />
+            <span className={`font-body text-xs font-medium tracking-wide transition-colors duration-300 ${
+              isHistoric ? "text-neutral-700/90 group-hover:text-neutral-900" : "text-sky-900/85 group-hover:text-sky-950"
+            }`}>
+              {hours}
+            </span>
           </div>
         </div>
-        <div className="flex flex-wrap gap-2">
+
+        {/* Highlights at bottom */}
+        <div className="flex flex-wrap gap-2 mb-8">
           {highlights.map((h) => (
-            <span key={h} className={`inline-flex items-center gap-1 font-body text-xs px-3 py-1.5 rounded-full ${isHistoric ? "bg-neutral-dark/10 text-neutral-dark/80" : "bg-seaside-text/10 text-seaside-text"}`}>
-              <Star className="w-3 h-3 text-primary" />
-              {h}
+            <span
+              key={h}
+              className={`inline-flex items-center gap-1.5 font-body text-[11px] px-3.5 py-1.5 rounded-lg border transition-all duration-300 ${
+                isHistoric 
+                  ? "bg-amber-600/10 text-amber-950 border-amber-600/10 group-hover:bg-amber-600/15" 
+                  : "bg-sky-400/15 text-sky-950 border-sky-400/10 group-hover:bg-sky-400/25"
+              }`}
+            >
+              <Star className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />
+              <span className="font-medium tracking-wide">{h}</span>
             </span>
           ))}
         </div>
-        <div className="mt-auto pt-8">
-          <a href={isHistoric ? "/it/malaga-palace" : "/it/malaga-terrace"} className="inline-block bg-primary text-primary-foreground font-body text-sm uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-primary/90 transition-all duration-300">
-            Scopri di più
+
+        {/* Premium CTA Button */}
+        <div>
+          <a
+            href={isHistoric ? "/it/malaga-palace" : "/it/malaga-terrace"}
+            className={`
+              w-full inline-flex items-center justify-center font-body text-xs uppercase tracking-widest py-3.5 px-6 rounded-xl font-bold transition-all duration-300
+              ${isHistoric 
+                ? "bg-amber-950 text-amber-50 hover:bg-amber-800 hover:shadow-[0_8px_25px_rgba(120,53,4,0.25)]" 
+                : "bg-sky-950 text-sky-50 hover:bg-sky-900 hover:shadow-[0_8px_25px_rgba(8,112,184,0.25)]"
+              }
+            `}
+          >
+            Scopri lo spazio
           </a>
         </div>
       </div>

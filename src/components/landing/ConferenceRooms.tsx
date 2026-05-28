@@ -4,7 +4,8 @@ import bigConferenceRoom1 from "@/assets/big-conference-room-01.webp";
 import largeConferenceRoom1 from "@/assets/large-conference-room-01.webp";
 import quarterConferenceRoom1 from "@/assets/quarter-conference-room-01.webp";
 import trainingRoom1 from "@/assets/training-room-01.webp";
-import phoneBooth1 from "@/assets/phone-booth-01.webp";
+import phoneBooth1 from "@/assets/phone-booth-malaga-palace-01.webp";
+import phoneBoothTerrace1 from "@/assets/phone-booth-malaga-terrace-01.webp";
 import terraceTrainingRoom1 from "@/assets/terrace-training-room-01.webp";
 import fourthFloorTrainingRoom1 from "@/assets/4th-floor-training-room-01.webp";
 import { Button } from "@/components/ui/button";
@@ -101,6 +102,14 @@ const translations = {
         features: ["TV", "Microphone", "Whiteboard", "Speaker", "High-Speed WiFi", "4th Floor · 42m²"],
         roomType: "training",
       },
+      {
+        id: "phone-booth-terrace",
+        name: "Phone Booth",
+        capacity: "1–2 people",
+        features: ["Soundproofed", "27\" Display", "Video Call Ready", "Noise-Cancelling Mic"],
+        highlight: false,
+        roomType: "focus",
+      },
     ] as Room[],
   },
   es: {
@@ -178,6 +187,14 @@ const translations = {
         capacity: "Hasta 30 personas",
         features: ["TV", "Micrófono", "Pizarra", "Altavoz", "WiFi Alta Velocidad", "4º Piso · 42m²"],
         roomType: "training",
+      },
+      {
+        id: "phone-booth-terrace",
+        name: "Cabina Telefónica",
+        capacity: "1–2 personas",
+        features: ["Insonorizada", "Pantalla 27\"", "Lista para Video", "Micro Cancelación Ruido"],
+        highlight: false,
+        roomType: "focus",
       },
     ] as Room[],
   },
@@ -257,6 +274,14 @@ const translations = {
         features: ["TV", "Microfono", "Lavagna", "Altoparlante", "WiFi Alta Velocità", "4° Piano · 42m²"],
         roomType: "training",
       },
+      {
+        id: "phone-booth-terrace",
+        name: "Cabina Telefonica",
+        capacity: "1–2 persone",
+        features: ["Insonorizzata", "Display 27\"", "Video Call Ready", "Microfono Antirumore"],
+        highlight: false,
+        roomType: "focus",
+      },
     ] as Room[],
   },
 };
@@ -269,6 +294,7 @@ const roomImages: Record<string, string> = {
   "quarter-conference": getSrc(quarterConferenceRoom1),
   "training-room": getSrc(trainingRoom1),
   "phone-booth": getSrc(phoneBooth1),
+  "phone-booth-terrace": getSrc(phoneBoothTerrace1),
   "terrace-training": getSrc(terraceTrainingRoom1),
   "4th-floor-training": getSrc(fourthFloorTrainingRoom1),
 };
@@ -280,6 +306,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference": "/en/meeting-rooms/quarter-conference-room",
     "training-room": "/en/meeting-rooms/training-room",
     "phone-booth": "/en/meeting-rooms/phone-booth",
+    "phone-booth-terrace": "/en/meeting-rooms/phone-booth-terrace",
     "terrace-training": "/en/meeting-rooms/terrace-training-room",
     "4th-floor-training": "/en/meeting-rooms/4th-floor-training-room",
   },
@@ -289,6 +316,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference": "/es/salas/sala-quarter",
     "training-room": "/es/salas/sala-formacion",
     "phone-booth": "/es/salas/cabina-telefonica",
+    "phone-booth-terrace": "/es/salas/cabina-telefonica-terraza",
     "terrace-training": "/es/salas/sala-formacion-terraza",
     "4th-floor-training": "/es/salas/sala-formacion-4-planta",
   },
@@ -298,6 +326,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "quarter-conference": "/it/sale/sala-quarter",
     "training-room": "/it/sale/sala-formazione",
     "phone-booth": "/it/sale/cabina-telefonica",
+    "phone-booth-terrace": "/it/sale/cabina-telefonica-terrazza",
     "terrace-training": "/it/sale/sala-formazione-terrazza",
     "4th-floor-training": "/it/sale/sala-formazione-4-piano",
   },
