@@ -1,8 +1,4 @@
-import { Users, Wine, Sun, Music, GlassWater } from "lucide-react";
-import terraceHero from "@/assets/terrace-hero.webp";
-import terraceBar from "@/assets/terrace-bar.webp";
-import terraceEvents from "@/assets/terrace-events.webp";
-import terraceCommunity from "@/assets/terrace-community.webp";
+import { Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,131 +6,89 @@ import { useLang } from "@/lib/lang-context";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
+const fullTerraceGlob = import.meta.glob('@/assets/full-terrace-*.webp', { eager: true });
+const fullTerracePhotos: string[] = Object.keys(fullTerraceGlob).sort().map((k) => _s(fullTerraceGlob[k]));
+const heroFull = fullTerracePhotos[0] || "";
+const heroHalf = fullTerracePhotos[3] || fullTerracePhotos[0] || "";
+
 const detailBase: Record<"en" | "es" | "it", string> = {
   en: "/en/private-terrace",
   es: "/es/terraza-privada",
-  it: "/it/terrazza-privata",
+  it: "/it/terrazza-privada",
 };
 
 const translations = {
   en: {
     tagline: "Our Spaces",
     title: "Choose Your Terrace Experience",
-    flagship: "popular",
-    requestQuote: "Request Quote",
+    popular: "popular",
     viewDetails: "View Details",
     spaces: [
       {
         id: "full-terrace",
-        name: "Full Terrace",
-        capacity: "Up to 100 people",
-        features: ["Premium Bar Access", "Panoramic City Views", "Custom Catering", "Flexible Seating"],
+        name: "Full Terrace Experience",
+        capacity: "Up to 120 people",
+        features: ["Full Terrace Exclusive Use", "Panoramic Sea & City Views", "Full Bar Service", "Custom Catering", "Flexible Seating", "Sound System"],
         highlight: true,
       },
       {
-        id: "lounge-corner",
-        name: "Lounge Corner",
-        capacity: "Up to 30 people",
-        features: ["Cozy Seating", "Sunset Views", "Dedicated Waitstaff", "Intimate Setting"],
-        highlight: false,
-      },
-      {
-        id: "networking-layout",
-        name: "Networking Layout",
+        id: "half-terrace",
+        name: "Half Terrace Experience",
         capacity: "Up to 60 people",
-        features: ["Standing Tables", "Cocktail Bar", "Background Music", "Spacious Flow"],
-        highlight: false,
-      },
-      {
-        id: "private-dining",
-        name: "Private Dining",
-        capacity: "Up to 20 people",
-        features: ["Imperial Table", "Private Chef Menus", "Wine Pairing", "Exclusive Area"],
-        highlight: false,
+        features: ["Half Terrace Exclusive Use", "Sea & City Views", "Bar Service", "Catering Available", "Flexible Seating", "Private Area"],
+        highlight: true,
       },
     ],
   },
   es: {
     tagline: "Nuestros Espacios",
     title: "Elige Tu Experiencia",
-    flagship: "más popular",
-    requestQuote: "Solicitar Presupuesto",
+    popular: "más popular",
     viewDetails: "Ver Detalles",
     spaces: [
       {
         id: "full-terrace",
-        name: "Terraza Completa",
-        capacity: "Hasta 100 personas",
-        features: ["Acceso a Barra Premium", "Vistas Panorámicas", "Catering a Medida", "Asientos Flexibles"],
+        name: "Experiencia Terraza Completa",
+        capacity: "Hasta 120 personas",
+        features: ["Uso Exclusivo Terraza Completa", "Vistas Panorámicas al Mar", "Servicio de Barra Completo", "Catering a Medida", "Asientos Flexibles", "Sistema de Sonido"],
         highlight: true,
       },
       {
-        id: "lounge-corner",
-        name: "Rincón Lounge",
-        capacity: "Hasta 30 personas",
-        features: ["Asientos Acogedores", "Vistas al Atardecer", "Camareros", "Ambiente Íntimo"],
-        highlight: false,
-      },
-      {
-        id: "networking-layout",
-        name: "Zona de Networking",
+        id: "half-terrace",
+        name: "Experiencia Media Terraza",
         capacity: "Hasta 60 personas",
-        features: ["Mesas Altas", "Barra de Cócteles", "Música de Fondo", "Flujo Espacioso"],
-        highlight: false,
-      },
-      {
-        id: "private-dining",
-        name: "Cena Privada",
-        capacity: "Hasta 20 personas",
-        features: ["Mesa Imperial", "Menús Privados", "Maridaje", "Área Exclusiva"],
-        highlight: false,
+        features: ["Uso Exclusivo Media Terraza", "Vistas al Mar y la Ciudad", "Servicio de Barra", "Catering Disponible", "Asientos Flexibles", "Área Privada"],
+        highlight: true,
       },
     ],
   },
   it: {
     tagline: "I Nostri Spazi",
     title: "Scegli la Tua Esperienza",
-    flagship: "popolare",
-    requestQuote: "Richiedi Preventivo",
+    popular: "popolare",
     viewDetails: "Vedi Dettagli",
     spaces: [
       {
         id: "full-terrace",
-        name: "Terrazza Completa",
-        capacity: "Fino a 100 persone",
-        features: ["Accesso Bar Premium", "Vista Panoramica", "Catering su Misura", "Sedute Flessibili"],
+        name: "Esperienza Terrazza Completa",
+        capacity: "Fino a 120 persone",
+        features: ["Uso Esclusivo Terrazza Completa", "Vista Panoramica sul Mare", "Servizio Bar Completo", "Catering su Misura", "Sedute Flessibili", "Sistema Audio"],
         highlight: true,
       },
       {
-        id: "lounge-corner",
-        name: "Area Lounge",
-        capacity: "Fino a 30 persone",
-        features: ["Sedute Accoglienti", "Vista Tramonto", "Camerieri Dedicati", "Ambiente Intimo"],
-        highlight: false,
-      },
-      {
-        id: "networking-layout",
-        name: "Layout Networking",
+        id: "half-terrace",
+        name: "Esperienza Mezza Terrazza",
         capacity: "Fino a 60 persone",
-        features: ["Tavolini Alti", "Cocktail Bar", "Musica di Sottofondo", "Spazio Aperto"],
-        highlight: false,
-      },
-      {
-        id: "private-dining",
-        name: "Cena Privata",
-        capacity: "Fino a 20 persone",
-        features: ["Tavolo Imperiale", "Menu Chef", "Degustazione Vini", "Area Esclusiva"],
-        highlight: false,
+        features: ["Uso Esclusivo Mezza Terrazza", "Vista Mare e Città", "Servizio Bar", "Catering Disponibile", "Sedute Flessibili", "Area Privata"],
+        highlight: true,
       },
     ],
   },
 };
 
-const spaceImages: Record<string, string> = {
-  "full-terrace": terraceHero,
-  "lounge-corner": terraceBar,
-  "networking-layout": terraceEvents,
-  "private-dining": terraceCommunity,
+const spaceHero: Record<string, string> = {
+  "full-terrace": heroFull,
+  "half-terrace": heroHalf,
 };
 
 export default function TerraceSpaces() {
@@ -154,62 +108,45 @@ export default function TerraceSpaces() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {t.spaces.map((space) => {
-            return (
-              <Card
-                key={space.id}
-                className={`relative overflow-hidden transition-all duration-300 hover:shadow-lg ${
-                  space.highlight
-                    ? "border-2 border-primary bg-primary/5 md:col-span-2"
-                    : "border-border"
-                }`}
-              >
-                {spaceImages[space.id] && (
-                  <div className={`w-full ${space.highlight ? "h-48 md:h-64" : "h-40 md:h-48"} overflow-hidden`}>
-                    <img
-                      src={_s(spaceImages[space.id])}
-                      alt={space.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                )}
-                {space.highlight && (
-                  <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
-                    {t.flagship}
-                  </Badge>
-                )}
-                <CardHeader>
-                  <CardTitle className={`font-display ${space.highlight ? "text-2xl md:text-3xl" : "text-xl"}`}>
-                    {space.name}
-                  </CardTitle>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Users className="w-4 h-4" />
-                    <span className="font-body text-sm">{space.capacity}</span>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className={`grid ${space.highlight ? "grid-cols-2 md:grid-cols-4" : "grid-cols-2"} gap-3 mb-6`}>
-                    {space.features.map((feature, j) => (
-                      <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        <span className="font-body">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex gap-3">
-                    <Button
-                      asChild
-                      variant={space.highlight ? "default" : "outline"}
-                      className={space.highlight ? "bg-primary hover:bg-primary/90" : ""}
-                    >
-                      <a href={`${detailBase[lang]}/${space.id}`}>{t.viewDetails}</a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+          {t.spaces.map((space) => (
+            <Card
+              key={space.id}
+              className="relative overflow-hidden border-2 border-primary bg-primary/5 transition-all duration-300 hover:shadow-lg"
+            >
+              {spaceHero[space.id] && (
+                <div className="w-full h-48 md:h-64 overflow-hidden">
+                  <img
+                    src={spaceHero[space.id]}
+                    alt={space.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <CardHeader>
+                <CardTitle className="font-display text-2xl md:text-3xl">
+                  {space.name}
+                </CardTitle>
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Users className="w-4 h-4" />
+                  <span className="font-body text-sm">{space.capacity}</span>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {space.features.map((feature, j) => (
+                    <div key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      <span className="font-body">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                <Button asChild className="bg-primary hover:bg-primary/90">
+                  <a href={`${detailBase[lang]}/${space.id}`}>{t.viewDetails}</a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

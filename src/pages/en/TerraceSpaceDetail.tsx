@@ -1,27 +1,12 @@
 import { ArrowLeft, Users, CheckCircle2 } from "lucide-react";
-import terraceHero from "@/assets/terrace-hero.webp";
-import terraceBar from "@/assets/terrace-bar.webp";
-import terraceEvents from "@/assets/terrace-events.webp";
-import terraceCommunity from "@/assets/terrace-community.webp";
 
 const _s = (img: unknown): string =>
   typeof img === "string" ? img : (img as any)?.src ?? "";
 
-type SpaceId = "full-terrace" | "lounge-corner" | "networking-layout" | "private-dining";
+const fullTerraceGlob = import.meta.glob('@/assets/full-terrace-*.webp', { eager: true });
+const fullTerracePhotos: string[] = Object.keys(fullTerraceGlob).sort().map((k) => _s(fullTerraceGlob[k]));
 
-const spaceImages: Record<SpaceId, unknown> = {
-  "full-terrace": terraceHero,
-  "lounge-corner": terraceBar,
-  "networking-layout": terraceEvents,
-  "private-dining": terraceCommunity,
-};
-
-const spaceSlugMap: Record<SpaceId, string> = {
-  "full-terrace": "seaside-terrace",
-  "lounge-corner": "private-terrace",
-  "networking-layout": "seaside-terrace",
-  "private-dining": "private-terrace",
-};
+export type SpaceId = "full-terrace" | "half-terrace";
 
 const leadBase: Record<"en" | "es" | "it", string> = {
   en: "/en/lead",
@@ -35,6 +20,11 @@ const backBase: Record<"en" | "es" | "it", { href: string; label: string }> = {
   it: { href: "/it/terrazza-privata", label: "Torna alla terrazza privata" },
 };
 
+const spaceSlugMap: Record<SpaceId, string> = {
+  "full-terrace": "seaside-terrace",
+  "half-terrace": "private-terrace",
+};
+
 const data: Record<"en" | "es" | "it", Record<SpaceId, {
   name: string;
   capacity: string;
@@ -44,91 +34,49 @@ const data: Record<"en" | "es" | "it", Record<SpaceId, {
 }>> = {
   en: {
     "full-terrace": {
-      name: "Full Terrace",
-      capacity: "Up to 100 guests",
-      description: "Our flagship outdoor venue. Perfect for corporate events, product launches, and networking evenings under the Málaga sky with panoramic city views.",
-      features: ["Premium Bar Access", "Panoramic City Views", "Custom Catering", "Flexible Seating", "Ambient Lighting", "Private Access"],
+      name: "Full Terrace Experience",
+      capacity: "Up to 120 guests",
+      description: "Our flagship outdoor venue on the rooftop of Málaga Terrace. The full terrace is available for exclusive hire — perfect for corporate events, product launches, private parties and networking evenings under the Málaga sky with panoramic sea and city views.",
+      features: ["Full Terrace Exclusive Use", "Panoramic Sea & City Views", "Full Bar Service", "Custom Catering", "Flexible Seating", "Ambient Lighting", "Sound System", "Private Access"],
       cta: "Request a Quote",
     },
-    "lounge-corner": {
-      name: "Lounge Corner",
-      capacity: "Up to 30 guests",
-      description: "An intimate corner of our terrace designed for smaller gatherings. Perfect for team celebrations, client dinners, and private cocktail receptions.",
-      features: ["Cozy Seating", "Sunset Views", "Dedicated Waitstaff", "Intimate Setting", "Cocktail Menu", "Private Area"],
-      cta: "Request a Quote",
-    },
-    "networking-layout": {
-      name: "Networking Layout",
+    "half-terrace": {
+      name: "Half Terrace Experience",
       capacity: "Up to 60 guests",
-      description: "Designed for flow and connection. Standing tables, a cocktail bar, and open space create the ideal setting for networking events and cocktail parties.",
-      features: ["Standing Tables", "Cocktail Bar", "Background Music", "Spacious Flow", "Bar Service", "Outdoor Terrace"],
-      cta: "Request a Quote",
-    },
-    "private-dining": {
-      name: "Private Dining",
-      capacity: "Up to 20 guests",
-      description: "An exclusive dining experience for your most important occasions. Private chef menus, curated wine pairings, and a fully dedicated area just for your group.",
-      features: ["Imperial Table", "Private Chef Menus", "Wine Pairing", "Exclusive Area", "Sommelier Service", "Custom Menu"],
+      description: "Half of our rooftop terrace for a more intimate setting, without giving up the views. Ideal for smaller corporate events, team celebrations, cocktail receptions and private dinners with sea views.",
+      features: ["Half Terrace Exclusive Use", "Sea & City Views", "Bar Service", "Catering Available", "Flexible Seating", "Ambient Lighting", "Private Area"],
       cta: "Request a Quote",
     },
   },
   es: {
     "full-terrace": {
-      name: "Terraza Completa",
-      capacity: "Hasta 100 personas",
-      description: "Nuestro espacio exterior principal. Perfecto para eventos corporativos, lanzamientos de productos y veladas de networking bajo el cielo de Málaga.",
-      features: ["Acceso a Barra Premium", "Vistas Panorámicas", "Catering a Medida", "Asientos Flexibles", "Iluminación Ambiental", "Acceso Privado"],
+      name: "Experiencia Terraza Completa",
+      capacity: "Hasta 120 personas",
+      description: "Nuestro espacio exterior principal en la azotea de Málaga Terrace, disponible en exclusiva. Perfecto para eventos corporativos, lanzamientos de productos, fiestas privadas y veladas de networking bajo el cielo de Málaga con vistas panorámicas al mar y la ciudad.",
+      features: ["Uso Exclusivo Terraza Completa", "Vistas Panorámicas al Mar", "Servicio de Barra Completo", "Catering a Medida", "Asientos Flexibles", "Iluminación Ambiental", "Sistema de Sonido", "Acceso Privado"],
       cta: "Solicitar Presupuesto",
     },
-    "lounge-corner": {
-      name: "Rincón Lounge",
-      capacity: "Hasta 30 personas",
-      description: "Un rincón íntimo de nuestra terraza diseñado para grupos pequeños. Perfecto para celebraciones de equipo, cenas con clientes y recepciones de cócteles.",
-      features: ["Asientos Acogedores", "Vistas al Atardecer", "Camareros Dedicados", "Ambiente Íntimo", "Menú de Cócteles", "Área Privada"],
-      cta: "Solicitar Presupuesto",
-    },
-    "networking-layout": {
-      name: "Zona de Networking",
+    "half-terrace": {
+      name: "Experiencia Media Terraza",
       capacity: "Hasta 60 personas",
-      description: "Diseñado para conectar. Mesas altas, barra de cócteles y espacio abierto crean el escenario ideal para eventos de networking y cocktail parties.",
-      features: ["Mesas Altas", "Barra de Cócteles", "Música de Fondo", "Flujo Espacioso", "Servicio de Barra", "Terraza Exterior"],
-      cta: "Solicitar Presupuesto",
-    },
-    "private-dining": {
-      name: "Cena Privada",
-      capacity: "Hasta 20 personas",
-      description: "Una experiencia gastronómica exclusiva para tus ocasiones más importantes. Menús de chef privado, maridaje de vinos y un área totalmente reservada para tu grupo.",
-      features: ["Mesa Imperial", "Menús de Chef Privado", "Maridaje de Vinos", "Área Exclusiva", "Servicio de Sommelier", "Menú Personalizado"],
+      description: "La mitad de nuestra terraza en azotea para un ambiente más íntimo, sin renunciar a las vistas. Ideal para eventos corporativos más pequeños, celebraciones de equipo, recepciones de cócteles y cenas privadas con vistas al mar.",
+      features: ["Uso Exclusivo Media Terraza", "Vistas al Mar y la Ciudad", "Servicio de Barra", "Catering Disponible", "Asientos Flexibles", "Iluminación Ambiental", "Área Privada"],
       cta: "Solicitar Presupuesto",
     },
   },
   it: {
     "full-terrace": {
-      name: "Terrazza Completa",
-      capacity: "Fino a 100 persone",
-      description: "Il nostro spazio esterno principale. Perfetto per eventi aziendali, lanci di prodotti e serate di networking sotto il cielo di Málaga con vista panoramica.",
-      features: ["Accesso Bar Premium", "Vista Panoramica", "Catering su Misura", "Sedute Flessibili", "Illuminazione Ambientale", "Accesso Privato"],
+      name: "Esperienza Terrazza Completa",
+      capacity: "Fino a 120 persone",
+      description: "Il nostro spazio esterno principale sul rooftop di Málaga Terrace, disponibile in esclusiva. Perfetto per eventi aziendali, lanci di prodotti, feste private e serate di networking sotto il cielo di Málaga con vista panoramica sul mare e sulla città.",
+      features: ["Uso Esclusivo Terrazza Completa", "Vista Panoramica sul Mare", "Servizio Bar Completo", "Catering su Misura", "Sedute Flessibili", "Illuminazione Ambientale", "Sistema Audio", "Accesso Privato"],
       cta: "Richiedi Preventivo",
     },
-    "lounge-corner": {
-      name: "Area Lounge",
-      capacity: "Fino a 30 persone",
-      description: "Un angolo intimo della nostra terrazza progettato per gruppi più piccoli. Perfetto per celebrazioni di team, cene con clienti e ricevimenti privati.",
-      features: ["Sedute Accoglienti", "Vista Tramonto", "Camerieri Dedicati", "Ambiente Intimo", "Menu Cocktail", "Area Privata"],
-      cta: "Richiedi Preventivo",
-    },
-    "networking-layout": {
-      name: "Layout Networking",
+    "half-terrace": {
+      name: "Esperienza Mezza Terrazza",
       capacity: "Fino a 60 persone",
-      description: "Progettato per connettere. Tavolini alti, cocktail bar e spazio aperto creano il contesto ideale per eventi di networking e cocktail party.",
-      features: ["Tavolini Alti", "Cocktail Bar", "Musica di Sottofondo", "Spazio Aperto", "Servizio Bar", "Terrazza Esterna"],
-      cta: "Richiedi Preventivo",
-    },
-    "private-dining": {
-      name: "Cena Privata",
-      capacity: "Fino a 20 persone",
-      description: "Un'esperienza gastronomica esclusiva per le tue occasioni più importanti. Menu dello chef privato, degustazione vini e un'area completamente riservata al tuo gruppo.",
-      features: ["Tavolo Imperiale", "Menu Chef Privato", "Degustazione Vini", "Area Esclusiva", "Servizio Sommelier", "Menu Personalizzato"],
+      description: "Metà della nostra terrazza sul rooftop per un'atmosfera più intima, senza rinunciare alla vista. Ideale per eventi aziendali più piccoli, celebrazioni di team, ricevimenti cocktail e cene private con vista sul mare.",
+      features: ["Uso Esclusivo Mezza Terrazza", "Vista Mare e Città", "Servizio Bar", "Catering Disponibile", "Sedute Flessibili", "Illuminazione Ambientale", "Area Privata"],
       cta: "Richiedi Preventivo",
     },
   },
@@ -144,17 +92,17 @@ export default function TerraceSpaceDetail({
   const space = data[lang][spaceId];
   const back = backBase[lang];
   const leadUrl = `${leadBase[lang]}?service=private-terrace&space=${spaceSlugMap[spaceId]}`;
+  const photos = spaceId === "full-terrace" ? fullTerracePhotos : fullTerracePhotos.slice(0, 6);
+  const heroPhoto = photos[0] || "";
 
   return (
     <main className="pt-20 bg-background min-h-screen">
       {/* Hero */}
-      <div className="relative h-[50vh] min-h-[320px] overflow-hidden">
-        <img
-          src={_s(spaceImages[spaceId])}
-          alt={space.name}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-neutral-dark/50" />
+      <div className="relative h-[55vh] min-h-[360px] overflow-hidden">
+        {heroPhoto && (
+          <img src={heroPhoto} alt={space.name} className="w-full h-full object-cover" />
+        )}
+        <div className="absolute inset-0 bg-neutral-dark/55" />
         <div className="absolute bottom-0 left-0 right-0 p-8 max-w-6xl mx-auto">
           <a
             href={back.href}
@@ -181,7 +129,7 @@ export default function TerraceSpaceDetail({
 
           <div>
             <p className="font-body text-xs uppercase tracking-widest text-primary font-semibold mb-6">
-              Included
+              {lang === "en" ? "What's included" : lang === "es" ? "Qué incluye" : "Cosa è incluso"}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {space.features.map((f) => (
@@ -192,6 +140,26 @@ export default function TerraceSpaceDetail({
               ))}
             </div>
           </div>
+
+          {/* Photo grid */}
+          {photos.length > 1 && (
+            <div>
+              <p className="font-body text-xs uppercase tracking-widest text-primary font-semibold mb-6">
+                {lang === "en" ? "Gallery" : lang === "es" ? "Galería" : "Galleria"}
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {photos.slice(1, 7).map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`${space.name} ${i + 2}`}
+                    className="w-full h-48 object-cover rounded-lg"
+                    loading="lazy"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Right — sticky CTA */}
@@ -204,7 +172,11 @@ export default function TerraceSpaceDetail({
               {space.name}
             </h2>
             <p className="font-body text-sm text-muted-foreground">
-              We'll get back to you within 24 hours with a tailored proposal.
+              {lang === "en"
+                ? "We'll get back to you within 24 hours with a tailored proposal."
+                : lang === "es"
+                ? "Te responderemos en 24 horas con una propuesta personalizada."
+                : "Ti risponderemo entro 24 ore con una proposta su misura."}
             </p>
             <a
               href={leadUrl}

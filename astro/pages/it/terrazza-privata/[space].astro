@@ -5,21 +5,17 @@ import RoomPageLayout from '../../../components/RoomPageLayout.astro';
 import TerraceSpaceDetail from '@/pages/en/TerraceSpaceDetail';
 import { generateBreadcrumbJsonLd } from '@/lib/i18n';
 
-type SpaceId = "full-terrace" | "lounge-corner" | "networking-layout" | "private-dining";
+type SpaceId = "full-terrace" | "half-terrace";
 
 const spaceMeta: Record<SpaceId, { title: string; description: string }> = {
-  "full-terrace": { title: "Terrazza Completa", description: "Spazio esterno per fino a 100 persone con vista panoramica, bar premium e catering su misura a Innovation Campus Málaga." },
-  "lounge-corner": { title: "Area Lounge", description: "Angolo intimo esterno per fino a 30 persone. Perfetto per ricevimenti cocktail privati e celebrazioni di team a Málaga." },
-  "networking-layout": { title: "Layout Networking", description: "Spazio esterno aperto per fino a 60 persone con cocktail bar e tavolini alti. Ideale per eventi di networking a Málaga." },
-  "private-dining": { title: "Cena Privata in Terrazza", description: "Esperienza gastronomica esclusiva per fino a 20 persone con menu chef privato e degustazione vini a Innovation Campus Málaga." },
+  "full-terrace": { title: "Esperienza Terrazza Completa — Málaga Terrace", description: "Spazio esterno esclusivo sul rooftop per fino a 120 persone con vista panoramica sul mare, bar completo e catering su misura a Innovation Campus Málaga." },
+  "half-terrace": { title: "Esperienza Mezza Terrazza — Málaga Terrace", description: "Mezza terrazza esclusiva sul rooftop per fino a 60 persone con vista sul mare, servizio bar e catering a Innovation Campus Málaga." },
 };
 
 export function getStaticPaths() {
   return [
     { params: { space: 'full-terrace' } },
-    { params: { space: 'lounge-corner' } },
-    { params: { space: 'networking-layout' } },
-    { params: { space: 'private-dining' } },
+    { params: { space: 'half-terrace' } },
   ];
 }
 

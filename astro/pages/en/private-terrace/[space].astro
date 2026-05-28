@@ -5,21 +5,17 @@ import RoomPageLayout from '../../../components/RoomPageLayout.astro';
 import TerraceSpaceDetail from '@/pages/en/TerraceSpaceDetail';
 import { generateBreadcrumbJsonLd } from '@/lib/i18n';
 
-type SpaceId = "full-terrace" | "lounge-corner" | "networking-layout" | "private-dining";
+type SpaceId = "full-terrace" | "half-terrace";
 
 const spaceMeta: Record<SpaceId, { title: string; description: string }> = {
-  "full-terrace": { title: "Full Terrace", description: "Outdoor venue for up to 100 guests with panoramic views, premium bar and custom catering at Innovation Campus Málaga." },
-  "lounge-corner": { title: "Lounge Corner", description: "Intimate outdoor corner for up to 30 guests. Perfect for private cocktail receptions and team celebrations in Málaga." },
-  "networking-layout": { title: "Networking Layout", description: "Open outdoor space for up to 60 guests with cocktail bar and standing tables. Ideal for networking events in Málaga." },
-  "private-dining": { title: "Private Dining Terrace", description: "Exclusive outdoor dining experience for up to 20 guests with private chef menus and wine pairing at Innovation Campus Málaga." },
+  "full-terrace": { title: "Full Terrace Experience — Málaga Terrace", description: "Exclusive outdoor rooftop venue for up to 120 guests with panoramic sea views, full bar and custom catering at Innovation Campus Málaga." },
+  "half-terrace": { title: "Half Terrace Experience — Málaga Terrace", description: "Exclusive half-terrace on the rooftop for up to 60 guests with sea views, bar service and catering at Innovation Campus Málaga." },
 };
 
 export function getStaticPaths() {
   return [
     { params: { space: 'full-terrace' } },
-    { params: { space: 'lounge-corner' } },
-    { params: { space: 'networking-layout' } },
-    { params: { space: 'private-dining' } },
+    { params: { space: 'half-terrace' } },
   ];
 }
 
