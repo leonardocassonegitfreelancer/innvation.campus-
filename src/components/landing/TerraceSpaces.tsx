@@ -3,13 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLang } from "@/lib/lang-context";
-import fullTerrace01 from "@/assets/full-terrace-01.webp";
+import terraceEvents from "@/assets/terrace-events.webp";
 import fullTerrace05 from "@/assets/full-terrace-05.webp";
 
 const _s = (img: unknown): string => typeof img === 'string' ? img : (img as any)?.src ?? '';
 
 const spaceImages: Record<string, string> = {
-  "full-terrace": _s(fullTerrace01),
+  "full-terrace": _s(terraceEvents),
   "half-terrace": _s(fullTerrace05),
 };
 
@@ -29,13 +29,13 @@ const translations = {
       {
         id: "full-terrace",
         name: "Full Terrace Experience",
-        capacity: "Up to 120 people",
+        capacity: "Up to 100 people",
         features: ["Full Terrace Exclusive Use", "Panoramic Sea & City Views", "Full Bar Service", "Custom Catering", "Flexible Seating", "Sound System"],
       },
       {
         id: "half-terrace",
         name: "Half Terrace Experience",
-        capacity: "Up to 60 people",
+        capacity: "Up to 40 people",
         features: ["Half Terrace Exclusive Use", "Sea & City Views", "Bar Service", "Catering Available", "Flexible Seating", "Private Area"],
       },
     ],
@@ -49,13 +49,13 @@ const translations = {
       {
         id: "full-terrace",
         name: "Experiencia Terraza Completa",
-        capacity: "Hasta 120 personas",
+        capacity: "Hasta 100 personas",
         features: ["Uso Exclusivo Terraza Completa", "Vistas Panorámicas al Mar", "Servicio de Barra Completo", "Catering a Medida", "Asientos Flexibles", "Sistema de Sonido"],
       },
       {
         id: "half-terrace",
         name: "Experiencia Media Terraza",
-        capacity: "Hasta 60 personas",
+        capacity: "Hasta 40 personas",
         features: ["Uso Exclusivo Media Terraza", "Vistas al Mar y la Ciudad", "Servicio de Barra", "Catering Disponible", "Asientos Flexibles", "Área Privada"],
       },
     ],
@@ -69,13 +69,13 @@ const translations = {
       {
         id: "full-terrace",
         name: "Esperienza Terrazza Completa",
-        capacity: "Fino a 120 persone",
+        capacity: "Fino a 100 persone",
         features: ["Uso Esclusivo Terrazza Completa", "Vista Panoramica sul Mare", "Servizio Bar Completo", "Catering su Misura", "Sedute Flessibili", "Sistema Audio"],
       },
       {
         id: "half-terrace",
         name: "Esperienza Mezza Terrazza",
-        capacity: "Fino a 60 persone",
+        capacity: "Fino a 40 persone",
         features: ["Uso Esclusivo Mezza Terrazza", "Vista Mare e Città", "Servizio Bar", "Catering Disponibile", "Sedute Flessibili", "Area Privata"],
       },
     ],

@@ -4,8 +4,6 @@ import { PageWrapper } from '@/lib/lang-context';
 import TerraceIntro from '@/components/landing/TerraceIntro';
 import TerraceSpaces from '@/components/landing/TerraceSpaces';
 import TerraceIncludes from '@/components/landing/TerraceIncludes';
-import TerraceGallery from '@/components/landing/TerraceGallery';
-import ConferenceCTA from '@/components/landing/ConferenceCTA';
 import serviceTerrace from '@/assets/service-terrace.webp';
 import { getAlternateLinks, generateBreadcrumbJsonLd } from '@/lib/i18n';
 
@@ -21,7 +19,5 @@ const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz'
     <TerraceIntro />
     <TerraceSpaces />
     <TerraceIncludes />
-    <TerraceGallery />
   </PageWrapper>
-  <ConferenceCTA lang="it" client:visible />
 </ServicePageLayout>
