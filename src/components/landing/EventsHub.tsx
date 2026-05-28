@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Clock, MapPin, ArrowLeft, ArrowRight, CalendarDays } from "lucide-react";
 import { eventsDataset, EventData, EventTag } from "@/data/events";
 import serviceCommunity from "@/assets/service-community.webp";
@@ -25,8 +25,11 @@ const eventBasePaths: Record<string, string> = {
   it: "/it/eventi",
 };
 
-function getEventHref(slug: string, lang: string): string {
-  return `${eventBasePaths[lang] ?? "/en/events"}/${slug}`;
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+
+function getEventHref(slug: string, lang: string, utmString?: string): string {
+  const base = `${eventBasePaths[lang] ?? "/en/events"}/${slug}`;
+  return utmString ? `${base}?${utmString}` : base;
 }
 
 const ui = {
@@ -94,16 +97,17 @@ interface EventCardProps {
   event: EventData;
   lang: "en" | "es" | "it";
   t: typeof ui["en"];
+  utmString?: string;
 }
 
-function EventCard({ event, lang, t }: EventCardProps) {
+function EventCard({ event, lang, t, utmString }: EventCardProps) {
   const tr = event.translations[lang];
   const d = new Date(event.date + "T12:00:00");
   const hasImage = event.image && event.image !== "/placeholder.svg";
 
   return (
     <a
-      href={getEventHref(event.slug, lang)}
+      href={getEventHref(event.slug, lang, utmString)}
       className="group block rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-card"
     >
       {/* Card top — image or gradient */}
@@ -150,6 +154,19 @@ function EventCard({ event, lang, t }: EventCardProps) {
 
 export default function EventsHub({ lang = "en" }: { lang?: "en" | "es" | "it" }) {
   const t = ui[lang];
+  const [utmString, setUtmString] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    const qs = new URLSearchParams(window.location.search);
+    const utms = new URLSearchParams();
+    let hasUtm = false;
+    for (const key of UTM_KEYS) {
+      const val = qs.get(key);
+      if (val) { utms.set(key, val); hasUtm = true; }
+    }
+    if (hasUtm) setUtmString(utms.toString());
+  }, []);
+
   const today = useMemo(() => {
     const d = new Date();
     d.setHours(0, 0, 0, 0);
@@ -315,7 +332,7 @@ export default function EventsHub({ lang = "en" }: { lang?: "en" | "es" | "it" }
                   ) : (
                     <div className="flex flex-col gap-4">
                       {selectedEvents.map(event => (
-                        <EventCard key={event.slug} event={event} lang={lang} t={t} />
+                        <EventCard key={event.slug} event={event} lang={lang} t={t} utmString={utmString} />
                       ))}
                     </div>
                   )}
@@ -373,7 +390,7 @@ export default function EventsHub({ lang = "en" }: { lang?: "en" | "es" | "it" }
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {upcomingEvents.map(event => (
-                <EventCard key={event.slug} event={event} lang={lang} t={t} />
+                <EventCard key={event.slug} event={event} lang={lang} t={t} utmString={utmString} />
               ))}
             </div>
           </div>
