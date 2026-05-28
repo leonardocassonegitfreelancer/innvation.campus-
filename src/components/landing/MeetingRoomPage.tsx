@@ -68,6 +68,9 @@ const terraceTrainingPhotos = Object.values(terraceTrainingPhotosGlob).map((mod:
 const fourthFloorPhotosGlob = import.meta.glob('@/assets/4th-floor-training-room-*.webp', { eager: true });
 const fourthFloorPhotos = Object.values(fourthFloorPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
 
+const fullTerracePhotosGlob = import.meta.glob('@/assets/full-terrace-*.webp', { eager: true });
+const fullTerracePhotos = Object.values(fullTerracePhotosGlob).map((mod: any) => getSrc(mod.default || mod));
+
 const rooms: RoomData[] = [
   {
     slug: "big-conference-room",
@@ -541,6 +544,138 @@ const rooms: RoomData[] = [
       ],
     },
   },
+  {
+    slug: "full-terrace",
+    name: "Full Terrace Experience",
+    seo: {
+      en: { title: "Full Terrace Experience — Málaga Terrace", description: "Exclusive outdoor rooftop venue for up to 120 guests with panoramic sea views, full bar and custom catering at Innovation Campus Málaga." },
+      es: { title: "Experiencia Terraza Completa — Málaga Terrace", description: "Espacio exterior exclusivo en azotea para hasta 120 personas con vistas panorámicas al mar, barra completa y catering personalizado en Innovation Campus Málaga." },
+      it: { title: "Esperienza Terrazza Completa — Málaga Terrace", description: "Spazio esterno esclusivo sul rooftop per fino a 120 persone con vista panoramica sul mare, bar completo e catering su misura a Innovation Campus Málaga." },
+    },
+    capacity: { en: "Up to 120 guests", es: "Hasta 120 personas", it: "Fino a 120 persone" },
+    heroImage: fullTerracePhotos[0] || "/placeholder.svg",
+    photos: fullTerracePhotos.length > 0 ? fullTerracePhotos : ["/placeholder.svg"],
+    features: {
+      en: ["Full Terrace Exclusive Use", "Panoramic Sea & City Views", "Full Bar Service", "Custom Catering", "Flexible Seating", "Sound System", "Ambient Lighting", "Private Access"],
+      es: ["Uso Exclusivo Terraza Completa", "Vistas Panorámicas al Mar", "Servicio de Barra Completo", "Catering a Medida", "Asientos Flexibles", "Sistema de Sonido", "Iluminación Ambiental", "Acceso Privado"],
+      it: ["Uso Esclusivo Terrazza Completa", "Vista Panoramica sul Mare", "Servizio Bar Completo", "Catering su Misura", "Sedute Flessibili", "Sistema Audio", "Illuminazione Ambientale", "Accesso Privato"],
+    },
+    description: {
+      en: "Our flagship outdoor venue on the rooftop of Málaga Terrace, available for exclusive hire. Perfect for corporate events, product launches, private parties and networking evenings under the Málaga sky with panoramic sea and city views.",
+      es: "Nuestro espacio exterior principal en la azotea de Málaga Terrace, disponible en exclusiva. Perfecto para eventos corporativos, lanzamientos de productos, fiestas privadas y veladas de networking bajo el cielo de Málaga con vistas panorámicas al mar y la ciudad.",
+      it: "Il nostro spazio esterno principale sul rooftop di Málaga Terrace, disponibile in esclusiva. Perfetto per eventi aziendali, lanci di prodotti, feste private e serate di networking con vista panoramica sul mare e sulla città.",
+    },
+    useCases: {
+      en: ["Corporate events", "Product launches", "Private parties", "Networking evenings", "Team celebrations"],
+      es: ["Eventos corporativos", "Lanzamientos de productos", "Fiestas privadas", "Veladas de networking", "Celebraciones de equipo"],
+      it: ["Eventi aziendali", "Lanci di prodotti", "Feste private", "Serate di networking", "Celebrazioni di team"],
+    },
+    amenities: {
+      en: ["Full Bar Service", "Custom Catering", "Flexible Seating", "Sound System", "Ambient Lighting", "Private Access", "Sea Views", "Rooftop Venue"],
+      es: ["Servicio de Barra Completo", "Catering a Medida", "Asientos Flexibles", "Sistema de Sonido", "Iluminación Ambiental", "Acceso Privado", "Vistas al Mar", "Azotea"],
+      it: ["Servizio Bar Completo", "Catering su Misura", "Sedute Flessibili", "Sistema Audio", "Illuminazione Ambientale", "Accesso Privato", "Vista Mare", "Rooftop"],
+    },
+    facilitiesCategories: {
+      en: [
+        { category: "Bar & Catering", items: ["Full Bar Service", "Custom Catering", "Dedicated Staff"] },
+        { category: "Setup", items: ["Flexible Seating", "Ambient Lighting", "Sound System"] },
+        { category: "Space", items: ["Rooftop Venue", "Panoramic Sea Views", "Private Access"] },
+        { category: "Capacity", items: ["Up to 120 guests", "Exclusive Use"] },
+      ],
+      es: [
+        { category: "Barra y Catering", items: ["Servicio de Barra Completo", "Catering a Medida", "Personal Dedicado"] },
+        { category: "Equipamiento", items: ["Asientos Flexibles", "Iluminación Ambiental", "Sistema de Sonido"] },
+        { category: "Espacio", items: ["Azotea", "Vistas Panorámicas al Mar", "Acceso Privado"] },
+        { category: "Capacidad", items: ["Hasta 120 personas", "Uso Exclusivo"] },
+      ],
+      it: [
+        { category: "Bar e Catering", items: ["Servizio Bar Completo", "Catering su Misura", "Personale Dedicato"] },
+        { category: "Allestimento", items: ["Sedute Flessibili", "Illuminazione Ambientale", "Sistema Audio"] },
+        { category: "Spazio", items: ["Rooftop", "Vista Panoramica sul Mare", "Accesso Privato"] },
+        { category: "Capacità", items: ["Fino a 120 persone", "Uso Esclusivo"] },
+      ],
+    },
+    layouts: {
+      en: [
+        { name: "Cocktail / Standing", capacity: 120, icon: "theatre" },
+        { name: "Seated Dinner", capacity: 60, icon: "boardroom" },
+      ],
+      es: [
+        { name: "Cóctel / De pie", capacity: 120, icon: "theatre" },
+        { name: "Cena Sentada", capacity: 60, icon: "boardroom" },
+      ],
+      it: [
+        { name: "Cocktail / In piedi", capacity: 120, icon: "theatre" },
+        { name: "Cena Seduta", capacity: 60, icon: "boardroom" },
+      ],
+    },
+  },
+  {
+    slug: "half-terrace",
+    name: "Half Terrace Experience",
+    seo: {
+      en: { title: "Half Terrace Experience — Málaga Terrace", description: "Exclusive half-terrace on the rooftop for up to 60 guests with sea views, bar service and catering at Innovation Campus Málaga." },
+      es: { title: "Experiencia Media Terraza — Málaga Terrace", description: "Media terraza exclusiva en azotea para hasta 60 personas con vistas al mar, servicio de barra y catering en Innovation Campus Málaga." },
+      it: { title: "Esperienza Mezza Terrazza — Málaga Terrace", description: "Mezza terrazza esclusiva sul rooftop per fino a 60 persone con vista sul mare, servizio bar e catering a Innovation Campus Málaga." },
+    },
+    capacity: { en: "Up to 60 guests", es: "Hasta 60 personas", it: "Fino a 60 persone" },
+    heroImage: fullTerracePhotos[4] || fullTerracePhotos[0] || "/placeholder.svg",
+    photos: fullTerracePhotos.length > 0 ? fullTerracePhotos.slice(0, 12) : ["/placeholder.svg"],
+    features: {
+      en: ["Half Terrace Exclusive Use", "Sea & City Views", "Bar Service", "Catering Available", "Flexible Seating", "Ambient Lighting", "Private Area"],
+      es: ["Uso Exclusivo Media Terraza", "Vistas al Mar y la Ciudad", "Servicio de Barra", "Catering Disponible", "Asientos Flexibles", "Iluminación Ambiental", "Área Privada"],
+      it: ["Uso Esclusivo Mezza Terrazza", "Vista Mare e Città", "Servizio Bar", "Catering Disponibile", "Sedute Flessibili", "Illuminazione Ambientale", "Area Privata"],
+    },
+    description: {
+      en: "Half of our rooftop terrace for a more intimate setting, without giving up the views. Ideal for smaller corporate events, team celebrations, cocktail receptions and private dinners with sea views.",
+      es: "La mitad de nuestra terraza en azotea para un ambiente más íntimo, sin renunciar a las vistas. Ideal para eventos corporativos más pequeños, celebraciones de equipo, recepciones de cócteles y cenas privadas con vistas al mar.",
+      it: "Metà della nostra terrazza sul rooftop per un'atmosfera più intima, senza rinunciare alla vista. Ideale per eventi aziendali più piccoli, celebrazioni di team, ricevimenti cocktail e cene private con vista sul mare.",
+    },
+    useCases: {
+      en: ["Intimate corporate events", "Team celebrations", "Cocktail receptions", "Private dinners", "Small networking events"],
+      es: ["Eventos corporativos íntimos", "Celebraciones de equipo", "Recepciones de cócteles", "Cenas privadas", "Networking reducido"],
+      it: ["Eventi aziendali intimi", "Celebrazioni di team", "Ricevimenti cocktail", "Cene private", "Networking ridotto"],
+    },
+    amenities: {
+      en: ["Bar Service", "Catering Available", "Flexible Seating", "Ambient Lighting", "Private Area", "Sea Views", "Rooftop Venue"],
+      es: ["Servicio de Barra", "Catering Disponible", "Asientos Flexibles", "Iluminación Ambiental", "Área Privada", "Vistas al Mar", "Azotea"],
+      it: ["Servizio Bar", "Catering Disponibile", "Sedute Flessibili", "Illuminazione Ambientale", "Area Privata", "Vista Mare", "Rooftop"],
+    },
+    facilitiesCategories: {
+      en: [
+        { category: "Bar & Catering", items: ["Bar Service", "Catering Available"] },
+        { category: "Setup", items: ["Flexible Seating", "Ambient Lighting"] },
+        { category: "Space", items: ["Rooftop Venue", "Sea Views", "Private Area"] },
+        { category: "Capacity", items: ["Up to 60 guests", "Exclusive Use"] },
+      ],
+      es: [
+        { category: "Barra y Catering", items: ["Servicio de Barra", "Catering Disponible"] },
+        { category: "Equipamiento", items: ["Asientos Flexibles", "Iluminación Ambiental"] },
+        { category: "Espacio", items: ["Azotea", "Vistas al Mar", "Área Privada"] },
+        { category: "Capacidad", items: ["Hasta 60 personas", "Uso Exclusivo"] },
+      ],
+      it: [
+        { category: "Bar e Catering", items: ["Servizio Bar", "Catering Disponibile"] },
+        { category: "Allestimento", items: ["Sedute Flessibili", "Illuminazione Ambientale"] },
+        { category: "Spazio", items: ["Rooftop", "Vista Mare", "Area Privata"] },
+        { category: "Capacità", items: ["Fino a 60 persone", "Uso Esclusivo"] },
+      ],
+    },
+    layouts: {
+      en: [
+        { name: "Cocktail / Standing", capacity: 60, icon: "theatre" },
+        { name: "Seated Dinner", capacity: 30, icon: "boardroom" },
+      ],
+      es: [
+        { name: "Cóctel / De pie", capacity: 60, icon: "theatre" },
+        { name: "Cena Sentada", capacity: 30, icon: "boardroom" },
+      ],
+      it: [
+        { name: "Cocktail / In piedi", capacity: 60, icon: "theatre" },
+        { name: "Cena Seduta", capacity: 30, icon: "boardroom" },
+      ],
+    },
+  },
 ];
 
 /* ─── Route map ──────────────────────────────────────────── */
@@ -553,6 +688,8 @@ const roomPaths: Record<string, Record<string, string>> = {
     "phone-booth": "/en/meeting-rooms/phone-booth",
     "terrace-training-room": "/en/meeting-rooms/terrace-training-room",
     "4th-floor-training-room": "/en/meeting-rooms/4th-floor-training-room",
+    "full-terrace": "/en/private-terrace/full-terrace",
+    "half-terrace": "/en/private-terrace/half-terrace",
   },
   es: {
     "big-conference-room": "/es/salas/gran-sala-conferencias",
@@ -562,6 +699,8 @@ const roomPaths: Record<string, Record<string, string>> = {
     "phone-booth": "/es/salas/cabina-telefonica",
     "terrace-training-room": "/es/salas/sala-formacion-terraza",
     "4th-floor-training-room": "/es/salas/sala-formacion-4-planta",
+    "full-terrace": "/es/terraza-privada/full-terrace",
+    "half-terrace": "/es/terraza-privada/half-terrace",
   },
   it: {
     "big-conference-room": "/it/sale/grande-sala-conferenze",
@@ -571,6 +710,8 @@ const roomPaths: Record<string, Record<string, string>> = {
     "phone-booth": "/it/sale/cabina-telefonica",
     "terrace-training-room": "/it/sale/sala-formazione-terrazza",
     "4th-floor-training-room": "/it/sale/sala-formazione-4-piano",
+    "full-terrace": "/it/terrazza-privata/full-terrace",
+    "half-terrace": "/it/terrazza-privata/half-terrace",
   },
 };
 

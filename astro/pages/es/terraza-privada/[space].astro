@@ -2,7 +2,7 @@
 export const prerender = true;
 
 import RoomPageLayout from '../../../components/RoomPageLayout.astro';
-import TerraceSpaceDetail from '@/pages/en/TerraceSpaceDetail';
+import MeetingRoomPage from '@/components/landing/MeetingRoomPage';
 import { generateBreadcrumbJsonLd } from '@/lib/i18n';
 
 type SpaceId = "full-terrace" | "half-terrace";
@@ -25,5 +25,5 @@ const path = `/es/terraza-privada/${space}`;
 const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
 ---
 <RoomPageLayout title={meta.title} description={meta.description} {path} {breadcrumb} lang="es">
-  <TerraceSpaceDetail lang="es" spaceId={space} client:load />
+  <MeetingRoomPage roomSlug={space} lang="es" client:load />
 </RoomPageLayout>
