@@ -39,6 +39,16 @@ const slugToRoom: Record<string, Record<"en" | "es" | "it", string>> = {
     es: "Sala formación 4ª planta 30pp (terraza)",
     it: "Sala formazione 4° piano 30pp (terrazza)",
   },
+  "phone-booth": {
+    en: "Phone booth (palace)",
+    es: "Cabina telefónica (palace)",
+    it: "Cabina telefonica (palace)",
+  },
+  "phone-booth-terrace": {
+    en: "Phone booth (terrace)",
+    es: "Cabina telefónica (terraza)",
+    it: "Cabina telefonica (terrazza)",
+  },
 };
 
 const roomOptions = {
@@ -47,24 +57,30 @@ const roomOptions = {
     "Conference room big 50pp (palace)",
     "Conference room small 30pp (palace)",
     "Entrance meeting room 25pp (palace)",
+    "Phone booth (palace)",
     "Training room 5th floor 30pp (terrace)",
     "Training room 4th floor 30pp (terrace)",
+    "Phone booth (terrace)",
   ],
   es: [
     "Sala conferencias completa 80pp (palace)",
     "Sala conferencias grande 50pp (palace)",
     "Sala conferencias pequeña 30pp (palace)",
     "Sala reuniones entrada 25pp (palace)",
+    "Cabina telefónica (palace)",
     "Sala formación 5ª planta 30pp (terraza)",
     "Sala formación 4ª planta 30pp (terraza)",
+    "Cabina telefónica (terraza)",
   ],
   it: [
     "Sala conferenze completa 80pp (palace)",
     "Sala conferenze grande 50pp (palace)",
     "Sala conferenze piccola 30pp (palace)",
     "Sala riunioni ingresso 25pp (palace)",
+    "Cabina telefonica (palace)",
     "Sala formazione 5° piano 30pp (terrazza)",
     "Sala formazione 4° piano 30pp (terrazza)",
+    "Cabina telefonica (terrazza)",
   ],
 };
 
