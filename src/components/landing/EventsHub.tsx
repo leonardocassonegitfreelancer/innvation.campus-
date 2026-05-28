@@ -113,22 +113,8 @@ function EventCard({ event, lang, t, utmString }: EventCardProps) {
       {/* Card top — image or gradient */}
       <div className={`relative h-44 bg-gradient-to-br ${tagGradients[event.tag]} overflow-hidden`}>
         {hasImage && (
-          <img src={event.image} alt={tr.title} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500" />
+          <img src={event.image} alt={tr.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-
-        {/* Date badge */}
-        <div className="absolute top-4 left-4 bg-white/15 backdrop-blur-md border border-white/20 rounded-xl px-3 py-2 text-center min-w-[52px]">
-          <div className="font-display text-2xl font-bold text-white leading-none">{d.getDate()}</div>
-          <div className="font-body text-[10px] text-white/80 uppercase tracking-widest mt-0.5">{t.months[d.getMonth()].slice(0,3)}</div>
-        </div>
-
-        {/* Tag */}
-        <div className="absolute top-4 right-4">
-          <span className={`font-body text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full text-white ${tagColors[event.tag]}`}>
-            {t.tagLabels[event.tag]}
-          </span>
-        </div>
       </div>
 
       {/* Card body */}
@@ -136,6 +122,10 @@ function EventCard({ event, lang, t, utmString }: EventCardProps) {
         <h3 className="font-display font-bold text-base text-foreground mb-3 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
           {tr.title}
         </h3>
+        <div className="flex items-center gap-2 text-xs text-muted-foreground font-body mb-1.5">
+          <CalendarDays className="w-3.5 h-3.5 shrink-0" />
+          {d.toLocaleDateString(t.locale, { day: "numeric", month: "long", year: "numeric" })}
+        </div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground font-body mb-1.5">
           <Clock className="w-3.5 h-3.5 shrink-0" />
           {event.time}

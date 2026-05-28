@@ -118,7 +118,7 @@ export const eventsDataset: EventData[] = [
     date: "2026-06-03",
     time: "19:00 - 21:00",
     location: "Málaga Terrace — Calle Puerto 14",
-    image: "/placeholder.svg",
+    image: "/events/powertalks-open-house-jun-2026.webp",
     tag: "workshop",
     externalUrl: "https://www.meetup.com/es-es/malaga-speaking-with-confidence-and-enthusiasm-meetup-group/events/314397785/?eventOrigin=group_upcoming_events",
     translations: {
@@ -133,6 +133,29 @@ export const eventsDataset: EventData[] = [
       it: {
         title: "Allenati in Pubblico — PowerTalks Málaga \"Open House\" da Toastmasters",
         excerpt: "Vuoi migliorare le tue capacità di public speaking e leadership?\n\nTi invitiamo a una Sessione Aperta del nostro Club Toastmasters!\n\nChe tu sia un oratore esperto o alle prime armi, Toastmasters è un'opportunità fantastica per crescere e imparare in un ambiente amichevole e di supporto.\n\nDurante la sessione, scoprirai di cosa si tratta Toastmasters:\n\n• Discorsi dei nostri membri attuali\n• Valutazioni costruttive\n• Improvvisazione con i Table Topics\n\nUn'ottima occasione per migliorare le tue capacità comunicative e di leadership e incontrare persone con interessi simili.\n\nGratuito e aperto a tutti.",
+      },
+    },
+  },
+  {
+    slug: "double-click-shewins-jun-2026",
+    date: "2026-06-04",
+    time: "18:30 - 20:00",
+    location: "Innovation Campus Coworking, Málaga Terrace, Cl Puerto 14",
+    image: "/events/double-click-jun-2026.webp",
+    tag: "networking",
+    externalUrl: "https://www.meetup.com/she_wins_malaga/events/314858509/?eventOrigin=group_upcoming_events",
+    translations: {
+      en: {
+        title: "Double Click: Connection, Laughter & Networking — An Unexpected Evening in Málaga",
+        excerpt: "Join SheWins Málaga for an evening with Kate Feeney — Behavioural Scientist, Comedian and HR consultant with 15 years working with Microsoft, LinkedIn, Mind Gym and Deloitte. Expect real talk, unexpected laughs and genuine connections. Free admission.",
+      },
+      es: {
+        title: "Double Click: Una Sesión de Conexión, Comportamiento y Networking",
+        excerpt: "Únete a SheWins Málaga para una velada con Kate Feeney — Científica del Comportamiento, Comediante y consultora de RRHH con 15 años trabajando con Microsoft, LinkedIn, Mind Gym y Deloitte. Espera conversaciones reales, risas inesperadas y conexiones genuinas. Entrada gratuita.",
+      },
+      it: {
+        title: "Double Click: Connessione, Risate & Networking — Una Serata Inaspettata a Málaga",
+        excerpt: "Unisciti a SheWins Málaga per una serata con Kate Feeney — Scienziata del Comportamento, Comica e consulente HR con 15 anni di esperienza con Microsoft, LinkedIn, Mind Gym e Deloitte. Aspettati conversazioni vere, risate inaspettate e connessioni genuine. Ingresso gratuito.",
       },
     },
   },
