@@ -19,7 +19,7 @@ const content = {
       { key: "private-office" as ServiceKey, icon: Building2, title: "Private Office", desc: "Dedicated office spaces for your team, fully equipped and flexible." },
       { key: "coworking" as ServiceKey, icon: Laptop, title: "Coworking", desc: "Hot desks and dedicated desks in a vibrant professional community." },
       { key: "business-registration" as ServiceKey, icon: FileText, title: "Business Registration", desc: "Register your company at our address and access key business services." },
-      { key: "general" as ServiceKey, icon: MessageCircle, title: "General Enquiry", desc: "Any other question? Our team will get back to you within 24 hours." },
+      { key: "general" as ServiceKey, icon: MessageCircle, title: "General Enquiry", desc: "Any other question? Our team will get back to you within 1 business day." },
     ],
   },
   es: {
@@ -32,7 +32,7 @@ const content = {
       { key: "private-office" as ServiceKey, icon: Building2, title: "Oficina Privada", desc: "Espacios de oficina dedicados para tu equipo, totalmente equipados y flexibles." },
       { key: "coworking" as ServiceKey, icon: Laptop, title: "Coworking", desc: "Puestos flexibles y dedicados en una comunidad profesional vibrante." },
       { key: "business-registration" as ServiceKey, icon: FileText, title: "Registro de Empresa", desc: "Registra tu empresa en nuestra dirección y accede a servicios empresariales clave." },
-      { key: "general" as ServiceKey, icon: MessageCircle, title: "Consulta General", desc: "¿Alguna otra pregunta? Nuestro equipo te responderá en 24 horas." },
+      { key: "general" as ServiceKey, icon: MessageCircle, title: "Consulta General", desc: "¿Alguna otra pregunta? Nuestro equipo te responderá en 1 día laborable." },
     ],
   },
   it: {
@@ -45,7 +45,7 @@ const content = {
       { key: "private-office" as ServiceKey, icon: Building2, title: "Ufficio Privato", desc: "Spazi ufficio dedicati per il tuo team, completamente attrezzati e flessibili." },
       { key: "coworking" as ServiceKey, icon: Laptop, title: "Coworking", desc: "Postazioni flessibili e dedicate in una vivace comunità professionale." },
       { key: "business-registration" as ServiceKey, icon: FileText, title: "Registrazione Aziendale", desc: "Registra la tua azienda al nostro indirizzo e accedi ai servizi aziendali chiave." },
-      { key: "general" as ServiceKey, icon: MessageCircle, title: "Informazioni Generali", desc: "Qualsiasi altra domanda? Il nostro team ti risponderà entro 24 ore." },
+      { key: "general" as ServiceKey, icon: MessageCircle, title: "Informazioni Generali", desc: "Qualsiasi altra domanda? Il nostro team ti risponderà entro 1 giorno lavorativo." },
     ],
   },
 } as const;

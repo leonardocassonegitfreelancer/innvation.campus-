@@ -34,7 +34,7 @@ const translations = {
     inquiry: {
       tagline: "General Enquiries",
       title: "Do you have a question?",
-      subtitle: "We're here for you. Drop us an email or give us a call — our team replies within 24 hours.",
+      subtitle: "We're here for you. Drop us an email or give us a call — our team replies within 1 business day.",
       mainEmail: "info@innovationcampus.biz",
       mainPhone: "+34 671 44 12 88",
     },
@@ -67,7 +67,7 @@ const translations = {
     inquiry: {
       tagline: "Consultas Generales",
       title: "¿Tienes alguna pregunta?",
-      subtitle: "Estamos aquí para ti. Escríbenos o llámanos — nuestro equipo responde en 24 horas.",
+      subtitle: "Estamos aquí para ti. Escríbenos o llámanos — nuestro equipo responde en 1 día laborable.",
       mainEmail: "info@innovationcampus.biz",
       mainPhone: "+34 671 44 12 88",
     },
@@ -100,7 +100,7 @@ const translations = {
     inquiry: {
       tagline: "Informazioni Generali",
       title: "Hai una domanda?",
-      subtitle: "Siamo qui per te. Scrivici o chiamaci — il nostro team risponde entro 24 ore.",
+      subtitle: "Siamo qui per te. Scrivici o chiamaci — il nostro team risponde entro 1 giorno lavorativo.",
       mainEmail: "info@innovationcampus.biz",
       mainPhone: "+34 671 44 12 88",
     },

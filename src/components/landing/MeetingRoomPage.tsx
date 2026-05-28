@@ -802,7 +802,7 @@ const labels = {
     getInTouch: "Request availability",
     showPhotos: "Show all photos",
     included: "What's included",
-    noCommitment: "Free · No commitment · Reply within 24h",
+    noCommitment: "Free · No commitment · Reply within 1 business day",
     pastEvents: "Events hosted here",
     pastEventsItems: [
       { tag: "Workshop", title: "Product Design Sprint" },
@@ -823,7 +823,7 @@ const labels = {
     getInTouch: "Consultar disponibilidad",
     showPhotos: "Ver todas las fotos",
     included: "Qué está incluido",
-    noCommitment: "Gratis · Sin compromiso · Respuesta en 24h",
+    noCommitment: "Gratis · Sin compromiso · Respuesta en 1 día laborable",
     pastEvents: "Eventos celebrados aquí",
     pastEventsItems: [
       { tag: "Workshop", title: "Sprint de Diseño de Producto" },
@@ -844,7 +844,7 @@ const labels = {
     getInTouch: "Verifica disponibilità",
     showPhotos: "Vedi tutte le foto",
     included: "Cosa è incluso",
-    noCommitment: "Gratuito · Senza impegno · Risposta entro 24h",
+    noCommitment: "Gratuito · Senza impegno · Risposta entro 1 giorno lavorativo",
     pastEvents: "Eventi ospitati qui",
     pastEventsItems: [
       { tag: "Workshop", title: "Sprint di Product Design" },

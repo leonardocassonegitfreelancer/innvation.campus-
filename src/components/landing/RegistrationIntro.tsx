@@ -8,7 +8,7 @@ const translations = {
     title: "Establish Your Business",
     subtitle: "Do you want your company to be registered in Spain or Italy, and have a great and professional location in one of our business centers?",
     highlights: [
-      { icon: MapPin, title: "Spain & Italy", desc: "Premium legal addresses in top locations" },
+      { icon: MapPin, title: "Spain & Italy", desc: "Central legal addresses in Málaga, Ancona and Olbia" },
       { icon: Building2, title: "Professional Image", desc: "Your logo at the entrance of our centers" },
       { icon: Laptop, title: "Virtual Office", desc: "Work remotely with a physical presence" },
     ],
@@ -18,7 +18,7 @@ const translations = {
     title: "Establece tu Negocio",
     subtitle: "¿Quieres que tu empresa esté registrada en España o Italia, y contar con una ubicación excelente y profesional en nuestros centros de negocios?",
     highlights: [
-      { icon: MapPin, title: "España e Italia", desc: "Direcciones legales premium en las mejores ubicaciones" },
+      { icon: MapPin, title: "España e Italia", desc: "Direcciones legales céntricas en Málaga, Ancona y Olbia" },
       { icon: Building2, title: "Imagen Profesional", desc: "Tu logotipo en la entrada de nuestros centros" },
       { icon: Laptop, title: "Oficina Virtual", desc: "Trabaja a distancia con presencia física" },
     ],
@@ -28,7 +28,7 @@ const translations = {
     title: "Stabilisci la tua Impresa",
     subtitle: "Vuoi registrare la tua azienda in Spagna o in Italia e avere una sede eccellente e professionale in uno dei nostri centri direzionali?",
     highlights: [
-      { icon: MapPin, title: "Spagna e Italia", desc: "Indirizzi legali premium nelle migliori posizioni" },
+      { icon: MapPin, title: "Spagna e Italia", desc: "Indirizzi legali centrali a Málaga, Ancona e Olbia" },
       { icon: Building2, title: "Immagine Professionale", desc: "Il tuo logo all'ingresso dei nostri centri" },
       { icon: Laptop, title: "Ufficio Virtuale", desc: "Lavora da remoto con una presenza fisica" },
     ],

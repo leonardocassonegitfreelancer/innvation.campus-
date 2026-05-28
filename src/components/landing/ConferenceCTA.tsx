@@ -4,17 +4,17 @@ const headings = {
   en: {
     label: "Get in Touch",
     title: "Ready to book your space?",
-    subtitle: "Tell us what you need and we'll get back to you within 24 hours.",
+    subtitle: "Tell us what you need and we'll get back to you within 1 business day.",
   },
   es: {
     label: "Contáctanos",
     title: "¿Listo para reservar tu espacio?",
-    subtitle: "Cuéntanos qué necesitas y te responderemos en 24 horas.",
+    subtitle: "Cuéntanos qué necesitas y te responderemos en 1 día laborable.",
   },
   it: {
     label: "Contattaci",
     title: "Pronto a prenotare il tuo spazio?",
-    subtitle: "Raccontaci cosa cerchi e ti risponderemo entro 24 ore.",
+    subtitle: "Raccontaci cosa cerchi e ti risponderemo entro 1 giorno lavorativo.",
   },
 };
 

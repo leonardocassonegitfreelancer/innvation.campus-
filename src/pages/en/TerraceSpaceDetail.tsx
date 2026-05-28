@@ -206,10 +206,10 @@ export default function TerraceSpaceDetail({
             </h2>
             <p className="font-body text-sm text-muted-foreground">
               {lang === "en"
-                ? "We'll get back to you within 24 hours with a tailored proposal."
+                ? "We'll get back to you within 1 business day with a tailored proposal."
                 : lang === "es"
-                ? "Te responderemos en 24 horas con una propuesta personalizada."
-                : "Ti risponderemo entro 24 ore con una proposta su misura."}
+                ? "Te responderemos en 1 día laborable con una propuesta personalizada."
+                : "Ti risponderemo entro 1 giorno lavorativo con una proposta su misura."}
             </p>
             <a
               href={leadUrl}

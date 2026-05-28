@@ -194,17 +194,17 @@ const offices: OfficeData[] = [
     slug: "terrace-large",
     image: terraceCommunity,
     seo: {
-      en: { title: "Large Private Office — Málaga Terrace", description: "The top-floor premium office suite at Málaga Terrace with panoramic sea and city views. Fully isolated for 9–20 people. The most prestigious workspace at Innovation Campus." },
-      es: { title: "Oficina Privada Grande — Málaga Terrace", description: "La suite de oficina premium en la última planta de Málaga Terrace con vistas panorámicas al mar y la ciudad. Totalmente aislada para 9–20 personas." },
-      it: { title: "Ufficio Privato Grande — Málaga Terrace", description: "La suite ufficio premium all'ultimo piano di Málaga Terrace con vista panoramica sul mare e sulla città. Completamente isolata per 9–20 persone." },
+      en: { title: "Large Private Office — Málaga Terrace", description: "The top-floor office suite at Málaga Terrace with panoramic sea and city views. Fully isolated for 9–20 people." },
+      es: { title: "Oficina Privada Grande — Málaga Terrace", description: "La suite de oficina en la última planta de Málaga Terrace con vistas panorámicas al mar y la ciudad. Totalmente aislada para 9–20 personas." },
+      it: { title: "Ufficio Privato Grande — Málaga Terrace", description: "La suite ufficio all'ultimo piano di Málaga Terrace con vista panoramica sul mare e sulla città. Completamente isolata per 9–20 persone." },
     },
     sizeLabel: { en: "Large Office", es: "Oficina Grande", it: "Ufficio Grande" },
     location: { en: "Málaga Terrace — Seaside", es: "Málaga Terrace — Frente al Mar", it: "Málaga Terrace — Lungomare" },
     capacity: { en: "9–20 people", es: "9–20 personas", it: "9–20 persone" },
     description: {
-      en: "The top-floor premium office suite with panoramic views of the sea and city. Fully isolated for complete privacy and concentration, it's the most prestigious workspace at Innovation Campus. The 5th-floor position places your team above the roofline of the old city — a rare vantage point that turns the workday into something worth looking forward to.",
-      es: "La suite de oficina premium en la última planta con vistas panorámicas al mar y la ciudad. Totalmente aislada para completa privacidad y concentración, es el espacio de trabajo más prestigioso de Innovation Campus.",
-      it: "La suite ufficio premium all'ultimo piano con vista panoramica sul mare e sulla città. Completamente isolata per massima privacy e concentrazione, è lo spazio di lavoro più prestigioso di Innovation Campus.",
+      en: "The top-floor office suite with panoramic views of the sea and city. Fully isolated for complete privacy and concentration. The 5th-floor position places your team above the roofline of the old city — a rare vantage point that turns the workday into something worth looking forward to.",
+      es: "La suite de oficina en la última planta con vistas panorámicas al mar y la ciudad. Totalmente aislada para completa privacidad y concentración. La posición en el 5.º piso sitúa a tu equipo por encima del perfil del casco antiguo — un mirador inusual que transforma la jornada laboral.",
+      it: "La suite ufficio all'ultimo piano con vista panoramica sul mare e sulla città. Completamente isolata per massima privacy e concentrazione. La posizione al 5° piano colloca il tuo team sopra il profilo del centro storico — un punto di vista raro che trasforma la giornata lavorativa.",
     },
     features: {
       en: ["5th floor", "Panoramic views", "Air conditioning", "Fully isolated"],
@@ -283,7 +283,7 @@ const labels = {
     idealFor: "Ideal For",
     included: "What's included",
     requestInfo: "Request Information",
-    noCommitment: "Free · No commitment · Reply within 24h",
+    noCommitment: "Free · No commitment · Reply within 1 business day",
     otherOffices: "Other offices you might like",
   },
   es: {
@@ -292,7 +292,7 @@ const labels = {
     idealFor: "Ideal Para",
     included: "Qué está incluido",
     requestInfo: "Solicitar Información",
-    noCommitment: "Gratis · Sin compromiso · Respuesta en 24h",
+    noCommitment: "Gratis · Sin compromiso · Respuesta en 1 día laborable",
     otherOffices: "Otras oficinas que podrían interesarte",
   },
   it: {
@@ -301,7 +301,7 @@ const labels = {
     idealFor: "Ideale Per",
     included: "Cosa è incluso",
     requestInfo: "Richiedi Informazioni",
-    noCommitment: "Gratuito · Senza impegno · Risposta entro 24h",
+    noCommitment: "Gratuito · Senza impegno · Risposta entro 1 giorno lavorativo",
     otherOffices: "Altri uffici che potrebbero piacerti",
   },
 };

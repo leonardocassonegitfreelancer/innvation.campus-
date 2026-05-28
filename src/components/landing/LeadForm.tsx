@@ -138,7 +138,7 @@ const translations = {
       submit: "Send Request",
       submitting: "Sending...",
       successTitle: "Request Received!",
-      successDesc: "Our team will get back to you within 24 hours with a tailored proposal.",
+      successDesc: "Our team will get back to you within 1 business day with a tailored proposal.",
     },
   },
   es: {
@@ -194,7 +194,7 @@ const translations = {
       submit: "Enviar Solicitud",
       submitting: "Enviando...",
       successTitle: "¡Solicitud Recibida!",
-      successDesc: "Nuestro equipo te responderá en 24 horas con una propuesta a medida.",
+      successDesc: "Nuestro equipo te responderá en 1 día laborable con una propuesta a medida.",
     },
   },
   it: {
@@ -250,7 +250,7 @@ const translations = {
       submit: "Invia Richiesta",
       submitting: "Invio in corso...",
       successTitle: "Richiesta Ricevuta!",
-      successDesc: "Il nostro team ti risponderà entro 24 ore con una proposta su misura.",
+      successDesc: "Il nostro team ti risponderà entro 1 giorno lavorativo con una proposta su misura.",
     },
   },
 };

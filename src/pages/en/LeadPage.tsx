@@ -31,9 +31,9 @@ const heroContent: Record<string, Record<"en" | "es" | "it", { tagline: string; 
     it: { tagline: "Terrazza Privata", title: "Prenota la Terrazza", subtitle: "Eventi all'aperto, ricevimenti e feste private sul lungomare." },
   },
   office: {
-    en: { tagline: "Private Offices", title: "Rent a Private Office", subtitle: "Dedicated office spaces for your team — flexible terms, premium environment." },
-    es: { tagline: "Oficinas Privadas", title: "Alquila una Oficina Privada", subtitle: "Espacios dedicados para tu equipo — condiciones flexibles, entorno premium." },
-    it: { tagline: "Uffici Privati", title: "Affitta un Ufficio Privato", subtitle: "Spazi dedicati per il tuo team — termini flessibili, ambiente premium." },
+    en: { tagline: "Private Offices", title: "Rent a Private Office", subtitle: "Dedicated office spaces for your team — flexible terms, fully equipped offices." },
+    es: { tagline: "Oficinas Privadas", title: "Alquila una Oficina Privada", subtitle: "Espacios dedicados para tu equipo — condiciones flexibles, oficinas totalmente equipadas." },
+    it: { tagline: "Uffici Privati", title: "Affitta un Ufficio Privato", subtitle: "Spazi dedicati per il tuo team — termini flessibili, uffici completamente attrezzati." },
   },
   coworking: {
     en: { tagline: "Coworking", title: "Join the Coworking", subtitle: "Flexible desks and memberships — work alongside a growing community." },
@@ -46,9 +46,9 @@ const heroContent: Record<string, Record<"en" | "es" | "it", { tagline: string; 
     it: { tagline: "Registrazione Aziendale", title: "Domicilia la Tua Azienda", subtitle: "Trasferisci o registra la tua azienda in Spagna o Italia — gestiamo noi il processo." },
   },
   other: {
-    en: { tagline: "Get in Touch", title: "How Can We Help?", subtitle: "Our team will get back to you within 24 hours." },
-    es: { tagline: "Contáctanos", title: "¿En qué podemos ayudarte?", subtitle: "Nuestro equipo te responderá en 24 horas." },
-    it: { tagline: "Contattaci", title: "Come possiamo aiutarti?", subtitle: "Il nostro team ti risponderà entro 24 ore." },
+    en: { tagline: "Get in Touch", title: "How Can We Help?", subtitle: "Our team will get back to you within 1 business day." },
+    es: { tagline: "Contáctanos", title: "¿En qué podemos ayudarte?", subtitle: "Nuestro equipo te responderá en 1 día laborable." },
+    it: { tagline: "Contattaci", title: "Come possiamo aiutarti?", subtitle: "Il nostro team ti risponderà entro 1 giorno lavorativo." },
   },
 };
 
@@ -56,7 +56,7 @@ const checkoutI18n = {
   en: {
     tagline: "Meeting Rooms",
     title: "Request Availability",
-    subtitle: "Select your room and fill in the details — we'll confirm within 24h.",
+    subtitle: "Select your room and fill in the details — we'll confirm within 1 business day.",
     selectRooms: "Choose Room(s)",
     yourDetails: "Your Details",
     name: "Your Name", email: "Work Email", phone: "Phone Number", company: "Company (Optional)",
@@ -80,14 +80,14 @@ const checkoutI18n = {
     message: "Additional Notes",
     messagePlaceholder: "Preferred setup, specific requirements or any questions...",
     submit: "Request Availability", submitting: "Sending...",
-    noCommitment: "Free · No commitment · Reply within 24h",
+    noCommitment: "Free · No commitment · Reply within 1 business day",
     back: "All Meeting Rooms",
     selectAtLeastOne: "Please select at least one room",
   },
   es: {
     tagline: "Salas de Reuniones",
     title: "Consultar Disponibilidad",
-    subtitle: "Elige tu sala y rellena los datos — confirmamos en 24h.",
+    subtitle: "Elige tu sala y rellena los datos — confirmamos en 1 día laborable.",
     selectRooms: "Elige Sala(s)",
     yourDetails: "Tus Datos",
     name: "Tu Nombre", email: "Email de Trabajo", phone: "Teléfono", company: "Empresa (Opcional)",
@@ -111,14 +111,14 @@ const checkoutI18n = {
     message: "Notas Adicionales",
     messagePlaceholder: "Disposición preferida, requisitos específicos o preguntas...",
     submit: "Consultar Disponibilidad", submitting: "Enviando...",
-    noCommitment: "Gratis · Sin compromiso · Respuesta en 24h",
+    noCommitment: "Gratis · Sin compromiso · Respuesta en 1 día laborable",
     back: "Todas las Salas",
     selectAtLeastOne: "Por favor selecciona al menos una sala",
   },
   it: {
     tagline: "Sale Riunioni",
     title: "Verifica Disponibilità",
-    subtitle: "Scegli la sala e inserisci i dettagli — confermiamo entro 24h.",
+    subtitle: "Scegli la sala e inserisci i dettagli — confermiamo entro 1 giorno lavorativo.",
     selectRooms: "Scegli Sala/e",
     yourDetails: "I Tuoi Dati",
     name: "Il tuo Nome", email: "Email Lavorativa", phone: "Numero di Telefono", company: "Azienda (Opzionale)",
@@ -142,7 +142,7 @@ const checkoutI18n = {
     message: "Note Aggiuntive",
     messagePlaceholder: "Preferenze di allestimento, requisiti specifici o domande...",
     submit: "Verifica Disponibilità", submitting: "Invio in corso...",
-    noCommitment: "Gratuito · Senza impegno · Risposta entro 24h",
+    noCommitment: "Gratuito · Senza impegno · Risposta entro 1 giorno lavorativo",
     back: "Tutte le Sale",
     selectAtLeastOne: "Seleziona almeno una sala",
   },
@@ -221,7 +221,7 @@ function MeetingRoomCheckout({ lang, preSelectedSlug }: { lang: "en" | "es" | "i
         <div className="text-center p-12">
           <Check className="w-16 h-16 text-primary mx-auto mb-4" />
           <h2 className="font-display text-2xl font-bold mb-2">Request received!</h2>
-          <p className="font-body text-muted-foreground">Our team will get back to you within 24h.</p>
+          <p className="font-body text-muted-foreground">Our team will get back to you within 1 business day.</p>
         </div>
       </main>
     );

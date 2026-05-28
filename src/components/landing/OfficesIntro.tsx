@@ -8,7 +8,7 @@ const translations = {
     title: "Your Private Office",
     subtitle: "Fully furnished private offices in the heart of Málaga, designed for teams that need focus, privacy, and a professional address.",
     highlights: [
-      { icon: Building2, title: "Premium Location", desc: "Central Málaga with stunning surroundings" },
+      { icon: Building2, title: "Central Location", desc: "Heart of Málaga, steps from the cathedral" },
       { icon: Lock, title: "24/7 Access", desc: "Secure private entry for your team" },
       { icon: Scaling, title: "Flexible Sizes", desc: "From 2-person pods to 20+ team suites" },
     ],
@@ -18,7 +18,7 @@ const translations = {
     title: "Tu Oficina Privada",
     subtitle: "Oficinas privadas completamente amuebladas en el corazón de Málaga, diseñadas para equipos que necesitan concentración, privacidad y una dirección profesional.",
     highlights: [
-      { icon: Building2, title: "Ubicación Premium", desc: "Centro de Málaga con entorno impresionante" },
+      { icon: Building2, title: "Ubicación Céntrica", desc: "Corazón de Málaga, a pasos de la catedral" },
       { icon: Lock, title: "Acceso 24/7", desc: "Entrada privada y segura para tu equipo" },
       { icon: Scaling, title: "Tamaños Flexibles", desc: "Desde pods de 2 personas hasta suites de 20+" },
     ],
@@ -28,7 +28,7 @@ const translations = {
     title: "Il Tuo Ufficio Privato",
     subtitle: "Uffici privati completamente arredati nel cuore di Málaga, progettati per team che necessitano di concentrazione, privacy e un indirizzo professionale.",
     highlights: [
-      { icon: Building2, title: "Posizione Premium", desc: "Centro di Málaga con ambiente straordinario" },
+      { icon: Building2, title: "Posizione Centrale", desc: "Cuore di Málaga, a due passi dalla cattedrale" },
       { icon: Lock, title: "Accesso 24/7", desc: "Ingresso privato e sicuro per il tuo team" },
       { icon: Scaling, title: "Dimensioni Flessibili", desc: "Da pod per 2 persone a suite per 20+" },
     ],

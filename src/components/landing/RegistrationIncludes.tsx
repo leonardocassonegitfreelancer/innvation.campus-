@@ -24,7 +24,7 @@ const translations = {
       { icon: UserCheck, label: "Servicio de Recepción" },
       { icon: Image, label: "Logotipo de Empresa" },
       { icon: Mail, label: "Gestión de Correo" },
-      { icon: MapPin, label: "Ubicación Premium" },
+      { icon: MapPin, label: "Ubicación Céntrica" },
     ]
   },
   it: {
@@ -36,7 +36,7 @@ const translations = {
       { icon: UserCheck, label: "Servizio Reception" },
       { icon: Image, label: "Logo Aziendale" },
       { icon: Mail, label: "Gestione Posta" },
-      { icon: MapPin, label: "Posizione Premium" },
+      { icon: MapPin, label: "Posizione Centrale" },
     ]
   }
 };
