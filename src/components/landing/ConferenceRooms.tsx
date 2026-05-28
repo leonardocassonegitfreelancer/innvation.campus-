@@ -382,17 +382,19 @@ export default function ConferenceRooms({ lang = "en" }: { lang?: "en" | "es" | 
 
         {hasSections ? (
           <>
-            <div className="mb-10">
-              <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6 font-semibold">
-                {t.conferenceRoomsLabel}
-              </p>
-              <div className="grid md:grid-cols-2 gap-6">
-                {conferenceRooms.map((room) => (
-                  <RoomCard key={room.id} room={room} lang={lang} t={t} />
-                ))}
+            {conferenceRooms.length > 0 && (
+              <div className="mb-10">
+                <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6 font-semibold">
+                  {t.conferenceRoomsLabel}
+                </p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {conferenceRooms.map((room) => (
+                    <RoomCard key={room.id} room={room} lang={lang} t={t} />
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="border-t border-border/50 my-10" />
+            )}
+            {conferenceRooms.length > 0 && <div className="border-t border-border/50 my-10" />}
             <div>
               <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6 font-semibold">
                 {t.otherSpacesLabel}
