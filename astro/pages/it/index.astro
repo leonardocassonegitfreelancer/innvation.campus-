@@ -9,6 +9,7 @@ import QuoteSection from '../../components/QuoteSection.astro';
 import LocationsSection from '../../components/LocationsSection.astro';
 import HomeCTA from '../../components/HomeCTA.astro';
 import FooterSection from '../../components/Footer.astro';
+import IntroStrip from '../../components/IntroStrip.astro';
 
 // React islands (hydrated selectively)
 import Navbar from '@/components/landing/Navbar';
@@ -38,6 +39,8 @@ const jsonLd = {
     <Navbar lang="it" client:load />
 
     <MainHero client:load />
+
+    <IntroStrip lang="it" />
 
     <ServicesSection client:visible />
 
