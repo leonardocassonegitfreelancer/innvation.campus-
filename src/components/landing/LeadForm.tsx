@@ -8,6 +8,39 @@ const thankYouBase: Record<"en" | "es" | "it", string> = {
   it: "/it/grazie",
 };
 
+const slugToRoom: Record<string, Record<"en" | "es" | "it", string>> = {
+  "big-conference-room": {
+    en: "Conference room full 80pp (palace)",
+    es: "Sala conferencias completa 80pp (palace)",
+    it: "Sala conferenze completa 80pp (palace)",
+  },
+  "large-conference-room": {
+    en: "Conference room big 50pp (palace)",
+    es: "Sala conferencias grande 50pp (palace)",
+    it: "Sala conferenze grande 50pp (palace)",
+  },
+  "training-room": {
+    en: "Conference room small 30pp (palace)",
+    es: "Sala conferencias pequeña 30pp (palace)",
+    it: "Sala conferenze piccola 30pp (palace)",
+  },
+  "quarter-conference-room": {
+    en: "Entrance meeting room 25pp (palace)",
+    es: "Sala reuniones entrada 25pp (palace)",
+    it: "Sala riunioni ingresso 25pp (palace)",
+  },
+  "terrace-training-room": {
+    en: "Training room 5th floor 30pp (terrace)",
+    es: "Sala formación 5ª planta 30pp (terraza)",
+    it: "Sala formazione 5° piano 30pp (terrazza)",
+  },
+  "4th-floor-training-room": {
+    en: "Training room 4th floor 30pp (terrace)",
+    es: "Sala formación 4ª planta 30pp (terraza)",
+    it: "Sala formazione 4° piano 30pp (terrazza)",
+  },
+};
+
 const roomOptions = {
   en: [
     "Conference room full 80pp (palace)",
@@ -245,7 +278,8 @@ export default function LeadForm({
   const urlService = urlServiceMap[params.get("service") ?? ""] ?? "";
 
   const [service, setService] = useState(defaultService || urlService || (spaceSlug ? "conference" : ""));
-  const [selectedRooms, setSelectedRooms] = useState<string[]>([]);
+  const preSelectedRoom = spaceSlug && slugToRoom[spaceSlug] ? [slugToRoom[spaceSlug][lang]] : [];
+  const [selectedRooms, setSelectedRooms] = useState<string[]>(preSelectedRoom);
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
   const [duration, setDuration] = useState("");
   const [projector, setProjector] = useState<"yes" | "no" | "">("");
