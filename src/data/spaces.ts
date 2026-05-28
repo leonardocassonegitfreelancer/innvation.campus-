@@ -25,6 +25,8 @@ import terraceTraining1 from "@/assets/terrace-training-room-01.webp";
 import terraceTraining2 from "@/assets/terrace-training-room-02.webp";
 import terraceTraining3 from "@/assets/terrace-training-room-03.webp";
 import terraceTraining4 from "@/assets/terrace-training-room-04.webp";
+import phoneBoothTerrace1 from "@/assets/phone-booth-malaga-terrace-01.webp";
+import phoneBoothTerrace2 from "@/assets/phone-booth-malaga-terrace-02.webp";
 import fourthFloor1 from "@/assets/4th-floor-training-room-01.webp";
 import fourthFloor2 from "@/assets/4th-floor-training-room-02.webp";
 import fourthFloor3 from "@/assets/4th-floor-training-room-03.webp";
@@ -144,6 +146,26 @@ export const spacesDataset: SpaceData[] = [
     }
   },
 
+  {
+    slug: "phone-booth-terrace",
+    image: phoneBoothTerrace1,
+    photos: [phoneBoothTerrace1, phoneBoothTerrace2],
+    maxGuests: 2,
+    location: "seaside",
+    eventTypes: ["workshop", "networking"],
+    size: "small",
+    baseRoute: "meeting-rooms",
+    translations: {
+      en: { label: "Private", name: "Phone Booth — Terrace", capacityText: "1–2 people" },
+      es: { label: "Privado", name: "Cabina Telefónica — Terraza", capacityText: "1–2 personas" },
+      it: { label: "Privato", name: "Cabina Telefonica — Terrazza", capacityText: "1–2 persone" },
+    },
+    amenities: {
+      en: ["Soundproofed", "27\" Display", "Video Conferencing", "Noise-Cancelling Mic", "USB-C Charging"],
+      es: ["Insonorizada", "Pantalla 27\"", "Videoconferencia", "Micro Cancelación Ruido", "Carga USB-C"],
+      it: ["Insonorizzata", "Display 27\"", "Videoconferenza", "Microfono Antirumore", "Ricarica USB-C"],
+    }
+  },
   {
     slug: "terrace-training-room",
     image: terraceTraining1,
