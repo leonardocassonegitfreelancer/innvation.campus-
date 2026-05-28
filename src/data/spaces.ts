@@ -80,9 +80,9 @@ export const spacesDataset: SpaceData[] = [
       it: { label: "Conferenze", name: "Grande Sala Conferenze", capacityText: "Fino a 80 persone" },
     },
     amenities: {
-      en: ["High-Speed WiFi", "100-inch 4K Display", "Premium Audio System", "Modular Seating", "Whiteboards"],
-      es: ["WiFi de Alta Velocidad", "Pantalla 4K de 100 pulgadas", "Sistema de Audio Premium", "Asientos Modulares", "Pizarras"],
-      it: ["WiFi ad Alta Velocità", "Schermo 4K 100 pollici", "Sistema Audio Premium", "Sedute Modulari", "Lavagne"],
+      en: ["High-Speed WiFi", "Projector", "Microphone & Speaker", "Whiteboards"],
+      es: ["WiFi de Alta Velocidad", "Proyector", "Micrófono y Altavoz", "Pizarras"],
+      it: ["WiFi ad Alta Velocità", "Proiettore", "Microfono e Altoparlante", "Lavagne"],
     }
   },
   {
@@ -100,9 +100,9 @@ export const spacesDataset: SpaceData[] = [
       it: { label: "Conferenze", name: "Sala Conferenze Grande", capacityText: "Fino a 50 persone" },
     },
     amenities: {
-      en: ["High-Speed WiFi", "85-inch 4K Display", "Video Conferencing Setup", "Whiteboards"],
-      es: ["WiFi de Alta Velocidad", "Pantalla 4K de 85 pulgadas", "Video Conferencia", "Pizarras"],
-      it: ["WiFi ad Alta Velocità", "Schermo 4K 85 pollici", "Videoconferenza", "Lavagne"],
+      en: ["High-Speed WiFi", "Projector", "Microphone & Speaker", "Whiteboards"],
+      es: ["WiFi de Alta Velocidad", "Proyector", "Micrófono y Altavoz", "Pizarras"],
+      it: ["WiFi ad Alta Velocità", "Proiettore", "Microfono e Altoparlante", "Lavagne"],
     }
   },
   {
@@ -120,29 +120,29 @@ export const spacesDataset: SpaceData[] = [
       it: { label: "Riunione", name: "Sala Formazione", capacityText: "Fino a 6 persone" },
     },
     amenities: {
-      en: ["High-Speed WiFi", "Classroom Layout", "Two 65-inch Displays", "Whiteboards", "Coffee Station"],
-      es: ["WiFi de Alta Velocidad", "Distribución Aula", "Dos Pantallas de 65\"", "Pizarras", "Estación de Café"],
-      it: ["WiFi ad Alta Velocità", "Layout Aula", "Due Schermi 65\"", "Lavagne", "Postazione Caffè"],
+      en: ["High-Speed WiFi", "TV", "Whiteboard", "Catering Available"],
+      es: ["WiFi de Alta Velocidad", "TV", "Pizarra", "Catering Disponible"],
+      it: ["WiFi ad Alta Velocità", "TV", "Lavagna", "Catering Disponibile"],
     }
   },
   {
     slug: "phone-booth",
     image: conferenceQuarterPicasso,
     photos: [conferenceQuarterPicasso, palaceSecondFloor, palaceCoffeeBar],
-    maxGuests: 2,
+    maxGuests: 1,
     location: "city",
     eventTypes: ["workshop", "networking"],
     size: "small",
     baseRoute: "meeting-rooms",
     translations: {
-      en: { label: "Private", name: "Phone Booth", capacityText: "1–2 people" },
-      es: { label: "Privado", name: "Cabina Telefónica", capacityText: "1–2 personas" },
-      it: { label: "Privato", name: "Cabina Telefonica", capacityText: "1–2 persone" },
+      en: { label: "Private", name: "Phone Booth", capacityText: "1 person" },
+      es: { label: "Privado", name: "Cabina Telefónica", capacityText: "1 persona" },
+      it: { label: "Privato", name: "Cabina Telefonica", capacityText: "1 persona" },
     },
     amenities: {
-      en: ["Soundproofed", "27\" Display", "Video Conferencing", "Noise-Cancelling Mic", "USB-C Charging"],
-      es: ["Insonorizada", "Pantalla 27\"", "Videoconferencia", "Micro Cancelación Ruido", "Carga USB-C"],
-      it: ["Insonorizzata", "Display 27\"", "Videoconferenza", "Microfono Antirumore", "Ricarica USB-C"],
+      en: ["Soundproofed", "Private Access", "WiFi"],
+      es: ["Insonorizada", "Acceso Privado", "WiFi"],
+      it: ["Insonorizzata", "Accesso Privato", "WiFi"],
     }
   },
 
@@ -161,9 +161,9 @@ export const spacesDataset: SpaceData[] = [
       it: { label: "Privato", name: "Cabina Telefonica — Terrazza", capacityText: "1–2 persone" },
     },
     amenities: {
-      en: ["Soundproofed", "27\" Display", "Video Conferencing", "Noise-Cancelling Mic", "USB-C Charging"],
-      es: ["Insonorizada", "Pantalla 27\"", "Videoconferencia", "Micro Cancelación Ruido", "Carga USB-C"],
-      it: ["Insonorizzata", "Display 27\"", "Videoconferenza", "Microfono Antirumore", "Ricarica USB-C"],
+      en: ["Soundproofed", "Private Access", "WiFi"],
+      es: ["Insonorizada", "Acceso Privado", "WiFi"],
+      it: ["Insonorizzata", "Accesso Privato", "WiFi"],
     }
   },
   {
