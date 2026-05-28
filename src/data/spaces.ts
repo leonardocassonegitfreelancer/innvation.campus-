@@ -25,6 +25,10 @@ import terraceTraining1 from "@/assets/terrace-training-room-01.webp";
 import terraceTraining2 from "@/assets/terrace-training-room-02.webp";
 import terraceTraining3 from "@/assets/terrace-training-room-03.webp";
 import terraceTraining4 from "@/assets/terrace-training-room-04.webp";
+import fourthFloor1 from "@/assets/4th-floor-training-room-01.webp";
+import fourthFloor2 from "@/assets/4th-floor-training-room-02.webp";
+import fourthFloor3 from "@/assets/4th-floor-training-room-03.webp";
+import fourthFloor4 from "@/assets/4th-floor-training-room-04.webp";
 
 export type EventType = "conference" | "workshop" | "networking" | "party";
 export type LocationType = "city" | "seaside";
@@ -158,6 +162,27 @@ export const spacesDataset: SpaceData[] = [
       en: ["Projector", "Whiteboard", "Microphone & Speaker", "42m² · 5th Floor", "High-Speed WiFi", "Catering Available", "Events Allowed"],
       es: ["Proyector", "Pizarra", "Micrófono y Altavoz", "42m² · 5º Piso", "WiFi Alta Velocidad", "Catering Disponible", "Eventos Permitidos"],
       it: ["Proiettore", "Lavagna", "Microfono e Altoparlante", "42m² · 5º Piano", "WiFi Alta Velocità", "Catering Disponibile", "Eventi Consentiti"],
+    },
+  },
+
+  {
+    slug: "4th-floor-training-room",
+    image: fourthFloor1,
+    photos: [fourthFloor1, fourthFloor2, fourthFloor3, fourthFloor4],
+    maxGuests: 20,
+    location: "seaside",
+    eventTypes: ["conference", "workshop"],
+    size: "small",
+    baseRoute: "meeting-rooms",
+    translations: {
+      en: { label: "Training", name: "Training Room — 4th Floor", capacityText: "Up to 20 people" },
+      es: { label: "Formación", name: "Sala de Formación — 4º Piso", capacityText: "Hasta 20 personas" },
+      it: { label: "Formazione", name: "Sala Formazione — 4° Piano", capacityText: "Fino a 20 persone" },
+    },
+    amenities: {
+      en: ["Projector", "Whiteboard", "High-Speed WiFi", "4th Floor", "Terrace Access", "Catering Available"],
+      es: ["Proyector", "Pizarra", "WiFi Alta Velocidad", "4º Piso", "Acceso Terraza", "Catering Disponible"],
+      it: ["Proiettore", "Lavagna", "WiFi Alta Velocità", "4° Piano", "Accesso Terrazza", "Catering Disponibile"],
     },
   },
 

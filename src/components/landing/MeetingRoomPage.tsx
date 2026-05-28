@@ -65,6 +65,9 @@ const phoneBoothPhotos = Object.values(phoneBoothPhotosGlob).map((mod: any) => g
 const terraceTrainingPhotosGlob = import.meta.glob('@/assets/terrace-training-room-*.webp', { eager: true });
 const terraceTrainingPhotos = Object.values(terraceTrainingPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
 
+const fourthFloorPhotosGlob = import.meta.glob('@/assets/4th-floor-training-room-*.webp', { eager: true });
+const fourthFloorPhotos = Object.values(fourthFloorPhotosGlob).map((mod: any) => getSrc(mod.default || mod));
+
 const rooms: RoomData[] = [
   {
     slug: "big-conference-room",
@@ -472,6 +475,75 @@ const rooms: RoomData[] = [
       ],
     },
   },
+  {
+    slug: "4th-floor-training-room",
+    name: "Training Room — 4th Floor",
+    seo: {
+      en: { title: "Training Room 4th Floor — Málaga Terrace", description: "Training room on the 4th floor at Innovation Campus Málaga Terrace. Projector, whiteboard, high-speed WiFi and terrace access included." },
+      es: { title: "Sala de Formación 4º Piso — Málaga Terrace", description: "Sala de formación en el 4º piso de Innovation Campus Málaga Terrace. Proyector, pizarra, WiFi y acceso a terraza incluidos." },
+      it: { title: "Sala Formazione 4° Piano — Málaga Terrace", description: "Sala formazione al 4° piano di Innovation Campus Málaga Terrace. Proiettore, lavagna, WiFi ad alta velocità e accesso terrazza inclusi." },
+    },
+    capacity: { en: "Up to 20 people", es: "Hasta 20 personas", it: "Fino a 20 persone" },
+    heroImage: fourthFloorPhotos[0] || "/placeholder.svg",
+    photos: fourthFloorPhotos.length > 0 ? fourthFloorPhotos : ["/placeholder.svg"],
+    features: {
+      en: ["Projector", "Whiteboard", "High-Speed WiFi", "Terrace Access"],
+      es: ["Proyector", "Pizarra", "WiFi Alta Velocidad", "Acceso Terraza"],
+      it: ["Proiettore", "Lavagna", "WiFi Alta Velocità", "Accesso Terrazza"],
+    },
+    description: {
+      en: "A versatile training room on the 4th floor of Málaga Terrace, with capacity for up to 20 people. Equipped with projector, whiteboard and high-speed WiFi, with direct access to the terrace. Perfect for workshops, training days and team meetings.",
+      es: "Una sala de formación versátil en el 4º piso de Málaga Terrace, con capacidad para hasta 20 personas. Equipada con proyector, pizarra y WiFi, con acceso directo a la terraza.",
+      it: "Una sala formazione versatile al 4° piano di Málaga Terrace, con capacità fino a 20 persone. Dotata di proiettore, lavagna e WiFi, con accesso diretto alla terrazza.",
+    },
+    useCases: {
+      en: ["Training days", "Team workshops", "Presentations", "Meetings", "Onboarding sessions"],
+      es: ["Jornadas de formación", "Talleres de equipo", "Presentaciones", "Reuniones", "Sesiones de incorporación"],
+      it: ["Giornate di formazione", "Workshop di team", "Presentazioni", "Riunioni", "Sessioni di onboarding"],
+    },
+    amenities: {
+      en: ["High-Speed WiFi", "Projector", "Whiteboard", "Terrace Access", "Climate Control", "Catering Available", "Secure Access"],
+      es: ["WiFi Alta Velocidad", "Proyector", "Pizarra", "Acceso Terraza", "Climatización", "Catering Disponible", "Acceso Seguro"],
+      it: ["WiFi Alta Velocità", "Proiettore", "Lavagna", "Accesso Terrazza", "Climatizzazione", "Catering Disponibile", "Accesso Sicuro"],
+    },
+    facilitiesCategories: {
+      en: [
+        { category: "AV & Technology", items: ["Projector", "Whiteboard"] },
+        { category: "Connectivity", items: ["High-Speed WiFi", "Power Outlets"] },
+        { category: "Space", items: ["4th Floor", "Terrace Access"] },
+        { category: "Services", items: ["Catering Available", "Secure Access"] },
+      ],
+      es: [
+        { category: "AV y Tecnología", items: ["Proyector", "Pizarra"] },
+        { category: "Conectividad", items: ["WiFi Alta Velocidad", "Enchufes"] },
+        { category: "Espacio", items: ["4º Piso", "Acceso Terraza"] },
+        { category: "Servicios", items: ["Catering Disponible", "Acceso Seguro"] },
+      ],
+      it: [
+        { category: "AV e Tecnologia", items: ["Proiettore", "Lavagna"] },
+        { category: "Connettività", items: ["WiFi Alta Velocità", "Prese"] },
+        { category: "Spazio", items: ["4° Piano", "Accesso Terrazza"] },
+        { category: "Servizi", items: ["Catering Disponibile", "Accesso Sicuro"] },
+      ],
+    },
+    layouts: {
+      en: [
+        { name: "Theatre", capacity: 20, icon: "theatre" },
+        { name: "Classroom", capacity: 16, icon: "classroom" },
+        { name: "Boardroom", capacity: 12, icon: "boardroom" },
+      ],
+      es: [
+        { name: "Teatro", capacity: 20, icon: "theatre" },
+        { name: "Aula", capacity: 16, icon: "classroom" },
+        { name: "Mesa de Juntas", capacity: 12, icon: "boardroom" },
+      ],
+      it: [
+        { name: "Teatro", capacity: 20, icon: "theatre" },
+        { name: "Aula", capacity: 16, icon: "classroom" },
+        { name: "Boardroom", capacity: 12, icon: "boardroom" },
+      ],
+    },
+  },
 ];
 
 /* ─── Route map ──────────────────────────────────────────── */
@@ -483,6 +555,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "training-room": "/en/meeting-rooms/training-room",
     "phone-booth": "/en/meeting-rooms/phone-booth",
     "terrace-training-room": "/en/meeting-rooms/terrace-training-room",
+    "4th-floor-training-room": "/en/meeting-rooms/4th-floor-training-room",
   },
   es: {
     "big-conference-room": "/es/salas/gran-sala-conferencias",
@@ -491,6 +564,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "training-room": "/es/salas/sala-formacion",
     "phone-booth": "/es/salas/cabina-telefonica",
     "terrace-training-room": "/es/salas/sala-formacion-terraza",
+    "4th-floor-training-room": "/es/salas/sala-formacion-4-planta",
   },
   it: {
     "big-conference-room": "/it/sale/grande-sala-conferenze",
@@ -499,6 +573,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "training-room": "/it/sale/sala-formazione",
     "phone-booth": "/it/sale/cabina-telefonica",
     "terrace-training-room": "/it/sale/sala-formazione-terrazza",
+    "4th-floor-training-room": "/it/sale/sala-formazione-4-piano",
   },
 };
 

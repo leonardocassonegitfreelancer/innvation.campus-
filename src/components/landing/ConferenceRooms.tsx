@@ -6,6 +6,7 @@ import quarterConferenceRoom1 from "@/assets/quarter-conference-room-01.webp";
 import trainingRoom1 from "@/assets/training-room-01.webp";
 import phoneBooth1 from "@/assets/phone-booth-01.webp";
 import terraceTrainingRoom1 from "@/assets/terrace-training-room-01.webp";
+import fourthFloorTrainingRoom1 from "@/assets/4th-floor-training-room-01.webp";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -87,9 +88,17 @@ const translations = {
       {
         id: "terrace-training",
         highlight: true,
-        name: "Training Room",
+        name: "Training Room — 5th Floor",
         capacity: "Up to 30 people",
         features: ["Projector", "Whiteboard", "Microphone & Speaker", "Catering Available"],
+        roomType: "training",
+      },
+      {
+        id: "4th-floor-training",
+        highlight: false,
+        name: "Training Room — 4th Floor",
+        capacity: "Up to 20 people",
+        features: ["Projector", "Whiteboard", "High-Speed WiFi", "Terrace Access"],
         roomType: "training",
       },
     ] as Room[],
@@ -157,9 +166,17 @@ const translations = {
       {
         id: "terrace-training",
         highlight: true,
-        name: "Training Room",
+        name: "Training Room — 5º Piso",
         capacity: "Hasta 30 personas",
         features: ["Proyector", "Pizarra", "Micrófono y Altavoz", "Catering Disponible"],
+        roomType: "training",
+      },
+      {
+        id: "4th-floor-training",
+        highlight: false,
+        name: "Training Room — 4º Piso",
+        capacity: "Hasta 20 personas",
+        features: ["Proyector", "Pizarra", "WiFi Alta Velocidad", "Acceso Terraza"],
         roomType: "training",
       },
     ] as Room[],
@@ -227,9 +244,17 @@ const translations = {
       {
         id: "terrace-training",
         highlight: true,
-        name: "Training Room",
+        name: "Training Room — 5° Piano",
         capacity: "Fino a 30 persone",
         features: ["Proiettore", "Lavagna", "Microfono e Altoparlante", "Catering Disponibile"],
+        roomType: "training",
+      },
+      {
+        id: "4th-floor-training",
+        highlight: false,
+        name: "Training Room — 4° Piano",
+        capacity: "Fino a 20 persone",
+        features: ["Proiettore", "Lavagna", "WiFi Alta Velocità", "Accesso Terrazza"],
         roomType: "training",
       },
     ] as Room[],
@@ -245,6 +270,7 @@ const roomImages: Record<string, string> = {
   "training-room": getSrc(trainingRoom1),
   "phone-booth": getSrc(phoneBooth1),
   "terrace-training": getSrc(terraceTrainingRoom1),
+  "4th-floor-training": getSrc(fourthFloorTrainingRoom1),
 };
 
 const roomPaths: Record<string, Record<string, string>> = {
@@ -255,6 +281,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "training-room": "/en/meeting-rooms/training-room",
     "phone-booth": "/en/meeting-rooms/phone-booth",
     "terrace-training": "/en/meeting-rooms/terrace-training-room",
+    "4th-floor-training": "/en/meeting-rooms/4th-floor-training-room",
   },
   es: {
     "big-conference": "/es/salas/gran-sala-conferencias",
@@ -263,6 +290,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "training-room": "/es/salas/sala-formacion",
     "phone-booth": "/es/salas/cabina-telefonica",
     "terrace-training": "/es/salas/sala-formacion-terraza",
+    "4th-floor-training": "/es/salas/sala-formacion-4-planta",
   },
   it: {
     "big-conference": "/it/sale/grande-sala-conferenze",
@@ -271,6 +299,7 @@ const roomPaths: Record<string, Record<string, string>> = {
     "training-room": "/it/sale/sala-formazione",
     "phone-booth": "/it/sale/cabina-telefonica",
     "terrace-training": "/it/sale/sala-formazione-terrazza",
+    "4th-floor-training": "/it/sale/sala-formazione-4-piano",
   },
 };
 

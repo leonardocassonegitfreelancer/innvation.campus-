@@ -1,0 +1,13 @@
+---
+import RoomPageLayout from '../../../components/RoomPageLayout.astro';
+import MeetingRoomPage from '@/components/landing/MeetingRoomPage';
+import { generateBreadcrumbJsonLd } from '@/lib/i18n';
+
+const path = '/es/salas/sala-formacion-4-planta';
+const title = 'Sala de Formación 4º Piso — Málaga Terrace';
+const description = 'Sala de formación en el 4º piso de Innovation Campus Málaga Terrace. Proyector, pizarra, WiFi y acceso a terraza incluidos.';
+const breadcrumb = generateBreadcrumbJsonLd(path, 'https://innovationcampus.biz');
+---
+<RoomPageLayout {title} {description} {path} {breadcrumb} lang="es">
+  <MeetingRoomPage roomSlug="4th-floor-training-room" lang="es" client:load />
+</RoomPageLayout>
