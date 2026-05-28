@@ -64,8 +64,8 @@ import trainingRoom04 from "@/assets/training-room-04.webp";
 import trainingRoom05 from "@/assets/training-room-05.webp";
 
 // Phone Booths & Services Assets
-import phoneBooth01 from "@/assets/phone-booth-01.webp";
-import phoneBooth02 from "@/assets/phone-booth-02.webp";
+import phoneBooth01 from "@/assets/phone-booth-malaga-palace-01.webp";
+import phoneBooth02 from "@/assets/phone-booth-malaga-palace-02.webp";
 import serviceCommunity from "@/assets/service-community.webp";
 import serviceAcademy from "@/assets/service-academy.webp";
 
