@@ -119,7 +119,7 @@ export default function EventDetail({ slug, lang = "en", leadUrl }: Props) {
 
                 <div className="border-t border-border pt-4">
                   <p className="font-body text-xs uppercase tracking-widest text-muted-foreground mb-1">{t.organizer}</p>
-                  <p className="font-body text-sm font-semibold text-foreground">PowerTalks Málaga</p>
+                  <p className="font-body text-sm font-semibold text-foreground">{event.organizer ?? "PowerTalks Málaga"}</p>
                 </div>
 
                 <div className="border-t border-border pt-4">

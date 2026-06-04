@@ -13,6 +13,7 @@ export interface EventData {
   image: string;
   tag: EventTag;
   externalUrl: string;
+  organizer?: string;
   translations: {
     en: EventTranslation;
     it: EventTranslation;
@@ -179,6 +180,30 @@ export const eventsDataset: EventData[] = [
       es: {
         title: "PowerTalks Málaga Segundo Meetup Abril 2026",
         excerpt: "Segunda sesión Toastmasters de oratoria en inglés del mes.",
+      },
+    },
+  },
+  {
+    slug: "ladies-that-ux-anniversary-jun-2026",
+    date: "2026-06-11",
+    time: "19:00",
+    location: "Málaga Terrace, Cl Puerto 14",
+    image: "/events/ladies-that-ux-anniversary-jun-2026.jpg",
+    tag: "networking",
+    externalUrl: "https://luma.com/aqqsv2su",
+    organizer: "Ladies That UX Málaga",
+    translations: {
+      en: {
+        title: "Ladies That UX Málaga: Anniversary Celebration",
+        excerpt: "On this special occasion, the Ladies That UX community looks back on everything they've experienced this year and shares ideas for the future. There'll be activities to enjoy together, snacks and drinks... and above all, plenty of networking to celebrate everything they've built together 🎂\n\n🎁 There will be a prize raffle for the lucky ones and a free drink for the first to arrive. 🍻",
+      },
+      es: {
+        title: "Ladies That UX Málaga: Celebración de Aniversario",
+        excerpt: "En esta ocasión especial, la comunidad de Ladies That UX hace un pequeño repaso a todo lo que ha vivido este año e ideas para el futuro, tendrán actividades para disfrutar juntas, podrán disfrutar de picoteo y bebidas... y sobre todo, mucho networking para celebrar todo lo que han construido juntas 🎂\n\n🎁 Habrá sorteo de regalos para las más afortunadas y una consumición gratuita a las primeras que lleguen. 🍻",
+      },
+      it: {
+        title: "Ladies That UX Málaga: Festa di Anniversario",
+        excerpt: "In questa occasione speciale, la community di Ladies That UX ripercorre tutto ciò che ha vissuto durante l'anno e condivide idee per il futuro. Ci saranno attività da vivere insieme, stuzzichini e bevande... e soprattutto tanto networking per celebrare tutto ciò che hanno costruito insieme 🎂\n\n🎁 Ci sarà un'estrazione di regali per le più fortunate e una consumazione gratuita per le prime ad arrivare. 🍻",
       },
     },
   },
