@@ -3,7 +3,7 @@ import { Users, MapPin } from "lucide-react";
 import { officePaths } from "./OfficeDetailPage";
 import palaceEntrance from "@/assets/palace-entrance.webp";
 import palaceSecondFloor from "@/assets/palace-second-floor.webp";
-import palaceCourtyard from "@/assets/palace-courtyard.webp";
+import smallOfficePalace from "@/assets/small-office-malaga-palace-01.webp";
 import terrace1 from "@/assets/service-terrace.webp";
 import terrace2 from "@/assets/terrace-events.webp";
 import terraceCommunity from "@/assets/terrace-community.webp";
@@ -33,7 +33,7 @@ const translations = {
       { value: "terrace" as const, label: "Málaga Terrace — Seaside" },
     ],
     palaceOffices: [
-      { id: "palace-small", sizeLabel: "Small Office", capacity: "1–3 people", features: ["Historic building", "Natural light", "Air conditioning", "Private entrance"], image: palaceCourtyard },
+      { id: "palace-small", sizeLabel: "Small Office", capacity: "1–3 people", features: ["Historic building", "Natural light", "Air conditioning", "Private entrance"], image: smallOfficePalace },
       { id: "palace-medium", sizeLabel: "Medium Office", capacity: "4–8 people", features: ["High ceilings", "Courtyard view", "Air conditioning", "Private"], image: palaceSecondFloor },
       { id: "palace-large", sizeLabel: "Large Office", capacity: "9–15 people", features: ["Fully accessible", "Catering option", "Air conditioning", "Event-ready"], image: palaceEntrance },
     ] as Office[],
@@ -53,7 +53,7 @@ const translations = {
       { value: "terrace" as const, label: "Málaga Terrace — Frente al Mar" },
     ],
     palaceOffices: [
-      { id: "palace-small", sizeLabel: "Small Office", capacity: "1–3 personas", features: ["Edificio histórico", "Luz natural", "Aire acondicionado", "Entrada privada"], image: palaceCourtyard },
+      { id: "palace-small", sizeLabel: "Small Office", capacity: "1–3 personas", features: ["Edificio histórico", "Luz natural", "Aire acondicionado", "Entrada privada"], image: smallOfficePalace },
       { id: "palace-medium", sizeLabel: "Medium Office", capacity: "4–8 personas", features: ["Techos altos", "Vista al patio", "Aire acondicionado", "Privada"], image: palaceSecondFloor },
       { id: "palace-large", sizeLabel: "Large Office", capacity: "9–15 personas", features: ["Totalmente accesible", "Servicio de catering", "Aire acondicionado", "Lista para eventos"], image: palaceEntrance },
     ] as Office[],
@@ -73,7 +73,7 @@ const translations = {
       { value: "terrace" as const, label: "Málaga Terrace — Lungomare" },
     ],
     palaceOffices: [
-      { id: "palace-small", sizeLabel: "Small Office", capacity: "1–3 persone", features: ["Edificio storico", "Luce naturale", "Aria condizionata", "Ingresso privato"], image: palaceCourtyard },
+      { id: "palace-small", sizeLabel: "Small Office", capacity: "1–3 persone", features: ["Edificio storico", "Luce naturale", "Aria condizionata", "Ingresso privato"], image: smallOfficePalace },
       { id: "palace-medium", sizeLabel: "Medium Office", capacity: "4–8 persone", features: ["Soffitti alti", "Vista cortile", "Aria condizionata", "Privato"], image: palaceSecondFloor },
       { id: "palace-large", sizeLabel: "Large Office", capacity: "9–15 persone", features: ["Completamente accessibile", "Servizio catering", "Aria condizionata", "Pronto per eventi"], image: palaceEntrance },
     ] as Office[],

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import palaceEntrance from "@/assets/palace-entrance.webp";
 import palaceSecondFloor from "@/assets/palace-second-floor.webp";
-import palaceCourtyard from "@/assets/palace-courtyard.webp";
+import smallOfficePalace from "@/assets/small-office-malaga-palace-01.webp";
 import terrace1 from "@/assets/service-terrace.webp";
 import terrace2 from "@/assets/terrace-events.webp";
 import terraceCommunity from "@/assets/terrace-community.webp";
@@ -32,7 +32,7 @@ interface OfficeData {
 const offices: OfficeData[] = [
   {
     slug: "palace-small",
-    image: palaceCourtyard,
+    image: smallOfficePalace,
     seo: {
       en: { title: "Small Private Office — Málaga Palace", description: "A charming 1–3 person private office in the historic heart of Málaga. Natural light, private entrance, high-speed WiFi at Innovation Campus Palace." },
       es: { title: "Oficina Privada Pequeña — Málaga Palace", description: "Una acogedora oficina privada para 1–3 personas en el corazón histórico de Málaga. Luz natural, entrada privada, WiFi de alta velocidad." },

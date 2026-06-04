@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowLeft, X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import ParallaxImageWall from "@/components/ParallaxImageWall";
 
 // Málaga Palace Assets
 import palaceEntrance from "@/assets/palace-entrance.webp";
@@ -13,6 +14,9 @@ import palaceOutsideFront from "@/assets/palace-outside-front.webp";
 import palaceBrandingWall from "@/assets/palace-branding-wall.webp";
 import palaceCatering from "@/assets/palace-catering.webp";
 import historicExterior from "@/assets/historic-exterior.webp";
+import smallOffice01 from "@/assets/small-office-malaga-palace-01.webp";
+import smallOffice02 from "@/assets/small-office-malaga-palace-02.webp";
+import smallOffice03 from "@/assets/small-office-malaga-palace-03.webp";
 
 // Málaga Terrace Assets
 import terraceHero from "@/assets/terrace-hero.webp";
@@ -99,6 +103,9 @@ const photos: PhotoItem[] = [
   { src: palaceBrandingWall, alt: { en: "Modern brand identity feature wall", es: "Pared con identidad de marca moderna", it: "Parete con brand identity" }, category: { en: "Workspace Details", es: "Detalles del Espacio", it: "Dettagli Spazio" }, location: { en: "Málaga Palace", es: "Málaga Palace", it: "Málaga Palace" }, filter: "palace" },
   { src: palaceCatering, alt: { en: "Event catering setup in the courtyard", es: "Configuración de catering para eventos en el patio", it: "Allestimento catering per eventi nel cortile" }, category: { en: "Events Venue", es: "Lugar de Eventos", it: "Location Eventi" }, location: { en: "Málaga Palace", es: "Málaga Palace", it: "Málaga Palace" }, filter: "palace" },
   { src: historicExterior, alt: { en: "Scenic old town street light facade", es: "Fachada pintoresca en el casco antiguo", it: "Pittoresca facciata nel centro storico" }, category: { en: "Neighborhood", es: "Barrio", it: "Quartiere" }, location: { en: "Málaga Palace", es: "Málaga Palace", it: "Málaga Palace" }, filter: "palace" },
+  { src: smallOffice01, alt: { en: "Private office with twin desks and ergonomic seating", es: "Oficina privada con dos escritorios y sillas ergonómicas", it: "Ufficio privato con due scrivanie e sedute ergonomiche" }, category: { en: "Private Office", es: "Oficina Privada", it: "Ufficio Privato" }, location: { en: "Málaga Palace", es: "Málaga Palace", it: "Málaga Palace" }, filter: "palace" },
+  { src: smallOffice02, alt: { en: "Bright private office with dual-monitor workstation", es: "Oficina privada luminosa con estación de doble monitor", it: "Luminoso ufficio privato con postazione a doppio monitor" }, category: { en: "Private Office", es: "Oficina Privada", it: "Ufficio Privato" }, location: { en: "Málaga Palace", es: "Málaga Palace", it: "Málaga Palace" }, filter: "palace" },
+  { src: smallOffice03, alt: { en: "Spacious private office with glass partition", es: "Amplia oficina privada con mampara de cristal", it: "Spazioso ufficio privato con parete divisoria in vetro" }, category: { en: "Private Office", es: "Oficina Privada", it: "Ufficio Privato" }, location: { en: "Málaga Palace", es: "Málaga Palace", it: "Málaga Palace" }, filter: "palace" },
 
   // Málaga Terrace
   { src: terraceEvents, alt: { en: "Spacious sea-view community event hall", es: "Sala de eventos comunitarios con vista al mar", it: "Ampia sala eventi con vista sul mare" }, category: { en: "Events Arena", es: "Área de Eventos", it: "Spazio Eventi" }, location: { en: "Málaga Terrace", es: "Málaga Terrace", it: "Málaga Terrace" }, filter: "terrace" },
@@ -160,6 +167,17 @@ const photos: PhotoItem[] = [
   { src: anconaCoworking, alt: { en: "Bright historical coworking room in Italy", es: "Luminosa sala de coworking histórica en Italia", it: "Luminosa sala coworking storica in Italia" }, category: { en: "Coworking Space", es: "Espacio Coworking", it: "Spazio Coworking" }, location: { en: "Ancona, Italy", es: "Ancona, Italia", it: "Ancona, Italia" }, filter: "ancona" },
   { src: anconaMeeting, alt: { en: "Elegantly frescoed historic meeting room in Ancona", es: "Elegante sala de reuniones con frescos históricos en Ancona", it: "Elegante sala riunioni affrescata ad Ancona" }, category: { en: "Frescoed Meeting Room", es: "Sala con Frescos", it: "Sala Riunioni Affrescata" }, location: { en: "Ancona, Italy", es: "Ancona, Italia", it: "Ancona, Italia" }, filter: "ancona" },
 ];
+
+// Distinct image URLs for the parallax header wall.
+const wallImages = photos.map((p) => _s(p.src));
+// Crisper, sparser tuning (stable module refs so the WebGL wall inits once).
+const WALL_LAYERS = [
+  { scale: 1.7, speed: 65, opacity: 1.0 },
+  { scale: 1.15, speed: 44, opacity: 0.95 },
+  { scale: 0.82, speed: 28, opacity: 0.82 },
+  { scale: 0.58, speed: 17, opacity: 0.66 },
+];
+const WALL_SPACING: [number, number] = [1.1, 1.9];
 
 const translations = {
   en: {
@@ -252,12 +270,23 @@ export default function Gallery({ lang = "en" }: { lang?: "en" | "es" | "it" }) 
   return (
     <main className="min-h-screen bg-[#070707] text-white overflow-x-hidden font-body">
       
-      {/* Premium Dark Header with subtle glow */}
-      <section className="relative py-28 md:py-36 bg-gradient-to-b from-[#110e0c]/50 to-[#070707] border-b border-neutral-900 overflow-hidden">
+      {/* Premium Dark Header — interactive parallax image wall behind the title */}
+      <section className="relative flex items-center justify-center min-h-[68vh] py-28 md:py-32 bg-[#070707] border-b border-neutral-900 overflow-hidden">
+        {/* Animated WebGL image wall (decorative) */}
+        <ParallaxImageWall images={wallImages} layers={WALL_LAYERS} spacing={WALL_SPACING} maxImages={20} className="absolute inset-0 z-0" />
+        {/* Readability overlay — darkens only behind the centered title, fades out toward the edges so the wall stays visible */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 62% at 50% 50%, rgba(7,7,7,0.82) 0%, rgba(7,7,7,0.5) 42%, rgba(7,7,7,0.15) 72%, rgba(7,7,7,0) 100%)",
+          }}
+        />
+
         {/* Background glow effects */}
-        <div className="absolute top-0 left-1/4 w-[35rem] h-[35rem] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2" />
-        <div className="absolute top-0 right-1/4 w-[30rem] h-[30rem] bg-sky-500/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
-        
+        <div className="absolute top-0 left-1/4 w-[35rem] h-[35rem] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 z-[1]" />
+        <div className="absolute top-0 right-1/4 w-[30rem] h-[30rem] bg-sky-500/5 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 z-[1]" />
+
         <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
           <a 
             href={lang === "en" ? "/" : `/${lang}`} 

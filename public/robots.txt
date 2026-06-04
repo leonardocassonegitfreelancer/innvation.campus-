@@ -1,4 +1,25 @@
+# Block all search engines and AI bots until the website is live
 User-agent: *
 Disallow: /
+
+# When going live, uncomment below and comment/delete the Disallow above:
+# User-agent: *
+# Allow: /
+#
+# # Welcome major AI and LLM crawlers for Generative Engine Optimization (GEO)
+# User-agent: GPTBot
+# Allow: /
+#
+# User-agent: ChatGPT-User
+# Allow: /
+#
+# User-agent: ClaudeBot
+# Allow: /
+#
+# User-agent: Google-Extended
+# Allow: /
+#
+# User-agent: PerplexityBot
+# Allow: /
 
 Sitemap: https://innovationcampus.biz/sitemap.xml
