@@ -188,7 +188,7 @@ export const eventsDataset: EventData[] = [
     date: "2026-06-11",
     time: "19:00",
     location: "Málaga Terrace, Cl Puerto 14",
-    image: "/events/ladies-that-ux-anniversary-jun-2026.jpg",
+    image: "/events/ladies-that-ux-anniversary-jun-2026.webp",
     tag: "networking",
     externalUrl: "https://luma.com/aqqsv2su",
     organizer: "Ladies That UX Málaga",
