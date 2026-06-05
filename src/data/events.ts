@@ -231,4 +231,28 @@ export const eventsDataset: EventData[] = [
       },
     },
   },
+  {
+    slug: "intercambio-de-idiomas-jun-2026",
+    date: "2026-06-19",
+    time: "20:30",
+    location: "Málaga Terrace, Cl Puerto 14",
+    image: "/events/malaga-connection-jun-2026.jpeg",
+    tag: "talk",
+    externalUrl: "https://wa.me/34637356953",
+    organizer: "Málaga Connection",
+    translations: {
+      en: {
+        title: "Language Exchange by Málaga Connection",
+        excerpt: "This language exchange stands out for its flexibility — all languages and all levels are welcome. Open groups with no turns, a relaxed and natural atmosphere, meet new people, learn or improve languages.\n\nSign up in the WhatsApp chat by sending your language and your level.",
+      },
+      es: {
+        title: "Intercambio de Idiomas by Málaga Connection",
+        excerpt: "Este intercambio se caracteriza por su flexibilidad, por aceptar todos los idiomas y todos los niveles. Grupos abiertos sin turnos, naturalidad, conocer gente nueva, aprender o mejorar idiomas.\n\nInscríbete en el chat de WhatsApp enviando tu idioma y tu nivel.",
+      },
+      it: {
+        title: "Scambio Linguistico by Málaga Connection",
+        excerpt: "Questo scambio linguistico si distingue per la sua flessibilità: sono benvenute tutte le lingue e tutti i livelli. Gruppi aperti senza turni, atmosfera naturale, conoscere gente nuova, imparare o migliorare le lingue.\n\nIscriviti nella chat di WhatsApp inviando la tua lingua e il tuo livello.",
+      },
+    },
+  },
 ];
