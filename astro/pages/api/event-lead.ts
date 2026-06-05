@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { eventsDataset } from "@/data/events";
 
-export const GET: APIRoute = async ({ url }) => {
+export const GET: APIRoute = async ({ url, locals }) => {
   const slug = url.searchParams.get("slug") ?? "";
   const lang = url.searchParams.get("lang") ?? "en";
 
@@ -10,7 +10,10 @@ export const GET: APIRoute = async ({ url }) => {
     return new Response(null, { status: 302, headers: { Location: "/" } });
   }
 
-  const appsScriptUrl = import.meta.env.PUBLIC_APPS_SCRIPT_URL as string | undefined;
+  // On Cloudflare, secrets live in locals.runtime.env (not import.meta.env, which is build-time only).
+  // Fall back to import.meta.env for local dev (reads from .env).
+  const env = (locals as any)?.runtime?.env ?? import.meta.env;
+  const appsScriptUrl = env.PUBLIC_APPS_SCRIPT_URL as string | undefined;
   if (appsScriptUrl) {
     try {
       const ping = new URL(appsScriptUrl);

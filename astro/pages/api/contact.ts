@@ -1,22 +1,26 @@
 import type { APIRoute } from "astro";
 
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   const body = await request.json().catch(() => null);
   if (!body) return new Response(JSON.stringify({ ok: false }), { status: 400 });
 
   const { name, email, company, phone, location, service, space, hearAbout, message } = body;
+
+  // On Cloudflare, secrets live in locals.runtime.env (not import.meta.env, which is build-time only).
+  // Fall back to import.meta.env for local dev (reads from .env).
+  const env = (locals as any)?.runtime?.env ?? import.meta.env;
 
   try {
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${import.meta.env.RESEND_API_KEY}`,
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: import.meta.env.RESEND_FROM ?? "Innovation Campus <onboarding@resend.dev>",
-        to: import.meta.env.CONTACT_EMAIL,
+        from: env.RESEND_FROM ?? "Innovation Campus <onboarding@resend.dev>",
+        to: env.CONTACT_EMAIL,
         reply_to: email,
         subject: `[Contact] ${service ?? "General enquiry"} — ${name}`,
         html: `
@@ -42,7 +46,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Fire-and-forget ping to Google Apps Script for CRM logging
-    const appsScriptUrl = import.meta.env.PUBLIC_APPS_SCRIPT_URL as string | undefined;
+    const appsScriptUrl = env.PUBLIC_APPS_SCRIPT_URL as string | undefined;
     if (appsScriptUrl) {
       try {
         const ping = new URL(appsScriptUrl);
