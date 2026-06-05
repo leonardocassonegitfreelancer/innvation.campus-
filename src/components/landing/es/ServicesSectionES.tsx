@@ -49,7 +49,7 @@ export default function ServicesSectionES() {
 
   return (
     <section id="services" className="py-24 md:py-36 bg-background">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-8">
         <div ref={ref} className={`scroll-animate ${isVisible ? "visible" : ""} text-center mb-12 md:mb-20`}>
           <p className="font-body uppercase tracking-[0.4em] text-primary mb-4 text-xl font-semibold">Lo Que Ofrecemos</p>
           <h2 className="font-display md:text-5xl text-foreground text-5xl font-semibold">Servicios</h2>

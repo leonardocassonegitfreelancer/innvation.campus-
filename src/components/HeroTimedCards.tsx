@@ -216,7 +216,7 @@ const HeroTimedCards = ({
           box-shadow: 6px 6px 28px 6px rgba(0,0,0,0.5); will-change: transform, width, height; }
         .tc-scrim { position: absolute; inset: 0; z-index: 21; pointer-events: none; }
         .tc-copy { position: absolute; top: 50%; transform: translateY(-50%);
-          left: max(1rem, calc((100% - 80rem) / 2 + 2rem));
+          left: max(2rem, calc((100% - 80rem) / 2 + 2rem));
           z-index: 22; max-width: min(48vw, 640px); }
         .tc-copy .tc-anim1 { animation: tcFadeUp 1.1s cubic-bezier(0.25,1,0.5,1) both; }
         .tc-copy .tc-anim2 { animation: tcFadeUp 1s cubic-bezier(0.25,1,0.5,1) 0.15s both; }
@@ -235,7 +235,7 @@ const HeroTimedCards = ({
         .tc-cta--primary { font-weight: 700; }
         .tc-cta--primary:hover { opacity: 0.85; }
         .tc-cta--ghost:hover { color: #fff; }
-        .tc-controls { position: absolute; left: max(1rem, calc((100% - 80rem) / 2 + 2rem)); bottom: clamp(28px, 5vh, 52px);
+        .tc-controls { position: absolute; left: max(2rem, calc((100% - 80rem) / 2 + 2rem)); bottom: clamp(28px, 5vh, 52px);
           z-index: 23; display: flex; align-items: center; gap: 18px; }
         .tc-arrow { width: 48px; height: 48px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.28);
           display: grid; place-items: center; cursor: pointer; transition: border-color .3s ease; }
