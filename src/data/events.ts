@@ -207,4 +207,28 @@ export const eventsDataset: EventData[] = [
       },
     },
   },
+  {
+    slug: "designing-you-jun-2026",
+    date: "2026-06-24",
+    time: "19:00",
+    location: "Málaga Terrace, Cl Puerto 14",
+    image: "/events/women-in-tech-jun-2026.jpeg",
+    tag: "talk",
+    externalUrl: "https://www.meetup.com/women-in-tech-malaga/events/315072178/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
+    organizer: "Women in Tech Málaga",
+    translations: {
+      en: {
+        title: "Designing You — A Live, Guided Life Strategy Session for Ambitious Women",
+        excerpt: "Designing You is a live, interactive workshop for ambitious women who are ready to stop treating themselves as an afterthought and start designing their next chapter with clarity and purpose.\n\nLed by Kate Tuscano, a Managing Director of Strategy and Innovation with more than 20 years of experience helping organizations navigate growth and transformation, this session brings proven strategic thinking out of the boardroom and into your personal life.\n\nThrough a practical, guided framework, Kate will help you translate big ambitions into a focused plan for what comes next.",
+      },
+      es: {
+        title: "Designing You — Una Sesión de Estrategia de Vida en Directo para Mujeres Ambiciosas",
+        excerpt: "Designing You es un taller en directo e interactivo para mujeres ambiciosas que están listas para dejar de relegarse a un segundo plano y empezar a diseñar su próximo capítulo con claridad y propósito.\n\nDirigida por Kate Tuscano, Directora General de Estrategia e Innovación con más de 20 años de experiencia ayudando a organizaciones a navegar el crecimiento y la transformación, esta sesión lleva el pensamiento estratégico probado fuera de la sala de juntas a tu vida personal.\n\nA través de un marco práctico y guiado, Kate te ayudará a traducir grandes ambiciones en un plan enfocado para lo que viene a continuación.",
+      },
+      it: {
+        title: "Designing You — Una Sessione di Strategia di Vita dal Vivo per Donne Ambiziose",
+        excerpt: "Designing You è un workshop dal vivo e interattivo per donne ambiziose pronte a smettere di mettersi in secondo piano e a iniziare a progettare il proprio prossimo capitolo con chiarezza e determinazione.\n\nGuidata da Kate Tuscano, Managing Director di Strategia e Innovazione con oltre 20 anni di esperienza nell'aiutare le organizzazioni ad affrontare crescita e trasformazione, questa sessione porta il pensiero strategico collaudato fuori dalla sala riunioni e nella tua vita personale.\n\nAttraverso un framework pratico e guidato, Kate ti aiuterà a tradurre grandi ambizioni in un piano mirato per ciò che verrà dopo.",
+      },
+    },
+  },
 ];
