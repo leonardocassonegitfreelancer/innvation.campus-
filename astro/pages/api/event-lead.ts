@@ -1,6 +1,24 @@
 import type { APIRoute } from "astro";
 import { eventsDataset } from "@/data/events";
 
+// On Cloudflare, secrets live in locals.runtime.env (import.meta.env is build-time only).
+// Fall back to import.meta.env for local dev (reads from .env).
+function getEnv(locals: any) {
+  return (locals as any)?.runtime?.env ?? import.meta.env;
+}
+
+// On Cloudflare Workers a fetch that isn't awaited is cancelled once the response
+// is returned. ctx.waitUntil keeps the worker alive until the ping completes.
+// In local dev there's no runtime ctx, so the promise just resolves in-process.
+function keepAlive(locals: any, promise: Promise<unknown>) {
+  const ctx = (locals as any)?.runtime?.ctx;
+  if (ctx && typeof ctx.waitUntil === "function") {
+    ctx.waitUntil(promise.catch(() => {}));
+  } else {
+    promise.catch(() => {});
+  }
+}
+
 export const GET: APIRoute = async ({ url, locals }) => {
   const slug = url.searchParams.get("slug") ?? "";
   const lang = url.searchParams.get("lang") ?? "en";
@@ -10,10 +28,7 @@ export const GET: APIRoute = async ({ url, locals }) => {
     return new Response(null, { status: 302, headers: { Location: "/" } });
   }
 
-  // On Cloudflare, secrets live in locals.runtime.env (not import.meta.env, which is build-time only).
-  // Fall back to import.meta.env for local dev (reads from .env).
-  const env = (locals as any)?.runtime?.env ?? import.meta.env;
-  const appsScriptUrl = env.PUBLIC_APPS_SCRIPT_URL as string | undefined;
+  const appsScriptUrl = getEnv(locals).PUBLIC_APPS_SCRIPT_URL as string | undefined;
   if (appsScriptUrl) {
     try {
       const ping = new URL(appsScriptUrl);
@@ -28,8 +43,7 @@ export const GET: APIRoute = async ({ url, locals }) => {
         const v = url.searchParams.get(key);
         if (v) ping.searchParams.set(key, v);
       }
-      // fire and forget — don't block the redirect
-      fetch(ping.toString()).catch(() => {});
+      keepAlive(locals, fetch(ping.toString()));
     } catch {
       // malformed env var — skip silently
     }
@@ -39,4 +53,25 @@ export const GET: APIRoute = async ({ url, locals }) => {
     status: 302,
     headers: { Location: event.externalUrl },
   });
+};
+
+export const POST: APIRoute = async ({ request, locals }) => {
+  const body = await request.json().catch(() => null);
+  if (!body) return new Response(JSON.stringify({ ok: false }), { status: 400 });
+
+  const appsScriptUrl = getEnv(locals).PUBLIC_APPS_SCRIPT_URL as string | undefined;
+  if (appsScriptUrl) {
+    try {
+      const ping = new URL(appsScriptUrl);
+      for (const [key, value] of Object.entries(body)) {
+        if (value == null) continue;
+        ping.searchParams.set(key, Array.isArray(value) ? value.join(", ") : String(value));
+      }
+      keepAlive(locals, fetch(ping.toString()));
+    } catch {
+      // malformed env var — skip silently
+    }
+  }
+
+  return new Response(JSON.stringify({ ok: true }), { status: 200 });
 };

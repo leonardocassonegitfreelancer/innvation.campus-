@@ -59,7 +59,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
         ping.searchParams.set("space", space ?? "");
         ping.searchParams.set("hearAbout", hearAbout ?? "");
         ping.searchParams.set("message", message ?? "");
-        fetch(ping.toString()).catch(() => {});
+        // On Cloudflare a non-awaited fetch is cancelled once the response returns;
+        // ctx.waitUntil keeps the worker alive until the ping completes.
+        const ctx = (locals as any)?.runtime?.ctx;
+        if (ctx && typeof ctx.waitUntil === "function") {
+          ctx.waitUntil(fetch(ping.toString()).catch(() => {}));
+        } else {
+          fetch(ping.toString()).catch(() => {});
+        }
       } catch {
         // malformed env var — skip silently
       }
