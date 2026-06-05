@@ -20,7 +20,50 @@ const slides = [
   palaceCourtyard,
 ].map(getSrc);
 
-export default function MainHero() {
+export interface MainHeroProps {
+  lang?: "en" | "es" | "it";
+}
+
+const translations = {
+  en: {
+    line1: "In the heart of",
+    city: "Málaga,",
+    line2: "where ambition",
+    meets: "meets the sea.",
+    alt: "Innovation Campus space",
+    ariaLabel: "Go to slide",
+    explore: "Explore Services",
+    exploreHref: "#services",
+    contact: "Contact Us",
+    contactHref: "/en/contact"
+  },
+  es: {
+    line1: "En el corazón de",
+    city: "Málaga,",
+    line2: "donde la ambición",
+    meets: "encuentra el mar.",
+    alt: "Espacio de Innovation Campus",
+    ariaLabel: "Ir a diapositiva",
+    explore: "Explorar Servicios",
+    exploreHref: "#services",
+    contact: "Contáctanos",
+    contactHref: "/es/contacto"
+  },
+  it: {
+    line1: "Nel cuore di",
+    city: "Málaga,",
+    line2: "dove l'ambizione",
+    meets: "incontra il mare.",
+    alt: "Spazio Innovation Campus",
+    ariaLabel: "Vai alla slide",
+    explore: "Scopri i Servizi",
+    exploreHref: "#services",
+    contact: "Contattaci",
+    contactHref: "/it/contatti"
+  }
+};
+
+export default function MainHero({ lang = "en" }: MainHeroProps) {
   const [loaded, setLoaded] = useState(false);
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -30,6 +73,8 @@ export default function MainHero() {
   const contentRef    = useRef<HTMLDivElement>(null);
   const tilt        = useRef({ x: 0, y: 0 });
   const rafId         = useRef(0);
+
+  const t = translations[lang];
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 200);
@@ -138,7 +183,7 @@ export default function MainHero() {
           <img
             key={i}
             src={src}
-            alt={`Innovation Campus space ${i + 1}`}
+            alt={`${t.alt} ${i + 1}`}
             style={{
               animationDuration: "7s",
               animationTimingFunction: "ease-in-out",
@@ -185,13 +230,13 @@ export default function MainHero() {
             fontWeight: 400,
           }}
         >
-          In the heart of
+          {t.line1}
           <br />
-          <span className="text-primary not-italic font-semibold">Málaga,</span>
+          <span className="text-primary not-italic font-semibold">{t.city}</span>
           <br />
-          where ambition
+          {t.line2}
           <br />
-          <span className="text-primary font-semibold">meets the sea.</span>
+          <span className="text-primary font-semibold">{t.meets}</span>
         </h1>
 
         {/* CTAs */}
@@ -200,16 +245,16 @@ export default function MainHero() {
           style={{ transitionDelay: "850ms", transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
         >
           <a
-            href="#services"
+            href={t.exploreHref}
             className="inline-block px-7 py-3.5 bg-primary text-primary-foreground font-body text-[11px] font-bold uppercase tracking-[0.18em] hover:opacity-90 transition-opacity"
           >
-            Explore Services
+            {t.explore}
           </a>
           <a
-            href="/en/contact"
+            href={t.contactHref}
             className="inline-block px-7 py-3.5 border border-white/50 text-white font-body text-[11px] font-bold uppercase tracking-[0.18em] hover:border-white hover:bg-white/10 transition-all"
           >
-            Contact Us
+            {t.contact}
           </a>
         </div>
       </div>
@@ -221,7 +266,7 @@ export default function MainHero() {
             key={i}
             onClick={() => goTo(i)}
             className={`h-[2px] rounded-full transition-all duration-500 ${i === current ? "w-8 bg-primary" : "w-4 bg-white/30 hover:bg-white/50"}`}
-            aria-label={`Go to slide ${i + 1}`}
+            aria-label={`${t.ariaLabel} ${i + 1}`}
           />
         ))}
       </div>

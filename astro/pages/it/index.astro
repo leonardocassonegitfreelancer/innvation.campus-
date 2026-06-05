@@ -13,9 +13,18 @@ import IntroStrip from '../../components/IntroStrip.astro';
 
 // React islands (hydrated selectively)
 import Navbar from '@/components/landing/Navbar';
-import MainHero from '@/components/landing/it/MainHeroIT';
+import MainHero from '@/components/landing/MainHero';
+import HeroTimedCards from '@/components/HeroTimedCards';
 import ServicesSection from '@/components/landing/it/ServicesSectionIT';
 import FAQSection from '@/components/landing/it/FAQSectionIT';
+
+// Desktop hero imagery (the curated hero shots) — historic → modern → people
+import palaceCourtyard from '@/assets/palace-courtyard.webp';
+import terraceCoworkingAlt from '@/assets/terrace-coworking-alt.webp';
+import serviceCommunity from '@/assets/service-community.webp';
+import palaceEntrance from '@/assets/palace-entrance.webp';
+import terraceBar from '@/assets/terrace-bar.webp';
+const heroImages = [palaceCourtyard, terraceCoworkingAlt, serviceCommunity, palaceEntrance, terraceBar].map((i) => i.src);
 
 const path = '/it';
 const title = 'Uffici - Coworking - Eventi';
@@ -38,7 +47,25 @@ const jsonLd = {
   <main class="overflow-x-hidden">
     <Navbar lang="it" client:load />
 
-    <MainHero client:load />
+    <!-- Hero — desktop: cycling artwork cards; mobile: existing video hero -->
+    <div class="hidden md:block">
+      <HeroTimedCards
+        images={heroImages}
+        line1="Dove l'ambizione"
+        highlight="incontra"
+        line2="il mare."
+        description="Due spazi di coworking a Málaga — uno nel centro storico, uno sul mare."
+        ctas={[{ label: "Scopri i Servizi", href: "#services" }, { label: "Contattaci", href: "/it/contatti" }]}
+        accent="hsl(var(--primary))"
+        accentForeground="#ffffff"
+        overlay={0.32}
+        maxStack={2}
+        client:load
+      />
+    </div>
+    <div class="md:hidden">
+      <MainHero lang="it" client:load />
+    </div>
 
     <IntroStrip lang="it" />
 
