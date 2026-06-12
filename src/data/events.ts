@@ -281,4 +281,28 @@ export const eventsDataset: EventData[] = [
       },
     },
   },
+  {
+    slug: "behind-the-scenes-hiring-jun-2026",
+    date: "2026-06-23",
+    time: "19:30",
+    location: "Málaga Terrace, Cl Puerto 14",
+    image: "/events/behind-the-scenes-jun-2026.jpeg",
+    tag: "talk",
+    externalUrl: "https://www.meetup.com/projector-global-community/events/315200787/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
+    organizer: "Prjctr Global Community Málaga",
+    translations: {
+      en: {
+        title: "Behind the Scenes of Hiring at Product Companies",
+        excerpt: "Ever wondered how product companies actually hire — and what it really takes to get in? This meetup pulls back the curtain on the hiring process: what companies are really looking for, how decisions get made, and what candidates can do to stand out.\n\nWhether you're eyeing a role at a product company or just curious how the market works — this one is for you.\n\n🎙️ Speaker\nOlha Sadula — People Manager at FastCTO, a Boston-based IT company, and a Career Consultant with hands-on experience placing talent from entry-level roles to C-suite executives. She has worked across IT, finance, logistics, marketing and HoReCa, giving her a rare cross-sector perspective on hiring and career growth. Olha is also the founder of Junior Program, an initiative helping Ukrainian juniors take their first steps in IT.",
+      },
+      es: {
+        title: "Detrás del Telón de la Contratación en Empresas de Producto",
+        excerpt: "¿Alguna vez te has preguntado cómo contratan realmente las empresas de producto, y qué hace falta para entrar? Este meetup descorre el telón sobre el proceso de contratación: qué buscan realmente las empresas, cómo se toman las decisiones y qué pueden hacer los candidatos para destacar.\n\nTanto si aspiras a un puesto en una empresa de producto como si simplemente sientes curiosidad por cómo funciona el mercado, esto es para ti.\n\n🎙️ Ponente\nOlha Sadula — People Manager en FastCTO, una empresa de IT con sede en Boston, y Career Consultant con experiencia práctica ubicando talento desde puestos junior hasta directivos de alto nivel. Ha trabajado en IT, finanzas, logística, marketing y HoReCa, lo que le da una perspectiva intersectorial poco común sobre la contratación y el crecimiento profesional. Olha es también fundadora de Junior Program, una iniciativa que ayuda a juniors ucranianos a dar sus primeros pasos en IT.",
+      },
+      it: {
+        title: "Dietro le Quinte delle Assunzioni nelle Aziende di Prodotto",
+        excerpt: "Ti sei mai chiesto come assumono davvero le aziende di prodotto, e cosa serve per entrarci? Questo meetup svela il dietro le quinte del processo di selezione: cosa cercano davvero le aziende, come si prendono le decisioni e cosa possono fare i candidati per distinguersi.\n\nChe tu stia puntando a un ruolo in un'azienda di prodotto o sia semplicemente curioso di capire come funziona il mercato, questo evento fa per te.\n\n🎙️ Relatrice\nOlha Sadula — People Manager presso FastCTO, azienda IT con sede a Boston, e Career Consultant con esperienza diretta nel collocare talenti dai ruoli entry-level fino ai dirigenti C-suite. Ha lavorato in IT, finanza, logistica, marketing e HoReCa, acquisendo una rara prospettiva intersettoriale su selezione e crescita professionale. Olha è inoltre fondatrice di Junior Program, un'iniziativa che aiuta i giovani junior ucraini a muovere i primi passi nell'IT.",
+      },
+    },
+  },
 ];
