@@ -305,4 +305,28 @@ export const eventsDataset: EventData[] = [
       },
     },
   },
+  {
+    slug: "powertalks-second-session-jun-2026",
+    date: "2026-06-17",
+    time: "19:00",
+    location: "Málaga Terrace, Cl Puerto 14",
+    image: "/events/practice-public-speaking-second-session-jun-2026.png",
+    tag: "workshop",
+    externalUrl: "https://www.meetup.com/malaga-speaking-with-confidence-and-enthusiasm-meetup-group/events/314397791/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link&utm_version=v2",
+    organizer: "PowerTalks Málaga",
+    translations: {
+      en: {
+        title: "Practice Public Speaking — Second Session",
+        excerpt: "Are you looking to enhance your public speaking and leadership skills?\n\nWe're excited to invite you to an Open Session of our Toastmasters Club!\n\nWhether you're a seasoned speaker or just starting out, Toastmasters is a fantastic opportunity to grow and learn in a friendly, supportive environment.\n\nDuring the session, you'll get a taste of what Toastmasters is all about, including:\n• Witnessing speeches by our current members\n• Observing constructive evaluations\n• Learning about impromptu speaking through Table Topics\n\nThis is a great chance not only to improve your communication and leadership abilities but also to meet like-minded individuals who are eager to learn and grow.\n\nWhether your goal is to become a better speaker, gain confidence, or simply meet new people, you'll find a lot to love in Toastmasters.",
+      },
+      es: {
+        title: "Practica la Oratoria — Segunda Sesión",
+        excerpt: "¿Quieres mejorar tus habilidades de oratoria y liderazgo?\n\n¡Te invitamos a una Sesión Abierta de nuestro Club Toastmasters!\n\nTanto si eres un orador experimentado como si estás empezando, Toastmasters es una oportunidad fantástica para crecer y aprender en un entorno amigable y de apoyo.\n\nDurante la sesión, descubrirás de qué trata Toastmasters, incluyendo:\n• Discursos de nuestros miembros actuales\n• Evaluaciones constructivas\n• Oratoria improvisada a través de Table Topics\n\nEs una gran oportunidad no solo para mejorar tus habilidades de comunicación y liderazgo, sino también para conocer a personas con ideas afines con ganas de aprender y crecer.\n\nTanto si tu objetivo es ser mejor orador, ganar confianza o simplemente conocer gente nueva, encontrarás mucho que te encantará en Toastmasters.",
+      },
+      it: {
+        title: "Allenati nel Public Speaking — Seconda Sessione",
+        excerpt: "Vuoi migliorare le tue capacità di public speaking e leadership?\n\nTi invitiamo a una Sessione Aperta del nostro Club Toastmasters!\n\nChe tu sia un oratore esperto o alle prime armi, Toastmasters è un'opportunità fantastica per crescere e imparare in un ambiente amichevole e di supporto.\n\nDurante la sessione, scoprirai di cosa si tratta Toastmasters, tra cui:\n• Discorsi dei nostri membri attuali\n• Valutazioni costruttive\n• Improvvisazione con i Table Topics\n\nUn'ottima occasione non solo per migliorare le tue capacità comunicative e di leadership, ma anche per incontrare persone con interessi simili desiderose di imparare e crescere.\n\nChe il tuo obiettivo sia diventare un oratore migliore, acquisire sicurezza o semplicemente conoscere gente nuova, troverai molto da amare in Toastmasters.",
+      },
+    },
+  },
 ];
