@@ -14,6 +14,7 @@ export interface EventData {
   tag: EventTag;
   externalUrl: string;
   organizer?: string;
+  price?: string; // omit ⇒ shows the localized "Free" label; set e.g. "€10.00" for paid events
   translations: {
     en: EventTranslation;
     it: EventTranslation;
@@ -252,6 +253,31 @@ export const eventsDataset: EventData[] = [
       it: {
         title: "Scambio Linguistico by Málaga Connection",
         excerpt: "Questo scambio linguistico si distingue per la sua flessibilità: sono benvenute tutte le lingue e tutti i livelli. Gruppi aperti senza turni, atmosfera naturale, conoscere gente nuova, imparare o migliorare le lingue.\n\nIscriviti nella chat di WhatsApp inviando la tua lingua e il tuo livello.",
+      },
+    },
+  },
+  {
+    slug: "grants-subsidies-public-funding-jun-2026",
+    date: "2026-06-18",
+    time: "19:00",
+    location: "Málaga Terrace, Cl Puerto 14",
+    image: "/events/grants-subsidies-public-funding-jun-2026.png",
+    tag: "workshop",
+    externalUrl: "https://luma.com/j9562w74",
+    organizer: "StartupOasis Málaga",
+    price: "€10.00",
+    translations: {
+      en: {
+        title: "Grants, Subsidies & Public Funding = Growth Accelerator! 🚀",
+        excerpt: "Grants, subsidies, public tenders… they can be powerful tools for startups and growing companies — but only when used strategically.\n\nJoin StartupOasis Málaga at Innovation Campus Terrace for a fun and practical session on what public funding really is, how it works in Spain, and how to identify the right opportunities without wasting time chasing every grant. We'll also explore why cybersecurity is becoming a leadership priority — and how public funding can help companies build stronger, more resilient businesses.\n\nWhat to expect:\n✨ Understand what grants are — and what they are not\n💡 Learn how subsidies and public funding work in Spain\n🛡️ Discover why cybersecurity is a business leadership issue\n🔗 See how grants can support innovation and cyber resilience\n🧭 Get a practical framework to evaluate funding opportunities\n📌 Explore real-world examples and common mistakes to avoid\n\nMeet the speaker:\nSergio González Peral is a financial analyst at Binvester, focused on startups, investment analysis and M&A. He also supports the grants team, helping identify and prepare public funding opportunities for growing companies.\n\nWhether you're a founder, operator, SME leader, or simply curious about public funding, this session will help you understand how to use grants as an accelerator!",
+      },
+      es: {
+        title: "Subvenciones, Ayudas y Financiación Pública = Acelerador de Crecimiento! 🚀",
+        excerpt: "Subvenciones, ayudas, licitaciones públicas… pueden ser herramientas poderosas para startups y empresas en crecimiento, pero solo cuando se usan de forma estratégica.\n\nÚnete a StartupOasis Málaga en la Terraza de Innovation Campus para una sesión divertida y práctica sobre qué es realmente la financiación pública, cómo funciona en España y cómo identificar las oportunidades adecuadas sin perder tiempo persiguiendo cada subvención. También exploraremos por qué la ciberseguridad se está convirtiendo en una prioridad de liderazgo, y cómo la financiación pública puede ayudar a construir empresas más sólidas y resilientes.\n\nQué esperar:\n✨ Entiende qué son las subvenciones, y qué no son\n💡 Aprende cómo funcionan las ayudas y la financiación pública en España\n🛡️ Descubre por qué la ciberseguridad es una cuestión de liderazgo empresarial\n🔗 Ve cómo las subvenciones pueden impulsar la innovación y la ciberresiliencia\n🧭 Obtén un marco práctico para evaluar oportunidades de financiación\n📌 Explora ejemplos reales y errores comunes que evitar\n\nConoce al ponente:\nSergio González Peral es analista financiero en Binvester, especializado en startups, análisis de inversión y M&A. También colabora con el equipo de subvenciones, ayudando a identificar y preparar oportunidades de financiación pública para empresas en crecimiento.\n\nTanto si eres fundador, operador, líder de una pyme o simplemente sientes curiosidad por la financiación pública, esta sesión te ayudará a entender cómo usar las subvenciones como acelerador.",
+      },
+      it: {
+        title: "Sovvenzioni, Sussidi e Finanziamento Pubblico = Acceleratore di Crescita! 🚀",
+        excerpt: "Sovvenzioni, sussidi, bandi pubblici… possono essere strumenti potenti per startup e aziende in crescita, ma solo se usati in modo strategico.\n\nUnisciti a StartupOasis Málaga sulla Terrazza di Innovation Campus per una sessione divertente e pratica su cosa sia davvero il finanziamento pubblico, come funziona in Spagna e come individuare le opportunità giuste senza perdere tempo a inseguire ogni bando. Esploreremo anche perché la cybersecurity sta diventando una priorità per la leadership, e come il finanziamento pubblico possa aiutare a costruire aziende più solide e resilienti.\n\nCosa aspettarsi:\n✨ Capire cosa sono le sovvenzioni, e cosa non sono\n💡 Scoprire come funzionano sussidi e finanziamenti pubblici in Spagna\n🛡️ Capire perché la cybersecurity è una questione di leadership aziendale\n🔗 Vedere come le sovvenzioni possono sostenere innovazione e resilienza informatica\n🧭 Ottenere un framework pratico per valutare le opportunità di finanziamento\n📌 Esplorare esempi reali ed errori comuni da evitare\n\nIncontra il relatore:\nSergio González Peral è analista finanziario presso Binvester, specializzato in startup, analisi degli investimenti e M&A. Collabora inoltre con il team sovvenzioni, aiutando a individuare e preparare opportunità di finanziamento pubblico per aziende in crescita.\n\nChe tu sia un fondatore, un operatore, un leader di una PMI o semplicemente curioso riguardo al finanziamento pubblico, questa sessione ti aiuterà a capire come usare le sovvenzioni come acceleratore.",
       },
     },
   },

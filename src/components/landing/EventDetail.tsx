@@ -123,7 +123,7 @@ export default function EventDetail({ slug, lang = "en", leadUrl }: Props) {
                 </div>
 
                 <div className="border-t border-border pt-4">
-                  <p className="font-display text-2xl font-bold text-primary">{t.free}</p>
+                  <p className="font-display text-2xl font-bold text-primary">{event.price ?? t.free}</p>
                 </div>
 
                 <a
