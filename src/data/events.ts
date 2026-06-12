@@ -329,4 +329,28 @@ export const eventsDataset: EventData[] = [
       },
     },
   },
+  {
+    slug: "malaga-ai-networking-jun-2026",
+    date: "2026-06-25",
+    time: "19:00",
+    location: "Málaga Terrace, Cl Puerto 14",
+    image: "/events/ai-networking-night-jun-2026.png",
+    tag: "networking",
+    externalUrl: "https://www.eventbrite.com/e/malaga-ai-networking-night-june-2026-tickets-1991565396713",
+    organizer: "Málaga AI",
+    translations: {
+      en: {
+        title: "Malaga-AI Networking Night — June 2026",
+        excerpt: "Ongoing social networking events designed for AI enthusiasts, professionals, and innovators to meet, share ideas, and grow together.\n\nMálaga AI's last event was a full-house success, and we're excited to keep the momentum going!\n\nThis monthly series brings together AI enthusiasts and professionals to connect, exchange ideas, and strengthen the community.\n\nJoin us for an evening of networking, collaboration, and inspiration in the heart of Málaga. Whether you're a developer, researcher, entrepreneur, or simply passionate about AI, this is your chance to connect with like-minded people and expand your network.",
+      },
+      es: {
+        title: "Malaga-AI Networking Night — Junio 2026",
+        excerpt: "Eventos de networking social continuos, diseñados para que entusiastas, profesionales e innovadores de la IA se conozcan, compartan ideas y crezcan juntos.\n\n¡El último evento de Málaga AI fue un éxito rotundo y estamos encantados de mantener el impulso!\n\nEsta serie mensual reúne a entusiastas y profesionales de la IA para conectar, intercambiar ideas y fortalecer la comunidad.\n\nÚnete a nosotros para una velada de networking, colaboración e inspiración en el corazón de Málaga. Tanto si eres desarrollador, investigador, emprendedor o simplemente te apasiona la IA, esta es tu oportunidad de conectar con personas afines y ampliar tu red.",
+      },
+      it: {
+        title: "Malaga-AI Networking Night — Giugno 2026",
+        excerpt: "Eventi di networking sociale ricorrenti, pensati per far incontrare appassionati, professionisti e innovatori dell'IA per condividere idee e crescere insieme.\n\nL'ultimo evento di Málaga AI è stato un successo con il tutto esaurito e siamo entusiasti di mantenere lo slancio!\n\nQuesta serie mensile riunisce appassionati e professionisti dell'IA per connettersi, scambiare idee e rafforzare la community.\n\nUnisciti a noi per una serata di networking, collaborazione e ispirazione nel cuore di Málaga. Che tu sia uno sviluppatore, un ricercatore, un imprenditore o semplicemente appassionato di IA, questa è la tua occasione per connetterti con persone affini e ampliare la tua rete.",
+      },
+    },
+  },
 ];
