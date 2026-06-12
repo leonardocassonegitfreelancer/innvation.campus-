@@ -237,7 +237,7 @@ export const eventsDataset: EventData[] = [
     date: "2026-06-19",
     time: "20:30",
     location: "Málaga Terrace, Cl Puerto 14",
-    image: "/events/malaga-connection-jun-2026.jpeg",
+    image: "/events/lenguage-exchange-jun-2026.jpeg",
     tag: "talk",
     externalUrl: "https://wa.me/34637356953",
     organizer: "Málaga Connection",
